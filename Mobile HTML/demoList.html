@@ -1,0 +1,42 @@
+<html> 
+  <head> 
+    <title>Demo List</title> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+</head> 
+<body> 
+
+<!-- Start of First List Page -->
+<div data-role="page" id="demoList">
+
+	<div data-role="header">
+		<h1>Stanford</h1>
+		<a href="My_Lists.html" data-role="button"> My Lists </a>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>This page will have a list of the users added to a given list. Users can select individuals on the list to link to their info page.</p>	
+		
+		<ul data-role="listview" data-theme="g">
+		 <li> Some Person </li>
+		</ul>
+				
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-id="navbar">
+		<div data-role="navbar">
+			<ul>
+					<li><a href="Home.html" data-direction="reverse" data-icon="home">Home</a></li>
+					<li><a href="demoList.html" class="ui-btn-active" class="ui-state-persist" data-icon="grid">My Lists</a></li>
+					<li><a href="Matches.html" data-icon="star">Matches</a></li>
+					</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html

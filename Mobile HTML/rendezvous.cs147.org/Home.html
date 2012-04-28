@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Home</title> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+    <link rel="stylesheet" href="themes/AquaOrange.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+</head> 
+
+<body> 
+<div data-role="page" id= "Home">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Rendezvous</h1>
+		<a href="About.html" data-role="button" data-icon="info" data-iconpos="notext"></a>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>Personalized home page for registered users that uses their facebook info to create a custom experience. Will have a private chat history serving as inbox for messages other users have sent? Maybe?</p>
+		
+		<img src="Konigsberg.jpg" alt="No Image">
+		<p>Aaron Konigsberg</p>
+			
+
+			<div data-role="fieldcontain">
+				<label for="slider">Rendezvous?</label>
+				<select name="slider" id="slider" data-role="slider">
+					<option value="off">Off</option>
+					<option value="on">On</option>
+				</select> 
+			</div>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-id="navbar">
+		<div data-role="navbar">
+			<ul>
+						<li><a href="Home.html" class="ui-btn-active" class="ui-state-presist"data-icon="home">Home</a></li>
+						<li><a href="My_Lists.html"data-icon="grid">List</a></li>
+						<li><a href="friends.html" data-icon="search">Friends</a></li>
+						<li><a href="Matches.html" data-icon="star">Matches</a></li>
+					</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+</body>
+</html

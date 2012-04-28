@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Add New Friends</title> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+</head> 
+<body>
+	<!-- Start of the New List page-->
+
+	<div data-role="page" id="newList">
+
+		<div data-role="header" data-position="fixed">
+			<h1>Add Friends To Your List</h1>
+			<a href="#My_Lists.html" data-role="button" data-rel="back" data-icon="back">Cancel</a>
+			<a href="My_Lists.html" data-role="button" data-icon="check">Save</a>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+			<p>This is where you can add new users to you list.</p>
+			
+		<p> Click to add new friends to your list!</p>
+			
+			<ul data-role="listview" data-theme="g"  data-dividertheme="b" data-inset="true" data-filter="true">
+				<li data-role="list-divider">A</li>
+				<li><a href="newList.html">Abby Jones</a></li>
+				<li><a href="newList.html">Angelica Andrews</a></li>
+				<li data-role="list-divider">J</li>
+				<li><a href="newList.html">Jane Stanford</a></li>
+				<li data-role="list-divider">R</li>
+				<li><a href="newList.html">Rachel Smith</a></li>
+				<li><a href="newList.html">Rebecca Smith</a></li>
+
+			</ul>
+						
+		</div><!-- /content -->
+	</div><!-- /page -->
+	
+	</body>
+	</html>

@@ -1,0 +1,48 @@
+ <!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Page Title</title> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+</head> 
+
+<body> 
+<div data-role="page" id="Matches">
+
+	<div data-role="header" data-position="fixed">
+		<h1>My Matches</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>This page will display the users current match, along with more information and possibly a native messaging client. We may possibly add a list of old matches, as well as all of your current matches but have yet to decide on the pros/cons of doing so. Split list with link to text app that lets you respond to rendezvous request by text.</p>	
+		
+			<ul data-role="listview" data-theme="g" list-dividertheme="b" data-inset="true">
+				<li data-role="list-divider"> New Matches <span class="ui-li-count"> 3</span></li>
+				<li><a href="demoUser.html">Abby Jones</a></a></li>
+				<li><a href="demoUser.html">Angelica Andrews</a></li>
+				<li><a href="demoUser.html">Rachel Smith</a></li>
+				<li data-role="list-divider">New Requests<span class="ui-li-count"> 2</span></li>
+				<li><a href="demoUser.html">Jane Stanford</a></li>
+				<li><a href="demoUser.html">Rebecca Smith</a></li>
+			</ul>
+				
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-id="navbar">
+		<div data-role="navbar">
+			<ul>
+					<li><a href="Home.html" data-direction="reverse" data-icon="home">Home</a></li>
+					<li><a href="My_Lists.html"data-direction="reverse" data-icon="grid">My List</a></li>
+					<li><a href="friends.html" data-icon="grid" data-direction="reverse">Friends</a></li>
+					<li><a href="Matches.html" class="ui-btn-active" data-icon="star">Matches</a></li>
+					</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html

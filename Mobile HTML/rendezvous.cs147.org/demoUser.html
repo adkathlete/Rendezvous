@@ -1,0 +1,53 @@
+<html> 
+  <head> 
+    <title>Demo User Page</title> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+</head> 
+<body> 
+
+<!-- Start of First List Page -->
+<div data-role="page" id="demoUser">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Demo User Page</h1>
+		<a href="friends.html" data-direction="reverse" data-rel="back" data-icon="back">Back</a>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>This is a demo page for a user profile/info page where users can see more info about their friends on their lists? Maybe have conversations with them with an inbox like wall? Maybe an icon to signal that they have been matched with you? Contextual Icons/buttons will pop up such as "Respond to Rendezvous Request" or something for users who have been matched to you. Idk.</p>	
+		
+		<img src="janeStanford.png" alt="Jane Stanford"></a>
+		<p> Jane Stanford </p>
+		<a href="demoUser.html" data-role="button">Text</a>
+		<a href="demoUser.html" data-role="button">Call</a>
+		<a href="demoUser.html" data-role="button"> Request A Rendezvous</a>
+		
+		<div data-role="fieldcontain">
+			<label for="textarea">Chat:</label>
+			<textarea cols="100" rows="8" name="textarea" id="textarea"></textarea>
+		</div>
+		<input type="submit" name="btn-send" id="btn-send" value="Send">
+		
+		
+				
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-id="navbar">
+		<div data-role="navbar">
+			<ul>
+					<li><a href="Home.html" data-direction="reverse" data-icon="home">Home</a></li>
+					<li><a href="demoList.html"  data-direction="reverse" data-icon="grid">My List</a></li>
+					<li><a href="friends.html" data-direction="reverse" class="ui-btn-active" data-icon="grid">Friends</a></li>
+					<li><a href="Matches.html"  data-icon="star">Matches</a></li>
+					</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html

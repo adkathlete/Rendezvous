@@ -1,0 +1,6 @@
+<?php
+function disable_Tutorials(){
+	$_SESSION['newUser']=false;
+}
+
+?>

@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>My Friends</title> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+</head> 
+
+<body> 
+<div data-role="page" id= "Home">
+
+	<div data-role="header" data-position="fixed">
+		<h1>My Friends</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		
+		<ul data-role="listview" data-theme="g"  data-dividertheme="b" data-inset="true" data-filter="true">
+			<li data-role="list-divider">A</li>
+			<li><a href="demoUser.html">Abby Jones</a></li>
+			<li><a href="demoUser.html">Angelica Andrews</a></li>
+			<li data-role="list-divider">J</li>
+			<li><a href="demoUser.html">Jane Stanford</a></li>
+			<li data-role="list-divider">R</li>
+			<li><a href="demoUser.html">Rachel Smith</a></li>
+			<li><a href="demoUser.html">Rebecca Smith</a></li>
+			
+		</ul>
+		
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-id="navbar">
+		<div data-role="navbar">
+			<ul>
+						<li><a href="Home.html" data-icon="home" data-direction="reverse">Home</a></li>
+						<li><a href="My_Lists.html"data-icon="grid" data-direction="reverse">List</a></li>
+						<li><a href="friends.html" class="ui-btn-active" class="ui-state-presist"data-icon="search">Friends</a></li>
+						<li><a href="Matches.html" data-icon="star">Matches</a></li>
+					</ul>
+		</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+</body>
+</html
