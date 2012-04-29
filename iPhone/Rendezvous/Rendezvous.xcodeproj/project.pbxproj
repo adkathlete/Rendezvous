@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73C77F80154DB12B00453D96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F7F154DB12B00453D96 /* UIKit.framework */; };
+		73C77F82154DB12B00453D96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F81154DB12B00453D96 /* Foundation.framework */; };
+		73C77F84154DB12B00453D96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F83154DB12B00453D96 /* CoreGraphics.framework */; };
+		73C77F8A154DB12B00453D96 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73C77F88154DB12B00453D96 /* InfoPlist.strings */; };
+		73C77F8C154DB12B00453D96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C77F8B154DB12B00453D96 /* main.m */; };
+		73C77F90154DB12B00453D96 /* RendezvousAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C77F8F154DB12B00453D96 /* RendezvousAppDelegate.m */; };
+		73C77F93154DB12B00453D96 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C77F91154DB12B00453D96 /* MainStoryboard.storyboard */; };
+		73C77F96154DB12B00453D96 /* RendezvousHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C77F95154DB12B00453D96 /* RendezvousHomeViewController.m */; };
+		73C77F9E154DB1FE00453D96 /* RendezvousListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */; };
+		73C77FBF154DC35100453D96 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 73C77FB2154DC35100453D96 /* FBDialog.bundle */; };
+		73C77FC0154DC35100453D96 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77FB8154DC35100453D96 /* libfacebook_ios_sdk.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		73C77F7B154DB12B00453D96 /* Rendezvous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendezvous.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73C77F7F154DB12B00453D96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		73C77F81154DB12B00453D96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		73C77F83154DB12B00453D96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		73C77F87154DB12B00453D96 /* Rendezvous-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rendezvous-Info.plist"; sourceTree = "<group>"; };
+		73C77F89154DB12B00453D96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		73C77F8B154DB12B00453D96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		73C77F8D154DB12B00453D96 /* Rendezvous-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rendezvous-Prefix.pch"; sourceTree = "<group>"; };
+		73C77F8E154DB12B00453D96 /* RendezvousAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RendezvousAppDelegate.h; sourceTree = "<group>"; };
+		73C77F8F154DB12B00453D96 /* RendezvousAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RendezvousAppDelegate.m; sourceTree = "<group>"; };
+		73C77F92154DB12B00453D96 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		73C77F94154DB12B00453D96 /* RendezvousHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RendezvousHomeViewController.h; sourceTree = "<group>"; };
+		73C77F95154DB12B00453D96 /* RendezvousHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RendezvousHomeViewController.m; sourceTree = "<group>"; };
+		73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousListTableViewController.h; sourceTree = "<group>"; };
+		73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousListTableViewController.m; sourceTree = "<group>"; };
+		73C77FA0154DB60200453D96 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		73C77FA1154DB60200453D96 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		73C77FA2154DB60200453D96 /* NSString+SBJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		73C77FA3154DB60200453D96 /* NSString+SBJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		73C77FA4154DB60200453D96 /* SBJsonBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		73C77FA5154DB60200453D96 /* SBJsonBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		73C77FA6154DB60200453D96 /* SBJsonParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		73C77FA7154DB60200453D96 /* SBJsonParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		73C77FA8154DB60200453D96 /* SBJsonWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		73C77FA9154DB60200453D96 /* SBJsonWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		73C77FAA154DB60E00453D96 /* JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		73C77FB0154DC35100453D96 /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
+		73C77FB1154DC35100453D96 /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
+		73C77FB2154DC35100453D96 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBDialog.bundle; sourceTree = "<group>"; };
+		73C77FB3154DC35100453D96 /* FBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDialog.h; sourceTree = "<group>"; };
+		73C77FB4154DC35100453D96 /* FBFrictionlessRequestSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFrictionlessRequestSettings.h; sourceTree = "<group>"; };
+		73C77FB5154DC35100453D96 /* FBLoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginDialog.h; sourceTree = "<group>"; };
+		73C77FB6154DC35100453D96 /* FBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBRequest.h; sourceTree = "<group>"; };
+		73C77FB7154DC35100453D96 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		73C77FB8154DC35100453D96 /* libfacebook_ios_sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfacebook_ios_sdk.a; sourceTree = "<group>"; };
+		73C77FB9154DC35100453D96 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		73C77FBA154DC35100453D96 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		73C77FBB154DC35100453D96 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		73C77FBC154DC35100453D96 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		73C77FBD154DC35100453D96 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		73C77FBE154DC35100453D96 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		73C77F78154DB12B00453D96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73C77F80154DB12B00453D96 /* UIKit.framework in Frameworks */,
+				73C77F82154DB12B00453D96 /* Foundation.framework in Frameworks */,
+				73C77F84154DB12B00453D96 /* CoreGraphics.framework in Frameworks */,
+				73C77FC0154DC35100453D96 /* libfacebook_ios_sdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		73C77F70154DB12B00453D96 = {
+			isa = PBXGroup;
+			children = (
+				73C77F85154DB12B00453D96 /* Rendezvous */,
+				73C77F7E154DB12B00453D96 /* Frameworks */,
+				73C77F7C154DB12B00453D96 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		73C77F7C154DB12B00453D96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				73C77F7B154DB12B00453D96 /* Rendezvous.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		73C77F7E154DB12B00453D96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73C77F7F154DB12B00453D96 /* UIKit.framework */,
+				73C77F81154DB12B00453D96 /* Foundation.framework */,
+				73C77F83154DB12B00453D96 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		73C77F85154DB12B00453D96 /* Rendezvous */ = {
+			isa = PBXGroup;
+			children = (
+				73C77FAF154DC35100453D96 /* facebook-ios-sdk */,
+				73C77F9F154DB5EA00453D96 /* JSON */,
+				73C77F8E154DB12B00453D96 /* RendezvousAppDelegate.h */,
+				73C77F8F154DB12B00453D96 /* RendezvousAppDelegate.m */,
+				73C77F91154DB12B00453D96 /* MainStoryboard.storyboard */,
+				73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */,
+				73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */,
+				73C77F94154DB12B00453D96 /* RendezvousHomeViewController.h */,
+				73C77F95154DB12B00453D96 /* RendezvousHomeViewController.m */,
+				73C77F86154DB12B00453D96 /* Supporting Files */,
+			);
+			path = Rendezvous;
+			sourceTree = "<group>";
+		};
+		73C77F86154DB12B00453D96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				73C77F87154DB12B00453D96 /* Rendezvous-Info.plist */,
+				73C77F88154DB12B00453D96 /* InfoPlist.strings */,
+				73C77F8B154DB12B00453D96 /* main.m */,
+				73C77F8D154DB12B00453D96 /* Rendezvous-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		73C77F9F154DB5EA00453D96 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				73C77FAA154DB60E00453D96 /* JSON.h */,
+				73C77FA0154DB60200453D96 /* NSObject+SBJSON.h */,
+				73C77FA1154DB60200453D96 /* NSObject+SBJSON.m */,
+				73C77FA2154DB60200453D96 /* NSString+SBJSON.h */,
+				73C77FA3154DB60200453D96 /* NSString+SBJSON.m */,
+				73C77FA4154DB60200453D96 /* SBJsonBase.h */,
+				73C77FA5154DB60200453D96 /* SBJsonBase.m */,
+				73C77FA6154DB60200453D96 /* SBJsonParser.h */,
+				73C77FA7154DB60200453D96 /* SBJsonParser.m */,
+				73C77FA8154DB60200453D96 /* SBJsonWriter.h */,
+				73C77FA9154DB60200453D96 /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		73C77FAF154DC35100453D96 /* facebook-ios-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				73C77FB0154DC35100453D96 /* Facebook.h */,
+				73C77FB1154DC35100453D96 /* FBConnect.h */,
+				73C77FB2154DC35100453D96 /* FBDialog.bundle */,
+				73C77FB3154DC35100453D96 /* FBDialog.h */,
+				73C77FB4154DC35100453D96 /* FBFrictionlessRequestSettings.h */,
+				73C77FB5154DC35100453D96 /* FBLoginDialog.h */,
+				73C77FB6154DC35100453D96 /* FBRequest.h */,
+				73C77FB7154DC35100453D96 /* JSON.h */,
+				73C77FB8154DC35100453D96 /* libfacebook_ios_sdk.a */,
+				73C77FB9154DC35100453D96 /* NSObject+SBJSON.h */,
+				73C77FBA154DC35100453D96 /* NSString+SBJSON.h */,
+				73C77FBB154DC35100453D96 /* SBJSON.h */,
+				73C77FBC154DC35100453D96 /* SBJsonBase.h */,
+				73C77FBD154DC35100453D96 /* SBJsonParser.h */,
+				73C77FBE154DC35100453D96 /* SBJsonWriter.h */,
+			);
+			path = "facebook-ios-sdk";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		73C77F7A154DB12B00453D96 /* Rendezvous */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73C77F99154DB12B00453D96 /* Build configuration list for PBXNativeTarget "Rendezvous" */;
+			buildPhases = (
+				73C77F77154DB12B00453D96 /* Sources */,
+				73C77F78154DB12B00453D96 /* Frameworks */,
+				73C77F79154DB12B00453D96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rendezvous;
+			productName = Rendezvous;
+			productReference = 73C77F7B154DB12B00453D96 /* Rendezvous.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		73C77F72154DB12B00453D96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Rendezvous;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 73C77F75154DB12B00453D96 /* Build configuration list for PBXProject "Rendezvous" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 73C77F70154DB12B00453D96;
+			productRefGroup = 73C77F7C154DB12B00453D96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73C77F7A154DB12B00453D96 /* Rendezvous */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		73C77F79154DB12B00453D96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73C77F8A154DB12B00453D96 /* InfoPlist.strings in Resources */,
+				73C77F93154DB12B00453D96 /* MainStoryboard.storyboard in Resources */,
+				73C77FBF154DC35100453D96 /* FBDialog.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		73C77F77154DB12B00453D96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73C77F8C154DB12B00453D96 /* main.m in Sources */,
+				73C77F90154DB12B00453D96 /* RendezvousAppDelegate.m in Sources */,
+				73C77F96154DB12B00453D96 /* RendezvousHomeViewController.m in Sources */,
+				73C77F9E154DB1FE00453D96 /* RendezvousListTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		73C77F88154DB12B00453D96 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73C77F89154DB12B00453D96 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		73C77F91154DB12B00453D96 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73C77F92154DB12B00453D96 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		73C77F97154DB12B00453D96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		73C77F98154DB12B00453D96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		73C77F9A154DB12B00453D96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rendezvous/Rendezvous-Prefix.pch";
+				INFOPLIST_FILE = "Rendezvous/Rendezvous-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Rendezvous/facebook-ios-sdk\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		73C77F9B154DB12B00453D96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rendezvous/Rendezvous-Prefix.pch";
+				INFOPLIST_FILE = "Rendezvous/Rendezvous-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Rendezvous/facebook-ios-sdk\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		73C77F75154DB12B00453D96 /* Build configuration list for PBXProject "Rendezvous" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73C77F97154DB12B00453D96 /* Debug */,
+				73C77F98154DB12B00453D96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73C77F99154DB12B00453D96 /* Build configuration list for PBXNativeTarget "Rendezvous" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73C77F9A154DB12B00453D96 /* Debug */,
+				73C77F9B154DB12B00453D96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 73C77F72154DB12B00453D96 /* Project object */;
+}
