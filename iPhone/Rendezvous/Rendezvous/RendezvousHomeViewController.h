@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RendezvousAppDelegate.h"
 
-@interface RendezvousHomeViewController : UIViewController
+@interface RendezvousHomeViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) NSString *userName;
+
 
 @end
