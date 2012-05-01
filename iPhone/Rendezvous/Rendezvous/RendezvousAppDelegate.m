@@ -45,6 +45,7 @@
     [logoutButton addTarget:self action:@selector(logoutButtonClicked)
            forControlEvents:UIControlEventTouchUpInside];
     //[self.viewController.view addSubview:logoutButton];
+
     
     return YES;
 }
@@ -65,6 +66,8 @@
     [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
     [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
     [defaults synchronize];
+    RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
+    NSLog(@"Made singleton");
     
 }
 

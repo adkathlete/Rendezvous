@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RendezvousCurrentUser.h"
 
-@interface RendezvousListTableViewController : UITableViewController
+@interface RendezvousListTableViewController : UITableViewController <FBDialogDelegate,FBRequestDelegate>
 {
-    NSMutableArray *myData;
-    NSArray *listData;
+    NSMutableDictionary *listUserInfo;
+    NSMutableArray *listIDs;
     NSMutableData *responseData;
 }
 
 @property (retain, nonatomic) NSMutableData* responseData;
-
-@property (retain, nonatomic) NSArray* listData;
+@property (retain, nonatomic) NSMutableArray* listIDs;
+@property (retain, nonatomic) NSMutableDictionary* listUserInfo;
 
 
 @end

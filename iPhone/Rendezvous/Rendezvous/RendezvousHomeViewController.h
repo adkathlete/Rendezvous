@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "RendezvousAppDelegate.h"
+#import "RendezvousCurrentUser.h"
 
-@interface RendezvousHomeViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>
+@interface RendezvousHomeViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>{
+    
+    UIImageView *userPhoto;
+}
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) NSString *userName;
+@property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
 
 
 @end

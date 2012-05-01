@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730A853A154FB6530061CAD5 /* apple-touch-icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A8539154FB6530061CAD5 /* apple-touch-icon-precomposed.png */; };
+		730A853E154FB6A00061CAD5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A853D154FB6A00061CAD5 /* Default.png */; };
+		730F62A5154E4C9800644C80 /* RendezvousCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */; };
+		730F62A9154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */; };
 		73C77F80154DB12B00453D96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F7F154DB12B00453D96 /* UIKit.framework */; };
 		73C77F82154DB12B00453D96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F81154DB12B00453D96 /* Foundation.framework */; };
 		73C77F84154DB12B00453D96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F83154DB12B00453D96 /* CoreGraphics.framework */; };
@@ -21,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730A8539154FB6530061CAD5 /* apple-touch-icon-precomposed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-precomposed.png"; sourceTree = "<group>"; };
+		730A853D154FB6A00061CAD5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		730F62A3154E4C9800644C80 /* RendezvousCurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousCurrentUser.h; sourceTree = SOURCE_ROOT; };
+		730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousCurrentUser.m; sourceTree = SOURCE_ROOT; };
+		730F62A7154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousMatchViewControllerViewController.h; sourceTree = SOURCE_ROOT; };
+		730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousMatchViewControllerViewController.m; sourceTree = SOURCE_ROOT; };
 		73C77F7B154DB12B00453D96 /* Rendezvous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendezvous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C77F7F154DB12B00453D96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		73C77F81154DB12B00453D96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,9 +89,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		730F62AA154E4EC400644C80 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */,
+				73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */,
+				73C77F94154DB12B00453D96 /* RendezvousHomeViewController.h */,
+				73C77F95154DB12B00453D96 /* RendezvousHomeViewController.m */,
+				730F62A7154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.h */,
+				730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		73C77F70154DB12B00453D96 = {
 			isa = PBXGroup;
 			children = (
+				730A853D154FB6A00061CAD5 /* Default.png */,
+				730A8539154FB6530061CAD5 /* apple-touch-icon-precomposed.png */,
 				73C77F85154DB12B00453D96 /* Rendezvous */,
 				73C77F7E154DB12B00453D96 /* Frameworks */,
 				73C77F7C154DB12B00453D96 /* Products */,
@@ -114,10 +139,9 @@
 				73C77F8E154DB12B00453D96 /* RendezvousAppDelegate.h */,
 				73C77F8F154DB12B00453D96 /* RendezvousAppDelegate.m */,
 				73C77F91154DB12B00453D96 /* MainStoryboard.storyboard */,
-				73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */,
-				73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */,
-				73C77F94154DB12B00453D96 /* RendezvousHomeViewController.h */,
-				73C77F95154DB12B00453D96 /* RendezvousHomeViewController.m */,
+				730F62AA154E4EC400644C80 /* View Controllers */,
+				730F62A3154E4C9800644C80 /* RendezvousCurrentUser.h */,
+				730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */,
 				73C77F86154DB12B00453D96 /* Supporting Files */,
 			);
 			path = Rendezvous;
@@ -228,6 +252,8 @@
 				73C77F8A154DB12B00453D96 /* InfoPlist.strings in Resources */,
 				73C77F93154DB12B00453D96 /* MainStoryboard.storyboard in Resources */,
 				73C77FBF154DC35100453D96 /* FBDialog.bundle in Resources */,
+				730A853A154FB6530061CAD5 /* apple-touch-icon-precomposed.png in Resources */,
+				730A853E154FB6A00061CAD5 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +268,8 @@
 				73C77F90154DB12B00453D96 /* RendezvousAppDelegate.m in Sources */,
 				73C77F96154DB12B00453D96 /* RendezvousHomeViewController.m in Sources */,
 				73C77F9E154DB1FE00453D96 /* RendezvousListTableViewController.m in Sources */,
+				730F62A5154E4C9800644C80 /* RendezvousCurrentUser.m in Sources */,
+				730F62A9154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FBConnect.h"
+#import "RendezvousCurrentUser.h"
 
 @interface RendezvousAppDelegate : NSObject <UIApplicationDelegate, FBSessionDelegate>
 {
