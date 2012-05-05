@@ -72,13 +72,115 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="RUx-AY-dOk" kind="push" id="q2C-oX-b7W"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My List" id="UjX-6K-s5q"/>
+                    <navigationItem key="navigationItem" title="My List" id="EzO-UN-02K">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Iih-Qc-EW6">
+                            <connections>
+                                <segue destination="jXc-IH-DNs" kind="push" id="KsJ-zH-EYq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="77" y="8"/>
+        </scene>
+        <!--Table View Controller - Add New-->
+        <scene sceneID="Y8I-fb-3Pi">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yIp-hs-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="jXc-IH-DNs" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bYi-2W-ehm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="ZrF-JW-aBQ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="jXc-IH-DNs" id="Bvd-Yf-qVu"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" rowHeight="73" id="sjT-4J-q08">
+                                <rect key="frame" x="0.0" y="80" width="320" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="267" height="72"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DpY-k7-BUQ">
+                                            <rect key="frame" x="74" y="25" width="173" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jXc-IH-DNs" id="4U1-dO-WEa"/>
+                            <outlet property="delegate" destination="jXc-IH-DNs" id="z8X-HS-alE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add New" id="pHe-g5-H2U">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="bdT-OT-8L5"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="XSr-lL-f2K" id="np6-Nj-cTQ"/>
+                    </connections>
+                </tableViewController>
+                <searchDisplayController id="4vx-rF-4Tn">
+                    <connections>
+                        <outlet property="delegate" destination="jXc-IH-DNs" id="wRC-Ia-YEX"/>
+                        <outlet property="searchContentsController" destination="jXc-IH-DNs" id="bkh-Ou-G8u"/>
+                        <outlet property="searchResultsDataSource" destination="jXc-IH-DNs" id="Ca6-Yv-N8s"/>
+                        <outlet property="searchResultsDelegate" destination="jXc-IH-DNs" id="6Pv-Ev-Dps"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="XSr-lL-f2K">
+                    <connections>
+                        <outlet property="delegate" destination="jXc-IH-DNs" id="FbJ-Lx-CoM"/>
+                        <outlet property="searchBar" destination="ZrF-JW-aBQ" id="b6q-qk-tdm"/>
+                        <outlet property="searchContentsController" destination="jXc-IH-DNs" id="Zaa-BJ-exa"/>
+                        <outlet property="searchResultsDataSource" destination="jXc-IH-DNs" id="lJF-qA-3Sq"/>
+                        <outlet property="searchResultsDelegate" destination="jXc-IH-DNs" id="V2M-kq-Hrz"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="724" y="-380"/>
+        </scene>
+        <!--View Controller - Detail Page-->
+        <scene sceneID="npd-ij-QzC">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3y-4o-q54" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="RUx-AY-dOk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="erO-cg-3yL">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User Page &amp; User Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zXN-Ni-a9O">
+                                <rect key="frame" x="75" y="91" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail Page" id="Q7U-Vs-qLK"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="724" y="287"/>
         </scene>
         <!--Rendezvous Match View Controller View Controller - Match-->
         <scene sceneID="wmo-87-C3a">

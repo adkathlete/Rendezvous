@@ -36,6 +36,8 @@
     listUserInfo = [[NSMutableDictionary alloc] init];
     
     self.navigationItem.leftBarButtonItem=self.editButtonItem;
+    /*addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
+    self.navigationItem.rightBarButtonItem=addButton;*/
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getListNamesFromID) name:@"listDataLoaded" object:nil];
     [self loadData];
     
@@ -63,6 +65,26 @@
     return image;
 }
 
+#pragma mark - Add New
+
+/*-(void) addNew
+{
+    NSLog(@"Add");  
+}
+
+-(void) setEditing:(BOOL)editing animated:(BOOL)animated
+{
+ 
+    [super setEditing:editing animated:animated];
+    if(editing)
+    {
+        self.navigationItem.rightBarButtonItem=nil;
+    }else {
+        self.navigationItem.rightBarButtonItem=addButton;
+    }
+    
+    
+}*/
 
 #pragma mark - Table view data source
 
@@ -162,7 +184,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [listIDs removeObjectAtIndex:indexPath.row];
-        [listUserInfo removeObjectForKey:[listIDs objectAtIndex:indexPath.row]];
+        //[listUserInfo removeObjectForKey:[listIDs objectAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -175,6 +197,8 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    
+    
 }
 
 

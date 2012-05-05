@@ -14,6 +14,7 @@
     NSMutableDictionary *listUserInfo;
     NSMutableArray *listIDs;
     NSMutableData *responseData;
+    UIBarButtonItem *addButton;
 }
 
 @property (retain, nonatomic) NSMutableData* responseData;
