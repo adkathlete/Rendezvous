@@ -7,6 +7,9 @@
 //
 
 #define kLatestKivaLoansURL @"http://rendezvous.cs147.org/getList.php?id="
+#define deleteListURL @"http://rendezvous.cs147.org/deleteList.php?from_id="
+#define updatePositionURL @"http://rendezvous.cs147.org/updatePosition.php?from_id="
+
 
 
 #import "RendezvousListTableViewController.h"
@@ -17,8 +20,8 @@
 @end
 
 @implementation RendezvousListTableViewController
- 
-@synthesize responseData,listIDs,listUserInfo;
+
+@synthesize responseData,listIDs,listUserInfo,addButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,17 +37,21 @@
     [super viewDidLoad];
     
     listUserInfo = [[NSMutableDictionary alloc] init];
+    checkLoad = 0;
     
     self.navigationItem.leftBarButtonItem=self.editButtonItem;
-    /*addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
-    self.navigationItem.rightBarButtonItem=addButton;*/
+    
+    //addButton=self.navigationItem.rightBarButtonItem;
+    //addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
+     //self.navigationItem.rightBarButtonItem=addButton;
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getListNamesFromID) name:@"listDataLoaded" object:nil];
     [self loadData];
     
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 }
+
 
 - (void)viewDidUnload
 {
@@ -66,26 +73,27 @@
 }
 
 #pragma mark - Add New
+/*
+-(void) addNew
+ {
+ NSLog(@"Add");  
+ }
 
-/*-(void) addNew
-{
-    NSLog(@"Add");  
-}
 
--(void) setEditing:(BOOL)editing animated:(BOOL)animated
-{
+ -(void) setEditing:(BOOL)editing animated:(BOOL)animated
+ {
  
-    [super setEditing:editing animated:animated];
-    if(editing)
-    {
-        self.navigationItem.rightBarButtonItem=nil;
-    }else {
-        self.navigationItem.rightBarButtonItem=addButton;
-    }
-    
-    
-}*/
-
+ [super setEditing:editing animated:animated];
+ if(editing)
+ {
+ self.navigationItem.rightBarButtonItem=nil;
+ }else {
+ self.navigationItem.rightBarButtonItem=addButton;
+ }
+ 
+ }
+ */
+ 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -123,6 +131,7 @@
 
 -(void)loadData
 {
+    checkLoad = 1;
 	self.responseData = [NSMutableData data];
     RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[kLatestKivaLoansURL stringByAppendingString:[[sharedSingelton userInfo] objectForKey:@"id"]]]];
@@ -144,38 +153,40 @@
 #pragma mark Process loan data
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableInfo) name:@"listDataLoaded" object:nil];
-    
-    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	self.responseData = nil;
-	NSLog(responseString);
-    listIDs = [responseString componentsSeparatedByString:@","];
-    [self.tableView reloadData];
-    
-    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-    for (NSString *item in listIDs) {
-        NSLog(item);
-        [[delegate facebook] requestWithGraphPath:item andDelegate:self];
+    if (checkLoad == 1) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableInfo) name:@"listDataLoaded" object:nil];
+        
+        NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        self.responseData = nil;
+        NSLog(responseString);
+        listIDs = [responseString componentsSeparatedByString:@","];
+        [self.tableView reloadData];
+        
+        RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+        for (NSString *item in listIDs) {
+            NSLog(item);
+            [[delegate facebook] requestWithGraphPath:item andDelegate:self];
+        }
     }
     
     
-        
+    
 }
 
 -(void) updateTableInfo{
     NSLog(@"Time To Update!");
     [self.tableView reloadData];
-
+    
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 
 // Override to support editing the table view.
@@ -183,7 +194,18 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        
+        RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
+        NSString *deleteString1 = [deleteListURL stringByAppendingString:([sharedSingelton userId])];
+        NSString *deleteString2 = [deleteString1 stringByAppendingString:(@"&to_id=")];
+        NSString *deleteString3 = [deleteString2 stringByAppendingString:([listIDs objectAtIndex:indexPath.row])];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:deleteString3])];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        
+        NSLog(deleteString3);
         [listIDs removeObjectAtIndex:indexPath.row];
+        
         //[listUserInfo removeObjectForKey:[listIDs objectAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
@@ -197,19 +219,41 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    NSLog(@"Arrange Override");
+    RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
     
+    NSLog([NSString stringWithFormat:@"%d", fromIndexPath.row]);
+    NSLog([NSString stringWithFormat:@"%d", toIndexPath.row]);
+    
+    NSString *temp1 = [listIDs objectAtIndex:fromIndexPath.row];
+    [listIDs removeObjectAtIndex:fromIndexPath.row];
+    [listIDs insertObject:temp1 atIndex:toIndexPath.row];
+    
+    int position = 1;
+    for (NSString *item in listIDs) {
+        NSString *updateString1 = [updatePositionURL stringByAppendingString:([sharedSingelton userId])];
+        NSString *updateString2 = [updateString1 stringByAppendingString:(@"&to_id=")];
+        NSString *updateString3 = [updateString2 stringByAppendingString: item];
+        NSString *updateString4 = [updateString3 stringByAppendingString:(@"&position=")];
+        NSString *pos = [NSString stringWithFormat:@"%d", position];
+        NSString *updateString5 = [updateString4 stringByAppendingString: pos];
+        NSLog(updateString5);
+        NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:updateString5])];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        position++;
+    }
     
 }
 
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 
@@ -235,6 +279,7 @@
     //NSLog(@"%",listUserInfo);
     if(listIDs.count==listUserInfo.count){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"listDataLoaded" object:nil];
+        checkLoad = 0;
     }
 }
 

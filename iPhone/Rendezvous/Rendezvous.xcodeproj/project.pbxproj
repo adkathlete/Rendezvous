@@ -11,6 +11,7 @@
 		730A853E154FB6A00061CAD5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A853D154FB6A00061CAD5 /* Default.png */; };
 		730F62A5154E4C9800644C80 /* RendezvousCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */; };
 		730F62A9154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */; };
+		732809F51555CB9400C716AD /* RendezvousAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */; };
 		73C77F80154DB12B00453D96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F7F154DB12B00453D96 /* UIKit.framework */; };
 		73C77F82154DB12B00453D96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F81154DB12B00453D96 /* Foundation.framework */; };
 		73C77F84154DB12B00453D96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77F83154DB12B00453D96 /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 		730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousCurrentUser.m; sourceTree = SOURCE_ROOT; };
 		730F62A7154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousMatchViewControllerViewController.h; sourceTree = SOURCE_ROOT; };
 		730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousMatchViewControllerViewController.m; sourceTree = SOURCE_ROOT; };
+		732809F31555CB9400C716AD /* RendezvousAddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousAddTableViewController.h; sourceTree = SOURCE_ROOT; };
+		732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousAddTableViewController.m; sourceTree = SOURCE_ROOT; };
 		73C77F7B154DB12B00453D96 /* Rendezvous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendezvous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C77F7F154DB12B00453D96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		73C77F81154DB12B00453D96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,6 +95,8 @@
 		730F62AA154E4EC400644C80 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				732809F31555CB9400C716AD /* RendezvousAddTableViewController.h */,
+				732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */,
 				73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */,
 				73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */,
 				73C77F94154DB12B00453D96 /* RendezvousHomeViewController.h */,
@@ -270,6 +275,7 @@
 				73C77F9E154DB1FE00453D96 /* RendezvousListTableViewController.m in Sources */,
 				730F62A5154E4C9800644C80 /* RendezvousCurrentUser.m in Sources */,
 				730F62A9154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m in Sources */,
+				732809F51555CB9400C716AD /* RendezvousAddTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,16 +13,24 @@
 #import "RendezvousAppDelegate.h"
 
 
+typedef enum apiCall {
+    kLoadFriends,
+    kLoadUserInformation,
+} apiCall;
+
+
 @interface RendezvousCurrentUser : NSObject <FBDialogDelegate,FBRequestDelegate>
 {
-NSArray *userResponseData;
-NSMutableData *responseData;
+    int currentAPICall;
+    NSArray *userResponseData;
+    NSMutableData *responseData;
+    NSMutableArray *friends;
 }
 
 @property (retain, nonatomic) NSMutableData* responseData;
 @property (retain, nonatomic) NSArray* userResponseData;
 @property (nonatomic, retain) NSString *userId;
-@property(nonatomic,retain) NSDictionary *userInfo;
+@property(nonatomic,retain) NSMutableDictionary *userInfo;
 @property(nonatomic,retain) NSArray *userInfoObjects;
 @property(nonatomic,retain) NSArray *userInfoKeys;
 

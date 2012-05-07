@@ -31,7 +31,8 @@ static RendezvousCurrentUser *sharedInstance = nil;
     self = [super init];
     
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUserData) name:@"fbLoadingComplete" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFriends) name:@"fbLoadingComplete" object:nil];
+        currentAPICall=kLoadUserInformation;
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
         [[delegate facebook] requestWithGraphPath:@"me" andDelegate:self];
     }
@@ -54,6 +55,14 @@ static RendezvousCurrentUser *sharedInstance = nil;
 // Equally, we don't want to generate multiple copies of the singleton.
 - (id)copyWithZone:(NSZone *)zone {
     return self;
+}
+
+-(void)updateFriends
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUserData) name:@"fbFriendsComplete" object:nil];
+    currentAPICall=kLoadFriends;
+    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[delegate facebook] requestWithGraphPath:@"me/friends" andDelegate:self];
 }
 
 -(void)updateUserData
@@ -100,7 +109,9 @@ static RendezvousCurrentUser *sharedInstance = nil;
     responseData = nil;
     userInfoObjects = [responseString componentsSeparatedByString:@","];
     
-    userInfo=[NSDictionary dictionaryWithObjects:userInfoObjects forKeys:userInfoKeys];
+    userInfo=[NSMutableDictionary dictionaryWithObjects:userInfoObjects forKeys:userInfoKeys];
+    [userInfo setObject:friends forKey:@"friends"];
+    
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
     
@@ -108,14 +119,33 @@ static RendezvousCurrentUser *sharedInstance = nil;
 
 - (void)request:(FBRequest *)request didLoad:(id)result
 {
-    
-    //userInfo= [NSDictionary dictionaryWithObjectsAndKeys: 
-    //                          [result objectForKey:@"id"], @"id", nameID, @"name",
-      //                          [result objectForKey:@"picture"], @"details",
-        //                         nil], nil];
-    userId=[result objectForKey:@"id"];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"fbLoadingComplete" object:nil];
+    switch (currentAPICall) {
+        case kLoadUserInformation:
+        {
+            NSLog(@"Loading User Id");
+            userId=[result objectForKey:@"id"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"fbLoadingComplete" object:nil];
+            break;
+        }
+        case kLoadFriends:
+        {
+            NSLog(@"Loading Friends");
+            friends = [[NSMutableArray alloc] initWithCapacity:1];
+            NSArray *resultData = [result objectForKey:@"data"];
+            if ([resultData count] > 0) {
+                for (NSUInteger i=0; i<[resultData count]; i++) {
+                    [friends addObject:[resultData objectAtIndex:i]];
+                }
+            }
+            
+            NSLog(@"Friends Done!");
+
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"fbFriendsComplete" object:nil];
+            break;
+        }
+    }
     
 }
 
