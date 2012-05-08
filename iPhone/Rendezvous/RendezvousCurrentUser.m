@@ -14,7 +14,7 @@
 
 static RendezvousCurrentUser *sharedInstance = nil;
 
-@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData;
+@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId;
 
 // Get the shared instance and create it if necessary.
 + (RendezvousCurrentUser *)sharedInstance {
@@ -31,6 +31,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
     self = [super init];
     
     if (self) {
+        visitingId = @"";
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFriends) name:@"fbLoadingComplete" object:nil];
         currentAPICall=kLoadUserInformation;
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];

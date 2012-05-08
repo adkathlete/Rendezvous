@@ -259,6 +259,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"AARON");
+    
+    RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
+    sharedSingleton.visitingId = [listIDs objectAtIndex:indexPath.row];
+    
+    NSLog(@"updating user");
+    NSLog(sharedSingleton.visitingId);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingUserPage" object:nil];
+
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

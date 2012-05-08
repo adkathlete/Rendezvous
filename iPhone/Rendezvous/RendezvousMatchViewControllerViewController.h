@@ -10,8 +10,14 @@
 #import "RendezvousAppDelegate.h"
 #import "RendezvousCurrentUser.h"
 
-
-
-@interface RendezvousMatchViewControllerViewController : UIViewController
+@interface RendezvousMatchViewControllerViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>
+{
+    NSMutableData *responseData;
+}
+@property (retain, nonatomic) NSMutableData *responseData;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) NSString *matchName;
+@property (weak, nonatomic) NSString *matchedUserId;
+@property (weak, nonatomic) IBOutlet UIImageView *matchPhoto;
 
 @end
