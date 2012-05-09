@@ -22,9 +22,9 @@
     
     NSURL *newurl = [NSURL URLWithString:@"http://mtnweekly.com/wp-content/uploads/2011/10/Stanford.jpg"];
     //UIImage *img = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:newurl]];
+    [self ourMethod];
     
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ourMethod) name:@"DataModelComplete" object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ourMethod) name:@"DataModelComplete" object:nil];
     //RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
     //NSLog(@"hello");
     //NSLog([sharedSingelton userId]);

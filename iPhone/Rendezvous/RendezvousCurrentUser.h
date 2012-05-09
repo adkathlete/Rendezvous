@@ -13,9 +13,11 @@
 #import "RendezvousAppDelegate.h"
 
 
+
 typedef enum apiCall {
     kLoadFriends,
     kLoadUserInformation,
+    kLoadUserList,
 } apiCall;
 
 
@@ -25,15 +27,20 @@ typedef enum apiCall {
     NSArray *userResponseData;
     NSMutableData *responseData;
     NSMutableArray *friends;
+    NSMutableDictionary *listUserInfo;
+    NSMutableArray *listIDs;
+    int checkLoad;
 }
 
+@property (nonatomic, retain) NSMutableDictionary *listUserInfo;
+@property (nonatomic, retain) NSMutableArray *listIDs;
 @property (retain, nonatomic) NSMutableData* responseData;
 @property (retain, nonatomic) NSArray* userResponseData;
 @property (nonatomic, retain) NSString *userId;
 @property (nonatomic, retain) NSString *visitingId;
-@property(nonatomic,retain) NSMutableDictionary *userInfo;
-@property(nonatomic,retain) NSArray *userInfoObjects;
-@property(nonatomic,retain) NSArray *userInfoKeys;
+@property (nonatomic,retain) NSMutableDictionary *userInfo;
+@property (nonatomic,retain) NSArray *userInfoObjects;
+@property (nonatomic,retain) NSArray *userInfoKeys;
 
 + (id)sharedInstance;
 

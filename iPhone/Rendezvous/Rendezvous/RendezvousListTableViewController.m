@@ -6,11 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#define kLatestKivaLoansURL @"http://rendezvous.cs147.org/getList.php?id="
 #define deleteListURL @"http://rendezvous.cs147.org/deleteList.php?from_id="
 #define updatePositionURL @"http://rendezvous.cs147.org/updatePosition.php?from_id="
-
-
 
 #import "RendezvousListTableViewController.h"
 
@@ -21,7 +18,7 @@
 
 @implementation RendezvousListTableViewController
 
-@synthesize responseData,listIDs,listUserInfo,addButton;
+@synthesize responseData,addButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,18 +31,15 @@
 
 - (void)viewDidLoad
 {
+    sharedSingleton = [RendezvousCurrentUser sharedInstance];
     [super viewDidLoad];
-    
-    listUserInfo = [[NSMutableDictionary alloc] init];
-    checkLoad = 0;
-    
     self.navigationItem.leftBarButtonItem=self.editButtonItem;
     
     //addButton=self.navigationItem.rightBarButtonItem;
     //addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
      //self.navigationItem.rightBarButtonItem=addButton;
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getListNamesFromID) name:@"listDataLoaded" object:nil];
-    [self loadData];
+    //[self loadData];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -105,11 +99,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [listIDs count];;
+    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    return [[s listIDs] count];;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    
     static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -119,59 +116,15 @@
     
     // Get the cell label using its tag and set it
     UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
-    [cellLabel setText:[listUserInfo objectForKey:[listIDs objectAtIndex:indexPath.row]]];
+    [cellLabel setText:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
     
     // The object's image
-    cell.imageView.image = [self imageForObject:[listIDs objectAtIndex:indexPath.row]];
+    cell.imageView.image = [self imageForObject:[[s listIDs] objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
 #pragma mark - Backend Data Loading
-
--(void)loadData
-{
-    checkLoad = 1;
-	self.responseData = [NSMutableData data];
-    RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[kLatestKivaLoansURL stringByAppendingString:[[sharedSingelton userInfo] objectForKey:@"id"]]]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    [responseData setLength:0];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [responseData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-	self.responseData = nil;
-}
-
-#pragma mark Process loan data
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    
-    if (checkLoad == 1) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableInfo) name:@"listDataLoaded" object:nil];
-        
-        NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        self.responseData = nil;
-        NSLog(responseString);
-        listIDs = [responseString componentsSeparatedByString:@","];
-        [self.tableView reloadData];
-        
-        RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-        for (NSString *item in listIDs) {
-            NSLog(item);
-            [[delegate facebook] requestWithGraphPath:item andDelegate:self];
-        }
-    }
-    
-    
-    
-}
 
 -(void) updateTableInfo{
     NSLog(@"Time To Update!");
@@ -195,16 +148,15 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         
-        RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
-        NSString *deleteString1 = [deleteListURL stringByAppendingString:([sharedSingelton userId])];
+        NSString *deleteString1 = [deleteListURL stringByAppendingString:([sharedSingleton userId])];
         NSString *deleteString2 = [deleteString1 stringByAppendingString:(@"&to_id=")];
-        NSString *deleteString3 = [deleteString2 stringByAppendingString:([listIDs objectAtIndex:indexPath.row])];
+        NSString *deleteString3 = [deleteString2 stringByAppendingString:([[sharedSingleton listIDs] objectAtIndex:indexPath.row])];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:deleteString3])];
         [[NSURLConnection alloc] initWithRequest:request delegate:self];
         
         NSLog(deleteString3);
-        [listIDs removeObjectAtIndex:indexPath.row];
+        [[sharedSingleton listIDs] removeObjectAtIndex:indexPath.row];
         
         //[listUserInfo removeObjectForKey:[listIDs objectAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -219,19 +171,13 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    NSLog(@"Arrange Override");
-    RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
-    
-    NSLog([NSString stringWithFormat:@"%d", fromIndexPath.row]);
-    NSLog([NSString stringWithFormat:@"%d", toIndexPath.row]);
-    
-    NSString *temp1 = [listIDs objectAtIndex:fromIndexPath.row];
-    [listIDs removeObjectAtIndex:fromIndexPath.row];
-    [listIDs insertObject:temp1 atIndex:toIndexPath.row];
+    NSString *temp1 = [[sharedSingleton listIDs] objectAtIndex:fromIndexPath.row];
+    [[sharedSingleton listIDs] removeObjectAtIndex:fromIndexPath.row];
+    [[sharedSingleton listIDs] insertObject:temp1 atIndex:toIndexPath.row];
     
     int position = 1;
-    for (NSString *item in listIDs) {
-        NSString *updateString1 = [updatePositionURL stringByAppendingString:([sharedSingelton userId])];
+    for (NSString *item in [sharedSingleton listIDs]) {
+        NSString *updateString1 = [updatePositionURL stringByAppendingString:([sharedSingleton userId])];
         NSString *updateString2 = [updateString1 stringByAppendingString:(@"&to_id=")];
         NSString *updateString3 = [updateString2 stringByAppendingString: item];
         NSString *updateString4 = [updateString3 stringByAppendingString:(@"&position=")];
@@ -258,15 +204,8 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"AARON");
-    
-    RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
-    sharedSingleton.visitingId = [listIDs objectAtIndex:indexPath.row];
-    
-    NSLog(@"updating user");
-    NSLog(sharedSingleton.visitingId);
-    
+{    
+    sharedSingleton.visitingId = [[sharedSingleton listIDs] objectAtIndex:indexPath.row];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingUserPage" object:nil];
 
     
@@ -278,22 +217,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
-
-#pragma mark - Facebook Requests
-
-- (void)request:(FBRequest *)request didLoad:(id)result
-{
-    NSLog(@"Facebook request %@ loaded", [request url]);
-    
-    [listUserInfo setObject:[result objectForKey:@"name"] forKey:[result objectForKey:@"id"]];
-    
-    //NSLog(@"%",listUserInfo);
-    if(listIDs.count==listUserInfo.count){
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"listDataLoaded" object:nil];
-        checkLoad = 0;
-    }
-}
-
 
 
 @end

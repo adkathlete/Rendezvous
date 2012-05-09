@@ -14,7 +14,7 @@
 
 static RendezvousCurrentUser *sharedInstance = nil;
 
-@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId;
+@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, listIDs, listUserInfo;
 
 // Get the shared instance and create it if necessary.
 + (RendezvousCurrentUser *)sharedInstance {
@@ -32,6 +32,8 @@ static RendezvousCurrentUser *sharedInstance = nil;
     
     if (self) {
         visitingId = @"";
+        checkLoad = 0;
+        listUserInfo = [[NSMutableDictionary alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFriends) name:@"fbLoadingComplete" object:nil];
         currentAPICall=kLoadUserInformation;
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -78,15 +80,9 @@ static RendezvousCurrentUser *sharedInstance = nil;
 
 -(void)loadUserData
 {
+    checkLoad = 1;
 	self.responseData = [NSMutableData data];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[userDataURL stringByAppendingString:userId]]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-}
-
--(void)loadUserListData
-{
-	self.responseData = [NSMutableData data];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[userListURL stringByAppendingString:userId]]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
@@ -102,19 +98,45 @@ static RendezvousCurrentUser *sharedInstance = nil;
 	self.responseData = nil;
 }
 
+-(void)loadUserList
+{
+    NSLog(@"loadUserList");
+    checkLoad = 2;
+	self.responseData = [NSMutableData data];
+    NSString *requestString = [@"http://rendezvous.cs147.org/getList.php?id=" stringByAppendingString:[self userId]];
+    NSLog(requestString);
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestString]];
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
 #pragma mark Process loan data
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    //NSLog(connection);
+    
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(responseString);
-    responseData = nil;
-    userInfoObjects = [responseString componentsSeparatedByString:@","];
     
-    userInfo=[NSMutableDictionary dictionaryWithObjects:userInfoObjects forKeys:userInfoKeys];
-    [userInfo setObject:friends forKey:@"friends"];
+    if (checkLoad == 1) {
+        self.responseData = nil;
+        userInfoObjects = [responseString componentsSeparatedByString:@","];
     
+        userInfo=[NSMutableDictionary dictionaryWithObjects:userInfoObjects forKeys:userInfoKeys];
+        [userInfo setObject:friends forKey:@"friends"];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
+        [self loadUserList];
+    } else if (checkLoad == 2) {
+        NSLog(@"Checkload is 2");
+        NSLog(responseString);
+        self.responseData = nil;
+        listIDs = [responseString componentsSeparatedByString:@","];
+        currentAPICall =  kLoadUserList;
+        RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        NSLog(@"sequence = %d",[listIDs count]);
+        
+        for (NSString *item in listIDs) {
+            NSLog(item);
+            [[delegate facebook] requestWithGraphPath:item andDelegate:self];
+        }
+    }
     
 }
 
@@ -144,6 +166,14 @@ static RendezvousCurrentUser *sharedInstance = nil;
 
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"fbFriendsComplete" object:nil];
+            break;
+        }
+        case kLoadUserList:
+        {
+            [listUserInfo setObject:[result objectForKey:@"name"] forKey:[result objectForKey:@"id"]];
+            if(listIDs.count==listUserInfo.count){
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
+            }
             break;
         }
     }

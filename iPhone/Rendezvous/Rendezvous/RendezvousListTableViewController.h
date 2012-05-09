@@ -11,16 +11,12 @@
 
 @interface RendezvousListTableViewController : UITableViewController <FBDialogDelegate,FBRequestDelegate>
 {
-    int checkLoad;
-    NSMutableDictionary *listUserInfo;
-    NSMutableArray *listIDs;
     NSMutableData *responseData;
     //UIBarButtonItem *addButton;
+    RendezvousCurrentUser *sharedSingleton;
 }
 
 @property (retain, nonatomic) NSMutableData* responseData;
-@property (retain, nonatomic) NSMutableArray* listIDs;
-@property (retain, nonatomic) NSMutableDictionary* listUserInfo;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 
