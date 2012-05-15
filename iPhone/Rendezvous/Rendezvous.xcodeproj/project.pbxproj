@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		730A853A154FB6530061CAD5 /* apple-touch-icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A8539154FB6530061CAD5 /* apple-touch-icon-precomposed.png */; };
 		730F62A5154E4C9800644C80 /* RendezvousCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */; };
 		730F62A9154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */; };
 		732809F51555CB9400C716AD /* RendezvousAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */; };
@@ -25,10 +24,10 @@
 		73DCB76D1558A12100BDD62C /* RendezvousUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCB76C1558A12100BDD62C /* RendezvousUserViewController.m */; };
 		76D319611559C0EF0080EFB6 /* RendezvousSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D319601559C0EF0080EFB6 /* RendezvousSplashViewController.m */; };
 		76D319681559E99F0080EFB6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 76D319671559E99F0080EFB6 /* Default.png */; };
+		76DFFE0A155DC2D30044C493 /* apple-touch-icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DFFE09155DC2D30044C493 /* apple-touch-icon-precomposed.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		730A8539154FB6530061CAD5 /* apple-touch-icon-precomposed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-precomposed.png"; sourceTree = "<group>"; };
 		730F62A3154E4C9800644C80 /* RendezvousCurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousCurrentUser.h; sourceTree = SOURCE_ROOT; };
 		730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousCurrentUser.m; sourceTree = SOURCE_ROOT; };
 		730F62A7154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousMatchViewControllerViewController.h; sourceTree = SOURCE_ROOT; };
@@ -81,6 +80,7 @@
 		76D3195F1559C0EF0080EFB6 /* RendezvousSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousSplashViewController.h; sourceTree = SOURCE_ROOT; };
 		76D319601559C0EF0080EFB6 /* RendezvousSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousSplashViewController.m; sourceTree = SOURCE_ROOT; };
 		76D319671559E99F0080EFB6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		76DFFE09155DC2D30044C493 /* apple-touch-icon-precomposed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-precomposed.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +120,8 @@
 		73C77F70154DB12B00453D96 = {
 			isa = PBXGroup;
 			children = (
+				76DFFE09155DC2D30044C493 /* apple-touch-icon-precomposed.png */,
 				76D319671559E99F0080EFB6 /* Default.png */,
-				730A8539154FB6530061CAD5 /* apple-touch-icon-precomposed.png */,
 				73C77F85154DB12B00453D96 /* Rendezvous */,
 				73C77F7E154DB12B00453D96 /* Frameworks */,
 				73C77F7C154DB12B00453D96 /* Products */,
@@ -267,8 +267,8 @@
 				73C77F8A154DB12B00453D96 /* InfoPlist.strings in Resources */,
 				73C77F93154DB12B00453D96 /* MainStoryboard.storyboard in Resources */,
 				73C77FBF154DC35100453D96 /* FBDialog.bundle in Resources */,
-				730A853A154FB6530061CAD5 /* apple-touch-icon-precomposed.png in Resources */,
 				76D319681559E99F0080EFB6 /* Default.png in Resources */,
+				76DFFE0A155DC2D30044C493 /* apple-touch-icon-precomposed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,48 +27,21 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [self lookForMatch];
-}
-
-/*
- Gets the ID of the user whom someone is matched. If a match exists, it will set the photo and the name label
- */
--(void)lookForMatch
-{
-    self.responseData = [NSMutableData data];
-    RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
-    NSString * userId = [sharedSingelton userId];
-    NSString * urlString = [@"http://rendezvous.cs147.org/getMatch.php?id=" stringByAppendingString:userId];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    NSLog(urlString);
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    [responseData setLength:0];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [responseData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-	self.responseData = nil;
-}
-
-#pragma mark Process loan data
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSString *matchedUserId = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    if ([matchedUserId length] == 0)
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0xB6/255.0f
+                                                                        green:0xED/255.0f
+                                                                         blue:0xFD/255.0f alpha:1]; 
+    sharedSingleton = [RendezvousCurrentUser sharedInstance];
+    
+    if ([[sharedSingleton matchedUserId] length] == 0)
     {
         [nameLabel setText:@"Unfortunately, you don't have a \n match loser :("];
     }
     else
     {
-        [self getFacebookName:matchedUserId];
-        matchPhoto.image= [self imageForObject:matchedUserId];
+        [nameLabel setText: [sharedSingleton matchName]];
+        matchPhoto.image= [self imageForObject: [sharedSingleton matchedUserId]];
     }
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
@@ -93,20 +66,5 @@
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
     return image;
 }
-
-- (void) getFacebookName: (NSString *) userID {
-    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[delegate facebook] requestWithGraphPath:userID andDelegate:self]; 
-}
-
-/*  Fetches the name of the matched user given an id and sets it    */
-- (void)request:(FBRequest *)request didLoad:(id)result
-{
-    NSLog(@"Bitch request %@ loaded", [request url]);
-    NSDictionary *matchInfo = (NSDictionary *)result;
-    matchName = [matchInfo objectForKey:@"name"];
-    [nameLabel setText: matchName];
-}
-
 
 @end

@@ -13,6 +13,7 @@
 @interface RendezvousMatchViewControllerViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>
 {
     NSMutableData *responseData;
+    RendezvousCurrentUser *sharedSingleton;
 }
 @property (retain, nonatomic) NSMutableData *responseData;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

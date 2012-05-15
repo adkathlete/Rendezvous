@@ -28,18 +28,23 @@
 
 - (void)viewDidLoad
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadUserProfile) name:@"loadingUserPage" object:nil];
+    NSLog(@"VIEWDIDLOAD");
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadUserProfile) name:@"loadingUserPage" object:nil];
+    [self loadUserProfile];
     [super viewDidLoad];
 }
 
 
 -(void)loadUserProfile
 {
-    RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
-    NSLog([sharedSingelton visitingId]);
+    RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
+    NSLog([sharedSingleton visitingId]);
     NSLog(@"New User ID");
-    NSString * userId = [sharedSingelton visitingId];
-    [self getFacebookName:userId];
+    NSString * userId = [sharedSingleton visitingId];
+    userName = [[sharedSingleton listUserInfo] objectForKey:userId];
+    [nameLabel setText: userName];
+    userPhoto.image= [self imageForObject:userId];
+    self.title=[NSString stringWithFormat:@"%@'s Page",userName];
 }
 
 - (void)viewDidUnload
@@ -59,22 +64,5 @@
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
     return image;
 }
-
-- (void) getFacebookName: (NSString *) userID {
-    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[delegate facebook] requestWithGraphPath:userID andDelegate:self]; 
-}
-
-/*  Fetches the name of the matched user given an id and sets it    */
-- (void)request:(FBRequest *)request didLoad:(id)result
-{
-    NSLog(@"Bitch request %@ loaded", [request url]);
-    NSDictionary *userInfo = (NSDictionary *)result;
-    userName = [userInfo objectForKey:@"name"];
-    [nameLabel setText: userName];
-    userPhoto.image= [self imageForObject:[userInfo objectForKey:@"id"]];
-    self.title=[NSString stringWithFormat:@"%@'s Page",[userInfo objectForKey:@"name"]];
-}
-
 
 @end

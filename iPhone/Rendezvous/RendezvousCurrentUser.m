@@ -8,13 +8,14 @@
 
 #define userDataURL @"http://rendezvous.cs147.org/getUserInfo.php?id="
 #define userListURL @"http://rendezvous.cs147.org/getList.php?id="
+#define checkUserURL @"http://rendezvous.cs147.org/checkUser.php?id="
 #import "RendezvousCurrentUser.h"
 
 @implementation RendezvousCurrentUser
 
 static RendezvousCurrentUser *sharedInstance = nil;
 
-@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, listIDs, listUserInfo;
+@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, listIDs, listUserInfo, matchName, matchedUserId, gender, first_name, last_name;
 
 // Get the shared instance and create it if necessary.
 + (RendezvousCurrentUser *)sharedInstance {
@@ -82,7 +83,18 @@ static RendezvousCurrentUser *sharedInstance = nil;
 {
     checkLoad = 1;
 	self.responseData = [NSMutableData data];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[userDataURL stringByAppendingString:userId]]];
+    
+    NSString *string1 = [userDataURL stringByAppendingString: userId];
+    NSString *string2 = [string1 stringByAppendingString: @"&first_name="];
+    NSString *string3 = [string2 stringByAppendingString: first_name];
+    NSString *string4 = [string3 stringByAppendingString: @"&last_name="];
+    NSString *string5 = [string4 stringByAppendingString: last_name];
+    NSString *string6 = [string5 stringByAppendingString: @"&gender="];
+    NSString *string7 = [string6 stringByAppendingString: gender];
+
+    NSLog(string7);
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:string7]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
@@ -104,40 +116,65 @@ static RendezvousCurrentUser *sharedInstance = nil;
     checkLoad = 2;
 	self.responseData = [NSMutableData data];
     NSString *requestString = [@"http://rendezvous.cs147.org/getList.php?id=" stringByAppendingString:[self userId]];
-    NSLog(requestString);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestString]];
+    NSLog(requestString);
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+-(void)loadMatch
+{
+    NSLog(@"loadMatch");
+    checkLoad = 3;
+    self.responseData = [NSMutableData data];
+    NSString *urlString = [@"http://rendezvous.cs147.org/getMatch.php?id=" stringByAppendingString:userId];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 #pragma mark Process loan data
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
     if (checkLoad == 1) {
+        NSString *responseString1 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        NSLog(responseString1);
         self.responseData = nil;
-        userInfoObjects = [responseString componentsSeparatedByString:@","];
-    
+        userInfoObjects = [responseString1 componentsSeparatedByString:@","];
         userInfo=[NSMutableDictionary dictionaryWithObjects:userInfoObjects forKeys:userInfoKeys];
         [userInfo setObject:friends forKey:@"friends"];
-    
-        [self loadUserList];
+        [self loadMatch];
     } else if (checkLoad == 2) {
-        NSLog(@"Checkload is 2");
-        NSLog(responseString);
+        NSLog(@"checkLoad is 2");
+        NSString *responseString2 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        NSLog(responseString2);
         self.responseData = nil;
-        listIDs = [responseString componentsSeparatedByString:@","];
+        listIDs = [responseString2 componentsSeparatedByString:@","];
         currentAPICall =  kLoadUserList;
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-        NSLog(@"sequence = %d",[listIDs count]);
-        
         for (NSString *item in listIDs) {
-            NSLog(item);
+            NSLog(@"apicalls");
             [[delegate facebook] requestWithGraphPath:item andDelegate:self];
         }
+    } else if (checkLoad == 3) {
+        NSLog(@"checkLoad is 3");
+        NSString *responseString3 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        matchedUserId = responseString3;
+        self.responseData = nil;
+        if ([matchedUserId length] == 0)
+        {
+            matchName = nil;
+            [self loadUserList];
+        }
+        else
+        {
+            [self getFacebookName:matchedUserId];
+        }
     }
-    
+}
+
+- (void) getFacebookName: (NSString *) userID {
+    currentAPICall = kLoadMatchName;
+    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[delegate facebook] requestWithGraphPath:userID andDelegate:self]; 
 }
 
 - (void)request:(FBRequest *)request didLoad:(id)result
@@ -147,6 +184,9 @@ static RendezvousCurrentUser *sharedInstance = nil;
         {
             NSLog(@"Loading User Id");
             userId=[result objectForKey:@"id"];
+            first_name = [result objectForKey:@"first_name"];
+            last_name = [result objectForKey:@"last_name"];
+            gender = [result objectForKey:@"gender"];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"fbLoadingComplete" object:nil];
             break;
@@ -170,10 +210,20 @@ static RendezvousCurrentUser *sharedInstance = nil;
         }
         case kLoadUserList:
         {
+            NSLog(@"kloading");
             [listUserInfo setObject:[result objectForKey:@"name"] forKey:[result objectForKey:@"id"]];
             if(listIDs.count==listUserInfo.count){
+                NSLog(@"kLoadUserList");
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
             }
+            break;
+        }
+        case kLoadMatchName:
+        {
+            NSLog(@"Loading Match Name");
+            NSDictionary *matchInfo = (NSDictionary *)result;
+            matchName = [matchInfo objectForKey:@"name"];
+            [self loadUserList];
             break;
         }
     }

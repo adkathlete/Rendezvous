@@ -92,7 +92,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eq7-Qt-XWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Jl9-Xv-znG" customClass="RendezvousListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="73" sectionHeaderHeight="10" sectionFooterHeight="10" id="owf-Ol-GWp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -113,9 +113,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="RUx-AY-dOk" kind="push" id="q2C-oX-b7W"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -128,6 +125,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="Iih-Qc-EW6" id="c0N-18-cOB"/>
+                        <segue destination="RUx-AY-dOk" kind="push" identifier="myListToDetailPage" id="bhj-3l-0S7"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -139,7 +137,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIp-hs-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jXc-IH-DNs" customClass="RendezvousAddTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bYi-2W-ehm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Find New Friends!" id="ZrF-JW-aBQ">
@@ -168,9 +166,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="Jl9-Xv-znG" kind="push" id="fR0-hw-Xdk"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -188,6 +183,7 @@
                     <connections>
                         <outlet property="saveButton" destination="bdT-OT-8L5" id="dpB-pt-cy3"/>
                         <outlet property="searchDisplayController" destination="XSr-lL-f2K" id="np6-Nj-cTQ"/>
+                        <segue destination="Jl9-Xv-znG" kind="push" identifier="mover" id="KXx-qG-LGc"/>
                     </connections>
                 </tableViewController>
                 <searchDisplayController id="XSr-lL-f2K">
@@ -208,7 +204,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3y-4o-q54" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RUx-AY-dOk" customClass="RendezvousUserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erO-cg-3yL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User Page &amp; User Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zXN-Ni-a9O">
@@ -469,4 +465,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="VXX-Ei-Dnf"/>
+    </inferredMetricsTieBreakers>
 </document>

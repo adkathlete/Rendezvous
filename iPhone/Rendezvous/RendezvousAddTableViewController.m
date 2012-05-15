@@ -16,7 +16,7 @@
 
 @implementation RendezvousAddTableViewController
 
-@synthesize responseData,listIDs,listUserInfo,filteredListContent,searchBar,saveButton;
+@synthesize responseData,listIDs,listUserInfo,filteredListContent,searchBar,saveButton, transName, transID;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -66,7 +66,7 @@
     
     NSLog(searchBar.text);
     RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *path=[NSString stringWithFormat:@"search?q=%@&type=user&limit=50",[searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
+    NSString *path=[NSString stringWithFormat:@"search?q=%@&type=user&limit=10",[searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
     [[delegate facebook] requestWithGraphPath:path andDelegate:self];
 
     
@@ -82,7 +82,7 @@
 }
  */
 
-/*
+
 #pragma mark - Backend Data Loading
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -100,13 +100,20 @@
 #pragma mark Process loan data
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    NSLog(@"Added User!");
+    NSLog(@"Seguing Back To List");
+    RendezvousCurrentUser *sharedSingleton = [RendezvousCurrentUser sharedInstance];
+    [[sharedSingleton listIDs] addObject:transID];
+    [[sharedSingleton listUserInfo] setObject:transName forKey:transID];
+    [self performSegueWithIdentifier:@"mover" sender: self];
     
 }
 
-*/
-
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"mover"]) 
+    {
+    }
+}
 
 #pragma mark - Table view data source
 
@@ -226,15 +233,23 @@
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
+        NSLog(@"ONE - FILTERED");
         addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingelton userId],[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"]];
         NSLog(addRequest);
+        transID = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"];
+        NSLog(transID);
+        transName = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"name"];
     }
 	else
 	{
+        NSLog(@"TWO - NON FILTERED");
         addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingelton userId],[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
         NSLog(addRequest);
+        transID = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"];
+        transName = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"];
     }
 
+    NSLog(@"THREE");
     
     NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:addRequest])];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];

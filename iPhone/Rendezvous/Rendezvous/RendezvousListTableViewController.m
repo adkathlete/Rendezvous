@@ -31,6 +31,11 @@
 
 - (void)viewDidLoad
 {
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0xB6/255.0f
+                                                                        green:0xED/255.0f
+                                                                         blue:0xFD/255.0f alpha:1]; 
+    NSLog(@"BRYCE");
+    
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem=self.editButtonItem;
@@ -205,8 +210,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {    
+    NSLog(@"LIST");
     sharedSingleton.visitingId = [[sharedSingleton listIDs] objectAtIndex:indexPath.row];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingUserPage" object:nil];
+    [self performSegueWithIdentifier:@"myListToDetailPage" sender: self];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"loadingUserPage" object:nil];
 
     
     // Navigation logic may go here. Create and push another view controller.

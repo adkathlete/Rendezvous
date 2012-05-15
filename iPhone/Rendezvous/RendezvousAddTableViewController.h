@@ -17,8 +17,12 @@
     NSArray *friendsList;
     NSMutableArray	*filteredListContent;
     UIBarButtonItem *addButton;
+    NSMutableString *transID;
+    NSMutableString *transName;
 }
 
+@property (retain, nonatomic) NSMutableString* transID;
+@property (retain, nonatomic) NSMutableString* transName;
 @property (retain, nonatomic) NSMutableData* responseData;
 @property (retain, nonatomic) NSMutableArray* listIDs;
 @property (retain, nonatomic) NSMutableDictionary* listUserInfo;
