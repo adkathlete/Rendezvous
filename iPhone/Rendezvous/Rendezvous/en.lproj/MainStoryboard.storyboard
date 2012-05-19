@@ -330,6 +330,29 @@
             </objects>
             <point key="canvasLocation" x="-408" y="8"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="h4u-pz-bCO">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgY-gf-QIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="5FZ-h0-eBg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o6T-LZ-mKx">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bad Connection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="FRN-to-vz1">
+                                <rect key="frame" x="98" y="206" width="124" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1264" y="-1241"/>
+        </scene>
         <!--Rendezvous Splash View Controller-->
         <scene sceneID="hqt-9y-Ad2">
             <objects>
@@ -349,6 +372,7 @@
                     <navigationItem key="navigationItem" id="fkV-Hq-PJI"/>
                     <connections>
                         <segue destination="0zv-9k-J7y" kind="modal" identifier="test" modalTransitionStyle="crossDissolve" id="Kqc-o1-TNo"/>
+                        <segue destination="5FZ-h0-eBg" kind="modal" identifier="badConnection" id="HHO-we-Bdh"/>
                     </connections>
                 </viewController>
             </objects>

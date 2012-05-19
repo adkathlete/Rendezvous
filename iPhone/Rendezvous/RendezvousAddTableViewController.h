@@ -19,6 +19,7 @@
     UIBarButtonItem *addButton;
     NSMutableString *transID;
     NSMutableString *transName;
+    int error;
 }
 
 @property (retain, nonatomic) NSMutableString* transID;

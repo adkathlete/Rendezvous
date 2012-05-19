@@ -15,7 +15,7 @@
 
 static RendezvousCurrentUser *sharedInstance = nil;
 
-@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, listIDs, listUserInfo, matchName, matchedUserId, gender, first_name, last_name;
+@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, listIDs, listUserInfo, matchName, matchedUserId, gender, first_name, last_name, connectionCheck;
 
 // Get the shared instance and create it if necessary.
 + (RendezvousCurrentUser *)sharedInstance {
@@ -33,6 +33,9 @@ static RendezvousCurrentUser *sharedInstance = nil;
     
     if (self) {
         visitingId = @"";
+        connectionCheck = @"Good";
+        NSLog(@"Connection Check");
+        NSLog(connectionCheck);
         checkLoad = 0;
         listUserInfo = [[NSMutableDictionary alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFriends) name:@"fbLoadingComplete" object:nil];
@@ -108,6 +111,8 @@ static RendezvousCurrentUser *sharedInstance = nil;
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	self.responseData = nil;
+    NSLog(@"Network Bad Request");
+    connectionCheck = @"Bad";
 }
 
 -(void)loadUserList
@@ -124,12 +129,19 @@ static RendezvousCurrentUser *sharedInstance = nil;
 -(void)loadMatch
 {
     NSLog(@"loadMatch");
+    NSLog(connectionCheck);
     checkLoad = 3;
     self.responseData = [NSMutableData data];
     NSString *urlString = [@"http://rendezvous.cs147.org/getMatch.php?id=" stringByAppendingString:userId];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
+
+- (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
+    NSLog(@"Facebook Bad Request");
+    connectionCheck = @"Bad";
+}
+
 
 #pragma mark Process loan data
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {

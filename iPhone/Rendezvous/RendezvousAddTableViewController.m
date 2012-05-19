@@ -31,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    error = 0;
     
     RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
     
@@ -97,9 +98,32 @@
 	self.responseData = nil;
 }
 
+-(void)errorMethod {
+    if (error == 1) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"I'm sure you're really attractive..."
+                          message: @"...but unfortunately lists are limited to 10 people."
+                          delegate: nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+        [alert show];
+    }
+    if (error == 2) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"We know you're really interested in this person..."
+                              message: @"...but adding them twice won't increase your chances."
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    NSLog(@"Seguing Back To List");
+    [self performSegueWithIdentifier:@"mover" sender: self];
+}
+
 #pragma mark Process loan data
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    
     NSLog(@"Seguing Back To List");
     RendezvousCurrentUser *sharedSingleton = [RendezvousCurrentUser sharedInstance];
     [[sharedSingleton listIDs] addObject:transID];
@@ -228,31 +252,55 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-    RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
+    RendezvousCurrentUser *sharedSingleton = [RendezvousCurrentUser sharedInstance];
     NSString *addRequest=[NSString alloc];
+    
+    if ([[sharedSingleton listIDs] count] != 10) {
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
         NSLog(@"ONE - FILTERED");
-        addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingelton userId],[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"]];
+        addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingleton userId],[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"]];
         NSLog(addRequest);
-        transID = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"];
-        NSLog(transID);
-        transName = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"name"];
+        
+        for (int i=0; i<[[sharedSingleton listIDs] count]; i++) {
+            if ([[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"] isEqualToString:[[sharedSingleton listIDs] objectAtIndex:i]]) {
+                error = 2;
+            }
+        }
+        if (error != 2) {
+            transID = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"];
+            transName = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"name"];
+        }
     }
 	else
 	{
         NSLog(@"TWO - NON FILTERED");
-        addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingelton userId],[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
+        addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingleton userId],[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
         NSLog(addRequest);
-        transID = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"];
-        transName = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"];
+        
+        for (int i=0; i<[[sharedSingleton listIDs] count]; i++) {
+            if ([[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"] isEqualToString:[[sharedSingleton listIDs] objectAtIndex:i]]) {
+                error = 2;
+            }
+        }
+        if (error != 2) {
+            transID = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"];
+            transName = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"];
+        }
     }
-
     NSLog(@"THREE");
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:addRequest])];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        
+        if (error != 2) {
+            NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:addRequest])];
+            [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        } else {
+            [self errorMethod];
+        }
+    } else {
+        error = 1;
+        [self errorMethod];
+    }
 }
 
 

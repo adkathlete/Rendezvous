@@ -58,7 +58,13 @@
     [[delegate facebook] requestWithMethodName:@"fql.query" andParams:params andHttpMethod:@"GET" andDelegate:self];*/
     
     NSLog(@"Switching Page");
-    [self performSegueWithIdentifier:@"test" sender: self];
+    RendezvousCurrentUser *sharedSingleton = [RendezvousCurrentUser sharedInstance];
+    NSLog([sharedSingleton connectionCheck]);
+    if ([[sharedSingleton connectionCheck] isEqualToString:@"Good"]) {
+        [self performSegueWithIdentifier:@"test" sender: self];
+    } else {
+        [self performSegueWithIdentifier:@"badConnection" sender: self];
+    }
 }
 
 /*- (void)request:(FBRequest*)request didLoad:(id)result {

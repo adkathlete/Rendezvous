@@ -33,8 +33,10 @@ typedef enum apiCall {
     NSString *matchName;
     NSString *matchedUserId;
     int checkLoad;
+    NSMutableString *connectionCheck;
 }
 
+@property (nonatomic, retain) NSMutableString *connectionCheck;
 @property (nonatomic, retain) NSMutableDictionary *listUserInfo;
 @property (nonatomic, retain) NSMutableArray *listIDs;
 @property (retain, nonatomic) NSMutableData* responseData;
