@@ -162,7 +162,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"CellIdentifier";
+    static NSString *CellIdentifier = @"AddCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
@@ -352,6 +352,12 @@
     return YES;
 }
 
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+    // Re-style the search controller's table view
+    UITableView *tableView = controller.searchResultsTableView;
+    tableView.rowHeight=75.0f;
+}
+
 #pragma mark - FB callback
 
 - (void)request:(FBRequest *)request didLoad:(id)result
@@ -360,7 +366,7 @@
     NSLog(@"Facebook request %@ loaded", [request url]);
 
     NSArray *resultData = [result objectForKey:@"data"];
-    NSDictionary* user = [resultData objectAtIndex:1];
+    //NSDictionary* user = [resultData objectAtIndex:1];
     for (NSDictionary *user in resultData){
         [self.filteredListContent addObject:user];
     }
