@@ -69,7 +69,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Rejection sucks.
+                                <string key="text">Rejection sucks.
 
 Rendezvous is here to help.
 
@@ -83,7 +83,7 @@ How does it all work, you ask?
 
 Add friends, strangers, or anyone in between to your private list of people you'd like to get to know a little (or a lot) better. Consider the rank in which you order these people, because we'll try to match you to users in the order of their appearance on your list. Every weekend, our algorithm will dig up the latest connections between our users. If you're lucky enough to have a match, you and your interest will be notified promptly.
 
-We make the connection. You rendezvous. Good luck!</mutableString>
+We make the connection. You rendezvous. Good luck!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -137,9 +137,6 @@ We make the connection. You rendezvous. Good luck!</mutableString>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="RUx-AY-dOk" kind="push" id="E06-Cn-KbM"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -176,11 +173,11 @@ We make the connection. You rendezvous. Good luck!</mutableString>
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddCellIdentifier" rowHeight="73" id="sjT-4J-q08">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddCellIdentifier" rowHeight="73" id="sjT-4J-q08">
                                 <rect key="frame" x="0.0" y="80" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="280" height="72"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DpY-k7-BUQ">

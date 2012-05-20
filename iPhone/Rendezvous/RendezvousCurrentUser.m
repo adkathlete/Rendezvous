@@ -162,9 +162,13 @@ static RendezvousCurrentUser *sharedInstance = nil;
         listIDs = [responseString2 componentsSeparatedByString:@","];
         currentAPICall =  kLoadUserList;
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-        for (NSString *item in listIDs) {
-            NSLog(@"apicalls");
-            [[delegate facebook] requestWithGraphPath:item andDelegate:self];
+        if(responseString2.length!=0){
+            for (NSString *item in listIDs) {
+                NSLog(@"apicalls");
+                [[delegate facebook] requestWithGraphPath:item andDelegate:self];
+            }
+        }else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
         }
     } else if (checkLoad == 3) {
         NSLog(@"checkLoad is 3");

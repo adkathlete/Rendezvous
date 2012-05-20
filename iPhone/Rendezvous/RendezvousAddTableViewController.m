@@ -36,6 +36,12 @@
     RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
     
     friendsList=[[sharedSingleton userInfo] objectForKey:@"friends"];
+    friendsList=[friendsList sortedArrayUsingComparator:^(id a, id b) {
+        NSString *first = [(NSDictionary*)a objectForKey:@"name"];
+        NSString *second = [(NSDictionary*)b objectForKey:@"name"];
+        return [first compare:second options:NSCaseInsensitiveSearch];
+    }];
+    
     self.filteredListContent = [NSMutableArray arrayWithCapacity:[friendsList count]];
 
     [self.tableView reloadData];
@@ -141,11 +147,56 @@
 
 #pragma mark - Table view data source
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    [tempArray addObject:@"A"];
+    [tempArray addObject:@"B"];
+    [tempArray addObject:@"C"];
+    [tempArray addObject:@"D"];
+    [tempArray addObject:@"E"];
+    [tempArray addObject:@"F"];
+    [tempArray addObject:@"G"];
+    [tempArray addObject:@"H"];
+    [tempArray addObject:@"I"];
+    [tempArray addObject:@"J"];
+    [tempArray addObject:@"K"];
+    [tempArray addObject:@"L"];
+    [tempArray addObject:@"M"];
+    [tempArray addObject:@"N"];
+    [tempArray addObject:@"O"];
+    [tempArray addObject:@"P"];
+    [tempArray addObject:@"Q"];
+    [tempArray addObject:@"R"];
+    [tempArray addObject:@"S"];
+    [tempArray addObject:@"T"];
+    [tempArray addObject:@"U"];
+    [tempArray addObject:@"V"];
+    [tempArray addObject:@"W"];
+    [tempArray addObject:@"X"];
+    [tempArray addObject:@"Y"];
+    [tempArray addObject:@"Z"];
+    
+    return tempArray;
+}
+
+/*
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [indices indexOfObject:title];
+}
+
+
+- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
+	return [[content objectAtIndex:section] objectForKey:@"headerTitle"];
+    
+}
+ */
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
- 
+    
     return 1;
-
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

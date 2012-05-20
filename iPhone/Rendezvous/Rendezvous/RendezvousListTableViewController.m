@@ -121,7 +121,9 @@
     
     // Get the cell label using its tag and set it
     UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
-    [cellLabel setText:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
+    NSString *listNumer=[[NSString alloc] initWithFormat:@"%d. ",indexPath.row+1];
+    NSString *labelText= [listNumer stringByAppendingString:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
+    [cellLabel setText:labelText];
     
     // The object's image
     cell.imageView.image = [self imageForObject:[[s listIDs] objectAtIndex:indexPath.row]];
@@ -165,6 +167,7 @@
         
         //[listUserInfo removeObjectForKey:[listIDs objectAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadData];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -194,6 +197,7 @@
         position++;
     }
     
+    [tableView reloadData];
 }
 
 
