@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RUx-AY-dOk">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -242,12 +242,28 @@ We make the connection. You rendezvous. Good luck!</string>
                                 <rect key="frame" x="68" y="51" width="184" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wRS-fl-JWK">
+                                <rect key="frame" x="120" y="227" width="80" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Photos!">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="photoButtonPressed:" destination="RUx-AY-dOk" eventType="touchUpInside" id="oHo-Gj-Srm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Page" id="Q7U-Vs-qLK"/>
                     <connections>
                         <outlet property="nameLabel" destination="zXN-Ni-a9O" id="SIu-NQ-vDv"/>
+                        <outlet property="photoButton" destination="wRS-fl-JWK" id="wx8-jm-OGn"/>
                         <outlet property="userPhoto" destination="jne-Ve-kH1" id="qeF-ZE-UmE"/>
                     </connections>
                 </viewController>
@@ -489,6 +505,7 @@ We make the connection. You rendezvous. Good luck!</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousUserViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
             </relationships>
         </class>
@@ -498,4 +515,7 @@ We make the connection. You rendezvous. Good luck!</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="VXX-Ei-Dnf"/>
+    </inferredMetricsTieBreakers>
 </document>

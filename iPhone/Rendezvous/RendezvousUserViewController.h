@@ -8,12 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "RendezvousCurrentUser.h"
+#import "MWPhotoBrowser.h"
 
-@interface RendezvousUserViewController : UIViewController
+@interface RendezvousUserViewController : UIViewController <MWPhotoBrowserDelegate>
+{
+    NSArray *_photos;
+}
 
 @property (weak, nonatomic) NSString *userName;
 @property (weak, nonatomic) NSString *userId;
 @property (weak, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (nonatomic, retain) NSArray *photos;
+@property (weak, nonatomic) IBOutlet UIButton *photoButton;
 
 @end
