@@ -33,6 +33,7 @@
 {
     NSLog(@"VIEWDIDLOAD");
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadUserProfile) name:@"loadingUserPage" object:nil];
+    
     [self loadUserProfile];
     [super viewDidLoad];
 }
@@ -71,6 +72,20 @@
 }
 
 - (IBAction)photoButtonPressed:(id)sender {
+    
+    currentfbRequest=kLoadAlbums;
+    
+    RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
+    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *path=[NSString stringWithFormat:@"%@/albums",[sharedSingleton visitingId]];
+    [[delegate facebook] requestWithGraphPath:path andDelegate:self];
+    
+    }
+
+/*
+-(void) updateUserPhotos
+{
+    NSLog(@"Loading Photos");
     // Create browser
     NSMutableArray *photos = [[NSMutableArray alloc] init];
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
@@ -84,8 +99,11 @@
     
     self.photos = photos;
     [self.navigationController pushViewController:browser animated:YES];
+    
 
+    
 }
+*/
 
 #pragma mark - MWPhotoBrowserDelegate
 
@@ -104,6 +122,66 @@
 //    MWCaptionView *captionView = [[MWCaptionView alloc] initWithPhoto:photo];
 //    return [captionView autorelease];
 //}
+
+#pragma mark - FB callback
+
+- (void)request:(FBRequest *)request didLoad:(id)result
+{
+    
+    
+    switch (currentfbRequest) {
+        case kLoadAlbums:
+        {
+            
+            NSLog(@"Facebook request %@ loaded", [request url]);
+            NSArray *resultData = [result objectForKey:@"data"];
+            for (NSDictionary *album in resultData) {
+                NSLog([album   objectForKey:@"name"]);
+                
+                if([@"Profile Pictures" compare:[album objectForKey:@"name"]] ==NSOrderedSame)
+                {
+                    NSLog(@"Matched Album");
+                    currentfbRequest=kloadPhotos;
+                    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+                    NSString *path=[NSString stringWithFormat:@"%@/photos",[album objectForKey:@"id"]];
+                    [[delegate facebook] requestWithGraphPath:path andDelegate:self];
+                }
+                
+            }
+            
+            break;
+            
+        }
+        case kloadPhotos:
+        {
+            
+            NSLog(@"Facebook request %@ loaded", [request url]);
+            NSArray *resultData = [result objectForKey:@"data"];
+            
+            NSLog(@"Loading Photos");
+            // Create browser
+            NSMutableArray *photos = [[NSMutableArray alloc] init];
+            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+            browser.displayActionButton = YES;
+            //browser.wantsFullScreenLayout = NO;
+            //[browser setInitialPageIndex:2];
+            
+            for (NSDictionary *photo in resultData) {
+                NSLog([photo  objectForKey:@"source"]);
+                [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[photo objectForKey:@"source"]]]];
+            }
+            
+            self.photos = photos;
+            [self.navigationController pushViewController:browser animated:YES];
+
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"UserPhotosLoaded" object:nil];
+            break;
+        }
+    }
+    
+    
+}
+
 
 @end
 

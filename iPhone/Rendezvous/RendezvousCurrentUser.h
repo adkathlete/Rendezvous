@@ -19,6 +19,8 @@ typedef enum apiCall {
     kLoadUserInformation,
     kLoadUserList,
     kLoadMatchName,
+    kloadUserAlbums,
+    kloadProfilePictures
 } apiCall;
 
 

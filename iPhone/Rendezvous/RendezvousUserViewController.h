@@ -10,9 +10,15 @@
 #import "RendezvousCurrentUser.h"
 #import "MWPhotoBrowser.h"
 
+typedef enum fbRequest {
+    kLoadAlbums,
+    kloadPhotos
+} fbRequest;
+
 @interface RendezvousUserViewController : UIViewController <MWPhotoBrowserDelegate>
 {
     NSArray *_photos;
+    int currentfbRequest;
 }
 
 @property (weak, nonatomic) NSString *userName;
