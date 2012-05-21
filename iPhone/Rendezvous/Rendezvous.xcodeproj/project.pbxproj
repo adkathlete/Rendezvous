@@ -24,6 +24,25 @@
 		73DCB76D1558A12100BDD62C /* RendezvousUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCB76C1558A12100BDD62C /* RendezvousUserViewController.m */; };
 		73E1142815696A32008D215E /* RendezvousAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E1142715696A32008D215E /* RendezvousAboutViewController.m */; };
 		73E1142C15698971008D215E /* RendezvousSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E1142B15698971008D215E /* RendezvousSearchDisplayController.m */; };
+		73FDAB84156A45A200666F20 /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB5D156A45A100666F20 /* MWCaptionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB85156A45A200666F20 /* MWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB5F156A45A100666F20 /* MWPhoto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB86156A45A200666F20 /* MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB61156A45A100666F20 /* MWPhotoBrowser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB87156A45A200666F20 /* MWTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB64156A45A100666F20 /* MWTapDetectingImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB88156A45A200666F20 /* MWTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB66156A45A100666F20 /* MWTapDetectingView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB89156A45A200666F20 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB68156A45A100666F20 /* MWZoomingScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB8A156A45A200666F20 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB6C156A45A100666F20 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB8B156A45A200666F20 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB6D156A45A200666F20 /* README.mdown */; };
+		73FDAB8C156A45A200666F20 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB6F156A45A200666F20 /* .gitignore */; };
+		73FDAB8D156A45A200666F20 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB70156A45A200666F20 /* LICENSE */; };
+		73FDAB8E156A45A200666F20 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB71156A45A200666F20 /* README.md */; };
+		73FDAB8F156A45A200666F20 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB73156A45A200666F20 /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB90156A45A200666F20 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB77156A45A200666F20 /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB91156A45A200666F20 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB79156A45A200666F20 /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB92156A45A200666F20 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB7C156A45A200666F20 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB93156A45A200666F20 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB7F156A45A200666F20 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB94156A45A200666F20 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB81156A45A200666F20 /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB95156A45A200666F20 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB83156A45A200666F20 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB97156A45DC00666F20 /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB96156A45DC00666F20 /* MWPhotoBrowser.bundle */; };
 		76D319611559C0EF0080EFB6 /* RendezvousSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D319601559C0EF0080EFB6 /* RendezvousSplashViewController.m */; };
 		76D319681559E99F0080EFB6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 76D319671559E99F0080EFB6 /* Default.png */; };
 		76DFFE0A155DC2D30044C493 /* apple-touch-icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DFFE09155DC2D30044C493 /* apple-touch-icon-precomposed.png */; };
@@ -83,6 +102,44 @@
 		73E1142715696A32008D215E /* RendezvousAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousAboutViewController.m; sourceTree = SOURCE_ROOT; };
 		73E1142A15698971008D215E /* RendezvousSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousSearchDisplayController.h; sourceTree = SOURCE_ROOT; };
 		73E1142B15698971008D215E /* RendezvousSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousSearchDisplayController.m; sourceTree = SOURCE_ROOT; };
+		73FDAB5C156A45A100666F20 /* MWCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWCaptionView.h; sourceTree = "<group>"; };
+		73FDAB5D156A45A100666F20 /* MWCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWCaptionView.m; sourceTree = "<group>"; };
+		73FDAB5E156A45A100666F20 /* MWPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhoto.h; sourceTree = "<group>"; };
+		73FDAB5F156A45A100666F20 /* MWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWPhoto.m; sourceTree = "<group>"; };
+		73FDAB60156A45A100666F20 /* MWPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhotoBrowser.h; sourceTree = "<group>"; };
+		73FDAB61156A45A100666F20 /* MWPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWPhotoBrowser.m; sourceTree = "<group>"; };
+		73FDAB62156A45A100666F20 /* MWPhotoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhotoProtocol.h; sourceTree = "<group>"; };
+		73FDAB63156A45A100666F20 /* MWTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTapDetectingImageView.h; sourceTree = "<group>"; };
+		73FDAB64156A45A100666F20 /* MWTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTapDetectingImageView.m; sourceTree = "<group>"; };
+		73FDAB65156A45A100666F20 /* MWTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTapDetectingView.h; sourceTree = "<group>"; };
+		73FDAB66156A45A100666F20 /* MWTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTapDetectingView.m; sourceTree = "<group>"; };
+		73FDAB67156A45A100666F20 /* MWZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZoomingScrollView.h; sourceTree = "<group>"; };
+		73FDAB68156A45A100666F20 /* MWZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZoomingScrollView.m; sourceTree = "<group>"; };
+		73FDAB6B156A45A100666F20 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		73FDAB6C156A45A100666F20 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		73FDAB6D156A45A200666F20 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
+		73FDAB6F156A45A200666F20 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		73FDAB70156A45A200666F20 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		73FDAB71156A45A200666F20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		73FDAB72156A45A200666F20 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		73FDAB73156A45A200666F20 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		73FDAB74156A45A200666F20 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
+		73FDAB75156A45A200666F20 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		73FDAB76156A45A200666F20 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		73FDAB77156A45A200666F20 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
+		73FDAB78156A45A200666F20 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		73FDAB79156A45A200666F20 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		73FDAB7A156A45A200666F20 /* SDWebImageDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderDelegate.h; sourceTree = "<group>"; };
+		73FDAB7B156A45A200666F20 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		73FDAB7C156A45A200666F20 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		73FDAB7D156A45A200666F20 /* SDWebImageManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManagerDelegate.h; sourceTree = "<group>"; };
+		73FDAB7E156A45A200666F20 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		73FDAB7F156A45A200666F20 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		73FDAB80156A45A200666F20 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		73FDAB81156A45A200666F20 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		73FDAB82156A45A200666F20 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		73FDAB83156A45A200666F20 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		73FDAB96156A45DC00666F20 /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		76D3195F1559C0EF0080EFB6 /* RendezvousSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousSplashViewController.h; sourceTree = SOURCE_ROOT; };
 		76D319601559C0EF0080EFB6 /* RendezvousSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousSplashViewController.m; sourceTree = SOURCE_ROOT; };
 		76D319671559E99F0080EFB6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -130,6 +187,9 @@
 		73C77F70154DB12B00453D96 = {
 			isa = PBXGroup;
 			children = (
+				73FDAB96156A45DC00666F20 /* MWPhotoBrowser.bundle */,
+				73FDAB5B156A45A100666F20 /* Classes */,
+				73FDAB69156A45A100666F20 /* Libraries */,
 				76DFFE09155DC2D30044C493 /* apple-touch-icon-precomposed.png */,
 				76D319671559E99F0080EFB6 /* Default.png */,
 				73C77F85154DB12B00453D96 /* Rendezvous */,
@@ -223,6 +283,73 @@
 			path = "facebook-ios-sdk";
 			sourceTree = "<group>";
 		};
+		73FDAB5B156A45A100666F20 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				73FDAB5C156A45A100666F20 /* MWCaptionView.h */,
+				73FDAB5D156A45A100666F20 /* MWCaptionView.m */,
+				73FDAB5E156A45A100666F20 /* MWPhoto.h */,
+				73FDAB5F156A45A100666F20 /* MWPhoto.m */,
+				73FDAB60156A45A100666F20 /* MWPhotoBrowser.h */,
+				73FDAB61156A45A100666F20 /* MWPhotoBrowser.m */,
+				73FDAB62156A45A100666F20 /* MWPhotoProtocol.h */,
+				73FDAB63156A45A100666F20 /* MWTapDetectingImageView.h */,
+				73FDAB64156A45A100666F20 /* MWTapDetectingImageView.m */,
+				73FDAB65156A45A100666F20 /* MWTapDetectingView.h */,
+				73FDAB66156A45A100666F20 /* MWTapDetectingView.m */,
+				73FDAB67156A45A100666F20 /* MWZoomingScrollView.h */,
+				73FDAB68156A45A100666F20 /* MWZoomingScrollView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		73FDAB69156A45A100666F20 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				73FDAB6A156A45A100666F20 /* MBProgressHUD */,
+				73FDAB6E156A45A200666F20 /* SDWebImage */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		73FDAB6A156A45A100666F20 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				73FDAB6B156A45A100666F20 /* MBProgressHUD.h */,
+				73FDAB6C156A45A100666F20 /* MBProgressHUD.m */,
+				73FDAB6D156A45A200666F20 /* README.mdown */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		73FDAB6E156A45A200666F20 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				73FDAB6F156A45A200666F20 /* .gitignore */,
+				73FDAB70156A45A200666F20 /* LICENSE */,
+				73FDAB71156A45A200666F20 /* README.md */,
+				73FDAB72156A45A200666F20 /* SDImageCache.h */,
+				73FDAB73156A45A200666F20 /* SDImageCache.m */,
+				73FDAB74156A45A200666F20 /* SDImageCacheDelegate.h */,
+				73FDAB75156A45A200666F20 /* SDWebImageCompat.h */,
+				73FDAB76156A45A200666F20 /* SDWebImageDecoder.h */,
+				73FDAB77156A45A200666F20 /* SDWebImageDecoder.m */,
+				73FDAB78156A45A200666F20 /* SDWebImageDownloader.h */,
+				73FDAB79156A45A200666F20 /* SDWebImageDownloader.m */,
+				73FDAB7A156A45A200666F20 /* SDWebImageDownloaderDelegate.h */,
+				73FDAB7B156A45A200666F20 /* SDWebImageManager.h */,
+				73FDAB7C156A45A200666F20 /* SDWebImageManager.m */,
+				73FDAB7D156A45A200666F20 /* SDWebImageManagerDelegate.h */,
+				73FDAB7E156A45A200666F20 /* SDWebImagePrefetcher.h */,
+				73FDAB7F156A45A200666F20 /* SDWebImagePrefetcher.m */,
+				73FDAB80156A45A200666F20 /* UIButton+WebCache.h */,
+				73FDAB81156A45A200666F20 /* UIButton+WebCache.m */,
+				73FDAB82156A45A200666F20 /* UIImageView+WebCache.h */,
+				73FDAB83156A45A200666F20 /* UIImageView+WebCache.m */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,6 +406,11 @@
 				73C77FBF154DC35100453D96 /* FBDialog.bundle in Resources */,
 				76D319681559E99F0080EFB6 /* Default.png in Resources */,
 				76DFFE0A155DC2D30044C493 /* apple-touch-icon-precomposed.png in Resources */,
+				73FDAB8B156A45A200666F20 /* README.mdown in Resources */,
+				73FDAB8C156A45A200666F20 /* .gitignore in Resources */,
+				73FDAB8D156A45A200666F20 /* LICENSE in Resources */,
+				73FDAB8E156A45A200666F20 /* README.md in Resources */,
+				73FDAB97156A45DC00666F20 /* MWPhotoBrowser.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +432,20 @@
 				76D319611559C0EF0080EFB6 /* RendezvousSplashViewController.m in Sources */,
 				73E1142815696A32008D215E /* RendezvousAboutViewController.m in Sources */,
 				73E1142C15698971008D215E /* RendezvousSearchDisplayController.m in Sources */,
+				73FDAB84156A45A200666F20 /* MWCaptionView.m in Sources */,
+				73FDAB85156A45A200666F20 /* MWPhoto.m in Sources */,
+				73FDAB86156A45A200666F20 /* MWPhotoBrowser.m in Sources */,
+				73FDAB87156A45A200666F20 /* MWTapDetectingImageView.m in Sources */,
+				73FDAB88156A45A200666F20 /* MWTapDetectingView.m in Sources */,
+				73FDAB89156A45A200666F20 /* MWZoomingScrollView.m in Sources */,
+				73FDAB8A156A45A200666F20 /* MBProgressHUD.m in Sources */,
+				73FDAB8F156A45A200666F20 /* SDImageCache.m in Sources */,
+				73FDAB90156A45A200666F20 /* SDWebImageDecoder.m in Sources */,
+				73FDAB91156A45A200666F20 /* SDWebImageDownloader.m in Sources */,
+				73FDAB92156A45A200666F20 /* SDWebImageManager.m in Sources */,
+				73FDAB93156A45A200666F20 /* SDWebImagePrefetcher.m in Sources */,
+				73FDAB94156A45A200666F20 /* UIButton+WebCache.m in Sources */,
+				73FDAB95156A45A200666F20 /* UIImageView+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +525,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Rendezvous/facebook-ios-sdk\"",
+					"\"$(SRCROOT)/libs-universal_three20_1.0.6.2/libs-universal\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -394,6 +541,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Rendezvous/facebook-ios-sdk\"",
+					"\"$(SRCROOT)/libs-universal_three20_1.0.6.2/libs-universal\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
