@@ -65,4 +65,53 @@
     return image;
 }
 
+// Create browser
+MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+browser.displayActionButton = YES;
+//browser.wantsFullScreenLayout = NO;
+//[browser setInitialPageIndex:2];
+
+// Show
+if (_segmentedControl.selectedSegmentIndex == 0) {
+    // Push
+    [self.navigationController pushViewController:browser animated:YES];
+} else {
+    // Modal
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:browser];
+    nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentModalViewController:nc animated:YES];
+    [nc release];
+}
+
+// Release
+[browser release];
+[photos release];
+
+// Deselect
+[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+}
+
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photos.count;
+}
+
+- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
+}
+
+//- (MWCaptionView *)photoBrowser:(MWPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index {
+//    MWPhoto *photo = [self.photos objectAtIndex:index];
+//    MWCaptionView *captionView = [[MWCaptionView alloc] initWithPhoto:photo];
+//    return [captionView autorelease];
+//}
+
+@end
+
+
+
 @end
