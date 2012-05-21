@@ -73,7 +73,6 @@
 - (IBAction)photoButtonPressed:(id)sender {
     // Create browser
     NSMutableArray *photos = [[NSMutableArray alloc] init];
-    MWPhoto *photo;
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
     browser.displayActionButton = YES;
     //browser.wantsFullScreenLayout = NO;

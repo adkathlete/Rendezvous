@@ -147,6 +147,7 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
@@ -180,7 +181,7 @@
     return tempArray;
 }
 
-/*
+
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     return [indices indexOfObject:title];
 }
