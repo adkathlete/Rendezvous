@@ -40,7 +40,7 @@
 
 -(void)loadUserProfile
 {
-    /*RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
+    RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
     NSLog([sharedSingleton visitingId]);
     NSLog(@"New User ID");
     NSString * userId = [sharedSingleton visitingId];
@@ -48,7 +48,6 @@
     [nameLabel setText: userName];
     userPhoto.image= [self imageForObject:userId];
     self.title=[NSString stringWithFormat:@"%@'s Page",userName];
-     */
 
 }
 
@@ -84,16 +83,8 @@
     [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3364/3338617424_7ff836d55f_b.jpg"]]];
     [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b_b.jpg"]]];
     
-    userPhoto.image= [MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3567/3523321514_371d9ac42f_b.jpg"]].underlyingImage;
-    
     self.photos = photos;
-    [nameLabel setText: [NSString stringWithFormat: @"%d",_photos.count]];
-    //[self.navigationController pushViewController:browser animated:YES];
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:browser];
-    nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:nc animated:YES];
-
-
+    [self.navigationController pushViewController:browser animated:YES];
 }
 
 #pragma mark - MWPhotoBrowserDelegate

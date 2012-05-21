@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-/*
+
     facebook = [[Facebook alloc] initWithAppId:@"235693846448097" andDelegate:self];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -45,8 +45,7 @@
     [logoutButton addTarget:self action:@selector(logoutButtonClicked)
            forControlEvents:UIControlEventTouchUpInside];
     //[self.viewController.view addSubview:logoutButton];
-
-*/    
+   
     return YES;
 }
 
