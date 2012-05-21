@@ -85,6 +85,7 @@
     
     self.photos = photos;
     [self.navigationController pushViewController:browser animated:YES];
+
 }
 
 #pragma mark - MWPhotoBrowserDelegate
