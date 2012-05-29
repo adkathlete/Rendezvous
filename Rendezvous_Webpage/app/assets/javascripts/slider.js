@@ -23,7 +23,7 @@ Slider.prototype.generate_content = function()
 {
 
 	this.list = document.createElement("UL");
-	this.list.style.left = "-2060px";
+	this.list.style.left = "0px";
 	this.list.style.position = "relative";
 	this.list.style.width = "14420px";
 	this.list.style.zIndex ="39";
@@ -82,35 +82,35 @@ Slider.prototype.advanceAction = function()
 	  this.currentActive = 2;
 	  this.iphone2.className = "phone active";
 	  this.iphone1.className = "phone";
-	  this.list.style.left = "-4120px";
+	  this.list.style.left = "-2060px";
 	  break;
 	case 2:
 	window.console.log("Switching to 3. currentActive is: "+this.currentActive);
 	  this.currentActive = 3;
 	  this.iphone3.className = "phone active";
 	  this.iphone2.className = "phone";
-	  this.list.style.left = "-6180px";
+	  this.list.style.left = "-4120px";
 	  break;
 	case 3:
 	window.console.log("Switching to 4. currentActive is: "+this.currentActive);
 	  this.currentActive = 4;
 	  this.iphone4.className = "phone active";
 	  this.iphone3.className = "phone";
-	  this.list.style.left = "-8240px";
+	  this.list.style.left = "-6180px";
 	  break;
 	case 4:
 	window.console.log("Switching to 5. currentActive is: "+this.currentActive);
 	  this.currentActive = 5;
 	  this.iphone5.className = "phone active";
 	  this.iphone4.className = "phone";
-	  this.list.style.left = "-10300px";
+	  this.list.style.left = "-8240px";
 	  break;
 	case 5:
 	window.console.log("Switching to 1. currentActive is: "+this.currentActive);
 	  this.currentActive = 1;
 	  this.iphone1.className = "phone active";
 	  this.iphone5.className = "phone";
-	  this.list.style.left = "-2060px";
+	  this.list.style.left = "0px";
 	  break;
 	default:
 	  window.console.log("Something is wrong");
