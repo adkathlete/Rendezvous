@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#define deleteListURL @"http://rendezvous.cs147.org/deleteList.php?from_id="
-#define updatePositionURL @"http://rendezvous.cs147.org/updatePosition.php?from_id="
+#define deleteListURL @"http://rendezvousnow.me/deleteList.php?from_id="
+#define updatePositionURL @"http://rendezvousnow.me/updatePosition.php?from_id="
 
 #import "RendezvousListTableViewController.h"
 
@@ -105,6 +105,7 @@
 {
     // Return the number of rows in the section.
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    NSLog(@"COUNTTTTTTT %d",[[s listIDs] count]);
     return [[s listIDs] count];;
 }
 

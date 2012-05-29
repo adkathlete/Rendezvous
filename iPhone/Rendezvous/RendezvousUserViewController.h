@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "RendezvousCurrentUser.h"
-#import "MWPhotoBrowser.h"
 
 typedef enum fbRequest {
     kLoadAlbums,

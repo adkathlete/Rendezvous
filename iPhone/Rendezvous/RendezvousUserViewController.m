@@ -71,7 +71,8 @@
     return image;
 }
 
-- (IBAction)photoButtonPressed:(id)sender {
+- (IBAction)photoButtonPressed:(id)sender 
+{
     
     currentfbRequest=kLoadAlbums;
     
@@ -80,30 +81,23 @@
     NSString *path=[NSString stringWithFormat:@"%@/albums",[sharedSingleton visitingId]];
     [[delegate facebook] requestWithGraphPath:path andDelegate:self];
     
+}
+
+- (IBAction)sendMessage:(id)sender {
+    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    s.visitingMessageId=[s visitingId];
+    
+    if([[s uniqueMessageUserIDs] containsObject:s.visitingId]){
+        [self performSegueWithIdentifier:@"userChat" sender: self];
+    }else{
+        NSMutableArray *newChat = [[NSMutableArray alloc] init];
+        [[s messages] setValue:newChat forKey:s.visitingId];
+        NSLog(@"Add new Chat!");
+        [self performSegueWithIdentifier:@"userChat" sender: self];
+        
     }
 
-/*
--(void) updateUserPhotos
-{
-    NSLog(@"Loading Photos");
-    // Create browser
-    NSMutableArray *photos = [[NSMutableArray alloc] init];
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    browser.displayActionButton = YES;
-    //browser.wantsFullScreenLayout = NO;
-    //[browser setInitialPageIndex:2];
-    [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3567/3523321514_371d9ac42f_b.jpg"]]];
-    [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b_b.jpg"]]];
-    [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3364/3338617424_7ff836d55f_b.jpg"]]];
-    [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b_b.jpg"]]];
-    
-    self.photos = photos;
-    [self.navigationController pushViewController:browser animated:YES];
-    
-
-    
 }
-*/
 
 #pragma mark - MWPhotoBrowserDelegate
 
@@ -167,7 +161,6 @@
             //[browser setInitialPageIndex:2];
             
             for (NSDictionary *photo in resultData) {
-                NSLog([photo  objectForKey:@"source"]);
                 [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[photo objectForKey:@"source"]]]];
             }
             

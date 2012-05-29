@@ -13,7 +13,9 @@
 @end
 
 @implementation RendezvousHomeViewController
+@synthesize photoButton;
 @synthesize nameLabel,userName,userPhoto;
+@synthesize photos = _photos;
 
 - (void)viewDidLoad
 {
@@ -41,7 +43,7 @@
     RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
     [nameLabel setText:[[sharedSingelton userInfo] objectForKey:@"firstName"]];
     userPhoto.image= [self imageForObject:[sharedSingelton userId]];
-    
+    //userPhoto.image=[[[sharedSingelton photos] objectAtIndex:0] underlyingImage];
     NSLog(@"rahrahrahrhahrahrahr");
     NSLog([sharedSingelton userId]);
     RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -54,6 +56,7 @@
 {
     [self setNameLabel:nil];
     [self setUserPhoto:nil];
+    [self setPhotoButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -69,6 +72,36 @@
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
     return image;
 }
+
+- (IBAction)displayUserPhotos:(id)sender {
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = YES;
+    //browser.wantsFullScreenLayout = NO;
+    //[browser setInitialPageIndex:2];
+    
+    RendezvousCurrentUser *sharedSingelton=[RendezvousCurrentUser sharedInstance];
+    self.photos = [sharedSingelton photos];
+    [self.navigationController pushViewController:browser animated:YES];
+
+}
+
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photos.count;
+}
+
+- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
+}
+
+//- (MWCaptionView *)photoBrowser:(MWPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index {
+//    MWPhoto *photo = [self.photos objectAtIndex:index];
+//    MWCaptionView *captionView = [[MWCaptionView alloc] initWithPhoto:photo];
+//    return [captionView autorelease];
+//}
 
 - (void)request:(FBRequest *)request didLoad:(id)result
 {

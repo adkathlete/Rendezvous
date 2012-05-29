@@ -7,7 +7,7 @@
 //
 
 #import "RendezvousAddTableViewController.h"
-#define kaddUserURL @"http://rendezvous.cs147.org/addList.php?"
+#define kaddUserURL @"http://rendezvousnow.me/addList.php?"
 
 
 @interface RendezvousAddTableViewController ()
