@@ -7,13 +7,14 @@
 //
 
 #import "RendezvousHomeViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface RendezvousHomeViewController ()
 
 @end
 
 @implementation RendezvousHomeViewController
-@synthesize nameLabel,userName,userPhoto;
+@synthesize nameLabel,userName,userPhoto,timeLabel,timer;
 
 - (void)viewDidLoad
 {
@@ -22,6 +23,31 @@
                                                                          blue:0xFD/255.0f alpha:1]; 
     
     [super viewDidLoad];
+    
+    
+    NSDate *date=[NSDate date];
+    int secondsNow=(int)[date timeIntervalSince1970];
+    NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    int currentYear = [[formatter stringFromDate:date] intValue];
+    int nextYear=currentYear+1;
+    NSString *nextYearBegin=[NSString stringWithFormat:@"%d0101",nextYear];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSDate *otherDate=[formatter dateFromString:nextYearBegin];
+   // NSLog(@"%@",[otherDate description]);
+    int secondsTarget=(int)[otherDate timeIntervalSince1970];
+    int differenceSeconds=secondsTarget-secondsNow;
+    int days=(int)((double)differenceSeconds/(3600.0*24.00));
+    int diffDay=differenceSeconds-(days*3600*24);
+    int hours=(int)((double)diffDay/3600.00);
+    int diffMin=diffDay-(hours*3600);
+    int minutes=(int)(diffMin/60.0);
+    int seconds=diffMin-(minutes*60);
+    timeLabel.text = [NSString stringWithFormat:@"%d Days %d Hours %d Minutes %d Seconds",days,hours,minutes,seconds];
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    
+    
     
     
     NSURL *newurl = [NSURL URLWithString:@"http://mtnweekly.com/wp-content/uploads/2011/10/Stanford.jpg"];
@@ -34,6 +60,28 @@
     //NSLog([sharedSingelton userId]);
     //[self apiGraphFriends];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)timerFired:(NSTimer *)timer{
+    NSDate *date=[NSDate date];
+    int secondsNow=(int)[date timeIntervalSince1970];
+    NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    int currentYear = [[formatter stringFromDate:date] intValue];
+    int nextYear=currentYear+1;
+    NSString *nextYearBegin=[NSString stringWithFormat:@"%d0101",nextYear];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSDate *otherDate=[formatter dateFromString:nextYearBegin];
+    //NSLog(@"%@",[otherDate description]);
+    int secondsTarget=(int)[otherDate timeIntervalSince1970];
+    int differenceSeconds=secondsTarget-secondsNow;
+    int days=(int)((double)differenceSeconds/(3600.0*24.00));
+    int diffDay=differenceSeconds-(days*3600*24);
+    int hours=(int)((double)diffDay/3600.00);
+    int diffMin=diffDay-(hours*3600);
+    int minutes=(int)(diffMin/60.0);
+    int seconds=diffMin-(minutes*60);
+    timeLabel.text = [NSString stringWithFormat:@"%d Days %d Hours %d Minutes %d Seconds",days,hours,minutes,seconds];
 }
 
 - (void)ourMethod

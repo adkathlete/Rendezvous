@@ -6,9 +6,8 @@
 //  Copyright (c) 2012 Stanford University. All rights reserved.
 //
 
-#define userDataURL @"http://rendezvous.cs147.org/getUserInfo.php?id="
-#define userListURL @"http://rendezvous.cs147.org/getList.php?id="
-#define checkUserURL @"http://rendezvous.cs147.org/checkUser.php?id="
+#define userDataURL @"http://www.rendezvousnow.me/getUserInfo.php?id="
+#define userListURL @"http://www.rendezvousnow.me/getList.php?id="
 #import "RendezvousCurrentUser.h"
 
 @implementation RendezvousCurrentUser
@@ -120,7 +119,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
     NSLog(@"loadUserList");
     checkLoad = 2;
 	self.responseData = [NSMutableData data];
-    NSString *requestString = [@"http://rendezvous.cs147.org/getList.php?id=" stringByAppendingString:[self userId]];
+    NSString *requestString = [@"http://rendezvousnow.me/getList.php?id=" stringByAppendingString:[self userId]];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestString]];
     NSLog(requestString);
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -132,7 +131,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
     NSLog(connectionCheck);
     checkLoad = 3;
     self.responseData = [NSMutableData data];
-    NSString *urlString = [@"http://rendezvous.cs147.org/getMatch.php?id=" stringByAppendingString:userId];
+    NSString *urlString = [@"http://rendezvousnow.me/getMatch.php?id=" stringByAppendingString:userId];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
@@ -159,15 +158,26 @@ static RendezvousCurrentUser *sharedInstance = nil;
         NSString *responseString2 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
         NSLog(responseString2);
         self.responseData = nil;
-        listIDs = [responseString2 componentsSeparatedByString:@","];
+        listIDs = [[NSMutableArray alloc] init];
         currentAPICall =  kLoadUserList;
+        
+        SBJsonParser* parser = [[SBJsonParser alloc] init];
+        NSArray *arr = [parser objectWithString:responseString2];
+        
+        for (NSDictionary* dict in arr) {
+            [listIDs addObject:[dict objectForKey:@"to_id"]];
+            NSLog(@"HERE");
+            NSLog([dict objectForKey:@"to_id"]);
+        }
+        
+        //listIDs = [responseString2 componentsSeparatedByString:@","];
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-        if(responseString2.length!=0){
+        if([listIDs count]!=0){
             for (NSString *item in listIDs) {
                 NSLog(@"apicalls");
                 [[delegate facebook] requestWithGraphPath:item andDelegate:self];
             }
-        }else {
+        } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
         }
     } else if (checkLoad == 3) {
