@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RendezvousWebpage</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header">
+	<a id="title" href="/user/home">
+		<img src="/assets/logo.png">
+	</a>	
+</div>
+<%= yield %>
+
+
+<div id="footer" style="margin-top: 960px;">
+		<ul>
+			<li>
+				<a href="/user/home" style="">Home</a>
+			</li>
+			<li>
+				<a href="/user/about" style="">About</a>
+			</li>
+			<li>
+				<a href="press.html" style="">Press</a>
+			</li>
+			<li>
+				<a href="support.html" style="">Support</a>
+			</li>
+		</ul>
+		<a id="app-store-button" onclick="recordOutboundLink(this, 'App Store', 'from home footer');return false;" href="http://itunes.apple.com/us/app/ness/id454869181?ls=1&mt=8" style="">
+			<span>Available on the App Store</span>
+		</a>
+		<span>
+				Copyright &copy; Rendezvous All rights reserved.
+		</span>
+		<small>Apple, iPad, iPhone, iPod touch, and iTunes are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc</small>
+</div>
+
+</body>
+</html>

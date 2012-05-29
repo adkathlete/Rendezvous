@@ -1,0 +1,362 @@
+
+#iphone {
+    margin-top: -30pt;
+    position: absolute;
+    top: 0;
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    z-index: 25;
+}
+
+#content {
+    position: relative;
+    z-index: 40;
+}
+
+#mainContent li div {
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-family: FacitWeb,"Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
+    opacity: 0.75;
+    padding: 10px 20px 15px;
+    width: 686px;
+}
+
+#download-appstore {
+    left: 60px;
+    margin-top: 21.5px;
+}
+
+#download-appstore {
+    -moz-user-select: none;
+    background: url("/assets/app-store-badge-2.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 80px;
+    outline: medium none;
+    position: relative;
+    width: 232px;
+    z-index: 40;
+}
+
+
+#app-store-button {
+	display:block;
+	background: url('/assets/app-store-badge.png') no-repeat;
+	height:72px;
+	width:208px;
+	margin:0 auto;
+}
+
+/****************
+  Pagination Buttons
+*******************/
+
+ul#toggle {
+	bottom: 45px;
+	clear:both;
+	display: block;
+	height:35px;
+	list-style:none outside none;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	/*margin-bottom: 45px;*/
+	z-index: 99;
+	/* -moz-user-select: none; */
+	/* -webkit-user-select: none; */
+}
+
+ul#toggle li {
+	display: inline;
+	position: relative;
+	margin: 0px 9px 0px 9px;
+}
+
+ul#toggle li a {
+	width: 20px;
+	height: 21px;
+	background: url('/assets/pagination-dot-inactive.png');
+	display: inline-block;
+	position: relative;
+}
+
+ul#toggle li a:active			{ top:1px; }
+ul#toggle li.active a 			{ background: url('/assets/pagination-dot-active.png'); }
+
+.arrow * { display:none; } 
+
+.arrow {
+	right: 0;
+	position: absolute;
+	top: 425px;
+}
+
+.arrow a, .arrow .hover { 
+	background:transparent url(/assets/arrow-sheet.png) no-repeat 0 0;
+	display: block;
+	height:114px;
+	width:97px;
+	outline:none;	
+	position: relative;
+	z-index: 30;
+	/* -moz-user-select: none; */
+	/* -webkit-user-select: none; */
+} 
+
+.arrow a 		{ background-position:0 0; }
+.arrow a:active { margin-top:1px; }
+
+.arrow .hover 	{
+	background-position:0 -114px;
+} 
+
+.arrow .highlight:hover, .arrow .highlight .hover { 
+	background-position:0 -114px !important;
+} 
+
+
+/*************
+   Content
+**************/
+
+#iphone,
+#iphone #shell,
+#iphone IMG.phone,
+#background-items li {
+   	-moz-user-select: none;
+	-webkit-user-select: none;	
+}
+
+/* text content */
+#content {
+	position: relative;
+	z-index: 40;
+}
+
+#mainContent{ top:; }
+
+#mainContent li {
+	/* Why does this need to be 1000px wide...? */
+	/* width:1000px; */
+	/* width:686px; */
+	display: block;
+	margin-top:60px;
+	margin-left:60px;
+	/*
+	padding-left: 60px;
+	padding-top: 60px;
+	*/
+	z-index: 40;
+	position: relative;
+	overflow: hidden;
+}
+
+#mainContent li div {
+	-moz-border-radius:5px;
+	border-radius:5px;
+	color:#FFF;
+	font-family:FacitWeb, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif; 
+	padding:10px 20px 15px;
+	background: rgb(0, 0, 0); 
+	opacity: 0.75;
+	width:686px;
+}
+
+#mainContent li div h1,
+#mainContent li div p {
+	font-family:Facitweb;
+}
+
+#mainContent li div h1 { 
+	/* Remove before pushing... */
+	/* font-family:Facitweb-Semibold; */
+	
+	font-size:72px; 
+	/* font-weight:600; */
+	font-weight:500;
+	letter-spacing:-0.025em;
+}
+
+#mainContent li div p {
+	/* Remove before pushing... */
+	/* font-family:Facitweb-Light; */
+	font-size:36px; 
+	font-weight:300;
+}
+
+/* iphone */
+#iphone {
+	position:absolute;
+	margin-top:-30pt;
+	top: 0;
+}
+
+#iphone #shell {
+	z-index:25;
+	position:relative;
+}
+
+#iphone img.phone {
+    position:absolute;
+    right:0;
+    top:161px;
+    left:60px;
+    z-index:18;
+    opacity:1.0;	
+}
+
+#iphone IMG.phone.active {
+    z-index:20;
+    opacity:1.0;
+}
+
+#iphone IMG.phone.last-active { z-index:19; }
+
+/* Background food items */
+
+#background-items {
+	position:absolute;
+	width:1312px;
+	margin-top:54pt;
+	top:0;
+	display:table;
+	left:-425px;
+	z-index:23;
+}
+
+#background-items li {
+    position:absolute;
+    z-index:4;
+	opacity:0;
+	filter: "alpha(opacity=0)";
+}
+
+#background-items li.active 			{ z-index:32; opacity:1.0; filter:"alpha(opacity=100)"; }
+#background-items li.last-active 		{ z-index:31; }
+#background-items .item-container div 	{ position:relative; }
+
+/* Using text now to render this stuff: */
+
+#background-items #salad div {
+	background: url('/assets/salad-512-dither.png') no-repeat top left;
+	height:797px;
+	width:1164px;
+	left:165px;
+	top:30px;
+}
+
+#background-items #peppers div {
+	background: url('/assets/peppers-512-dither.png') no-repeat top left;
+	height:892px;
+	width:1045px;
+	left:200px;
+}
+
+#background-items #porkbuns div {
+	background: url('/assets/porkbuns-512-dither.png') no-repeat top left;
+	height:867px;
+	width:883px;
+	left:280px;
+}
+
+#background-items #tart div {
+	background: url('/assets/tart-512-dither.png') no-repeat top left;
+	height:693px;
+	width:698px;
+	left:470px;
+	top:90px;
+}
+
+#background-items #cupcake div {
+	background: url('/assets/cupcake-512-dither.png') no-repeat top left;
+	height:555px;
+	width:552px;
+	left:550px;
+	top:155px;
+}
+
+/* download button */
+#download, #download .hover {
+	width: 222px;
+	height: 82px;
+	background: url('/assets/download-sheet.png') no-repeat 0 0;
+	display: block;
+	position: relative;
+	z-index: 40;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	outline:none;
+}
+
+#download-appstore {
+	width: 232px;
+	height: 80px;
+	background: url('/assets/app-store-badge-2.png') no-repeat 0 0;
+	display: block;
+	position: relative;
+	z-index: 40;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	outline:none;
+}
+
+#download,
+#download-appstore									{ margin-top:21.5px; left:60px; }
+#download:active,
+#download-appstore:active							{ margin-top:22.5px; }
+#download * 										{ display:none; } 
+#download .hover 									{ background-position:0 -82px; } 
+#download.highlight:hover, .arrow.highlight .hover 	{ background-position:0 -82px !important; } 
+
+#homepage-alert {
+	background: url('/assets/alert-postit-base-512.png') no-repeat 0 0;
+	height:420px;
+	width:534px;
+	position:absolute;
+	z-index:999;
+	left:-50px;
+}
+
+#homepage-alert-title,
+#homepage-alert-message,
+#homepage-alert-link {
+	position:relative;
+	display:block;
+	margin-left:50px;
+}
+
+#homepage-alert-message,
+#homepage-alert-link {
+	text-shadow: 0 1px 1px #FFF;
+}
+
+#homepage-alert-title {
+	background: url('/assets/alert-title-ohno.png') no-repeat 0 0;
+	width:98px;
+	height:37px;
+	top:85px;
+	left:250px;
+}
+
+#homepage-alert-message {
+	color:#241809;
+	top:105px;
+	left:185px;
+	width:240px;
+}
+
+#homepage-alert-link {
+	color:#39b0ce;
+	font-weight:bold;
+	text-decoration:none;
+	left:210px;
+	top:135px;
+}
+
+#iphone, #iphone #shell, #iphone IMG.phone, #background-items li {
+    -moz-user-select: none;
+}

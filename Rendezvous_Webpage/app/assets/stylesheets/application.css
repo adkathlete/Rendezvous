@@ -1,0 +1,218 @@
+/*
+
+Facit Web by Just Another Foundry
+See http://justanotherfoundry.com for details.
+
+The font files linked from this file may not be downloaded,
+hosted or installed on a computer.
+
+You may host this file provided that you do not remove or
+modify this comment. You can remove unused styles but you
+should not alter the @font-face definitions.
+
+(c) Just Another Foundry 2010 for this and all linked files.
+
+*/
+
+/* FacitWeb                    */ @font-face{font-family:'FacitWeb';src:url('http://webfonts.justanotherfoundry.com/Facit/FR')}
+/* FacitWeb, italic            */ @font-face{font-family:'FacitWeb';src:url('http://webfonts.justanotherfoundry.com/Facit/FR-i');font-style:italic}
+/* FacitWeb, bold              */ @font-face{font-family:'FacitWeb';src:url('http://webfonts.justanotherfoundry.com/Facit/FB');font-weight:bold}
+/* FacitWeb, bold, italic      */ @font-face{font-family:'FacitWeb';src:url('http://webfonts.justanotherfoundry.com/Facit/FB-i');font-weight:bold;font-style:italic}
+
+/* FacitWeb-Extralight         */ @font-face{font-family:'FacitWeb-Extralight';src:url('http://webfonts.justanotherfoundry.com/Facit/FXL');font-weight:bold}
+/* FacitWeb-Extralight, italic */ @font-face{font-family:'FacitWeb-Extralight';src:url('http://webfonts.justanotherfoundry.com/Facit/FXL-i');font-weight:bold;font-style:italic}
+/* FacitWeb-Light              */ @font-face{font-family:'FacitWeb-Light';src:url('http://webfonts.justanotherfoundry.com/Facit/FL');font-weight:bold}
+/* FacitWeb-Light, italic      */ @font-face{font-family:'FacitWeb-Light';src:url('http://webfonts.justanotherfoundry.com/Facit/FL-i');font-weight:bold;font-style:italic}
+/* FacitWeb-Bold               */ @font-face{font-family:'FacitWeb-Bold';src:url('http://webfonts.justanotherfoundry.com/Facit/FB');font-weight:bold}
+/* FacitWeb-Bold, italic       */ @font-face{font-family:'FacitWeb-Bold';src:url('http://webfonts.justanotherfoundry.com/Facit/FB-i');font-weight:bold;font-style:italic}
+/* FacitWeb-Semibold           */ @font-face{font-family:'FacitWeb-Semibold';src:url('http://webfonts.justanotherfoundry.com/Facit/FSB');font-weight:bold}
+/* FacitWeb-Semibold, italic   */ @font-face{font-family:'FacitWeb-Semibold';src:url('http://webfonts.justanotherfoundry.com/Facit/FSB-i');font-weight:bold;font-style:italic}
+/* FacitWeb-Extrabold          */ @font-face{font-family:'FacitWeb-Extrabold';src:url('http://webfonts.justanotherfoundry.com/Facit/FXB');font-weight:bold}
+/* FacitWeb-Extrabold, italic  */ @font-face{font-family:'FacitWeb-Extrabold';src:url('http://webfonts.justanotherfoundry.com/Facit/FXB-i');font-weight:bold;font-style:italic}
+
+html{text-rendering:optimizeLegibility}
+
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+
+body {
+    color: #FFFFFF;
+    font-family: FacitWeb,"Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
+    font-weight: 300;
+    position: absolute;
+    width: 100%;
+}
+
+#header {
+    height: 101px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 40;
+}
+
+#header #title {
+	margin-left: 60px;
+	width: 511px;
+	top: 40px;
+	position: relative;
+}
+
+
+a {
+    color: #39B0CE;
+}
+
+a {
+    -moz-transition-duration: 250ms, 250ms;
+    -moz-transition-property: color;
+    -moz-transition-timing-function: linear, ease-in;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+a:hover	{ 
+color:#339999; 
+}
+
+/* Firefox outline fix */
+:focus {
+  -moz-outline-style: none;
+  outline: none;
+}
+
+a span { 
+display: none; 
+}
+
+
+home.css (line 20)
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+/*********************
+   Background Image
+*********************/
+
+#background {
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    /* min-height: 960px; */
+    min-width: 1280px;
+	top: 0;
+	overflow: hidden;
+}
+
+#background IMG.bg {
+    position:absolute;
+    margin: 0 auto;
+    min-height: 960px;
+    min-width: 1280px;
+    right: 0;
+    top:0;
+    left: 0;
+    z-index: 5;
+   	/* -moz-user-select: none; */
+	/* -webkit-user-select: none; */
+}
+
+#background-items li.active {
+    z-index: 32;
+}
+
+#background-items li {
+    position: absolute;
+}
+
+/* BG Lighting FX (between BG food items and foreground elements) */
+#background #bigRadial {
+	/* Radial gradients: */
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 70%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.45)), color-stop(70%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 70%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 70%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 70%); /* IE10+ */
+	background: radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 70%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	position:absolute;
+	/* +headerHeight ... Why did I do it this way? Ugh. */
+	top:-560px;
+	left:-400px;
+	height:800px;
+	width:800px;
+	z-index:25;
+}
+
+#background #bigLinearLeft {
+	/* Radial gradients: */
+	background: -moz-linear-gradient(left,  rgba(0,0,0,0.30) 0%, rgba(0,0,0,0) 70%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.30)), color-stop(70%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 70%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 70%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 70%); /* IE10+ */
+	background: linear-gradient(left,  rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 70%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+	position:absolute;
+	/* +headerHeight ... Why did I do it this way? Ugh. */
+	/* top:-560px; */
+	height:100%;
+	width:600px;
+	z-index:24;
+}
+
+/*********************
+   Footer
+*********************/	
+
+#footer * 									{ text-shadow: 0 1px 1px #FFF; }
+#footer span, #footer small 				{ color:#C2C2C2; display:block; line-height:1.5em; }
+#footer span 								{ font: 13.5px/1.5 FacitWeb, "Helvetica Neue",helvetica,verdana,arial,sans-serif; font-weight:300; padding-top:20px; }
+#footer small 								{ font-size:10px; }
+
+#footer a 									{ font-family:FacitWeb; font-weight:300; color:#B2B2B2; text-decoration:none; }
+#footer a:hover, #footer span a:hover	 	{ color:#404040; }
+#footer span a 								{ margin:0 16px; }
+
+#footer li 									{ display:inline; margin:20px; }
+#app-store-button span						{ display:none; }
+
+#footer {
+	position: absolute;
+	margin-top: 100%;
+	background: url('/assets/edge-drop-shadow-scalable.png') repeat-x top #efefef;
+	width: 100%;
+	height:207px; /* Additional 15px of height to account for Apple copyright text */
+	padding-bottom:10px;
+	top:0;
+	text-align: center;
+}
+
+#footer ul {
+	color:#B2B2B2;
+	font-size:18px;
+	margin-bottom:20px;
+	padding-top:30px;
+	position:relative;
+	z-index:50;
+}
+
+#iphone img.phone {
+    position:absolute;
+    right:0;
+    top:161px;
+    left:60px;
+    z-index:18;
+    opacity:1.0;	
+}
+
+#iphone IMG.phone.active {
+    z-index:20;
+    opacity:1.0;
+}
+
+
+
+

@@ -1,0 +1,1 @@
+function Slider(iphone1, iphone2, iphone3, iphone4, iphone5)
