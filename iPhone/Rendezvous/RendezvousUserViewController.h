@@ -26,5 +26,6 @@ typedef enum fbRequest {
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) NSArray *photos;
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 @end

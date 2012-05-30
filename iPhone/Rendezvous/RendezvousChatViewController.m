@@ -36,12 +36,15 @@
 {
     [super viewDidLoad];
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    [self setTitle:[[s messageUserInfo] objectForKey:[s visitingMessageId]]];
     NSLog([s visitingMessageId]);
+    
     if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
     {
-    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
-    [[self chatTableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+        [self setTitle:[[s messageUserInfo] objectForKey:[s visitingMessageId]]];
+        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
+        [[self chatTableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    }else{
+        [self setTitle:[[s listUserInfo] objectForKey:[s visitingMessageId]]];
     }
     [self registerForKeyboardNotifications];
 
@@ -95,8 +98,11 @@
     [chatTableView setFrame:chatWindow];
     
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
+    {
     NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
     [[self chatTableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
@@ -106,8 +112,11 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
+    {
     NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
     [[self chatTableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
     
     CGRect r=[composeMessageView frame];
     //r.origin.y=self.tabBarController.tabBar.frame.origin.y-self.tabBarController.tabBar.frame.size.height-r.size.height;

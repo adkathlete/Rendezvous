@@ -18,6 +18,7 @@
 @synthesize nameLabel,userName,userPhoto, userId;
 @synthesize photos = _photos;
 @synthesize photoButton;
+@synthesize messageButton;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,6 +56,7 @@
 - (void)viewDidUnload
 {
     [self setPhotoButton:nil];
+    [self setMessageButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -85,6 +87,8 @@
 
 - (IBAction)sendMessage:(id)sender {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    NSLog(@"SEND MESSAGE!");
+    NSLog(@"Message Id is: %@",[s visitingMessageId]);
     s.visitingMessageId=[s visitingId];
     
     if([[s uniqueMessageUserIDs] containsObject:s.visitingId]){
@@ -93,6 +97,7 @@
         NSMutableArray *newChat = [[NSMutableArray alloc] init];
         [[s messages] setValue:newChat forKey:s.visitingId];
         NSLog(@"Add new Chat!");
+        NSLog([s visitingMessageId]);
         [self performSegueWithIdentifier:@"userChat" sender: self];
         
     }
