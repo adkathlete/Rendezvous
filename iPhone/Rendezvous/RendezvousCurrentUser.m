@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Stanford University. All rights reserved.
 //
 
+
 #define userDataURL @"http://rendezvousnow.me/getUserInfo.php?id="
 #define userListURL @"http://rendezvousnow.me/getList.php?id="
 #define checkUserURL @"http://rendezvousnow.me/checkUser.php?id="
@@ -196,7 +197,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
             RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
             NSString *path=[NSString stringWithFormat:@"%@/albums",userId];
             [[delegate facebook] requestWithGraphPath:path andDelegate:self];
-        }
+        } 
     } else if (checkLoad == 3) {
         NSLog(@"checkLoad is 3");
         NSString *responseString3 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];

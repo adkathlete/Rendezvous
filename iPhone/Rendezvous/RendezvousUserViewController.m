@@ -7,6 +7,7 @@
 //
 
 #import "RendezvousUserViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 
@@ -20,6 +21,24 @@
 @synthesize photoButton;
 @synthesize messageButton;
 
+
+- (CGRect)getFrameSizeForImage:(UIImage *)image inImageView:(UIImageView *)imageView {
+    
+    float hfactor = image.size.width / imageView.frame.size.width;
+    float vfactor = image.size.height / imageView.frame.size.height;
+    
+    float factor = fmax(hfactor, vfactor);
+    
+    // Divide the size by the greater of the vertical or horizontal shrinkage factor
+    float newWidth = image.size.width / factor;
+    float newHeight = image.size.height / factor;
+    
+    // Then figure out if you need to offset it to center vertically or horizontally
+    float leftOffset = (imageView.frame.size.width - newWidth) / 2;
+    float topOffset = (imageView.frame.size.height - newHeight) / 2;
+    
+    return CGRectMake(leftOffset, topOffset, newWidth, newHeight);
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,6 +68,13 @@
     userName = [[sharedSingleton listUserInfo] objectForKey:userId];
     [nameLabel setText: userName];
     userPhoto.image= [self imageForObject:userId];
+    [userPhoto.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [userPhoto.layer setBorderWidth: 4.0];
+    CGRect frame = [self getFrameSizeForImage:userPhoto.image inImageView:userPhoto];
+    CGRect imageViewFrame = CGRectMake(userPhoto.frame.origin.x + frame.origin.x, userPhoto.frame.origin.y + frame.origin.y, frame.size.width, frame.size.height);
+    userPhoto.frame = imageViewFrame;
+
+
     self.title=[NSString stringWithFormat:@"%@'s Page",userName];
 
 }
