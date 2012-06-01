@@ -561,22 +561,31 @@ We make the connection. You rendezvous. Good luck!</string>
             </objects>
             <point key="canvasLocation" x="1612" y="-1006"/>
         </scene>
-        <!--Table View Controller - Old Matches-->
+        <!--Rendezvous Old Matches View Controller - Old Matches-->
         <scene sceneID="vWD-Dt-vJb">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cH-BS-eay" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="qFp-Dh-frW" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="08b-Ps-D75">
+                <tableViewController id="qFp-Dh-frW" customClass="RendezvousOldMatchesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="08b-Ps-D75">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wm9-vY-f1m">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="matchCellIdentifier" rowHeight="73" id="XGI-8M-YSk">
+                                <rect key="frame" x="0.0" y="46" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="280" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="n2F-2x-FdX">
+                                            <rect key="frame" x="74" y="25" width="173" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -587,6 +596,9 @@ We make the connection. You rendezvous. Good luck!</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Old Matches" id="bdH-HM-IPB"/>
+                    <connections>
+                        <segue destination="RUx-AY-dOk" kind="push" identifier="oldMatchToDetailPage" id="pSQ-V2-Fp8"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="574" y="965"/>
@@ -766,6 +778,9 @@ We make the connection. You rendezvous. Good luck!</string>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
+        <class className="RendezvousOldMatchesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousOldMatchesViewController.h"/>
+        </class>
         <class className="RendezvousSearchDisplayController" superclassName="UISearchDisplayController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousSearchDisplayController.h"/>
         </class>
@@ -788,7 +803,8 @@ We make the connection. You rendezvous. Good luck!</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VXX-Ei-Dnf"/>
+        <segue reference="pSQ-V2-Fp8"/>
         <segue reference="9At-kh-KCL"/>
+        <segue reference="VXX-Ei-Dnf"/>
     </inferredMetricsTieBreakers>
 </document>

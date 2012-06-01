@@ -34,13 +34,13 @@
                                                                          blue:0xFD/255.0f alpha:1]; 
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     
-    if ([[sharedSingleton matchedUserId] length] == 0)
+    if ([[sharedSingleton matchIDs] count] == 0)
     {
         [nameLabel setText:@"Unfortunately, you don't have a \n match loser :("];
     }
     else
     {
-        [nameLabel setText: [sharedSingleton matchName]];
+        [nameLabel setText:[[sharedSingleton matchInfo] objectForKey:[sharedSingleton matchedUserId]]];
         matchPhoto.image= [self imageForObject: [sharedSingleton matchedUserId]];
     }
     [super viewDidLoad];
@@ -70,27 +70,31 @@
     return image;
 }
 - (IBAction)loadMatchPhotos:(id)sender {
-    currentfbRequest=kLoadAlbums;
-    
-    RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
-    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *path=[NSString stringWithFormat:@"%@/albums",[sharedSingleton matchedUserId]];
-    [[delegate facebook] requestWithGraphPath:path andDelegate:self];
-    
+    if ([[sharedSingleton matchIDs] count] != 0)
+    {
+        currentfbRequest=kLoadAlbums;
+        
+        RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
+        RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSString *path=[NSString stringWithFormat:@"%@/albums",[sharedSingleton matchedUserId]];
+        [[delegate facebook] requestWithGraphPath:path andDelegate:self];
+    }
 }
 - (IBAction)messageUser:(id)sender {
-    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    s.visitingMessageId=[s matchedUserId];
-    
-    if([[s uniqueMessageUserIDs] containsObject:s.matchedUserId]){
-        [self performSegueWithIdentifier:@"matchChat" sender: self];
-    }else{
-        NSMutableArray *newChat = [[NSMutableArray alloc] init];
-        [[s messages] setValue:newChat forKey:s.matchedUserId];
-        [self performSegueWithIdentifier:@"matchChat" sender: self];
+    if ([[sharedSingleton matchIDs] count] != 0)
+    {
+        RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+        s.visitingMessageId=[s matchedUserId];
         
+        if([[s uniqueMessageUserIDs] containsObject:s.matchedUserId]){
+            [self performSegueWithIdentifier:@"matchChat" sender: self];
+        }else{
+            NSMutableArray *newChat = [[NSMutableArray alloc] init];
+            [[s messages] setValue:newChat forKey:s.matchedUserId];
+            [self performSegueWithIdentifier:@"matchChat" sender: self];
+            
+        }
     }
-
     
 
 }

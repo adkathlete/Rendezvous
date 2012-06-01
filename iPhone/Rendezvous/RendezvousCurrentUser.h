@@ -44,6 +44,7 @@ typedef enum apiCall {
 @property (nonatomic, retain) NSMutableString *connectionCheck;
 @property (nonatomic, retain) NSMutableDictionary *listUserInfo;
 @property (nonatomic, retain) NSMutableArray *listIDs;
+@property (nonatomic, retain) NSMutableArray *matchIDs;
 @property (nonatomic, retain) NSMutableArray *uniqueMessageUserIDs;
 @property (retain, nonatomic) NSMutableData* responseData;
 @property (nonatomic, retain) NSMutableDictionary *messages;
@@ -58,7 +59,7 @@ typedef enum apiCall {
 @property (nonatomic,retain) NSMutableDictionary *userInfo;
 @property (nonatomic,retain) NSArray *userInfoObjects;
 @property (nonatomic,retain) NSArray *userInfoKeys;
-@property (retain, nonatomic) NSString *matchName;
+@property (retain, nonatomic) NSMutableDictionary *matchInfo;
 @property (retain, nonatomic) NSString *matchedUserId;
 @property (nonatomic, retain) NSArray *photos;
 

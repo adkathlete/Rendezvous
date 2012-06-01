@@ -178,7 +178,12 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-
+    
+    if(![[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
+    {
+        [[s uniqueMessageUserIDs] addObject:[s visitingMessageId]];
+        [[s messageUserInfo] setObject:[[s listUserInfo] objectForKey:[s visitingMessageId]] forKey:[s visitingMessageId]]; 
+    }
     NSMutableDictionary *newMessageDictionary=[[NSMutableDictionary alloc] init];
     [newMessageDictionary setValue:newMessage forKey:@"message"];
     [newMessageDictionary setValue:newMessageToID forKey:@"to_id"];

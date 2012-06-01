@@ -65,7 +65,11 @@
     NSLog([sharedSingleton visitingId]);
     NSLog(@"New User ID");
     NSString * userId = [sharedSingleton visitingId];
+    NSLog(userId);
     userName = [[sharedSingleton listUserInfo] objectForKey:userId];
+    if(!userName){
+        userName=[[sharedSingleton matchInfo] objectForKey:userId];
+    }
     [nameLabel setText: userName];
     userPhoto.image= [self imageForObject:userId];
     [userPhoto.layer setBorderColor: [[UIColor whiteColor] CGColor]];
