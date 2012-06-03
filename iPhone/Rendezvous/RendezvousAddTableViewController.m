@@ -7,7 +7,7 @@
 //
 
 #import "RendezvousAddTableViewController.h"
-#define kaddUserURL @"http://rendezvous.cs147.org/addList.php?"
+#define kaddUserURL @"http://www.rendezvousnow.me/addList.php?"
 
 
 @interface RendezvousAddTableViewController ()
@@ -30,6 +30,9 @@
 
 - (void)viewDidLoad
 {
+    UINavigationBar *NavBar = [[self navigationController] navigationBar];
+    UIImage *back = [UIImage imageNamed:@"Bar.png"];
+    [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     [super viewDidLoad];
     error = 0;
     
@@ -51,6 +54,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    self.tableView.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:19.0/255.0 blue:19.0/255.0 alpha:1.0];
+    
 }
 
 - (void)viewDidUnload
@@ -236,6 +244,11 @@
         // The object's image
         cell.imageView.image = [self imageForObject:[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
     }
+    
+    UIImage *background = [UIImage imageNamed:@"cellBackground.png"];
+    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:background];
+    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];
     
     //UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
     //[cellLabel setText:@"Testing Text"];

@@ -25,6 +25,29 @@
 
 - (void)viewDidLoad
 {
+    
+    UIImage *tabB = [[UIImage imageNamed:@"shouldBeGood.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,0,0,0)];
+    
+    UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
+    UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
+    
+    UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
+    UIImage *unselectedImage1 = [UIImage imageNamed:@"heart.png"];
+    
+    UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
+    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
+    
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
+    
+    [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
+    [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
+    [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
+    [[UITabBar appearance] setBackgroundImage:tabB];
+    
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"selection.png"]];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchPage) name:@"DataModelComplete" object:nil];

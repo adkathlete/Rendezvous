@@ -7,6 +7,7 @@
 //
 
 #import "RendezvousUserViewController.h"
+#import "QuartzCore/QuartzCore.h"
 
 
 
@@ -31,8 +32,12 @@
 
 - (void)viewDidLoad
 {
+    UINavigationBar *NavBar = [[self navigationController] navigationBar];
+    UIImage *back = [UIImage imageNamed:@"Bar.png"];
+    [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     NSLog(@"VIEWDIDLOAD");
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadUserProfile) name:@"loadingUserPage" object:nil];
+    
     
     [self loadUserProfile];
     [super viewDidLoad];
@@ -48,9 +53,19 @@
     userName = [[sharedSingleton listUserInfo] objectForKey:userId];
     [nameLabel setText: userName];
     userPhoto.image= [self imageForObject:userId];
+    userPhoto.layer.masksToBounds = YES;
+    userPhoto.layer.borderWidth = 4.0;
+    userPhoto.layer.borderColor = [[UIColor whiteColor] CGColor];
+    userPhoto.layer.shadowColor = [UIColor blackColor].CGColor;
+    userPhoto.layer.shadowOffset = CGSizeMake(5, 8);
+    userPhoto.layer.shadowOpacity = 100;
+    userPhoto.layer.shadowRadius = 4.0;
+    userPhoto.clipsToBounds = NO;
+    
     self.title=[NSString stringWithFormat:@"%@'s Page",userName];
 
 }
+
 
 - (void)viewDidUnload
 {
@@ -68,6 +83,7 @@
     // Get the object image
     NSString *url = [[NSString alloc] initWithFormat:@"https://graph.facebook.com/%@/picture?type=large",objectID];
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+    
     return image;
 }
 

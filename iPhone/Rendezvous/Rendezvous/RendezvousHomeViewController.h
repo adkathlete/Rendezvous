@@ -15,7 +15,13 @@
     UIImageView *userPhoto;
 }
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hourLabel;
+@property (weak, nonatomic) IBOutlet UILabel *minuteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondLabel;
 @property (weak, nonatomic) NSString *userName;
+@property (retain, nonatomic) NSTimer *timer;
 @property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
 
 

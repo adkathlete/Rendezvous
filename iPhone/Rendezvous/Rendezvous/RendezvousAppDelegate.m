@@ -7,11 +7,18 @@
 //
 
 #import "RendezvousAppDelegate.h"
+#import "RendezvousHomeViewController.h"
+
+
+
 
 @implementation RendezvousAppDelegate
 
+
+
 @synthesize window = _window;
 @synthesize facebook;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -68,6 +75,9 @@
     RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
     NSLog(@"Made singleton");
     
+    
+
+    
 }
 
 // Method that gets called when the logout button is pressed
@@ -115,4 +125,10 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+@end
+
+@implementation UINavigationBar (Background)
+-(void) drawRect:(CGRect)rect {
+    NSLog(@"fdsgdfslkgjdfsg");
+}
 @end

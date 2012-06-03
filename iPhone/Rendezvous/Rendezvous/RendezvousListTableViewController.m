@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#define deleteListURL @"http://rendezvous.cs147.org/deleteList.php?from_id="
-#define updatePositionURL @"http://rendezvous.cs147.org/updatePosition.php?from_id="
+#define deleteListURL @"http:/www.rendezvousnow.me/deleteList.php?from_id="
+#define updatePositionURL @"http://www.rendezvousnow.me/updatePosition.php?from_id="
 
 #import "RendezvousListTableViewController.h"
 
@@ -31,24 +31,62 @@
 
 - (void)viewDidLoad
 {
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0xB6/255.0f
-                                                                        green:0xED/255.0f
-                                                                         blue:0xFD/255.0f alpha:1]; 
-    NSLog(@"BRYCE");
+
+    UINavigationBar *NavBar = [[self navigationController] navigationBar];
+    UIImage *back = [UIImage imageNamed:@"Bar.png"];
+    [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem=self.editButtonItem;
     
-    //addButton=self.navigationItem.rightBarButtonItem;
+    UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
+    UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
+    
+    UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
+    UIImage *unselectedImage1 = [UIImage imageNamed:@"heart.png"];
+    
+    UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
+    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
+    
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
+    
+    [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
+    [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
+    [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
+    
+    addButton=self.navigationItem.rightBarButtonItem;
     //addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
-     //self.navigationItem.rightBarButtonItem=addButton;
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getListNamesFromID) name:@"listDataLoaded" object:nil];
+    self.navigationItem.rightBarButtonItem=addButton;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getListNamesFromID) name:@"listDataLoaded" object:nil];
     //[self loadData];
     
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    
+    
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = 70;
+
+    
+    
+    
+    UIImage *headerImage = [UIImage imageNamed:@"tableHeader.png"];
+    UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, headerImage.size.width, headerImage.size.height)];
+    headerView.image = headerImage;
+    self.tableView.tableHeaderView = headerView;
+    
+    UIImage *footerImage = [UIImage imageNamed:@"tableFooter.png"];
+    UIImageView *footerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, footerImage.size.width, footerImage.size.height)];
+    footerView.image = footerImage;
+    self.tableView.tableFooterView = footerView;
+    
+    [self.navigationController setNavigationBarHidden: YES animated:YES];
 }
 
 
@@ -118,18 +156,50 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+//    self.navigationItem.leftBarButtonItem=self.editButtonItem;
+    UIButton *bb = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+//    [bb addTarget:self action:@selector(setEditing:) forControlEvents:UIControlEventTouchUpInside];
+//    [bb setImage:[UIImage imageNamed:@"arrow.png"] forState:UIControlStateNormal];
+//    [bb setFrame:CGRectMake(0, 0, 50, 50)];
+//    [cell.contentView addSubview:bb];
+    
+    UIImage *background = [UIImage imageNamed:@"cellBackgroundWhite4.png"];
+    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:background];
+    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];
     
     // Get the cell label using its tag and set it
     UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
-    NSString *listNumer=[[NSString alloc] initWithFormat:@"%d. ",indexPath.row+1];
-    NSString *labelText= [listNumer stringByAppendingString:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
+//    NSString *listNumer=[[NSString alloc] initWithFormat:@"%d. ",indexPath.row+1];
+//    NSString *labelText= [listNumer stringByAppendingString:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
+    NSString *spacer = @"     ";
+    NSString *labelText= [spacer stringByAppendingString:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
     [cellLabel setText:labelText];
     
     // The object's image
     cell.imageView.image = [self imageForObject:[[s listIDs] objectAtIndex:indexPath.row]];
+
     
     return cell;
 }
+
+//-(IBAction)setEditing:(BOOL)editing:(id)sender
+//{
+//    //    UIButton *extendButton = (UIButton *) sender;
+//    if (isIn) {
+//        isIn = false;
+//        slideImageView.center = CGPointMake(self.view.frame.size.width/2, 100);
+//        [moveButton setCenter:CGPointMake(self.view.frame.size.width/2, 176)];
+//        //        [extendButton setCenter:CGPointMake(40, 285)];
+//    } else {
+//        isIn = true;
+//        slideImageView.center = CGPointMake(self.view.frame.size.width/2, -50);
+//        [moveButton setCenter:CGPointMake(self.view.frame.size.width/2, 26)];
+//        //        [extendButton setCenter:CGPointMake(5, 285)];
+//    }
+//    
+//}
 
 #pragma mark - Backend Data Loading
 

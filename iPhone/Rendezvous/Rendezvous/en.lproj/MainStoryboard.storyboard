@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--Rendezvous Home View Controller - Rendezvous-->
+        <!--Rendezvous Home View Controller-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="RendezvousHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="RDm-7b-46X">
-                                <rect key="frame" x="122" y="42" width="76" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="JkK-kQ-qBt">
+                                <rect key="frame" x="54" y="83" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="22w-DS-L5t">
-                                <rect key="frame" x="139" y="274" width="43" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mzH-Sf-sGW">
+                                <rect key="frame" x="222" y="83" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="9e8-V3-nQK">
+                                <rect key="frame" x="222" y="244" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="iVt-Zd-hd3">
-                                <rect key="frame" x="83" y="101" width="154" height="165"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="HfH-vQ-crb">
+                                <rect key="frame" x="54" y="244" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14117647707462311" green="0.14117647707462311" blue="0.14117647707462311" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Rendezvous" id="WST-ra-baj">
-                        <barButtonItem key="leftBarButtonItem" title="About" id="QWv-4F-um4">
-                            <connections>
-                                <segue destination="1hR-AE-HVb" kind="push" id="rFx-o0-LbM"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="OxB-2J-l7d">
-                            <connections>
-                                <segue destination="kno-G7-9Du" kind="push" id="jUt-Mb-r2k"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="WST-ra-baj"/>
                     <connections>
-                        <outlet property="nameLabel" destination="22w-DS-L5t" id="2ho-EB-yp7"/>
-                        <outlet property="userPhoto" destination="iVt-Zd-hd3" id="g6u-wG-LW9"/>
+                        <outlet property="dayLabel" destination="JkK-kQ-qBt" id="D52-xh-7Jx"/>
+                        <outlet property="hourLabel" destination="mzH-Sf-sGW" id="mWw-fE-Q0y"/>
+                        <outlet property="minuteLabel" destination="HfH-vQ-crb" id="ZSu-Ee-LqX"/>
+                        <outlet property="secondLabel" destination="9e8-V3-nQK" id="GN5-QK-nFf"/>
+                        <segue destination="1hR-AE-HVb" kind="push" identifier="about" id="E9F-l5-Siu"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="77" y="-615"/>
         </scene>
-        <!--Rendezvous About View Controller - About-->
+        <!--Rendezvous About View Controller-->
         <scene sceneID="S30-S8-DI8">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgI-o2-Dbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1hR-AE-HVb" customClass="RendezvousAboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="454-0q-Z5S">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="xjd-yg-GJd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BlackBackground.png" id="VdL-R6-JUD">
+                                <rect key="frame" x="-36" y="-40" width="390" height="422"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="xjd-yg-GJd">
+                                <rect key="frame" x="0.0" y="20" width="320" height="362"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Rejection sucks.
 
 Rendezvous is here to help.
@@ -84,13 +84,14 @@ How does it all work, you ask?
 Add friends, strangers, or anyone in between to your private list of people you'd like to get to know a little (or a lot) better. Consider the rank in which you order these people, because we'll try to match you to users in the order of their appearance on your list. Every weekend, our algorithm will dig up the latest connections between our users. If you're lucky enough to have a match, you and your interest will be notified promptly.
 
 We make the connection. You rendezvous. Good luck!</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="SsP-2b-6Nd"/>
+                    <navigationItem key="navigationItem" id="SsP-2b-6Nd"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="77" y="-1217"/>
@@ -101,7 +102,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaV-ZQ-prp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="kno-G7-9Du" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7xe-Dg-uT8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -110,29 +111,30 @@ We make the connection. You rendezvous. Good luck!</string>
             </objects>
             <point key="canvasLocation" x="724" y="-1001"/>
         </scene>
-        <!--Rendezvous List Table View Controller - My List-->
+        <!--Rendezvous List Table View Controller-->
         <scene sceneID="A2I-cQ-ksI">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eq7-Qt-XWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Jl9-Xv-znG" customClass="RendezvousListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="73" sectionHeaderHeight="10" sectionFooterHeight="10" id="owf-Ol-GWp">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="owf-Ol-GWp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" rowHeight="73" id="9xO-fh-Aj7">
-                                <rect key="frame" x="0.0" y="46" width="320" height="75"/>
+                            <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" rowHeight="73" id="9xO-fh-Aj7">
+                                <rect key="frame" x="0.0" y="22" width="320" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="267" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qcI-MZ-D1Y">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" id="qcI-MZ-D1Y">
                                             <rect key="frame" x="74" y="25" width="173" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
+                                            <color key="textColor" red="0.08274406934306569" green="0.075444799270072999" blue="0.075444799270072999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="0.0" height="-2"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -140,7 +142,7 @@ We make the connection. You rendezvous. Good luck!</string>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My List" id="EzO-UN-02K">
+                    <navigationItem key="navigationItem" id="EzO-UN-02K">
                         <barButtonItem key="rightBarButtonItem" tag="5" style="plain" systemItem="add" id="Iih-Qc-EW6">
                             <connections>
                                 <segue destination="jXc-IH-DNs" kind="push" id="KsJ-zH-EYq"/>
@@ -153,39 +155,42 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="77" y="8"/>
+            <point key="canvasLocation" x="100" y="16"/>
         </scene>
         <!--Rendezvous Add Table View Controller - Add New-->
         <scene sceneID="Y8I-fb-3Pi">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIp-hs-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jXc-IH-DNs" customClass="RendezvousAddTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="73" sectionHeaderHeight="10" sectionFooterHeight="10" id="bYi-2W-ehm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="bYi-2W-ehm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Find New Friends!" id="ZrF-JW-aBQ">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" clearsContextBeforeDrawing="NO" contentMode="redraw" barStyle="blackOpaque" text="" placeholder="Find New Friends!" id="ZrF-JW-aBQ">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.078431375324726105" green="0.074509806931018829" blue="0.074509806931018829" alpha="1" colorSpace="deviceRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="jXc-IH-DNs" id="n2I-vo-87U"/>
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddCellIdentifier" rowHeight="73" id="sjT-4J-q08">
-                                <rect key="frame" x="0.0" y="80" width="320" height="75"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddCellIdentifier" rowHeight="72" id="sjT-4J-q08">
+                                <rect key="frame" x="0.0" y="66" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DpY-k7-BUQ">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" id="DpY-k7-BUQ">
                                             <rect key="frame" x="87" y="25" width="173" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
+                                            <color key="textColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="shadowColor" white="0.062243385036496353" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="0.0" height="-2"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -197,15 +202,8 @@ We make the connection. You rendezvous. Good luck!</string>
                             <outlet property="delegate" destination="jXc-IH-DNs" id="z8X-HS-alE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add New" id="pHe-g5-H2U">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="bdT-OT-8L5">
-                            <connections>
-                                <segue destination="Jl9-Xv-znG" kind="push" id="If4-X2-S5x"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add New" id="pHe-g5-H2U"/>
                     <connections>
-                        <outlet property="saveButton" destination="bdT-OT-8L5" id="dpB-pt-cy3"/>
                         <outlet property="searchDisplayController" destination="XSr-lL-f2K" id="np6-Nj-cTQ"/>
                         <segue destination="Jl9-Xv-znG" kind="push" identifier="mover" id="KXx-qG-LGc"/>
                     </connections>
@@ -228,9 +226,13 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3y-4o-q54" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RUx-AY-dOk" customClass="RendezvousUserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erO-cg-3yL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BlackBackground.png" id="c92-OJ-fRD">
+                                <rect key="frame" x="-35" y="-40" width="390" height="422"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User Page &amp; User Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zXN-Ni-a9O">
                                 <rect key="frame" x="75" y="279" width="171" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -258,7 +260,7 @@ We make the connection. You rendezvous. Good luck!</string>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10588236153125763" green="0.10588236153125763" blue="0.10588236153125763" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Page" id="Q7U-Vs-qLK"/>
                     <connections>
@@ -270,59 +272,46 @@ We make the connection. You rendezvous. Good luck!</string>
             </objects>
             <point key="canvasLocation" x="724" y="287"/>
         </scene>
-        <!--Rendezvous Match View Controller View Controller - Match-->
+        <!--Rendezvous Match View Controller View Controller-->
         <scene sceneID="wmo-87-C3a">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTR-mD-ZJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ZG8-be-3kk" customClass="RendezvousMatchViewControllerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LA8-aE-6Ol">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hvG-TG-vFk">
-                                <rect key="frame" x="84" y="268" width="153" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UlD-e8-acO">
-                                <rect key="frame" x="40" y="20" width="240" height="235"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.08235294371843338" green="0.08235294371843338" blue="0.08235294371843338" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Match" id="vjE-re-mUi">
-                        <barButtonItem key="rightBarButtonItem" title="Old" id="O3R-8W-jcS">
+                    <navigationItem key="navigationItem" id="vjE-re-mUi">
+                        <barButtonItem key="leftBarButtonItem" title="Old" id="O3R-8W-jcS">
                             <connections>
                                 <segue destination="qFp-Dh-frW" kind="push" id="McE-Xr-aDc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="matchPhoto" destination="UlD-e8-acO" id="98y-MQ-TXR"/>
-                        <outlet property="nameLabel" destination="hvG-TG-vFk" id="fyF-Iu-LzI"/>
+                        <segue destination="2" kind="push" identifier="home" id="Acd-63-Iwm"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="77" y="636"/>
         </scene>
-        <!--Table View Controller - Old Matches-->
+        <!--Table View Controller-->
         <scene sceneID="vWD-Dt-vJb">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cH-BS-eay" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="qFp-Dh-frW" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="08b-Ps-D75">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="08b-Ps-D75">
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="separatorColor" red="0.078431372549019607" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wm9-vY-f1m">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -333,17 +322,69 @@ We make the connection. You rendezvous. Good luck!</string>
                             <outlet property="delegate" destination="qFp-Dh-frW" id="een-BN-Nii"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Old Matches" id="bdH-HM-IPB"/>
+                    <navigationItem key="navigationItem" id="bdH-HM-IPB"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="574" y="965"/>
         </scene>
-        <!--Navigation Controller - Match-->
+        <!--Rendezvous List View Controller-->
+        <scene sceneID="bHE-V6-00A">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uUh-JY-VZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Rhl-a6-fPg" customClass="RendezvousListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C0z-lo-FxA">
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHd-ro-1Lh">
+                                <rect key="frame" x="0.0" y="8" width="320" height="372"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" rowHeight="73" id="VEP-JN-gN8">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" id="AuG-e9-7PA">
+                                                    <rect key="frame" x="74" y="25" width="173" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="-2"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Rhl-a6-fPg" id="YZW-YS-clr"/>
+                                    <outlet property="delegate" destination="Rhl-a6-fPg" id="1f4-JA-ZOn"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="j2P-z6-EXV"/>
+                    <connections>
+                        <outlet property="listTableView" destination="GHd-ro-1Lh" id="iD4-gB-BJ7"/>
+                        <segue destination="RUx-AY-dOk" kind="push" identifier="listToDetailPage" id="2bT-xj-TRB"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1119" y="46"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="z6U-8A-UeM">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUl-Xh-xbD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="Fko-IL-7KN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Match" id="GLX-uY-wxg"/>
+                    <tabBarItem key="tabBarItem" title="" id="GLX-uY-wxg">
+                        <inset key="imageInsets" minX="0.0" minY="9" maxX="0.0" maxY="-9"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sne-zN-oc1">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -354,17 +395,19 @@ We make the connection. You rendezvous. Good luck!</string>
             </objects>
             <point key="canvasLocation" x="-409" y="636"/>
         </scene>
-        <!--Navigation Controller - List-->
+        <!--Navigation Controller-->
         <scene sceneID="UGX-gz-4d0">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I2-5N-mYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="0Un-0j-Ewx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" id="MDz-D9-Ed6"/>
+                    <tabBarItem key="tabBarItem" title="" id="MDz-D9-Ed6">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c8m-YM-LSE">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Jl9-Xv-znG" kind="relationship" relationship="rootViewController" id="VXX-Ei-Dnf"/>
+                        <segue destination="Rhl-a6-fPg" kind="relationship" relationship="rootViewController" id="K98-Pa-VUg"/>
                     </connections>
                 </navigationController>
             </objects>
@@ -376,7 +419,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgY-gf-QIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="5FZ-h0-eBg" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o6T-LZ-mKx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bad Connection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="FRN-to-vz1">
@@ -399,11 +442,11 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xH-P5-Wqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1FI-Ek-dTU" customClass="RendezvousSplashViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LEv-hd-KYg">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="Q0v-pO-15i">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="Q0v-pO-15i">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
@@ -430,22 +473,26 @@ We make the connection. You rendezvous. Good luck!</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="UsI-gn-j0K" kind="relationship" relationship="viewControllers" id="9on-BN-gK6"/>
                         <segue destination="0Un-0j-Ewx" kind="relationship" relationship="viewControllers" id="AqR-Oa-jKE"/>
                         <segue destination="Fko-IL-7KN" kind="relationship" relationship="viewControllers" id="uml-pG-oNe"/>
+                        <segue destination="UsI-gn-j0K" kind="relationship" relationship="viewControllers" id="9on-BN-gK6"/>
                     </connections>
                 </tabBarController>
             </objects>
             <point key="canvasLocation" x="-947" y="-615"/>
         </scene>
-        <!--Navigation Controller - Home-->
+        <!--Navigation Controller-->
         <scene sceneID="vYl-tZ-SPl">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFl-xf-g9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="UsI-gn-j0K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="cJc-5S-AVa"/>
+                    <tabBarItem key="tabBarItem" title="" id="ghz-8N-6rB">
+                        <inset key="imageInsets" minX="0.0" minY="9" maxX="0.0" maxY="-9"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Gh3-fB-uc1">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="Gh3-fB-uc1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -459,7 +506,8 @@ We make the connection. You rendezvous. Good luck!</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="1280" height="1920"/>
+        <image name="BlackBackground.png" width="640" height="960"/>
+        <image name="Default.png" width="640" height="960"/>
     </resources>
     <classes>
         <class className="RendezvousAboutViewController" superclassName="UIViewController">
@@ -478,7 +526,12 @@ We make the connection. You rendezvous. Good luck!</string>
         <class className="RendezvousHomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousHomeViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="dayLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hourLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minuteLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
             </relationships>
         </class>
@@ -488,10 +541,20 @@ We make the connection. You rendezvous. Good luck!</string>
                 <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
+        <class className="RendezvousListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="listTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="moveButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
         <class className="RendezvousMatchViewControllerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousMatchViewControllerViewController.h"/>
             <relationships>
+                <relationship kind="action" name="ButtonPressed:"/>
                 <relationship kind="outlet" name="matchPhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="moveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -511,11 +574,12 @@ We make the connection. You rendezvous. Good luck!</string>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
+        <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VXX-Ei-Dnf"/>
+        <segue reference="2bT-xj-TRB"/>
+        <segue reference="Acd-63-Iwm"/>
     </inferredMetricsTieBreakers>
 </document>

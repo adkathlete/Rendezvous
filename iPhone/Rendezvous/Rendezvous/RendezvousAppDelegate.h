@@ -13,6 +13,7 @@
 @interface RendezvousAppDelegate : NSObject <UIApplicationDelegate, FBSessionDelegate>
 {
     Facebook *facebook;
+    
 }
 
 @property (strong, nonatomic) UIWindow *window;
