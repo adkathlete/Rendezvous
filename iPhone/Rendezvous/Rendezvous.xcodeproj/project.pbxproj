@@ -68,6 +68,7 @@
 		730F62A5154E4C9800644C80 /* RendezvousCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */; };
 		730F62A9154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */; };
 		732809F51555CB9400C716AD /* RendezvousAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */; };
+		73680FF9157C1BD400A5C23B /* RendezvousInboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73680FF8157C1BD400A5C23B /* RendezvousInboxViewController.m */; };
 		738C549C157437DF0042D907 /* RendezvousMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 738C549B157437DF0042D907 /* RendezvousMessagesViewController.m */; };
 		738C54A21574AA5B0042D907 /* RendezvousChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 738C54A11574AA5B0042D907 /* RendezvousChatViewController.m */; };
 		738DB04D15788BD4002B2F95 /* RendezvousOldMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 738DB04C15788BD4002B2F95 /* RendezvousOldMatchesViewController.m */; };
@@ -174,6 +175,8 @@
 		730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousMatchViewControllerViewController.m; sourceTree = SOURCE_ROOT; };
 		732809F31555CB9400C716AD /* RendezvousAddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousAddTableViewController.h; sourceTree = SOURCE_ROOT; };
 		732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousAddTableViewController.m; sourceTree = SOURCE_ROOT; };
+		73680FF7157C1BD400A5C23B /* RendezvousInboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousInboxViewController.h; sourceTree = SOURCE_ROOT; };
+		73680FF8157C1BD400A5C23B /* RendezvousInboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousInboxViewController.m; sourceTree = SOURCE_ROOT; };
 		738C549A157437DF0042D907 /* RendezvousMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousMessagesViewController.h; sourceTree = SOURCE_ROOT; };
 		738C549B157437DF0042D907 /* RendezvousMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousMessagesViewController.m; sourceTree = SOURCE_ROOT; };
 		738C54A01574AA5B0042D907 /* RendezvousChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousChatViewController.h; sourceTree = SOURCE_ROOT; };
@@ -300,6 +303,8 @@
 				1F5B78D715789FAE00C147E5 /* RendezvousListViewController.m */,
 				738C549A157437DF0042D907 /* RendezvousMessagesViewController.h */,
 				738C549B157437DF0042D907 /* RendezvousMessagesViewController.m */,
+				73680FF7157C1BD400A5C23B /* RendezvousInboxViewController.h */,
+				73680FF8157C1BD400A5C23B /* RendezvousInboxViewController.m */,
 				738C54A01574AA5B0042D907 /* RendezvousChatViewController.h */,
 				738C54A11574AA5B0042D907 /* RendezvousChatViewController.m */,
 				73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */,
@@ -694,6 +699,7 @@
 				738C549C157437DF0042D907 /* RendezvousMessagesViewController.m in Sources */,
 				738C54A21574AA5B0042D907 /* RendezvousChatViewController.m in Sources */,
 				738DB04D15788BD4002B2F95 /* RendezvousOldMatchesViewController.m in Sources */,
+				73680FF9157C1BD400A5C23B /* RendezvousInboxViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

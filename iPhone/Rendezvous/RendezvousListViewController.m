@@ -88,7 +88,7 @@
 //    [bb setFrame:CGRectMake(0, 0, 50, 50)];
 //    [self.view addSubview:bb];
     
-    [self.navigationController setNavigationBarHidden: YES animated:YES];
+//    [self.navigationController setNavigationBarHidden: YES animated:YES];
 }
 
 -(IBAction)ButtonPressed:(id)sender
