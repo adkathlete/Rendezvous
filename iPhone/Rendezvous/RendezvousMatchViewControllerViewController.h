@@ -40,6 +40,5 @@ typedef enum fbRequest {
 
 -(IBAction)ButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;
-@property (nonatomic, retain) NSArray *photos;
 
 @end

@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *minuteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
 @property (weak, nonatomic) NSString *userName;
-@property (retain, nonatomic) NSTimer *timer;
 @property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;
 @property (nonatomic, retain) NSArray *photos;
