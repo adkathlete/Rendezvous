@@ -11,6 +11,7 @@
 
 
 
+
 @interface RendezvousUserViewController ()
 
 @end
@@ -19,7 +20,26 @@
 @synthesize nameLabel,userName,userPhoto, userId;
 @synthesize photos = _photos;
 @synthesize photoButton;
+@synthesize messageButton;
 
+
+- (CGRect)getFrameSizeForImage:(UIImage *)image inImageView:(UIImageView *)imageView {
+    
+    float hfactor = image.size.width / imageView.frame.size.width;
+    float vfactor = image.size.height / imageView.frame.size.height;
+    
+    float factor = fmax(hfactor, vfactor);
+    
+    // Divide the size by the greater of the vertical or horizontal shrinkage factor
+    float newWidth = image.size.width / factor;
+    float newHeight = image.size.height / factor;
+    
+    // Then figure out if you need to offset it to center vertically or horizontally
+    float leftOffset = (imageView.frame.size.width - newWidth) / 2;
+    float topOffset = (imageView.frame.size.height - newHeight) / 2;
+    
+    return CGRectMake(leftOffset, topOffset, newWidth, newHeight);
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,7 +70,11 @@
     NSLog([sharedSingleton visitingId]);
     NSLog(@"New User ID");
     NSString * userId = [sharedSingleton visitingId];
+    NSLog(userId);
     userName = [[sharedSingleton listUserInfo] objectForKey:userId];
+    if(!userName){
+        userName=[[sharedSingleton matchInfo] objectForKey:userId];
+    }
     [nameLabel setText: userName];
     userPhoto.image= [self imageForObject:userId];
     userPhoto.layer.masksToBounds = YES;
@@ -70,6 +94,7 @@
 - (void)viewDidUnload
 {
     [self setPhotoButton:nil];
+    [self setMessageButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -87,7 +112,8 @@
     return image;
 }
 
-- (IBAction)photoButtonPressed:(id)sender {
+- (IBAction)photoButtonPressed:(id)sender 
+{
     
     currentfbRequest=kLoadAlbums;
     
@@ -96,30 +122,26 @@
     NSString *path=[NSString stringWithFormat:@"%@/albums",[sharedSingleton visitingId]];
     [[delegate facebook] requestWithGraphPath:path andDelegate:self];
     
+}
+
+- (IBAction)sendMessage:(id)sender {
+    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    NSLog(@"SEND MESSAGE!");
+    NSLog(@"Message Id is: %@",[s visitingMessageId]);
+    s.visitingMessageId=[s visitingId];
+    
+    if([[s uniqueMessageUserIDs] containsObject:s.visitingId]){
+        [self performSegueWithIdentifier:@"userChat" sender: self];
+    }else{
+        NSMutableArray *newChat = [[NSMutableArray alloc] init];
+        [[s messages] setValue:newChat forKey:s.visitingId];
+        NSLog(@"Add new Chat!");
+        NSLog([s visitingMessageId]);
+        [self performSegueWithIdentifier:@"userChat" sender: self];
+        
     }
 
-/*
--(void) updateUserPhotos
-{
-    NSLog(@"Loading Photos");
-    // Create browser
-    NSMutableArray *photos = [[NSMutableArray alloc] init];
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    browser.displayActionButton = YES;
-    //browser.wantsFullScreenLayout = NO;
-    //[browser setInitialPageIndex:2];
-    [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3567/3523321514_371d9ac42f_b.jpg"]]];
-    [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b_b.jpg"]]];
-    [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3364/3338617424_7ff836d55f_b.jpg"]]];
-    [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b_b.jpg"]]];
-    
-    self.photos = photos;
-    [self.navigationController pushViewController:browser animated:YES];
-    
-
-    
 }
-*/
 
 #pragma mark - MWPhotoBrowserDelegate
 
@@ -183,7 +205,6 @@
             //[browser setInitialPageIndex:2];
             
             for (NSDictionary *photo in resultData) {
-                NSLog([photo  objectForKey:@"source"]);
                 [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[photo objectForKey:@"source"]]]];
             }
             

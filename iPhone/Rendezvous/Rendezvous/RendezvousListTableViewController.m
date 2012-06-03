@@ -143,6 +143,8 @@
 {
     // Return the number of rows in the section.
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    NSLog(@"COUNT");
+    NSLog(@"%d",[[s listIDs] count]);
     return [[s listIDs] count];;
 }
 
@@ -222,8 +224,10 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"GOT HERE 1");
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        NSLog(@"GOT HERE 2");
         
         NSString *deleteString1 = [deleteListURL stringByAppendingString:([sharedSingleton userId])];
         NSString *deleteString2 = [deleteString1 stringByAppendingString:(@"&to_id=")];
@@ -233,7 +237,13 @@
         [[NSURLConnection alloc] initWithRequest:request delegate:self];
         
         NSLog(deleteString3);
+        NSLog(@"HERE: %d", indexPath.row);
+        for (int i=0; i<[[sharedSingleton listIDs] count]; i++) {
+            NSLog([[sharedSingleton listIDs] objectAtIndex:i]);
+        }
+
         [[sharedSingleton listIDs] removeObjectAtIndex:indexPath.row];
+        NSLog(@"GOT HERE 3");
         
         //[listUserInfo removeObjectForKey:[listIDs objectAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -249,25 +259,27 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    NSString *temp1 = [[sharedSingleton listIDs] objectAtIndex:fromIndexPath.row];
-    [[sharedSingleton listIDs] removeObjectAtIndex:fromIndexPath.row];
-    [[sharedSingleton listIDs] insertObject:temp1 atIndex:toIndexPath.row];
+    if ([[sharedSingleton listIDs] count] != 1) {
+        NSString *temp1 = [[sharedSingleton listIDs] objectAtIndex:fromIndexPath.row];
+        [[sharedSingleton listIDs] removeObjectAtIndex:fromIndexPath.row];
+        [[sharedSingleton listIDs] insertObject:temp1 atIndex:toIndexPath.row];
     
-    int position = 1;
-    for (NSString *item in [sharedSingleton listIDs]) {
-        NSString *updateString1 = [updatePositionURL stringByAppendingString:([sharedSingleton userId])];
-        NSString *updateString2 = [updateString1 stringByAppendingString:(@"&to_id=")];
-        NSString *updateString3 = [updateString2 stringByAppendingString: item];
-        NSString *updateString4 = [updateString3 stringByAppendingString:(@"&position=")];
-        NSString *pos = [NSString stringWithFormat:@"%d", position];
-        NSString *updateString5 = [updateString4 stringByAppendingString: pos];
-        NSLog(updateString5);
-        NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:updateString5])];
-        [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        position++;
+        int position = 1;
+        for (NSString *item in [sharedSingleton listIDs]) {
+            NSString *updateString1 = [updatePositionURL stringByAppendingString:([sharedSingleton userId])];
+            NSString *updateString2 = [updateString1 stringByAppendingString:(@"&to_id=")];
+            NSString *updateString3 = [updateString2 stringByAppendingString: item];
+            NSString *updateString4 = [updateString3 stringByAppendingString:(@"&position=")];
+            NSString *pos = [NSString stringWithFormat:@"%d", position];
+            NSString *updateString5 = [updateString4 stringByAppendingString: pos];
+            NSLog(updateString5);
+            NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:updateString5])];
+            [[NSURLConnection alloc] initWithRequest:request delegate:self];
+            position++;
+        }
+    
+        [tableView reloadData];
     }
-    
-    [tableView reloadData];
 }
 
 

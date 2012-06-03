@@ -10,10 +10,12 @@
 #import "RendezvousAppDelegate.h"
 #import "RendezvousCurrentUser.h"
 
-@interface RendezvousHomeViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>{
-    
+@interface RendezvousHomeViewController : UIViewController <FBDialogDelegate,FBRequestDelegate,MWPhotoBrowserDelegate>
+{
+    NSArray *_photos;
     UIImageView *userPhoto;
 }
+@property (retain, nonatomic) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
@@ -23,6 +25,7 @@
 @property (weak, nonatomic) NSString *userName;
 @property (retain, nonatomic) NSTimer *timer;
 @property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
-
+@property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (nonatomic, retain) NSArray *photos;
 
 @end

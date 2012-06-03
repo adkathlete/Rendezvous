@@ -15,6 +15,8 @@
 
 @implementation RendezvousMatchViewControllerViewController
 @synthesize nameLabel,matchName,matchPhoto, matchedUserId, responseData, timer;
+
+@synthesize photoButton;
 @synthesize photos = _photos;
 
 
@@ -113,14 +115,15 @@
 {
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     
-    if ([[sharedSingleton matchedUserId] length] == 0)
+    if ([[sharedSingleton matchIDs] count] == 0)
     {
         [nameLabel setText:@"Unfortunately, you don't have a \n match loser :("];
     }
     else
     {
-        
-        [nameLabel setText: [sharedSingleton matchName]];
+
+        [nameLabel setText:[[sharedSingleton matchInfo] objectForKey:[sharedSingleton matchedUserId]]];
+
         matchPhoto.image= [self imageForObject: [sharedSingleton matchedUserId]];
        
         UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -252,6 +255,7 @@
     [self setMatchPhoto:nil];
     [self setMatchPhoto:nil];
     [self setMatchPhoto:nil];
+    [self setPhotoButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -269,6 +273,113 @@
  
     return image;
 }
+- (IBAction)loadMatchPhotos:(id)sender {
+    if ([[sharedSingleton matchIDs] count] != 0)
+    {
+        currentfbRequest=kLoadAlbums;
+        
+        RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
+        RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSString *path=[NSString stringWithFormat:@"%@/albums",[sharedSingleton matchedUserId]];
+        [[delegate facebook] requestWithGraphPath:path andDelegate:self];
+    }
+}
+- (IBAction)messageUser:(id)sender {
+    if ([[sharedSingleton matchIDs] count] != 0)
+    {
+        RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+        s.visitingMessageId=[s matchedUserId];
+        
+        if([[s uniqueMessageUserIDs] containsObject:s.matchedUserId]){
+            [self performSegueWithIdentifier:@"matchChat" sender: self];
+        }else{
+            NSMutableArray *newChat = [[NSMutableArray alloc] init];
+            [[s messages] setValue:newChat forKey:s.matchedUserId];
+            [self performSegueWithIdentifier:@"matchChat" sender: self];
+            
+        }
+    }
+    
+
+}
+
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photos.count;
+}
+
+- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
+}
+
+//- (MWCaptionView *)photoBrowser:(MWPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index {
+//    MWPhoto *photo = [self.photos objectAtIndex:index];
+//    MWCaptionView *captionView = [[MWCaptionView alloc] initWithPhoto:photo];
+//    return [captionView autorelease];
+//}
+
+#pragma mark - FB callback
+
+- (void)request:(FBRequest *)request didLoad:(id)result
+{
+    
+    
+    switch (currentfbRequest) {
+        case kLoadAlbums:
+        {
+            
+            NSLog(@"Facebook request %@ loaded", [request url]);
+            NSArray *resultData = [result objectForKey:@"data"];
+            for (NSDictionary *album in resultData) {
+                NSLog([album   objectForKey:@"name"]);
+                
+                if([@"Profile Pictures" compare:[album objectForKey:@"name"]] ==NSOrderedSame)
+                {
+                    NSLog(@"Matched Album");
+                    currentfbRequest=kloadPhotos;
+                    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+                    NSString *path=[NSString stringWithFormat:@"%@/photos",[album objectForKey:@"id"]];
+                    [[delegate facebook] requestWithGraphPath:path andDelegate:self];
+                }
+                
+            }
+            
+            break;
+            
+        }
+        case kloadPhotos:
+        {
+            
+            NSLog(@"Facebook request %@ loaded", [request url]);
+            NSArray *resultData = [result objectForKey:@"data"];
+            
+            NSLog(@"Loading Photos");
+            // Create browser
+            NSMutableArray *photos = [[NSMutableArray alloc] init];
+            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+            browser.displayActionButton = YES;
+            //browser.wantsFullScreenLayout = NO;
+            //[browser setInitialPageIndex:2];
+            
+            for (NSDictionary *photo in resultData) {
+                NSLog([photo  objectForKey:@"source"]);
+                [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[photo objectForKey:@"source"]]]];
+            }
+            
+            self.photos = photos;
+            [self.navigationController pushViewController:browser animated:YES];
+            
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"UserPhotosLoaded" object:nil];
+            break;
+        }
+    }
+    
+    
+}
+
 
 
 #pragma mark - MWPhotoBrowserDelegate
@@ -338,3 +449,5 @@
 
 
 @end
+
+

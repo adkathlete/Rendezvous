@@ -6,16 +6,19 @@
 //  Copyright (c) 2012 Stanford University. All rights reserved.
 //
 
-#define userDataURL @"http://www.rendezvousnow.me/getUserInfo.php?id="
-#define userListURL @"http://www.rendezvousnow.me/getList.php?id="
-#define checkUserURL @"http://www.rendezvousnow.me/checkUser.php?id="
+#define userDataURL @"http://rendezvousnow.me/getUserInfo.php?id="
+#define userListURL @"http://rendezvousnow.me/getList.php?id="
+#define checkUserURL @"http://rendezvousnow.me/checkUser.php?id="
+#define userMessagesURL @"http://rendezvousnow.me/getMessages.php?id="
+
 #import "RendezvousCurrentUser.h"
 
 @implementation RendezvousCurrentUser
 
 static RendezvousCurrentUser *sharedInstance = nil;
 
-@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, listIDs, listUserInfo, matchName, matchedUserId, gender, first_name, last_name, connectionCheck;
+@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, visitingMessageId, listIDs, listUserInfo, matchInfo, matchedUserId, gender, first_name, last_name, connectionCheck,messages,uniqueMessageUserIDs,messageUserInfo,matchIDs;
+@synthesize photos = _photos;
 
 // Get the shared instance and create it if necessary.
 + (RendezvousCurrentUser *)sharedInstance {
@@ -38,6 +41,8 @@ static RendezvousCurrentUser *sharedInstance = nil;
         NSLog(connectionCheck);
         checkLoad = 0;
         listUserInfo = [[NSMutableDictionary alloc] init];
+        messageUserInfo = [[NSMutableDictionary alloc] init];
+        matchInfo = [[NSMutableDictionary alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFriends) name:@"fbLoadingComplete" object:nil];
         currentAPICall=kLoadUserInformation;
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -128,16 +133,28 @@ static RendezvousCurrentUser *sharedInstance = nil;
 
 -(void)loadMatch
 {
-    NSLog(@"loadMatch");
+    NSLog(@"loadMatches");
     NSLog(connectionCheck);
     checkLoad = 3;
     self.responseData = [NSMutableData data];
-    NSString *urlString = [@"http://www.rendezvousnow.me/getMatch.php?id=" stringByAppendingString:userId];
+    NSString *urlString = [@"http://rendezvousnow.me/getOldMatches.php?id=" stringByAppendingString:userId];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+-(void)loadMessages
+{
+    NSLog(@"loadMessages");
+    NSLog(connectionCheck);
+    checkLoad = 4;
+    self.responseData = [NSMutableData data];
+    NSString *urlString = [@"http://rendezvousnow.me/getMessages.php?id=" stringByAppendingString:userId];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
+#pragma mark fix check for bad requests!
     NSLog(@"Facebook Bad Request");
     connectionCheck = @"Bad";
 }
@@ -159,7 +176,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
         NSString *responseString2 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
         NSLog(responseString2);
         self.responseData = nil;
-        
+
         listIDs = [[NSMutableArray alloc] init];
         currentAPICall =  kLoadUserList;
         
@@ -171,7 +188,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
             NSLog(@"HERE");
             NSLog([dict objectForKey:@"to_id"]);
         }
-        
+
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
         if([listIDs count]!=0){
             for (NSString *item in listIDs) {
@@ -179,22 +196,97 @@ static RendezvousCurrentUser *sharedInstance = nil;
                 [[delegate facebook] requestWithGraphPath:item andDelegate:self];
             }
         }else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
-        }
+            currentAPICall=kloadUserAlbums;
+            RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+            NSString *path=[NSString stringWithFormat:@"%@/albums",userId];
+            [[delegate facebook] requestWithGraphPath:path andDelegate:self];
+        } 
     } else if (checkLoad == 3) {
         NSLog(@"checkLoad is 3");
         NSString *responseString3 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        matchedUserId = responseString3;
+        NSLog(responseString3);
         self.responseData = nil;
-        if ([matchedUserId length] == 0)
+        matchIDs = [[NSMutableArray alloc] init];
+        
+        SBJsonParser* parser = [[SBJsonParser alloc] init];
+        NSArray *arr = [parser objectWithString:responseString3];
+        
+        for (NSDictionary* dict in arr) {
+            [matchIDs addObject:[dict objectForKey:@"to_id"]];
+            NSLog(@"HERE");
+            NSLog([dict objectForKey:@"to_id"]);
+        }
+        
+        for (NSString *userID in matchIDs){
+            NSLog(userID);
+        }
+        
+
+        matchedUserId = [matchIDs objectAtIndex:0];
+        
+        if ([matchIDs count] == 0)
         {
             matchName = nil;
             [self loadUserList];
         }
         else
         {
-            [self getFacebookName:matchedUserId];
+            for (NSString *user in matchIDs)
+            {
+                [self getFacebookName:user];
+            }
         }
+    } else if (checkLoad==4)
+    {
+        NSLog(@"checkLoad is 4");
+        NSString *responseString4 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        //NSLog(responseString4);
+        SBJsonParser *parser=[[SBJsonParser alloc] init];
+        NSMutableArray *messageData=[parser objectWithString:responseString4];
+        uniqueMessageUserIDs=[[NSMutableArray alloc] init];
+
+        for (NSDictionary *message in messageData)
+        {
+            
+            //NSLog([message objectForKey:@"message"]);
+            if((![uniqueMessageUserIDs containsObject:[message objectForKey:@"from_id"]]) && ![userId isEqualToString:[message objectForKey:@"from_id"]])
+            {
+                [uniqueMessageUserIDs addObject:[message objectForKey:@"from_id"]];
+                
+            } else if((![uniqueMessageUserIDs containsObject:[message objectForKey:@"to_id"]]) && ![userId isEqualToString:[message objectForKey:@"to_id"]])
+            {
+                [uniqueMessageUserIDs addObject:[message objectForKey:@"to_id"]];   
+            }
+            
+        }
+    
+        messages=[[NSMutableDictionary alloc] init];
+        currentAPICall =  kloadMessageUserList;
+        RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+        for (NSString *messageId in uniqueMessageUserIDs)
+        {
+            NSMutableArray *userMessages=[[NSMutableArray alloc] init];
+            for (NSDictionary *message in messageData)
+            {
+                if ([messageId isEqualToString:[message objectForKey:@"from_id"]] || [messageId isEqualToString:[message objectForKey:@"to_id"]]) {
+                    [userMessages addObject:message];
+                }
+
+            }
+            
+            [messages setObject:userMessages forKey:messageId];
+            
+        }
+        
+        if([uniqueMessageUserIDs count]!=0){
+            for (NSString *item in uniqueMessageUserIDs) {
+                NSLog(@"MessageAPIcalls");
+                [[delegate facebook] requestWithGraphPath:item andDelegate:self];
+            }
+        }else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
+        }
+        
     }
 }
 
@@ -241,18 +333,84 @@ static RendezvousCurrentUser *sharedInstance = nil;
             [listUserInfo setObject:[result objectForKey:@"name"] forKey:[result objectForKey:@"id"]];
             if(listIDs.count==listUserInfo.count){
                 NSLog(@"kLoadUserList");
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
+                currentAPICall=kloadUserAlbums;
+                RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+                NSString *path=[NSString stringWithFormat:@"%@/albums",userId];
+                [[delegate facebook] requestWithGraphPath:path andDelegate:self];
             }
             break;
         }
         case kLoadMatchName:
         {
             NSLog(@"Loading Match Name");
-            NSDictionary *matchInfo = (NSDictionary *)result;
-            matchName = [matchInfo objectForKey:@"name"];
-            [self loadUserList];
+            NSLog(@"Match: %@, ID:%@",[result objectForKey:@"name"],[result objectForKey:@"id"]);
+            [matchInfo setObject:[result objectForKey:@"name"] forKey:[result objectForKey:@"id"]];
+            NSLog(@"ID Count:%d, Info Count: %d",matchIDs.count,matchInfo.count);
+            if(matchIDs.count==matchInfo.count){
+                [self loadUserList];
+            }
+            
             break;
         }
+        case kloadUserAlbums:
+        {
+            NSLog(@"Facebook request %@ loaded", [request url]);
+            NSArray *resultData = [result objectForKey:@"data"];
+            for (NSDictionary *album in resultData) {
+                NSLog([album   objectForKey:@"name"]);
+                
+                if([@"Profile Pictures" compare:[album objectForKey:@"name"]] ==NSOrderedSame)
+                {
+                    NSLog(@"Matched Album");
+                    currentAPICall=kloadProfilePictures;
+                    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+                    NSString *path=[NSString stringWithFormat:@"%@/photos",[album objectForKey:@"id"]];
+                    [[delegate facebook] requestWithGraphPath:path andDelegate:self];
+                }
+                
+            }
+            
+            break;
+
+        }
+        case kloadProfilePictures:
+        {
+            NSLog(@"Facebook request %@ loaded", [request url]);
+            NSArray *resultData = [result objectForKey:@"data"];
+            
+            NSLog(@"Loading Photos");
+            // Create browser
+            NSMutableArray *photos = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *photo in resultData) {
+                [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[photo objectForKey:@"source"]]]];
+            }
+            
+            NSLog(@"done Adding Photos");
+            
+            self.photos = photos;
+            
+            [self loadMessages];
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"UserPhotosLoaded" object:nil];
+            break;
+
+        }
+        case kloadMessageUserList:
+        {
+            NSLog(@"kloading Message User Info");
+            NSLog([result objectForKey:@"name"]);
+            [messageUserInfo setObject:[result objectForKey:@"name"] forKey:[result objectForKey:@"id"]];
+            NSLog(@"%d",uniqueMessageUserIDs.count);
+            NSLog(@"%d",messageUserInfo.count);
+#pragma mark FIX COUNT BELOW WORK AROUND FOR ERROR
+            
+            if(uniqueMessageUserIDs.count==(messageUserInfo.count)){
+                            NSLog(@"Matched User: %@",[matchInfo objectForKey:matchedUserId]);
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"DataModelComplete" object:nil];
+            }
+            break;
+        }
+
     }
     
 }

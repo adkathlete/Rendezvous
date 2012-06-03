@@ -15,7 +15,8 @@ typedef enum fbRequest {
     kloadPhotos
 } fbRequest;
 
-@interface RendezvousMatchViewControllerViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>
+
+@interface RendezvousMatchViewControllerViewController : UIViewController <FBDialogDelegate,FBRequestDelegate,MWPhotoBrowserDelegate>
 {
     NSMutableData *responseData;
     RendezvousCurrentUser *sharedSingleton;
@@ -38,5 +39,7 @@ typedef enum fbRequest {
 
 
 -(IBAction)ButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (nonatomic, retain) NSArray *photos;
 
 @end
