@@ -18,16 +18,28 @@ typedef enum fbRequest {
 
 @interface RendezvousMatchViewControllerViewController : UIViewController <FBDialogDelegate,FBRequestDelegate,MWPhotoBrowserDelegate>
 {
+    
     NSMutableData *responseData;
     RendezvousCurrentUser *sharedSingleton;
     NSArray *_photos;
     int currentfbRequest;
-    IBOutlet UIButton*moveButton;
+    IBOutlet UIButton*clockButton;
+    IBOutlet UIButton*infoButton;
     UIImage *slideImage;
+    UIImage *slideImage2;
+    UIImage *slideImage3;
+    UIImage *slideImage4;
+    UIImage *slideImage5;
+    UIImage *slideImage6;
     UIImageView *slideImageView;
     UIImageView *slideImageView2;
-    UILabel *information;
-    BOOL isIn;
+    UIImageView *slideImageView3;
+    UIImageView *slideImageView4;
+    UIImageView *slideImageView5;
+    UIImageView *slideImageView6;
+    UILabel *timeBox;
+    BOOL isInClock;
+    BOOL isInInfo;
 }
 @property (retain, nonatomic) NSMutableData *responseData;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -42,3 +54,5 @@ typedef enum fbRequest {
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;
 
 @end
+
+

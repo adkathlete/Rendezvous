@@ -31,7 +31,9 @@
 
 - (void)viewDidLoad
 {
-    isIn = true;
+    
+    isInClock = true;
+    isInInfo = true;
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
     UIImage *back = [UIImage imageNamed:@"Bar.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
@@ -46,10 +48,10 @@
     label.text = @"    MY MATCH";
     self.navigationItem.titleView = label;
     
-//    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MyList.png"]];
-//    UIBarButtonItem * item = [[UIBarItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yourimage2.jpg"]]];    
-//    self.navigationItem.rightBarButtonItem = item; 
-//    
+    //    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MyList.png"]];
+    //    UIBarButtonItem * item = [[UIBarItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yourimage2.jpg"]]];    
+    //    self.navigationItem.rightBarButtonItem = item; 
+    //    
     UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
     UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
     
@@ -72,30 +74,53 @@
     [self loadUserPhotos];
     [super loadView];
     [super viewDidLoad];
+
 }
 
 -(void) onPress {
     [self performSegueWithIdentifier:@"home" sender: self];
 }
 
--(IBAction)ButtonPressed:(id)sender
+-(IBAction)ClockPressed:(id)sender
 {
-//    UIButton *extendButton = (UIButton *) sender;
-    if (isIn) {
-        isIn = false;
-        slideImageView.center = CGPointMake(self.view.frame.size.width + slideImage.size.width/2 -200, 44);
-        slideImageView2.center = CGPointMake(self.view.frame.size.width + slideImage.size.width/2 -200, 76);
-        [moveButton setCenter:CGPointMake(self.view.frame.size.width - 194, 60)];
-        information.hidden = NO;
+    if (isInClock) {
+        isInClock = false;
+        slideImageView.center = CGPointMake(self.view.frame.size.width - slideImage.size.width/2 - 190, 60);
+        slideImageView2.center = CGPointMake(self.view.frame.size.width - slideImage2.size.width/2 - 190, 43);
+        slideImageView3.center = CGPointMake(self.view.frame.size.width - slideImage3.size.width/2-190, 74);
+        [clockButton setCenter:CGPointMake(self.view.frame.size.width - 204, 60)];
+        timeBox.hidden = NO;
     } else {
-        isIn = true;
-        slideImageView.center = CGPointMake(self.view.frame.size.width + slideImage.size.width/2 -31, 54);
-        slideImageView2.center = CGPointMake(self.view.frame.size.width + slideImage.size.width/2 -31, 66);
-        [moveButton setCenter:CGPointMake(self.view.frame.size.width - 13, 60)];
-        information.hidden = YES;
+        isInClock = true;
+        slideImageView.center = CGPointMake(self.view.frame.size.width - slideImage.size.width/2, 60);
+        slideImageView2.center = CGPointMake(self.view.frame.size.width - slideImage2.size.width/2, 43);
+        slideImageView3.center = CGPointMake(self.view.frame.size.width - slideImage3.size.width/2, 74);
+        [clockButton setCenter:CGPointMake(self.view.frame.size.width - 14, 60)];
+        timeBox.hidden = YES;
     }
     
 }
+
+-(IBAction)infoPressed:(id)sender
+{
+    if (isInInfo) {
+        isInInfo = false;
+        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage.size.width/2 - 190, 90);
+        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage2.size.width/2 - 190, 73);
+        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage3.size.width/2-190, 104);
+        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 204, 90)];
+        timeBox.hidden = NO;
+    } else {
+        isInInfo = true;
+        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage.size.width/2, 90);
+        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage2.size.width/2, 73);
+        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage3.size.width/2, 104);
+        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 90)];
+        timeBox.hidden = YES;
+    }
+    
+}
+
 
 - (void)loadUserPhotos
 {
@@ -112,7 +137,7 @@
 }
 
 - (void)displayPage
-{
+{    
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     
     if ([[sharedSingleton matchIDs] count] == 0)
@@ -121,11 +146,11 @@
     }
     else
     {
-
+        
         [nameLabel setText:[[sharedSingleton matchInfo] objectForKey:[sharedSingleton matchedUserId]]];
-
+        
         matchPhoto.image= [self imageForObject: [sharedSingleton matchedUserId]];
-       
+        
         UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         
         scroll.scrollEnabled = YES;
@@ -139,7 +164,7 @@
         for (int i = 0; i < numberOfViews; i++) {
             UIImage *newImage = [self.photos objectAtIndex:i];
             NSInteger mesWidth = newImage.size.width * (self.view.frame.size.height /  newImage.size.height);
-
+            
             UIImageView *awesomeView = [[UIImageView alloc] initWithFrame:CGRectMake(startX, 3, mesWidth, self.view.frame.size.height)];
             awesomeView.contentMode = UIViewContentModeScaleAspectFill;
             awesomeView.image=[self.photos objectAtIndex:i];
@@ -164,7 +189,7 @@
         [scroll setContentOffset:CGPointMake(100, 0)];
         scroll.contentSize = CGSizeMake(startX, self.view.frame.size.height);
         scroll.backgroundColor = [UIColor whiteColor];
-    
+        
         [self.view addSubview:scroll];
         
         
@@ -173,19 +198,7 @@
         frameView.image = frameImage;
         [self.view addSubview:frameView];
         
-       
-        slideImage = [UIImage imageNamed:@"iconBar.png"];
-        slideImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage.size.width, slideImage.size.height)];
-        slideImageView.image = slideImage;
-        [self.view addSubview:slideImageView];
-        slideImageView.center = CGPointMake(self.view.frame.size.width + slideImage.size.width/2 -31, 54);
-        
-        slideImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage.size.width, slideImage.size.height)];
-        slideImageView2.image = slideImage;
-        [self.view addSubview:slideImageView2];
-        slideImageView2.center = CGPointMake(self.view.frame.size.width + slideImage.size.width/2 -31, 66);
-
-        information = [[UILabel alloc] initWithFrame:CGRectMake(120, 50, 300, 21)];
+        timeBox = [[UILabel alloc] initWithFrame:CGRectMake(120, 40, 300, 38)];
         NSDate *date=[NSDate date];
         int secondsNow=(int)[date timeIntervalSince1970];
         NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
@@ -203,20 +216,65 @@
         int diffMin=diffDay-(hours*3600);
         int minutes=(int)(diffMin/60.0);
         int seconds=diffMin-(minutes*60);
-        information.text = [NSString stringWithFormat:@"%d Days %d Hours %d Minutes %d Seconds",days,hours,minutes,seconds];
+        timeBox.text = [NSString stringWithFormat:@"%d Days %d Hours %d Minutes %d Seconds",days,hours,minutes,seconds];
         timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
-        [information setTextColor:[UIColor whiteColor]];
-        [information setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
-        [information setFont:[UIFont fontWithName: @"Verdana" size: 8.0f]]; 
-        information.hidden = YES;
-        [self.view addSubview:information];
+        [timeBox setTextColor:[UIColor whiteColor]];
+        [timeBox setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
+        [timeBox setFont:[UIFont fontWithName: @"Verdana" size: 8.0f]]; 
+        timeBox.hidden = YES;
+        [self.view addSubview:timeBox];
         
-         moveButton =  [UIButton buttonWithType:UIButtonTypeCustom];
-        [moveButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
-        [moveButton addTarget:self action:@selector(ButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [moveButton setFrame:CGRectMake(10, 285, 60, 60)];
-        [moveButton setCenter:CGPointMake(self.view.frame.size.width - 13, 60)];
-        [self.view addSubview:moveButton];
+        slideImage = [UIImage imageNamed:@"sideBarExtend.png"];
+        slideImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage.size.width, slideImage.size.height +20)];
+        slideImageView.image = slideImage;
+        [self.view addSubview:slideImageView];
+        slideImageView.center = CGPointMake(self.view.frame.size.width - slideImage.size.width/2, 60);
+        
+        slideImage2 = [UIImage imageNamed:@"sideBarTop.png"];
+        slideImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage2.size.width, slideImage2.size.height)];
+        slideImageView2.image = slideImage2;
+        [self.view addSubview:slideImageView2];
+        slideImageView2.center = CGPointMake(self.view.frame.size.width - slideImage2.size.width/2, 43);
+        
+        slideImage3 = [UIImage imageNamed:@"sideBarBottom.png"];
+        slideImageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage3.size.width, slideImage3.size.height)];
+        slideImageView3.image = slideImage3;
+        [self.view addSubview:slideImageView3];
+        slideImageView3.center = CGPointMake(self.view.frame.size.width - slideImage3.size.width/2, 74);
+        
+        
+        
+        clockButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+        [clockButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
+        [clockButton addTarget:self action:@selector(ClockPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [clockButton setFrame:CGRectMake(10, 285, 60, 60)];
+        [clockButton setCenter:CGPointMake(self.view.frame.size.width - 14, 61)];
+        [self.view addSubview:clockButton];
+        
+        slideImage4 = [UIImage imageNamed:@"sideBarExtend.png"];
+        slideImageView4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage4.size.width, slideImage4.size.height +20)];
+        slideImageView4.image = slideImage;
+        [self.view addSubview:slideImageView4];
+        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2, 90);
+        
+        slideImage5 = [UIImage imageNamed:@"sideBarTop.png"];
+        slideImageView5 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage5.size.width, slideImage5.size.height)];
+        slideImageView5.image = slideImage5;
+        [self.view addSubview:slideImageView5];
+        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2, 73);
+        
+        slideImage6 = [UIImage imageNamed:@"sideBarBottom.png"];
+        slideImageView6 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage3.size.width, slideImage6.size.height)];
+        slideImageView6.image = slideImage6;
+        [self.view addSubview:slideImageView6];
+        slideImageView3.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 104);
+        
+        infoButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+        [infoButton setImage:[UIImage imageNamed:@"info.png"] forState:UIControlStateNormal];
+        [infoButton addTarget:self action:@selector(infoPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [infoButton setFrame:CGRectMake(10, 285, 60, 60)];
+        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 91)];
+        [self.view addSubview:infoButton];
         
         NSLog(@"%f width", self.view.frame.size.height);
         
@@ -245,8 +303,9 @@
     int diffMin=diffDay-(hours*3600);
     int minutes=(int)(diffMin/60.0);
     int seconds=diffMin-(minutes*60);
-    information.text = [NSString stringWithFormat:@"\t\t%d Days %d Hours %d Minutes %d Seconds",days,hours,minutes,seconds];
+    timeBox.text = [NSString stringWithFormat:@"\t\t%d Days %d Hours %d Minutes %d Seconds",days,hours,minutes,seconds];
 }
+
 
 - (void)viewDidUnload
 {
