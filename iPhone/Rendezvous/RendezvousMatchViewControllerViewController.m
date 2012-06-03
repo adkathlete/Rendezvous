@@ -74,7 +74,7 @@
     [self loadUserPhotos];
     [super loadView];
     [super viewDidLoad];
-
+    
 }
 
 -(void) onPress {
@@ -105,18 +105,18 @@
 {
     if (isInInfo) {
         isInInfo = false;
-        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage.size.width/2 - 190, 90);
-        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage2.size.width/2 - 190, 73);
-        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage3.size.width/2-190, 104);
-        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 204, 90)];
-        timeBox.hidden = NO;
+        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2 - 190, 106);
+        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2 - 190, 89);
+        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2-190, 120);
+        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 204, 106)];
+        infoBox.hidden = NO;
     } else {
         isInInfo = true;
-        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage.size.width/2, 90);
-        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage2.size.width/2, 73);
-        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage3.size.width/2, 104);
-        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 90)];
-        timeBox.hidden = YES;
+        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2, 106);
+        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2, 89);
+        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 120);
+        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 106)];
+        infoBox.hidden = YES;
     }
     
 }
@@ -133,7 +133,7 @@
     NSString *path=[NSString stringWithFormat:@"%@/albums",[sharedSingleton matchedUserId]];
     [[delegate facebook] requestWithGraphPath:path andDelegate:self];
     NSLog(@"Sent Facebook Load Command");
-
+    
 }
 
 - (void)displayPage
@@ -198,7 +198,8 @@
         frameView.image = frameImage;
         [self.view addSubview:frameView];
         
-        timeBox = [[UILabel alloc] initWithFrame:CGRectMake(120, 40, 300, 38)];
+        timeBox = [[UITextView alloc] initWithFrame:CGRectMake(129, 40, 192, 38)];
+        [timeBox setUserInteractionEnabled:NO];
         NSDate *date=[NSDate date];
         int secondsNow=(int)[date timeIntervalSince1970];
         NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
@@ -216,11 +217,11 @@
         int diffMin=diffDay-(hours*3600);
         int minutes=(int)(diffMin/60.0);
         int seconds=diffMin-(minutes*60);
-        timeBox.text = [NSString stringWithFormat:@"%d Days %d Hours %d Minutes %d Seconds",days,hours,minutes,seconds];
+        timeBox.text = [NSString stringWithFormat:@"%d:%d:%d:%d",days,hours,minutes,seconds];
         timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
         [timeBox setTextColor:[UIColor whiteColor]];
         [timeBox setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
-        [timeBox setFont:[UIFont fontWithName: @"Verdana" size: 8.0f]]; 
+        [timeBox setFont:[UIFont fontWithName: @"Verdana" size: 13.0f]]; 
         timeBox.hidden = YES;
         [self.view addSubview:timeBox];
         
@@ -242,7 +243,14 @@
         [self.view addSubview:slideImageView3];
         slideImageView3.center = CGPointMake(self.view.frame.size.width - slideImage3.size.width/2, 74);
         
-        
+        infoBox = [[UITextView alloc] initWithFrame:CGRectMake(129, 86, 192, 280)];
+        infoBox.text = @"Rejection sucks.\n\nRendezvous is here to help.\n\nThis is the no nonsense, totally risk-free app that finds out if your crushes are crushing on you.\n\nWe know you've got an \"i-would-totally-makeout-with-this-person\" list in your head. So do all of your friends and classmates. Wouldn't it be cool if there was some way to discreetly match people with a mutual interest in each other?";
+        [infoBox setTextColor:[UIColor whiteColor]];
+        [infoBox setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
+        [infoBox setFont:[UIFont fontWithName: @"Verdana" size: 11.0f]]; 
+        infoBox.hidden = YES;
+        [infoBox setUserInteractionEnabled:NO];
+        [self.view addSubview:infoBox];
         
         clockButton =  [UIButton buttonWithType:UIButtonTypeCustom];
         [clockButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
@@ -255,32 +263,32 @@
         slideImageView4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage4.size.width, slideImage4.size.height +20)];
         slideImageView4.image = slideImage;
         [self.view addSubview:slideImageView4];
-        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2, 90);
+        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2, 106);
         
         slideImage5 = [UIImage imageNamed:@"sideBarTop.png"];
         slideImageView5 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage5.size.width, slideImage5.size.height)];
         slideImageView5.image = slideImage5;
         [self.view addSubview:slideImageView5];
-        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2, 73);
+        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2, 89);
         
         slideImage6 = [UIImage imageNamed:@"sideBarBottom.png"];
-        slideImageView6 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage3.size.width, slideImage6.size.height)];
+        slideImageView6 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage6.size.width, slideImage6.size.height)];
         slideImageView6.image = slideImage6;
         [self.view addSubview:slideImageView6];
-        slideImageView3.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 104);
+        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 120);
         
         infoButton =  [UIButton buttonWithType:UIButtonTypeCustom];
         [infoButton setImage:[UIImage imageNamed:@"info.png"] forState:UIControlStateNormal];
         [infoButton addTarget:self action:@selector(infoPressed:) forControlEvents:UIControlEventTouchUpInside];
         [infoButton setFrame:CGRectMake(10, 285, 60, 60)];
-        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 91)];
+        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 106)];
         [self.view addSubview:infoButton];
         
         NSLog(@"%f width", self.view.frame.size.height);
         
         
     }
-
+    
     
 }
 
@@ -303,7 +311,7 @@
     int diffMin=diffDay-(hours*3600);
     int minutes=(int)(diffMin/60.0);
     int seconds=diffMin-(minutes*60);
-    timeBox.text = [NSString stringWithFormat:@"\t\t%d Days %d Hours %d Minutes %d Seconds",days,hours,minutes,seconds];
+    timeBox.text = [NSString stringWithFormat:@"%d:%d:%d:%d",days,hours,minutes,seconds];
 }
 
 
@@ -325,11 +333,11 @@
 }
 
 - (UIImage *)imageForObject:(NSString *)objectID {
-
+    
     NSString *url = [[NSString alloc] initWithFormat:@"https://graph.facebook.com/%@/picture?type=large",objectID];
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
-   
- 
+    
+    
     return image;
 }
 - (IBAction)loadMatchPhotos:(id)sender {
@@ -359,7 +367,7 @@
         }
     }
     
-
+    
 }
 
 #pragma mark - MWPhotoBrowserDelegate

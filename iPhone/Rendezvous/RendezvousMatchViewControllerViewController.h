@@ -37,7 +37,8 @@ typedef enum fbRequest {
     UIImageView *slideImageView4;
     UIImageView *slideImageView5;
     UIImageView *slideImageView6;
-    UILabel *timeBox;
+    UITextView *timeBox;
+    UITextView *infoBox;
     BOOL isInClock;
     BOOL isInInfo;
 }
