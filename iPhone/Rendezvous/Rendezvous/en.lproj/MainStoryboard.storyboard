@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -68,9 +68,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="E8W-g9-lNQ" kind="push" id="cf4-7Q-eI7"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="gNr-iS-Spc">
                                 <rect key="frame" x="55" y="20" width="213" height="21"/>
@@ -96,7 +93,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="77" y="-605"/>
+            <point key="canvasLocation" x="1053" y="407"/>
         </scene>
         <!--Rendezvous About View Controller-->
         <scene sceneID="S30-S8-DI8">
@@ -139,68 +136,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     <navigationItem key="navigationItem" id="SsP-2b-6Nd"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="77" y="-1217"/>
-        </scene>
-        <!--View Controller - Settings-->
-        <scene sceneID="fO0-Z1-S2a">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OaV-ZQ-prp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="kno-G7-9Du" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7xe-Dg-uT8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="sON-1a-KZ2"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="724" y="-1001"/>
-        </scene>
-        <!--Rendezvous List Table View Controller-->
-        <scene sceneID="A2I-cQ-ksI">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eq7-Qt-XWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="Jl9-Xv-znG" customClass="RendezvousListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="owf-Ol-GWp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" rowHeight="73" id="9xO-fh-Aj7">
-                                <rect key="frame" x="0.0" y="22" width="320" height="73"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" id="qcI-MZ-D1Y">
-                                            <rect key="frame" x="74" y="25" width="173" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
-                                            <color key="textColor" red="0.08274406934306569" green="0.075444799270072999" blue="0.075444799270072999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="shadowOffset" width="0.0" height="-2"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="EzO-UN-02K">
-                        <barButtonItem key="rightBarButtonItem" tag="5" style="plain" systemItem="add" id="Iih-Qc-EW6">
-                            <connections>
-                                <segue destination="jXc-IH-DNs" kind="push" id="KsJ-zH-EYq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addButton" destination="Iih-Qc-EW6" id="c0N-18-cOB"/>
-                        <segue destination="RUx-AY-dOk" kind="push" identifier="myListToDetailPage" id="bhj-3l-0S7"/>
-                    </connections>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="100" y="16"/>
+            <point key="canvasLocation" x="1529" y="407"/>
         </scene>
         <!--Rendezvous Add Table View Controller - Add New-->
         <scene sceneID="Y8I-fb-3Pi">
@@ -208,7 +144,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIp-hs-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jXc-IH-DNs" customClass="RendezvousAddTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="bYi-2W-ehm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" clearsContextBeforeDrawing="NO" contentMode="redraw" barStyle="blackOpaque" text="" placeholder="Find New Friends!" id="ZrF-JW-aBQ">
@@ -250,7 +186,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     <navigationItem key="navigationItem" title="Add New" id="pHe-g5-H2U"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="XSr-lL-f2K" id="np6-Nj-cTQ"/>
-                        <segue destination="Jl9-Xv-znG" kind="push" identifier="mover" id="KXx-qG-LGc"/>
+                        <segue destination="Rhl-a6-fPg" kind="push" identifier="mover" id="jSS-q2-aHZ"/>
                     </connections>
                 </tableViewController>
                 <searchDisplayController id="XSr-lL-f2K" customClass="RendezvousSearchDisplayController">
@@ -263,7 +199,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="724" y="-380"/>
+            <point key="canvasLocation" x="77" y="-36"/>
         </scene>
         <!--Rendezvous User View Controller - Detail Page-->
         <scene sceneID="npd-ij-QzC">
@@ -332,7 +268,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="724" y="287"/>
+            <point key="canvasLocation" x="512" y="520"/>
         </scene>
         <!--Rendezvous Match View Controller View Controller-->
         <scene sceneID="wmo-87-C3a">
@@ -356,58 +292,64 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="77" y="636"/>
+            <point key="canvasLocation" x="67" y="1122"/>
         </scene>
-        <!--Rendezvous Messages View Controller - Messages-->
-        <scene sceneID="eV2-3o-TY9">
+        <!--Rendezvous Inbox View Controller-->
+        <scene sceneID="cOD-vM-1od">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gND-Ty-WXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="E8W-g9-lNQ" customClass="RendezvousMessagesViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tqI-Uq-7Dm">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ujG-gh-f8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="nZj-xd-aGA" customClass="RendezvousInboxViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E7z-aN-ogg">
                         <rect key="frame" x="0.0" y="44" width="320" height="387"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserMessageCellIdentifier" textLabel="F7G-ok-JQy" detailTextLabel="BMj-dr-so7" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="sgq-ov-FBA">
-                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="59"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F7G-ok-JQy">
-                                            <rect key="frame" x="10" y="10" width="95" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wgT-QG-qRO">
+                                <rect key="frame" x="0.0" y="12" width="320" height="375"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserMessageCellIdentifier" textLabel="F7G-ok-JQy" detailTextLabel="BMj-dr-so7" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="sgq-ov-FBA">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="left" text="Last Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BMj-dr-so7">
-                                            <rect key="frame" x="10" y="32" width="88" height="18"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="E8W-g9-lNQ" id="jCR-To-vfT"/>
-                            <outlet property="delegate" destination="E8W-g9-lNQ" id="VND-Zm-Iha"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Messages" id="35W-kc-bHh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="9XB-Ig-p1q"/>
-                    </navigationItem>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F7G-ok-JQy">
+                                                    <rect key="frame" x="10" y="10" width="95" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="left" text="Last Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BMj-dr-so7">
+                                                    <rect key="frame" x="10" y="32" width="88" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nZj-xd-aGA" id="Kf7-ly-2e3"/>
+                                    <outlet property="delegate" destination="nZj-xd-aGA" id="v1c-YS-xau"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b7U-5W-yTR"/>
                     <connections>
-                        <segue destination="IKm-Q9-mKo" kind="push" identifier="chat" id="UYr-8c-jDx"/>
+                        <outlet property="inboxTableView" destination="wgT-QG-qRO" id="HTR-OE-CPD"/>
+                        <segue destination="IKm-Q9-mKo" kind="push" identifier="chat" id="a1r-4o-30N"/>
                     </connections>
-                </tableViewController>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="1138" y="-1001"/>
+            <point key="canvasLocation" x="62" y="-615"/>
         </scene>
         <!--Rendezvous Chat View Controller - User Name-->
         <scene sceneID="amg-Lf-QZ8">
@@ -517,7 +459,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1612" y="-1006"/>
+            <point key="canvasLocation" x="512" y="-606"/>
         </scene>
         <!--Rendezvous Old Matches View Controller-->
         <scene sceneID="vWD-Dt-vJb">
@@ -556,7 +498,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     <navigationItem key="navigationItem" id="bdH-HM-IPB"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="574" y="965"/>
+            <point key="canvasLocation" x="540" y="1122"/>
         </scene>
         <!--Rendezvous List View Controller-->
         <scene sceneID="bHE-V6-00A">
@@ -599,14 +541,20 @@ We make the connection. You rendezvous. Good luck!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="j2P-z6-EXV"/>
+                    <navigationItem key="navigationItem" id="j2P-z6-EXV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gVm-7J-yGl">
+                            <connections>
+                                <segue destination="jXc-IH-DNs" kind="push" id="5nk-Vc-wuQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="GHd-ro-1Lh" id="iD4-gB-BJ7"/>
                         <segue destination="RUx-AY-dOk" kind="push" identifier="listToDetailPage" id="2bT-xj-TRB"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1119" y="46"/>
+            <point key="canvasLocation" x="77" y="520"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z6U-8A-UeM">
@@ -624,7 +572,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-409" y="636"/>
+            <point key="canvasLocation" x="-408" y="1122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UGX-gz-4d0">
@@ -642,7 +590,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-408" y="8"/>
+            <point key="canvasLocation" x="-408" y="520"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="h4u-pz-bCO">
@@ -729,11 +677,11 @@ We make the connection. You rendezvous. Good luck!</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="ncF-iX-jjW"/>
+                        <segue destination="nZj-xd-aGA" kind="relationship" relationship="rootViewController" id="bgb-Jo-ub5"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-413" y="-615"/>
+            <point key="canvasLocation" x="-408" y="-615"/>
         </scene>
     </scenes>
     <resources>
@@ -776,10 +724,10 @@ We make the connection. You rendezvous. Good luck!</string>
                 <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
             </relationships>
         </class>
-        <class className="RendezvousListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousListTableViewController.h"/>
+        <class className="RendezvousInboxViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousInboxViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="inboxTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="RendezvousListViewController" superclassName="UIViewController">
@@ -794,16 +742,11 @@ We make the connection. You rendezvous. Good luck!</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousMatchViewControllerViewController.h"/>
             <relationships>
                 <relationship kind="action" name="ButtonPressed:"/>
+                <relationship kind="outlet" name="clockButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="matchPhoto" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="moveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="RendezvousMessagesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousMessagesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
         <class className="RendezvousOldMatchesViewController" superclassName="UITableViewController">
@@ -831,8 +774,7 @@ We make the connection. You rendezvous. Good luck!</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Acd-63-Iwm"/>
-        <segue reference="UYr-8c-jDx"/>
-        <segue reference="2bT-xj-TRB"/>
+        <segue reference="K98-Pa-VUg"/>
+        <segue reference="a1r-4o-30N"/>
     </inferredMetricsTieBreakers>
 </document>

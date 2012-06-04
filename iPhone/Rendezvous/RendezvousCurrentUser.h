@@ -62,6 +62,7 @@ typedef enum apiCall {
 @property (retain, nonatomic) NSMutableDictionary *matchInfo;
 @property (retain, nonatomic) NSString *matchedUserId;
 @property (nonatomic, retain) NSArray *photos;
+@property (nonatomic, retain) UIImage *backgroundImage;
 
 + (id)sharedInstance;
 

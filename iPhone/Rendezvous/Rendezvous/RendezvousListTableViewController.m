@@ -59,7 +59,8 @@
     [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
     
     addButton=self.navigationItem.rightBarButtonItem;
-    //addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
+    addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
+    self.navigationItem.leftBarButtonItem=self.editButtonItem;
     self.navigationItem.rightBarButtonItem=addButton;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getListNamesFromID) name:@"listDataLoaded" object:nil];
     //[self loadData];
@@ -110,12 +111,11 @@
 }
 
 #pragma mark - Add New
-/*
+
 -(void) addNew
  {
  NSLog(@"Add");  
  }
-
 
  -(void) setEditing:(BOOL)editing animated:(BOOL)animated
  {
@@ -129,7 +129,6 @@
  }
  
  }
- */
  
 #pragma mark - Table view data source
 
