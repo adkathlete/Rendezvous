@@ -171,7 +171,7 @@
 {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     
-    static NSString *CellIdentifier = @"CellIdentifier";
+    static NSString *CellIdentifier = @"ListCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
@@ -185,12 +185,12 @@
 //    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];
     
     // Get the cell label using its tag and set it
-    UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
+    //UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
     //    NSString *listNumer=[[NSString alloc] initWithFormat:@"%d. ",indexPath.row+1];
     //    NSString *labelText= [listNumer stringByAppendingString:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
     NSString *spacer = @"     ";
     NSString *labelText= [spacer stringByAppendingString:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
-    [cellLabel setText:labelText];
+    [cell.textLabel setText:labelText];
     
     // The object's image
     cell.imageView.image = [self imageForObject:[[s listIDs] objectAtIndex:indexPath.row]];
