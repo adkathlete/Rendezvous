@@ -30,6 +30,12 @@
 
 - (void)viewDidLoad
 {
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [spinner setCenter:CGPointMake(250,250)];
+    [spinner startAnimating];
+    [self.view addSubview:spinner];
+    
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
     UIImage *back = [UIImage imageNamed:@"Bar.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];

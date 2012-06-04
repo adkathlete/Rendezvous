@@ -14,7 +14,7 @@
 @end
 
 @implementation RendezvousMatchViewControllerViewController
-@synthesize nameLabel,matchName,matchPhoto, matchedUserId, responseData, timer;
+@synthesize nameLabel,matchName,matchPhoto, matchedUserId, responseData, timer, scroll,initial;
 
 @synthesize photoButton;
 @synthesize photos = _photos;
@@ -74,6 +74,15 @@
     [self loadUserPhotos];
     [super loadView];
     [super viewDidLoad];
+    
+    [self.view setBackgroundColor:[UIColor blackColor]];
+    
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [spinner setCenter:self.view.center];
+    [spinner startAnimating];
+    [self.view addSubview:spinner];
+    [self.view bringSubviewToFront:spinner];
     
 }
 
@@ -151,8 +160,7 @@
         
         matchPhoto.image= [self imageForObject: [sharedSingleton matchedUserId]];
         
-        UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        
+        scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         scroll.scrollEnabled = YES;
         scroll.showsHorizontalScrollIndicator = NO;
         scroll.showsVerticalScrollIndicator = NO;

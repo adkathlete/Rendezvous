@@ -43,7 +43,9 @@ typedef enum fbRequest {
     BOOL isInInfo;
 }
 @property (retain, nonatomic) NSMutableData *responseData;
+@property (retain, nonatomic) UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *initial;
 @property (weak, nonatomic) NSString *matchName;
 @property (weak, nonatomic) NSString *matchedUserId;
 @property (weak, nonatomic) IBOutlet UIImageView *matchPhoto;
