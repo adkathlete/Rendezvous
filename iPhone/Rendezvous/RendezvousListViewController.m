@@ -15,7 +15,7 @@
 @implementation RendezvousListViewController
 
 @synthesize listTableView;
-@synthesize responseData,addButton;
+@synthesize responseData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     isIn = true;
+    editing=false;
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
     UIImage *back = [UIImage imageNamed:@"Bar.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
@@ -79,6 +80,20 @@
     [self.view addSubview:moveButton];
     
     
+    UIButton *addButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
+    [addButton addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
+    [addButton setFrame:CGRectMake(10, 10, 60, 60)];
+    [addButton setCenter:CGPointMake(self.view.frame.size.width - 13, 200)];
+    [self.view addSubview:addButton];
+    
+    UIButton *editButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [editButton setImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
+    [editButton addTarget:self action:@selector(toggleEdit) forControlEvents:UIControlEventTouchUpInside];
+    [editButton setFrame:CGRectMake(10, 10, 60, 60)];
+    [editButton setCenter:CGPointMake(self.view.frame.size.width - 13, 230)];
+    [self.view addSubview:editButton];
+    
     self.navigationItem.leftBarButtonItem=self.editButtonItem;
     
 //    UIButton *bb = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -107,6 +122,13 @@
     
 }
 
+
+
+
+-(void) add {
+    [self performSegueWithIdentifier:@"add" sender: self];
+}
+
 //-(IBAction)setEditing:(id)sender
 //{
 //    NSLog(@"set editing!");
@@ -125,6 +147,22 @@
         self.navigationItem.rightBarButtonItem.enabled=TRUE;
         [self.listTableView setEditing:NO animated:animated];
 
+    }
+    
+}
+
+-(void) toggleEdit
+{
+    if(self.editing)
+    {
+        self.editing=false;
+        [self.listTableView setEditing:YES animated:YES];
+        self.navigationItem.rightBarButtonItem.enabled=FALSE;
+    }else {
+        self.editing=true;
+        self.navigationItem.rightBarButtonItem.enabled=TRUE;
+        [self.listTableView setEditing:NO animated:YES];
+        
     }
     
 }

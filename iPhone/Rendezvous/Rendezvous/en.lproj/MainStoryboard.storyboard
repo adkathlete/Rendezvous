@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -144,7 +144,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIp-hs-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jXc-IH-DNs" customClass="RendezvousAddTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="bYi-2W-ehm">
-                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" clearsContextBeforeDrawing="NO" contentMode="redraw" barStyle="blackOpaque" text="" placeholder="Find New Friends!" id="ZrF-JW-aBQ">
@@ -186,7 +186,8 @@ We make the connection. You rendezvous. Good luck!</string>
                     <navigationItem key="navigationItem" title="Add New" id="pHe-g5-H2U"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="XSr-lL-f2K" id="np6-Nj-cTQ"/>
-                        <segue destination="Rhl-a6-fPg" kind="push" identifier="mover" id="jSS-q2-aHZ"/>
+                        <segue destination="Rhl-a6-fPg" kind="modal" identifier="mover" id="jSS-q2-aHZ"/>
+                        <segue destination="Rhl-a6-fPg" kind="modal" identifier="addBack" id="PLj-N3-OFw"/>
                     </connections>
                 </tableViewController>
                 <searchDisplayController id="XSr-lL-f2K" customClass="RendezvousSearchDisplayController">
@@ -199,7 +200,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="77" y="-36"/>
+            <point key="canvasLocation" x="-302" y="-36"/>
         </scene>
         <!--Rendezvous User View Controller - Detail Page-->
         <scene sceneID="npd-ij-QzC">
@@ -207,7 +208,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3y-4o-q54" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RUx-AY-dOk" customClass="RendezvousUserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erO-cg-3yL">
-                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BlackBackground.png" id="c92-OJ-fRD">
@@ -506,11 +507,11 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUh-JY-VZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Rhl-a6-fPg" customClass="RendezvousListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C0z-lo-FxA">
-                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHd-ro-1Lh">
-                                <rect key="frame" x="0.0" y="8" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="8" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -541,10 +542,11 @@ We make the connection. You rendezvous. Good luck!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" id="ZxB-If-Ldm"/>
                     <navigationItem key="navigationItem" id="j2P-z6-EXV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gVm-7J-yGl">
                             <connections>
-                                <segue destination="jXc-IH-DNs" kind="push" id="5nk-Vc-wuQ"/>
+                                <segue destination="jXc-IH-DNs" kind="modal" identifier="add" id="5nk-Vc-wuQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -573,24 +575,6 @@ We make the connection. You rendezvous. Good luck!</string>
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="-408" y="1122"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="UGX-gz-4d0">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7I2-5N-mYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="0Un-0j-Ewx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="MDz-D9-Ed6">
-                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c8m-YM-LSE">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Rhl-a6-fPg" kind="relationship" relationship="rootViewController" id="K98-Pa-VUg"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-408" y="520"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="h4u-pz-bCO">
@@ -652,9 +636,9 @@ We make the connection. You rendezvous. Good luck!</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0Un-0j-Ewx" kind="relationship" relationship="viewControllers" id="AqR-Oa-jKE"/>
-                        <segue destination="Fko-IL-7KN" kind="relationship" relationship="viewControllers" id="uml-pG-oNe"/>
-                        <segue destination="UsI-gn-j0K" kind="relationship" relationship="viewControllers" id="9on-BN-gK6"/>
+                        <segue destination="Rhl-a6-fPg" kind="relationship" relationship="viewControllers" id="srq-4X-JP9"/>
+                        <segue destination="Fko-IL-7KN" kind="relationship" relationship="viewControllers" id="vrZ-05-kDx"/>
+                        <segue destination="UsI-gn-j0K" kind="relationship" relationship="viewControllers" id="lcM-sK-e1b"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -688,13 +672,92 @@ We make the connection. You rendezvous. Good luck!</string>
         <image name="BlackBackground.png" width="640" height="960"/>
         <image name="Default.png" width="640" height="960"/>
     </resources>
+    <classes>
+        <class className="RendezvousAboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousAboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aboutLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RendezvousAddTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousAddTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="RendezvousChatViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousChatViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="chatTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="composeMessageView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="messageField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="sendMessageButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RendezvousHomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousHomeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dayLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hourLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minuteLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="secondLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="RendezvousInboxViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousInboxViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="inboxTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="RendezvousListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="listTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="moveButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RendezvousMatchViewControllerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousMatchViewControllerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="ButtonPressed:"/>
+                <relationship kind="outlet" name="clockButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="matchPhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RendezvousOldMatchesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousOldMatchesViewController.h"/>
+        </class>
+        <class className="RendezvousSearchDisplayController" superclassName="UISearchDisplayController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousSearchDisplayController.h"/>
+        </class>
+        <class className="RendezvousSplashViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousSplashViewController.h"/>
+        </class>
+        <class className="RendezvousUserViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousUserViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="messageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="K98-Pa-VUg"/>
         <segue reference="a1r-4o-30N"/>
     </inferredMetricsTieBreakers>
 </document>

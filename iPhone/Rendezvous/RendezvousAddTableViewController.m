@@ -58,7 +58,18 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     self.tableView.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:19.0/255.0 blue:19.0/255.0 alpha:1.0];
+ 
     
+    UIButton *addBackButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [addBackButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
+    [addBackButton addTarget:self action:@selector(addBack) forControlEvents:UIControlEventTouchUpInside];
+    [addBackButton setFrame:CGRectMake(10, 10, 60, 60)];
+    [addBackButton setCenter:CGPointMake(self.view.frame.size.width - 13, 200)];
+    [self.view addSubview:addBackButton];
+}
+
+-(void) addBack {
+    [self performSegueWithIdentifier:@"addBack" sender: self];
 }
 
 - (void)viewDidUnload
