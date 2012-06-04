@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -144,7 +144,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIp-hs-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jXc-IH-DNs" customClass="RendezvousAddTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="bYi-2W-ehm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" clearsContextBeforeDrawing="NO" contentMode="redraw" barStyle="blackOpaque" text="" placeholder="Find New Friends!" id="ZrF-JW-aBQ">
@@ -175,8 +175,8 @@ We make the connection. You rendezvous. Good luck!</string>
                     <navigationItem key="navigationItem" title="Add New" id="pHe-g5-H2U"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="XSr-lL-f2K" id="np6-Nj-cTQ"/>
-                        <segue destination="Rhl-a6-fPg" kind="modal" identifier="mover" id="jSS-q2-aHZ"/>
-                        <segue destination="Rhl-a6-fPg" kind="modal" identifier="addBack" id="PLj-N3-OFw"/>
+                        <segue destination="Rhl-a6-fPg" kind="modal" identifier="mover" modalTransitionStyle="flipHorizontal" id="jSS-q2-aHZ"/>
+                        <segue destination="Rhl-a6-fPg" kind="push" identifier="addBack" id="PLj-N3-OFw"/>
                     </connections>
                 </tableViewController>
                 <searchDisplayController id="XSr-lL-f2K" customClass="RendezvousSearchDisplayController">
@@ -254,7 +254,7 @@ We make the connection. You rendezvous. Good luck!</string>
                         <outlet property="nameLabel" destination="zXN-Ni-a9O" id="SIu-NQ-vDv"/>
                         <outlet property="photoButton" destination="wRS-fl-JWK" id="wx8-jm-OGn"/>
                         <outlet property="userPhoto" destination="jne-Ve-kH1" id="qeF-ZE-UmE"/>
-                        <segue destination="IKm-Q9-mKo" kind="push" identifier="userChat" id="9At-kh-KCL"/>
+                        <segue destination="IKm-Q9-mKo" kind="modal" identifier="userChat" id="9At-kh-KCL"/>
                     </connections>
                 </viewController>
             </objects>
@@ -490,17 +490,33 @@ We make the connection. You rendezvous. Good luck!</string>
             </objects>
             <point key="canvasLocation" x="540" y="1122"/>
         </scene>
-        <!--Rendezvous List View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="Ra1-8H-SPP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iv2-lS-eiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="dPG-JJ-ZF8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="g2t-qs-6wH"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2nm-zp-WJk">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Rhl-a6-fPg" kind="relationship" relationship="rootViewController" id="Z6y-ho-Z9e"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-408" y="526"/>
+        </scene>
+        <!--Rendezvous List View Controller - My List-->
         <scene sceneID="bHE-V6-00A">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUh-JY-VZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Rhl-a6-fPg" customClass="RendezvousListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C0z-lo-FxA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHd-ro-1Lh">
-                                <rect key="frame" x="0.0" y="8" width="320" height="415"/>
+                                <rect key="frame" x="0.0" y="8" width="320" height="371"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -523,16 +539,16 @@ We make the connection. You rendezvous. Good luck!</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="ZxB-If-Ldm"/>
-                    <navigationItem key="navigationItem" id="j2P-z6-EXV">
+                    <navigationItem key="navigationItem" title="My List" id="j2P-z6-EXV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gVm-7J-yGl">
                             <connections>
-                                <segue destination="jXc-IH-DNs" kind="modal" identifier="add" id="5nk-Vc-wuQ"/>
+                                <segue destination="jXc-IH-DNs" kind="push" identifier="add" id="5nk-Vc-wuQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="GHd-ro-1Lh" id="iD4-gB-BJ7"/>
-                        <segue destination="RUx-AY-dOk" kind="push" identifier="listToDetailPage" id="2bT-xj-TRB"/>
+                        <segue destination="RUx-AY-dOk" kind="modal" identifier="listToDetailPage" id="2bT-xj-TRB"/>
                     </connections>
                 </viewController>
             </objects>
@@ -616,9 +632,9 @@ We make the connection. You rendezvous. Good luck!</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Rhl-a6-fPg" kind="relationship" relationship="viewControllers" id="srq-4X-JP9"/>
-                        <segue destination="Fko-IL-7KN" kind="relationship" relationship="viewControllers" id="vrZ-05-kDx"/>
-                        <segue destination="UsI-gn-j0K" kind="relationship" relationship="viewControllers" id="lcM-sK-e1b"/>
+                        <segue destination="dPG-JJ-ZF8" kind="relationship" relationship="viewControllers" id="FwY-t0-7aq"/>
+                        <segue destination="Fko-IL-7KN" kind="relationship" relationship="viewControllers" id="bgc-Ix-agz"/>
+                        <segue destination="UsI-gn-j0K" kind="relationship" relationship="viewControllers" id="AFR-i8-yw3"/>
                     </connections>
                 </tabBarController>
             </objects>

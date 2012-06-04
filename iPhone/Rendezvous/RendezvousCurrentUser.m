@@ -222,8 +222,6 @@ static RendezvousCurrentUser *sharedInstance = nil;
             NSLog(userID);
         }
         
-
-        matchedUserId = [matchIDs objectAtIndex:0];
         
         if ([matchIDs count] == 0)
         {
@@ -232,6 +230,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
         }
         else
         {
+            matchedUserId = [matchIDs objectAtIndex:0];
             for (NSString *user in matchIDs)
             {
                 [self getFacebookName:user];
