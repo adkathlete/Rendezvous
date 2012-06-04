@@ -90,14 +90,14 @@
     }
     
     // Get the cell label using its tag and set it
-    UILabel *mainCellLabel = (UILabel *)[cell viewWithTag:2];
+    //UILabel *mainCellLabel = (UILabel *)[cell viewWithTag:2];
     NSString *mainLabelText= [[s messageUserInfo] objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]];
-    [mainCellLabel setText:mainLabelText];
+    [cell.textLabel setText:mainLabelText];
     
-    UILabel *subCellLabel = (UILabel *)[cell viewWithTag:3];
+    //UILabel *subCellLabel = (UILabel *)[cell viewWithTag:3];
     NSArray *chatMessages=[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]];
     NSString *subLabelText= [[[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]] objectAtIndex:[chatMessages count]-1] objectForKey:@"message"];
-    [subCellLabel setText:subLabelText];
+    [cell.detailTextLabel setText:subLabelText];
     
     
     return cell;

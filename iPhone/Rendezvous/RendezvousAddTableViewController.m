@@ -250,8 +250,8 @@
 	else
 	{
         // Get the cell label using its tag and set it
-        UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
-        [cellLabel setText:[[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"]];
+        //UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
+        [cell.textLabel setText:[[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"]];
         // The object's image
         cell.imageView.image = [self imageForObject:[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
     }
