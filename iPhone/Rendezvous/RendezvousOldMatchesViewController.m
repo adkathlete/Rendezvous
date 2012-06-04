@@ -121,10 +121,10 @@
     }
     
     // Get the cell label using its tag and set it
-    UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
+    //UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
     NSString *listNumer=[[NSString alloc] initWithFormat:@"%d. ",indexPath.row+1];
     NSString *labelText= [listNumer stringByAppendingString:[[s matchInfo] objectForKey:[[s matchIDs] objectAtIndex:indexPath.row]]];
-    [cellLabel setText:labelText];
+    [cell.textLabel setText:labelText];
     
     // The object's image
     cell.imageView.image = [self imageForObject:[[s matchIDs] objectAtIndex:indexPath.row]];
