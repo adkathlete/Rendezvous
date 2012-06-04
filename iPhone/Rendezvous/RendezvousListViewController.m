@@ -32,7 +32,6 @@
     
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
     UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
@@ -80,7 +79,7 @@
     [self.view addSubview:moveButton];
     
     
-//    self.navigationItem.leftBarButtonItem=self.editButtonItem;
+    self.navigationItem.leftBarButtonItem=self.editButtonItem;
     
 //    UIButton *bb = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [bb addTarget:self action:@selector(setEditing:) forControlEvents:UIControlEventTouchUpInside];
@@ -113,6 +112,22 @@
 //    NSLog(@"set editing!");
 //    
 //}
+
+-(void) setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    
+    [super setEditing:editing animated:animated];
+    if(editing)
+    {
+        [self.listTableView setEditing:YES animated:animated];
+        self.navigationItem.rightBarButtonItem.enabled=FALSE;
+    }else {
+        self.navigationItem.rightBarButtonItem.enabled=TRUE;
+        [self.listTableView setEditing:NO animated:animated];
+
+    }
+    
+}
 
 
 - (void)viewDidUnload
