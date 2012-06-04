@@ -17,7 +17,7 @@
 
 static RendezvousCurrentUser *sharedInstance = nil;
 
-@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, visitingMessageId, listIDs, listUserInfo, matchInfo, matchedUserId, gender, first_name, last_name, connectionCheck,messages,uniqueMessageUserIDs,messageUserInfo,matchIDs;
+@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, visitingMessageId, listIDs, listUserInfo, matchInfo, matchedUserId, gender, first_name, last_name, connectionCheck,messages,uniqueMessageUserIDs,messageUserInfo,matchIDs, backgroundImage;
 @synthesize photos = _photos;
 
 // Get the shared instance and create it if necessary.
@@ -39,6 +39,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
         connectionCheck = @"Good";
         NSLog(@"Connection Check");
         NSLog(connectionCheck);
+        backgroundImage = [UIImage imageNamed:@"BlackBackground.png"];
         checkLoad = 0;
         listUserInfo = [[NSMutableDictionary alloc] init];
         messageUserInfo = [[NSMutableDictionary alloc] init];

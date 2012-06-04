@@ -192,6 +192,12 @@
         
         [self.view addSubview:scroll];
         
+        RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+        UIGraphicsBeginImageContext(scroll.bounds.size);
+        [scroll.layer renderInContext:UIGraphicsGetCurrentContext()];
+        s.backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
         
         UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
         UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height +2)];

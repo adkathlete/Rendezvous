@@ -29,11 +29,23 @@
 {
     [super viewDidLoad];
     
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.navigationController setNavigationBarHidden: YES animated:YES];
+
+    
+    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
+    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -47)];
+    frameView.image = frameImage;
+    [self.view addSubview:frameView];
+    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:s.backgroundImage];
 }
 
 
@@ -54,6 +66,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    tableView.backgroundColor = [UIColor clearColor];
     // Return the number of sections.
     return 1;
 }
