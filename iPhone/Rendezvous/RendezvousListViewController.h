@@ -16,11 +16,11 @@
 {
     IBOutlet UITableView *listTableView;
     NSMutableData *responseData;
-    //UIBarButtonItem *addButton;
     RendezvousCurrentUser *sharedSingleton;
     IBOutlet UIButton*moveButton;
     UIImageView *slideImageView;
     BOOL isIn;
+    BOOL editing;
 }
 
 @property (retain, nonatomic) NSMutableData* responseData;

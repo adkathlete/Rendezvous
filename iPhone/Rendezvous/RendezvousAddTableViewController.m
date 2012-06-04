@@ -64,7 +64,18 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     self.tableView.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:19.0/255.0 blue:19.0/255.0 alpha:1.0];
+ 
     
+    UIButton *addBackButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [addBackButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
+    [addBackButton addTarget:self action:@selector(addBack) forControlEvents:UIControlEventTouchUpInside];
+    [addBackButton setFrame:CGRectMake(10, 10, 60, 60)];
+    [addBackButton setCenter:CGPointMake(self.view.frame.size.width - 13, 200)];
+    [self.view addSubview:addBackButton];
+}
+
+-(void) addBack {
+    [self performSegueWithIdentifier:@"addBack" sender: self];
 }
 
 - (void)viewDidUnload
@@ -245,8 +256,8 @@
 	else
 	{
         // Get the cell label using its tag and set it
-        UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
-        [cellLabel setText:[[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"]];
+        //UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
+        [cell.textLabel setText:[[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"]];
         // The object's image
         cell.imageView.image = [self imageForObject:[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
     }

@@ -221,7 +221,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
         for (NSString *userID in matchIDs){
             NSLog(userID);
         }
-        
+
         if ([matchIDs count] == 0)
         {
             matchName = nil;

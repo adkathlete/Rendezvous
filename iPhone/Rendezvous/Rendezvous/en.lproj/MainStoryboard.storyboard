@@ -163,17 +163,6 @@ We make the connection. You rendezvous. Good luck!</string>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" id="DpY-k7-BUQ">
-                                            <rect key="frame" x="87" y="25" width="173" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
-                                            <color key="textColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="shadowColor" white="0.062243385036496353" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="shadowOffset" width="0.0" height="-2"/>
-                                        </label>
-                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -186,7 +175,8 @@ We make the connection. You rendezvous. Good luck!</string>
                     <navigationItem key="navigationItem" title="Add New" id="pHe-g5-H2U"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="XSr-lL-f2K" id="np6-Nj-cTQ"/>
-                        <segue destination="Rhl-a6-fPg" kind="push" identifier="mover" id="jSS-q2-aHZ"/>
+                        <segue destination="Rhl-a6-fPg" kind="modal" identifier="mover" modalTransitionStyle="flipHorizontal" id="jSS-q2-aHZ"/>
+                        <segue destination="Rhl-a6-fPg" kind="push" identifier="addBack" id="PLj-N3-OFw"/>
                     </connections>
                 </tableViewController>
                 <searchDisplayController id="XSr-lL-f2K" customClass="RendezvousSearchDisplayController">
@@ -199,7 +189,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="77" y="-36"/>
+            <point key="canvasLocation" x="-302" y="-36"/>
         </scene>
         <!--Rendezvous User View Controller - Detail Page-->
         <scene sceneID="npd-ij-QzC">
@@ -207,7 +197,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3y-4o-q54" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RUx-AY-dOk" customClass="RendezvousUserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erO-cg-3yL">
-                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BlackBackground.png" id="c92-OJ-fRD">
@@ -264,7 +254,7 @@ We make the connection. You rendezvous. Good luck!</string>
                         <outlet property="nameLabel" destination="zXN-Ni-a9O" id="SIu-NQ-vDv"/>
                         <outlet property="photoButton" destination="wRS-fl-JWK" id="wx8-jm-OGn"/>
                         <outlet property="userPhoto" destination="jne-Ve-kH1" id="qeF-ZE-UmE"/>
-                        <segue destination="IKm-Q9-mKo" kind="push" identifier="userChat" id="9At-kh-KCL"/>
+                        <segue destination="IKm-Q9-mKo" kind="modal" identifier="userChat" id="9At-kh-KCL"/>
                     </connections>
                 </viewController>
             </objects>
@@ -507,7 +497,23 @@ We make the connection. You rendezvous. Good luck!</string>
             </objects>
             <point key="canvasLocation" x="540" y="1122"/>
         </scene>
-        <!--Rendezvous List View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="Ra1-8H-SPP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iv2-lS-eiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="dPG-JJ-ZF8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="g2t-qs-6wH"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2nm-zp-WJk">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Rhl-a6-fPg" kind="relationship" relationship="rootViewController" id="Z6y-ho-Z9e"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-408" y="526"/>
+        </scene>
+        <!--Rendezvous List View Controller - My List-->
         <scene sceneID="bHE-V6-00A">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUh-JY-VZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -517,25 +523,16 @@ We make the connection. You rendezvous. Good luck!</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHd-ro-1Lh">
-                                <rect key="frame" x="0.0" y="8" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="8" width="320" height="371"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" rowHeight="73" id="VEP-JN-gN8">
+                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListCellIdentifier" rowHeight="73" id="VEP-JN-gN8">
                                         <rect key="frame" x="0.0" y="22" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" id="AuG-e9-7PA">
-                                                    <rect key="frame" x="74" y="25" width="173" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="shadowOffset" width="0.0" height="-2"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
@@ -548,16 +545,17 @@ We make the connection. You rendezvous. Good luck!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="j2P-z6-EXV">
+                    <tabBarItem key="tabBarItem" title="" id="ZxB-If-Ldm"/>
+                    <navigationItem key="navigationItem" title="My List" id="j2P-z6-EXV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gVm-7J-yGl">
                             <connections>
-                                <segue destination="jXc-IH-DNs" kind="push" id="5nk-Vc-wuQ"/>
+                                <segue destination="jXc-IH-DNs" kind="push" identifier="add" id="5nk-Vc-wuQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="GHd-ro-1Lh" id="iD4-gB-BJ7"/>
-                        <segue destination="RUx-AY-dOk" kind="push" identifier="listToDetailPage" id="2bT-xj-TRB"/>
+                        <segue destination="RUx-AY-dOk" kind="modal" identifier="listToDetailPage" id="2bT-xj-TRB"/>
                     </connections>
                 </viewController>
             </objects>
@@ -580,24 +578,6 @@ We make the connection. You rendezvous. Good luck!</string>
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="-408" y="1122"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="UGX-gz-4d0">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7I2-5N-mYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="0Un-0j-Ewx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="MDz-D9-Ed6">
-                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c8m-YM-LSE">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Rhl-a6-fPg" kind="relationship" relationship="rootViewController" id="K98-Pa-VUg"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-408" y="520"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="h4u-pz-bCO">
@@ -659,9 +639,9 @@ We make the connection. You rendezvous. Good luck!</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0Un-0j-Ewx" kind="relationship" relationship="viewControllers" id="AqR-Oa-jKE"/>
-                        <segue destination="Fko-IL-7KN" kind="relationship" relationship="viewControllers" id="uml-pG-oNe"/>
-                        <segue destination="UsI-gn-j0K" kind="relationship" relationship="viewControllers" id="9on-BN-gK6"/>
+                        <segue destination="dPG-JJ-ZF8" kind="relationship" relationship="viewControllers" id="FwY-t0-7aq"/>
+                        <segue destination="Fko-IL-7KN" kind="relationship" relationship="viewControllers" id="bgc-Ix-agz"/>
+                        <segue destination="UsI-gn-j0K" kind="relationship" relationship="viewControllers" id="AFR-i8-yw3"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -701,7 +681,6 @@ We make the connection. You rendezvous. Good luck!</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="K98-Pa-VUg"/>
         <segue reference="a1r-4o-30N"/>
     </inferredMetricsTieBreakers>
 </document>

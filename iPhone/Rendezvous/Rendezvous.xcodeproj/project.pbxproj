@@ -11,7 +11,6 @@
 		1F1CB65A15760BDC00BD46F2 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB65915760BDC00BD46F2 /* clock@2x.png */; };
 		1F1CB65C15760C0100BD46F2 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB65B15760C0100BD46F2 /* clock.png */; };
 		1F1CB65E15760C5700BD46F2 /* apple-touch-icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB65D15760C5700BD46F2 /* apple-touch-icon-precomposed.png */; };
-		1F419BC615776EDA00ECBD89 /* TimeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F419BC515776EDA00ECBD89 /* TimeBackground.png */; };
 		1F5B78CB1578987C00C147E5 /* glare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B78CA1578987C00C147E5 /* glare@2x.png */; };
 		1F5B78CD157898A100C147E5 /* glare.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B78CC157898A100C147E5 /* glare.png */; };
 		1F5B78CF1578992200C147E5 /* slideButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B78CE1578992200C147E5 /* slideButton@2x.png */; };
@@ -116,7 +115,6 @@
 		1F1CB65915760BDC00BD46F2 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		1F1CB65B15760C0100BD46F2 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		1F1CB65D15760C5700BD46F2 /* apple-touch-icon-precomposed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-precomposed.png"; sourceTree = "<group>"; };
-		1F419BC515776EDA00ECBD89 /* TimeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimeBackground.png; sourceTree = "<group>"; };
 		1F5B78CA1578987C00C147E5 /* glare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glare@2x.png"; path = "Rendezvous/glare@2x.png"; sourceTree = "<group>"; };
 		1F5B78CC157898A100C147E5 /* glare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glare.png; sourceTree = "<group>"; };
 		1F5B78CE1578992200C147E5 /* slideButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slideButton@2x.png"; sourceTree = "<group>"; };
@@ -421,7 +419,6 @@
 				73C77F91154DB12B00453D96 /* MainStoryboard.storyboard */,
 				1F0E2EEB157C713E004C76BC /* RendezvousTabBarController.h */,
 				1F0E2EEC157C713E004C76BC /* RendezvousTabBarController.m */,
-				1F419BC515776EDA00ECBD89 /* TimeBackground.png */,
 				730F62AA154E4EC400644C80 /* View Controllers */,
 				730F62A3154E4C9800644C80 /* RendezvousCurrentUser.h */,
 				730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */,
@@ -632,7 +629,6 @@
 				1FE47D2115774D83000571AC /* sendMessage.png in Resources */,
 				1FE47D2315775E57000571AC /* ImageSpacer@2x.png in Resources */,
 				1FE47D2515775E7D000571AC /* ImageSpacer.png in Resources */,
-				1F419BC615776EDA00ECBD89 /* TimeBackground.png in Resources */,
 				1F8D0F9515778639007F0AEA /* cellBackgroundWhite4@2x.png in Resources */,
 				1F8D0F971577864A007F0AEA /* cellBackgroundWhite4.png in Resources */,
 				1F8D0F9A15778E7F007F0AEA /* tableHeader@2x.png in Resources */,
