@@ -31,8 +31,10 @@
 		1F1CB74D157DB0CB00E6F0A7 /* BarFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB74C157DB0CA00E6F0A7 /* BarFinal.png */; };
 		1F1CB74F157DBD7100E6F0A7 /* photoBrowserBackground5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB74E157DBD7000E6F0A7 /* photoBrowserBackground5@2x.png */; };
 		1F1CB751157DBD9E00E6F0A7 /* photoBrowserBackground5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB750157DBD9C00E6F0A7 /* photoBrowserBackground5.png */; };
-		1F48239D157DD15A00D7EAE4 /* stripeBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F48239C157DD15A00D7EAE4 /* stripeBack@2x.png */; };
-		1F4823A0157DD17E00D7EAE4 /* stripeBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F48239F157DD17E00D7EAE4 /* stripeBack.png */; };
+		1F4823A2157E08A600D7EAE4 /* stripeBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4823A1157E08A600D7EAE4 /* stripeBack@2x.png */; };
+		1F4823A4157E08C900D7EAE4 /* stripeBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4823A3157E08C900D7EAE4 /* stripeBack.png */; };
+		1F4823A6157E0D0900D7EAE4 /* cellBackgroundUpdatedDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4823A5157E0D0900D7EAE4 /* cellBackgroundUpdatedDark@2x.png */; };
+		1F4823A8157E0D3200D7EAE4 /* cellBackgroundUpdatedDark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4823A7157E0D3100D7EAE4 /* cellBackgroundUpdatedDark.png */; };
 		1F5B78CB1578987C00C147E5 /* glare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B78CA1578987C00C147E5 /* glare@2x.png */; };
 		1F5B78CD157898A100C147E5 /* glare.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B78CC157898A100C147E5 /* glare.png */; };
 		1F5B78CF1578992200C147E5 /* slideButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B78CE1578992200C147E5 /* slideButton@2x.png */; };
@@ -157,8 +159,10 @@
 		1F1CB74C157DB0CA00E6F0A7 /* BarFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarFinal.png; sourceTree = "<group>"; };
 		1F1CB74E157DBD7000E6F0A7 /* photoBrowserBackground5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photoBrowserBackground5@2x.png"; path = "Rendezvous/photoBrowserBackground5@2x.png"; sourceTree = "<group>"; };
 		1F1CB750157DBD9C00E6F0A7 /* photoBrowserBackground5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoBrowserBackground5.png; sourceTree = "<group>"; };
-		1F48239C157DD15A00D7EAE4 /* stripeBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stripeBack@2x.png"; sourceTree = "<group>"; };
-		1F48239F157DD17E00D7EAE4 /* stripeBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripeBack.png; sourceTree = "<group>"; };
+		1F4823A1157E08A600D7EAE4 /* stripeBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stripeBack@2x.png"; sourceTree = "<group>"; };
+		1F4823A3157E08C900D7EAE4 /* stripeBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripeBack.png; sourceTree = "<group>"; };
+		1F4823A5157E0D0900D7EAE4 /* cellBackgroundUpdatedDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellBackgroundUpdatedDark@2x.png"; sourceTree = "<group>"; };
+		1F4823A7157E0D3100D7EAE4 /* cellBackgroundUpdatedDark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellBackgroundUpdatedDark.png; sourceTree = "<group>"; };
 		1F5B78CA1578987C00C147E5 /* glare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glare@2x.png"; path = "Rendezvous/glare@2x.png"; sourceTree = "<group>"; };
 		1F5B78CC157898A100C147E5 /* glare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glare.png; sourceTree = "<group>"; };
 		1F5B78CE1578992200C147E5 /* slideButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slideButton@2x.png"; sourceTree = "<group>"; };
@@ -341,19 +345,19 @@
 				73E1142615696A32008D215E /* RendezvousAboutViewController.h */,
 				73E1142715696A32008D215E /* RendezvousAboutViewController.m */,
 				76D3195F1559C0EF0080EFB6 /* RendezvousSplashViewController.h */,
+				1F4823A7157E0D3100D7EAE4 /* cellBackgroundUpdatedDark.png */,
 				76D319601559C0EF0080EFB6 /* RendezvousSplashViewController.m */,
+				1F4823A5157E0D0900D7EAE4 /* cellBackgroundUpdatedDark@2x.png */,
 				732809F31555CB9400C716AD /* RendezvousAddTableViewController.h */,
 				732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */,
 				1F5B78D715789FAE00C147E5 /* RendezvousListViewController.m */,
+				1F5B78D615789FAE00C147E5 /* RendezvousListViewController.h */,
 				738C549A157437DF0042D907 /* RendezvousMessagesViewController.h */,
 				738C549B157437DF0042D907 /* RendezvousMessagesViewController.m */,
-				1F5B78D615789FAE00C147E5 /* RendezvousListViewController.h */,
 				73680FF7157C1BD400A5C23B /* RendezvousInboxViewController.h */,
 				73680FF8157C1BD400A5C23B /* RendezvousInboxViewController.m */,
 				738C54A01574AA5B0042D907 /* RendezvousChatViewController.h */,
 				738C54A11574AA5B0042D907 /* RendezvousChatViewController.m */,
-				1F48239F157DD17E00D7EAE4 /* stripeBack.png */,
-				1F48239C157DD15A00D7EAE4 /* stripeBack@2x.png */,
 				73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */,
 				73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */,
 				73C77F94154DB12B00453D96 /* RendezvousHomeViewController.h */,
@@ -371,11 +375,13 @@
 		73C77F70154DB12B00453D96 = {
 			isa = PBXGroup;
 			children = (
+				1F4823A1157E08A600D7EAE4 /* stripeBack@2x.png */,
 				1F1CB74A157DB0A900E6F0A7 /* BarFinal@2x.png */,
 				1F1CB74E157DBD7000E6F0A7 /* photoBrowserBackground5@2x.png */,
 				1F1CB72C157DA8DE00E6F0A7 /* check.png */,
 				1F1CB728157DA8B100E6F0A7 /* check@2x.png */,
 				1F1CB718157D911F00E6F0A7 /* editButton@2x.png */,
+				1F4823A3157E08C900D7EAE4 /* stripeBack.png */,
 				1F1CB74C157DB0CA00E6F0A7 /* BarFinal.png */,
 				1F1CB724157DA7C600E6F0A7 /* edit@2x.png */,
 				1F1CB71C157D913900E6F0A7 /* editButton.png */,
@@ -747,8 +753,10 @@
 				1F1CB74D157DB0CB00E6F0A7 /* BarFinal.png in Resources */,
 				1F1CB74F157DBD7100E6F0A7 /* photoBrowserBackground5@2x.png in Resources */,
 				1F1CB751157DBD9E00E6F0A7 /* photoBrowserBackground5.png in Resources */,
-				1F48239D157DD15A00D7EAE4 /* stripeBack@2x.png in Resources */,
-				1F4823A0157DD17E00D7EAE4 /* stripeBack.png in Resources */,
+				1F4823A2157E08A600D7EAE4 /* stripeBack@2x.png in Resources */,
+				1F4823A4157E08C900D7EAE4 /* stripeBack.png in Resources */,
+				1F4823A6157E0D0900D7EAE4 /* cellBackgroundUpdatedDark@2x.png in Resources */,
+				1F4823A8157E0D3200D7EAE4 /* cellBackgroundUpdatedDark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

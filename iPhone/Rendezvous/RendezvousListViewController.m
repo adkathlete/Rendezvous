@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad
 {
+    
     isIn = true;
     editing=false;
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
@@ -57,8 +58,9 @@
     
     self.listTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.listTableView.rowHeight = 70;
-    self.listTableView.backgroundColor = [UIColor blackColor];
-//    self.listTableView.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:19.0/255.0 blue:19.0/255.0 alpha:1.0];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
+    self.view.backgroundColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
+    self.listTableView.backgroundColor = [UIColor clearColor];
     
     
     UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
@@ -244,7 +246,7 @@
     
     
     
-    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdated.png"];
+    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdatedDark.png"];
 //    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
     cell.backgroundView = [[UIImageView alloc] initWithImage:background];
 //    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];
@@ -253,11 +255,11 @@
   
     NSString *listNumer; 
     if (indexPath.row == 9) {
-        listNumer=[[NSString alloc] initWithFormat:@" %d",indexPath.row+1];
+        listNumer=[[NSString alloc] initWithFormat:@"%d",indexPath.row+1];
     } else {
-        listNumer=[[NSString alloc] initWithFormat:@"   %d",indexPath.row+1];
+        listNumer=[[NSString alloc] initWithFormat:@"  %d",indexPath.row+1];
     }
-    NSString *spacer = [[@" " stringByAppendingString: listNumer] stringByAppendingString:@"    "];
+    NSString *spacer = [[@" " stringByAppendingString: listNumer] stringByAppendingString:@"        "];
     NSString *labelText= [spacer stringByAppendingString: [[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
     UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 3, 30, 30)];
     numberLabel.text = listNumer;
@@ -265,6 +267,7 @@
     numberLabel.tag = 1;
     //[cell.contentView addSubview: numberLabel];
     [cell.textLabel setText:labelText];
+    [[cell textLabel] setTextColor:[UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0]];
     [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
     
     

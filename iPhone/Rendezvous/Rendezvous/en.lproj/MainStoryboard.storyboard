@@ -144,7 +144,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIp-hs-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jXc-IH-DNs" customClass="RendezvousAddTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="bYi-2W-ehm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" clearsContextBeforeDrawing="NO" contentMode="redraw" barStyle="blackOpaque" text="" placeholder="Find New Friends!" id="ZrF-JW-aBQ">
@@ -197,68 +197,17 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3y-4o-q54" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RUx-AY-dOk" customClass="RendezvousUserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erO-cg-3yL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BlackBackground.png" id="c92-OJ-fRD">
-                                <rect key="frame" x="-35" y="-40" width="390" height="422"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User Page &amp; User Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zXN-Ni-a9O">
-                                <rect key="frame" x="75" y="279" width="171" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="jne-Ve-kH1">
-                                <rect key="frame" x="20" y="20" width="280" height="204"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wRS-fl-JWK">
-                                <rect key="frame" x="20" y="227" width="80" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Photos!">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="photoButtonPressed:" destination="RUx-AY-dOk" eventType="touchUpInside" id="oHo-Gj-Srm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LkH-JY-nbi">
-                                <rect key="frame" x="199" y="227" width="101" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Messages!">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendMessage:" destination="RUx-AY-dOk" eventType="touchUpInside" id="Ie8-FW-BUk"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="0.10588236153125763" green="0.10588236153125763" blue="0.10588236153125763" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Page" id="Q7U-Vs-qLK"/>
                     <connections>
-                        <outlet property="messageButton" destination="LkH-JY-nbi" id="lgn-ww-re1"/>
-                        <outlet property="nameLabel" destination="zXN-Ni-a9O" id="SIu-NQ-vDv"/>
-                        <outlet property="photoButton" destination="wRS-fl-JWK" id="wx8-jm-OGn"/>
-                        <outlet property="userPhoto" destination="jne-Ve-kH1" id="qeF-ZE-UmE"/>
                         <segue destination="IKm-Q9-mKo" kind="modal" identifier="userChat" id="9At-kh-KCL"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="512" y="520"/>
+            <point key="canvasLocation" x="572" y="550"/>
         </scene>
         <!--Rendezvous Match View Controller View Controller-->
         <scene sceneID="wmo-87-C3a">
@@ -300,7 +249,7 @@ We make the connection. You rendezvous. Good luck!</string>
                         <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wgT-QG-qRO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wgT-QG-qRO">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -343,6 +292,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     <connections>
                         <outlet property="inboxTableView" destination="wgT-QG-qRO" id="HTR-OE-CPD"/>
                         <segue destination="IKm-Q9-mKo" kind="push" identifier="chat" id="a1r-4o-30N"/>
+                        <segue destination="IKm-Q9-mKo" kind="push" identifier="seguingFromMatch" id="pMn-6d-JGk"/>
                     </connections>
                 </viewController>
             </objects>
@@ -521,10 +471,10 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUh-JY-VZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Rhl-a6-fPg" customClass="RendezvousListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C0z-lo-FxA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="27" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHd-ro-1Lh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="27" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHd-ro-1Lh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="377"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -557,7 +507,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="GHd-ro-1Lh" id="iD4-gB-BJ7"/>
-                        <segue destination="RUx-AY-dOk" kind="modal" identifier="listToDetailPage" id="2bT-xj-TRB"/>
+                        <segue destination="RUx-AY-dOk" kind="push" identifier="listToDetailPage" id="2bT-xj-TRB"/>
                     </connections>
                 </viewController>
             </objects>
@@ -752,6 +702,8 @@ We make the connection. You rendezvous. Good luck!</string>
         <class className="RendezvousUserViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousUserViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="clockButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="messageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
@@ -765,6 +717,7 @@ We make the connection. You rendezvous. Good luck!</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="a1r-4o-30N"/>
+        <segue reference="pMn-6d-JGk"/>
+        <segue reference="Z6y-ho-Z9e"/>
     </inferredMetricsTieBreakers>
 </document>

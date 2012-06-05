@@ -201,7 +201,7 @@
                 barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 14, 3, 30, self.view.frame.size.height)];
                 barView.image=bar;
             }
-            [scroll addSubview:barView];
+//            [scroll addSubview:barView];
             startX += mesWidth;
             if (i == numberOfViews-1 ) {
                 UIImageView *barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 13, 3, 30, self.view.frame.size.height)];
@@ -290,7 +290,7 @@
         
         slideImage4 = [UIImage imageNamed:@"sideBarExtend.png"];
         slideImageView4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage4.size.width, slideImage4.size.height +20)];
-        slideImageView4.image = slideImage;
+        slideImageView4.image = slideImage4;
         [self.view addSubview:slideImageView4];
         slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2, 106);
         
@@ -314,28 +314,28 @@
         [self.view addSubview:infoButton];
         
         slideImage7 = [UIImage imageNamed:@"sideBarExtend.png"];
-        slideImageView7 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage4.size.width, slideImage7.size.height +20)];
-        slideImageView7.image = slideImage;
+        slideImageView7 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage7.size.width, slideImage7.size.height +20)];
+        slideImageView7.image = slideImage7;
         [self.view addSubview:slideImageView7];
-        slideImageView7.center = CGPointMake(self.view.frame.size.width - slideImage7.size.width/2, 126);
+        slideImageView7.center = CGPointMake(self.view.frame.size.width - slideImage7.size.width/2, 152);
         
         slideImage8 = [UIImage imageNamed:@"sideBarTop.png"];
         slideImageView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage8.size.width, slideImage8.size.height)];
         slideImageView8.image = slideImage8;
         [self.view addSubview:slideImageView8];
-        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage8.size.width/2,109);
+        slideImageView8.center = CGPointMake(self.view.frame.size.width - slideImage8.size.width/2,135);
         
         slideImage9 = [UIImage imageNamed:@"sideBarBottom.png"];
         slideImageView9 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage9.size.width, slideImage9.size.height)];
-        slideImageView6.image = slideImage9;
+        slideImageView9.image = slideImage9;
         [self.view addSubview:slideImageView9];
-        slideImageView9.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 140);
+        slideImageView9.center = CGPointMake(self.view.frame.size.width - slideImage9.size.width/2, 166);
         
         messageButton =  [UIButton buttonWithType:UIButtonTypeCustom];
         [messageButton setImage:[UIImage imageNamed:@"messageIcon2.png"] forState:UIControlStateNormal];
         [messageButton addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
         [messageButton setFrame:CGRectMake(10, 285, 60, 60)];
-        [messageButton setCenter:CGPointMake(self.view.frame.size.width - 14, 126)];
+        [messageButton setCenter:CGPointMake(self.view.frame.size.width - 14, 148)];
         [self.view addSubview:messageButton];
         
         NSLog(@"%f width", self.view.frame.size.height);
@@ -385,9 +385,11 @@
 {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     s.visitingMessageId = s.matchedUserId;
-    NSLog(@"Seguing to messages");
-    NSLog(matchedUserId);
-    [self performSegueWithIdentifier:@"toUserMessage" sender: self];
+    s.shouldSegueMessages = @"Yes";
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
+    //NSLog(@"Seguing to messages");
+    //NSLog(matchedUserId);
+    //[self performSegueWithIdentifier:@"toUserMessage" sender: self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

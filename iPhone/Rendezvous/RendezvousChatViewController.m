@@ -47,12 +47,12 @@
 //    sendMessageButton.layer.borderColor = [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0].CGColor;
 //    sendMessageButton.tintColor = [UIColor blackColor];
     
-    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
     UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground5.png"];
     UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
     frameView.image = frameImage;
     [self.view addSubview:frameView];
-    [chatTableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
+    [chatTableView setBackgroundColor:[UIColor clearColor]];
     if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
     {
         [self setTitle:[[s messageUserInfo] objectForKey:[s visitingMessageId]]];
@@ -289,7 +289,7 @@
         [label setFrame:CGRectMake(CELL_CONTENT_MARGIN, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];
     }
     
-    
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
     
 }

@@ -17,7 +17,7 @@
 
 static RendezvousCurrentUser *sharedInstance = nil;
 
-@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, visitingMessageId, listIDs, listUserInfo, matchInfo, matchedUserId, gender, first_name, last_name, connectionCheck,messages,uniqueMessageUserIDs,messageUserInfo,matchIDs, backgroundImage;
+@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, visitingMessageId, listIDs, listUserInfo, matchInfo, matchedUserId, gender, first_name, last_name, connectionCheck,messages,uniqueMessageUserIDs,messageUserInfo,matchIDs, backgroundImage, shouldSegueMessages;
 @synthesize photos = _photos;
 
 // Get the shared instance and create it if necessary.
@@ -36,6 +36,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
     
     if (self) {
         visitingId = @"";
+        shouldSegueMessages = @"No";
         connectionCheck = @"Good";
         NSLog(@"Connection Check");
         NSLog(connectionCheck);
