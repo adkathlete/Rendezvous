@@ -7,6 +7,7 @@
 //
 
 #import "RendezvousChatViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #define FONT_SIZE 16.0f
 #define CELL_CONTENT_WIDTH 170.0f
 #define CELL_CONTENT_MARGIN 10.0f
@@ -38,11 +39,20 @@
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     NSLog([s visitingMessageId]);
     
+
+    [sendMessageButton setTitle:@"send" forState:UIControlStateNormal];
+//    [sendMessageButton setTitleColor:[UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+//    sendMessageButton.layer.borderWidth = 2;
+//    sendMessageButton.layer.cornerRadius = 5;
+//    sendMessageButton.layer.borderColor = [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0].CGColor;
+//    sendMessageButton.tintColor = [UIColor blackColor];
+    
+    
     UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground5.png"];
     UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
     frameView.image = frameImage;
     [self.view addSubview:frameView];
-    
+    [chatTableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
     if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
     {
         [self setTitle:[[s messageUserInfo] objectForKey:[s visitingMessageId]]];

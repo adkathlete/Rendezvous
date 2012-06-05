@@ -75,7 +75,7 @@
     [super loadView];
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor blackColor]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
     
     
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -313,6 +313,31 @@
         [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 106)];
         [self.view addSubview:infoButton];
         
+        slideImage7 = [UIImage imageNamed:@"sideBarExtend.png"];
+        slideImageView7 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage4.size.width, slideImage7.size.height +20)];
+        slideImageView7.image = slideImage;
+        [self.view addSubview:slideImageView7];
+        slideImageView7.center = CGPointMake(self.view.frame.size.width - slideImage7.size.width/2, 126);
+        
+        slideImage8 = [UIImage imageNamed:@"sideBarTop.png"];
+        slideImageView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage8.size.width, slideImage8.size.height)];
+        slideImageView8.image = slideImage8;
+        [self.view addSubview:slideImageView8];
+        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage8.size.width/2,109);
+        
+        slideImage9 = [UIImage imageNamed:@"sideBarBottom.png"];
+        slideImageView9 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage9.size.width, slideImage9.size.height)];
+        slideImageView6.image = slideImage9;
+        [self.view addSubview:slideImageView9];
+        slideImageView9.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 140);
+        
+        messageButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+        [messageButton setImage:[UIImage imageNamed:@"messageIcon2.png"] forState:UIControlStateNormal];
+        [messageButton addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
+        [messageButton setFrame:CGRectMake(10, 285, 60, 60)];
+        [messageButton setCenter:CGPointMake(self.view.frame.size.width - 14, 126)];
+        [self.view addSubview:messageButton];
+        
         NSLog(@"%f width", self.view.frame.size.height);
         
         
@@ -354,6 +379,15 @@
     [self setPhotoButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(IBAction) messagePressed:(id)sender
+{
+    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    s.visitingMessageId = s.matchedUserId;
+    NSLog(@"Seguing to messages");
+    NSLog(matchedUserId);
+    [self performSegueWithIdentifier:@"toUserMessage" sender: self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
