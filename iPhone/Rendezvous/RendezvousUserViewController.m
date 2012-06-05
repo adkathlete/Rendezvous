@@ -31,6 +31,7 @@
 
 - (void)viewDidLoad
 {
+    sharedSingleton = [RendezvousCurrentUser sharedInstance];
     count = 0;
     isInClock = true;
     isInInfo = true;
@@ -46,6 +47,9 @@
     label.shadowColor = [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0];
     label.shadowOffset = CGSizeMake(0, 1.3);
     NSString *temp = [[[sharedSingleton listUserInfo] objectForKey:[sharedSingleton visitingId]] uppercaseString];
+    NSLog(@"WE ARE YOUNG HERE");
+    NSLog([sharedSingleton visitingId]);
+    //NSLog(temp);
     NSArray *chunks = [temp componentsSeparatedByString:@" "];
     label.text = [chunks objectAtIndex:0];
     self.navigationItem.titleView = label;
