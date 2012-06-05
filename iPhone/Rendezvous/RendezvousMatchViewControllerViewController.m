@@ -69,20 +69,24 @@
     [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
     [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
     [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
-    [self.navigationController setNavigationBarHidden: YES animated:NO];
+    [self.navigationController setNavigationBarHidden: NO animated:NO];
     
-    [self loadUserPhotos];
+    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    if ([s.matchedUserId length] != 0) {
+        [self loadUserPhotos];
+    } 
     [super loadView];
     [super viewDidLoad];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
     
-    
+    if ([s.matchedUserId length] != 0) {
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [spinner setCenter:self.view.center];
     [spinner startAnimating];
     [self.view addSubview:spinner];
     [self.view bringSubviewToFront:spinner];
+    }
     
     UITextView *pleaseWait = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2 + 20, self.view.frame.size.width, self.view.frame.size.height)];
     [pleaseWait setUserInteractionEnabled:NO];
@@ -90,15 +94,18 @@
     pleaseWait.textAlignment = UITextAlignmentCenter;
     pleaseWait.backgroundColor = [UIColor clearColor];
     pleaseWait.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
-    pleaseWait.text = @"please wait while your \nmatch is loaded.";
+    pleaseWait.text = @"loading...";
+    if ([s.matchedUserId length] == 0) pleaseWait.text = @"Sorry, you do not currently have a match.";
     [self.view addSubview:pleaseWait];
     [self.view bringSubviewToFront: pleaseWait];
-    
+
     UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
     UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -47)];
     frameView.image = frameImage;
     [self.view addSubview:frameView];
     [self.view bringSubviewToFront: frameView];
+    
+    if ([s.matchedUserId length] == 0) [self displayPage];
 }
 
 -(void) onPress {
@@ -164,12 +171,7 @@
 {    
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     
-    if ([[sharedSingleton matchIDs] count] == 0)
-    {
-        [nameLabel setText:@"Unfortunately, you don't have a \n match loser :("];
-    }
-    else
-    {
+    if ([sharedSingleton.matchedUserId length] != 0) {
         
         [nameLabel setText:[[sharedSingleton matchInfo] objectForKey:[sharedSingleton matchedUserId]]];
         
@@ -220,7 +222,7 @@
         [scroll.layer renderInContext:UIGraphicsGetCurrentContext()];
         s.backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        
+    }
         
         UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
         UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height +2)];
@@ -331,17 +333,19 @@
         [self.view addSubview:slideImageView9];
         slideImageView9.center = CGPointMake(self.view.frame.size.width - slideImage9.size.width/2, 166);
         
+    if ([sharedSingleton.matchedUserId length] != 0) {
+
+    
         messageButton =  [UIButton buttonWithType:UIButtonTypeCustom];
         [messageButton setImage:[UIImage imageNamed:@"messageIcon2.png"] forState:UIControlStateNormal];
         [messageButton addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
         [messageButton setFrame:CGRectMake(10, 285, 60, 60)];
         [messageButton setCenter:CGPointMake(self.view.frame.size.width - 14, 148)];
         [self.view addSubview:messageButton];
+    }
         
         NSLog(@"%f width", self.view.frame.size.height);
         
-        
-    }
     
     
 }
@@ -386,10 +390,10 @@
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     s.visitingMessageId = s.matchedUserId;
     s.shouldSegueMessages = @"Yes";
-    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
+    //self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
     //NSLog(@"Seguing to messages");
     //NSLog(matchedUserId);
-    //[self performSegueWithIdentifier:@"toUserMessage" sender: self];
+    [self performSegueWithIdentifier:@"toUserMessage" sender: self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

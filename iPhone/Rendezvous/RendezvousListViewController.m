@@ -366,6 +366,7 @@
 {    
     NSLog(@"LIST");
     sharedSingleton.visitingId = [[sharedSingleton listIDs] objectAtIndex:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"listToDetailPage" sender: self];
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"loadingUserPage" object:nil];
     

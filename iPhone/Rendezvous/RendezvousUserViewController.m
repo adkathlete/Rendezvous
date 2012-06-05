@@ -69,7 +69,7 @@
     [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
     [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
     [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
-    [self.navigationController setNavigationBarHidden: YES animated:NO];
+    [self.navigationController setNavigationBarHidden: NO animated:NO];
     
     [self loadUserPhotos];
     [super loadView];
@@ -90,7 +90,7 @@
     pleaseWait.textAlignment = UITextAlignmentCenter;
     pleaseWait.backgroundColor = [UIColor clearColor];
     pleaseWait.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
-    pleaseWait.text = @"please wait while this \n person is loaded.";
+    pleaseWait.text = @"loading...";
     [self.view addSubview:pleaseWait];
     [self.view bringSubviewToFront: pleaseWait];
     
@@ -329,7 +329,7 @@
         [messageButton setImage:[UIImage imageNamed:@"messageIcon2.png"] forState:UIControlStateNormal];
         [messageButton addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
         [messageButton setFrame:CGRectMake(10, 285, 60, 60)];
-        [messageButton setCenter:CGPointMake(self.view.frame.size.width - 14, 126)];
+        [messageButton setCenter:CGPointMake(self.view.frame.size.width - 14, 148)];
         [self.view addSubview:messageButton];
         
         NSLog(@"%f width", self.view.frame.size.height);
@@ -378,10 +378,10 @@
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     s.visitingMessageId = s.visitingId;
     s.shouldSegueMessages = @"Yes";
-    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
+    //self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
     //NSLog(@"Seguing to messages");
     //NSLog(matchedUserId);
-    //[self performSegueWithIdentifier:@"toUserMessage" sender: self];
+    [self performSegueWithIdentifier:@"toVisitingMessage" sender: self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
