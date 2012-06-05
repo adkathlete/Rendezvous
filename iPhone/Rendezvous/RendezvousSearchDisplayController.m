@@ -13,7 +13,7 @@
 
 //Subclass SearchDisplayController for Custom TableView
 -(UITableView *) searchResultsTableView {
-[self setValue:[NSNumber numberWithInt:UITableViewStyleGrouped]
+[self setValue:[NSNumber numberWithInt:UITableViewStylePlain]
         forKey:@"_searchResultsTableViewStyle"];
 return [super searchResultsTableView];
 }

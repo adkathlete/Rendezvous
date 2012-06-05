@@ -59,9 +59,18 @@
     self.listTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.listTableView.rowHeight = 70;
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
-    self.view.backgroundColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
     self.listTableView.backgroundColor = [UIColor clearColor];
     
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
+    [label setFont:[UIFont fontWithName:@"Verdana-Bold" size:27.0]];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
+    label.shadowColor = [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0];
+    label.shadowOffset = CGSizeMake(0, 1.3);
+    label.text = @"MY LIST";
+    self.navigationItem.titleView = label;
     
     UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
     UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 92)];
