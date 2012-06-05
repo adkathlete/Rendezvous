@@ -38,6 +38,11 @@
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     NSLog([s visitingMessageId]);
     
+    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground5.png"];
+    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
+    frameView.image = frameImage;
+    [self.view addSubview:frameView];
+    
     if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
     {
         [self setTitle:[[s messageUserInfo] objectForKey:[s visitingMessageId]]];

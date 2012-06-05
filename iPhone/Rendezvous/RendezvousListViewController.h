@@ -19,6 +19,8 @@
     RendezvousCurrentUser *sharedSingleton;
     IBOutlet UIButton*moveButton;
     UIImageView *slideImageView;
+    UIButton *editButton;
+    UIButton *addButton;
     BOOL isIn;
     BOOL editing;
 }

@@ -37,11 +37,14 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.navigationController setNavigationBarHidden: YES animated:YES];
+//    [self.navigationController setNavigationBarHidden: YES animated:YES];
 
+    UINavigationBar *NavBar = [[self navigationController] navigationBar];
+    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
+    [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -47)];
+    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
+    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
     frameView.image = frameImage;
     [self.view addSubview:frameView];
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
@@ -66,14 +69,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    tableView.backgroundColor = [UIColor clearColor];
+    tableView.backgroundColor = [UIColor blackColor];
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // Return the number of rows in the section.
     RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
     return sharedSingleton.uniqueMessageUserIDs.count;
@@ -88,16 +91,19 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdated.png"];
+    //    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:background];
     // Get the cell label using its tag and set it
     //UILabel *mainCellLabel = (UILabel *)[cell viewWithTag:2];
     NSString *mainLabelText= [[s messageUserInfo] objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]];
     [cell.textLabel setText:mainLabelText];
-    
+    [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
     //UILabel *subCellLabel = (UILabel *)[cell viewWithTag:3];
     NSArray *chatMessages=[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]];
     NSString *subLabelText= [[[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]] objectAtIndex:[chatMessages count]-1] objectForKey:@"message"];
     [cell.detailTextLabel setText:subLabelText];
+     [[cell detailTextLabel] setBackgroundColor:[UIColor clearColor]];
     
     
     return cell;

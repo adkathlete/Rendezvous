@@ -34,8 +34,8 @@
     UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
     UIImage *unselectedImage1 = [UIImage imageNamed:@"heart.png"];
     
-    UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
-    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
+    UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
+    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
     
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *item0 = [tabBar.items objectAtIndex:0];

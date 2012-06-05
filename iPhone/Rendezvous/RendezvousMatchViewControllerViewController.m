@@ -58,8 +58,8 @@
     UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
     UIImage *unselectedImage1 = [UIImage imageNamed:@"heart.png"];
     
-    UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
-    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
+    UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
+    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
     
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
@@ -69,7 +69,7 @@
     [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
     [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
     [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
-    [self.navigationController setNavigationBarHidden: YES animated:YES];
+    [self.navigationController setNavigationBarHidden: YES animated:NO];
     
     [self loadUserPhotos];
     [super loadView];
@@ -84,6 +84,21 @@
     [self.view addSubview:spinner];
     [self.view bringSubviewToFront:spinner];
     
+    UITextView *pleaseWait = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2 + 20, self.view.frame.size.width, self.view.frame.size.height)];
+    [pleaseWait setUserInteractionEnabled:NO];
+    [pleaseWait setFont:[UIFont fontWithName:@"Verdana-Bold" size:17.0]];
+    pleaseWait.textAlignment = UITextAlignmentCenter;
+    pleaseWait.backgroundColor = [UIColor clearColor];
+    pleaseWait.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
+    pleaseWait.text = @"please wait while your \nmatch is loaded.";
+    [self.view addSubview:pleaseWait];
+    [self.view bringSubviewToFront: pleaseWait];
+    
+    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
+    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -47)];
+    frameView.image = frameImage;
+    [self.view addSubview:frameView];
+    [self.view bringSubviewToFront: frameView];
 }
 
 -(void) onPress {

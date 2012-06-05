@@ -28,7 +28,7 @@
     isIn = true;
     editing=false;
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
-    UIImage *back = [UIImage imageNamed:@"Bar.png"];
+    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
@@ -40,8 +40,8 @@
     UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
     UIImage *unselectedImage1 = [UIImage imageNamed:@"heart.png"];
     
-    UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
-    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon.png"];
+    UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
+    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
     
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
@@ -57,44 +57,65 @@
     
     self.listTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.listTableView.rowHeight = 70;
+    self.listTableView.backgroundColor = [UIColor blackColor];
 //    self.listTableView.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:19.0/255.0 blue:19.0/255.0 alpha:1.0];
-    self.listTableView.backgroundColor = [UIColor whiteColor];
     
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 47)];
+    
+    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
+    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 92)];
     frameView.image = frameImage;
     [self.view addSubview:frameView];
     
-    UIImage *slideImage = [UIImage imageNamed:@"timeMove.png"];
-    slideImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage.size.width, slideImage.size.height)];
-    slideImageView.image = slideImage;
-    [self.view addSubview:slideImageView];
-    NSLog(@"%f", slideImage.size.width);
-    slideImageView.center = CGPointMake(self.view.frame.size.width + slideImage.size.width/2 -30, 35);
+//    UIImage *slideImage = [UIImage imageNamed:@"timeMove.png"];
+//    slideImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage.size.width, slideImage.size.height)];
+//    slideImageView.image = slideImage;
+//    [self.view addSubview:slideImageView];
+//    NSLog(@"%f", slideImage.size.width);
+//    slideImageView.center = CGPointMake(self.view.frame.size.width + slideImage.size.width/2 -30, 35);
+//    
+//    moveButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+//    [moveButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
+//    [moveButton addTarget:self action:@selector(ButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    [moveButton setFrame:CGRectMake(10, 285, 60, 60)];
+//    [moveButton setCenter:CGPointMake(self.view.frame.size.width - 13, 20)];
+//    [self.view addSubview:moveButton];
+//    
+//    
+//    UIButton *addButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+//    [addButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
+//    [addButton addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
+//    [addButton setFrame:CGRectMake(10, 10, 60, 60)];
+//    [addButton setCenter:CGPointMake(self.view.frame.size.width - 13, 200)];
+//    [self.view addSubview:addButton];
     
-    moveButton =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [moveButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
-    [moveButton addTarget:self action:@selector(ButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [moveButton setFrame:CGRectMake(10, 285, 60, 60)];
-    [moveButton setCenter:CGPointMake(self.view.frame.size.width - 13, 20)];
-    [self.view addSubview:moveButton];
-    
-    
-    UIButton *addButton =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
-    [addButton setFrame:CGRectMake(10, 10, 60, 60)];
-    [addButton setCenter:CGPointMake(self.view.frame.size.width - 13, 200)];
-    [self.view addSubview:addButton];
-    
-    UIButton *editButton =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [editButton setImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
+    editButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [editButton setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
     [editButton addTarget:self action:@selector(toggleEdit) forControlEvents:UIControlEventTouchUpInside];
-    [editButton setFrame:CGRectMake(10, 10, 60, 60)];
-    [editButton setCenter:CGPointMake(self.view.frame.size.width - 13, 230)];
-    [self.view addSubview:editButton];
+    [editButton setFrame:CGRectMake(0, 0, 60, 60)];
+    [editButton setCenter:CGPointMake(self.view.frame.size.width - 13, 10)];
+//    [self.view addSubview:editButton];
     
-    self.navigationItem.leftBarButtonItem=self.editButtonItem;
+    UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithCustomView:editButton];
+    self.navigationItem.leftBarButtonItem = editButtonItem;
+//    self.navigationItem.leftBarButtonItem.width = 100;
+    
+    addButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [addButton setImage:[UIImage imageNamed:@"add.png"] forState:UIControlStateNormal];
+    [addButton addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
+    [addButton setFrame:CGRectMake(0, 0, 60, 60)];
+    [addButton setCenter:CGPointMake(self.view.frame.size.width - 13, 10)];
+//    [self.view addSubview:addButton];
+    
+    UIBarButtonItem * addButtonItem= [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    self.navigationItem.rightBarButtonItem = addButtonItem;
+    
+    
+    
+//    self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:editButtonItem, addButtonItem, nil];
+    
+    
+    
+//    self.navigationItem.leftBarButtonItem=self.editButtonItem;
     
 //    UIButton *bb = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [bb addTarget:self action:@selector(setEditing:) forControlEvents:UIControlEventTouchUpInside];
@@ -103,28 +124,29 @@
 //    [self.view addSubview:bb];
     
 //    [self.navigationController setNavigationBarHidden: YES animated:YES];
-}
-
--(IBAction)ButtonPressed:(id)sender
-{
-    //    UIButton *extendButton = (UIButton *) sender;
-    if (isIn) {
-        isIn = false;
-        slideImageView.center = CGPointMake(self.view.frame.size.width + 185/2 -160, 35);
-        [moveButton setCenter:CGPointMake(self.view.frame.size.width - 140, 20)];
-        //        [extendButton setCenter:CGPointMake(40, 285)];
-    } else {
-        isIn = true;
-        slideImageView.center = CGPointMake(self.view.frame.size.width + 185/2 -30, 35);
-        [moveButton setCenter:CGPointMake(self.view.frame.size.width - 13, 20)];
-        //        [extendButton setCenter:CGPointMake(5, 285)];
-    }
     
 }
 
-
-
-
+//-(IBAction)ButtonPressed:(id)sender
+//{
+//    //    UIButton *extendButton = (UIButton *) sender;
+//    if (isIn) {
+//        isIn = false;
+//        slideImageView.center = CGPointMake(self.view.frame.size.width + 185/2 -160, 35);
+//        [moveButton setCenter:CGPointMake(self.view.frame.size.width - 140, 20)];
+//        //        [extendButton setCenter:CGPointMake(40, 285)];
+//    } else {
+//        isIn = true;
+//        slideImageView.center = CGPointMake(self.view.frame.size.width + 185/2 -30, 35);
+//        [moveButton setCenter:CGPointMake(self.view.frame.size.width - 13, 20)];
+//        //        [extendButton setCenter:CGPointMake(5, 285)];
+//    }
+//    
+//}
+//
+//
+//
+//
 -(void) add {
     [self performSegueWithIdentifier:@"add" sender: self];
 }
@@ -135,33 +157,35 @@
 //    
 //}
 
--(void) setEditing:(BOOL)editing animated:(BOOL)animated
-{
-    
-    [super setEditing:editing animated:animated];
-    if(editing)
-    {
-        [self.listTableView setEditing:YES animated:animated];
-        self.navigationItem.rightBarButtonItem.enabled=FALSE;
-    }else {
-        self.navigationItem.rightBarButtonItem.enabled=TRUE;
-        [self.listTableView setEditing:NO animated:animated];
-
-    }
-    
-}
+//-(void) setEditing:(BOOL)editing animated:(BOOL)animated
+//{
+//    
+//    [super setEditing:editing animated:animated];
+//    if(editing)
+//    {
+//        [self.listTableView setEditing:YES animated:animated];
+//        self.navigationItem.rightBarButtonItem.enabled=FALSE;
+//    }else {
+//        self.navigationItem.rightBarButtonItem.enabled=TRUE;
+//        [self.listTableView setEditing:NO animated:animated];
+//
+//    }
+//    
+//}
 
 -(void) toggleEdit
 {
     if(self.editing)
     {
         self.editing=false;
-        [self.listTableView setEditing:YES animated:YES];
-        self.navigationItem.rightBarButtonItem.enabled=FALSE;
+        [editButton setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
+        [self.listTableView setEditing:NO animated:YES];
+        self.navigationItem.rightBarButtonItem.enabled=TRUE;
     }else {
         self.editing=true;
-        self.navigationItem.rightBarButtonItem.enabled=TRUE;
-        [self.listTableView setEditing:NO animated:YES];
+        [editButton setImage:[UIImage imageNamed:@"check.png"] forState:UIControlStateNormal];
+//        self.navigationItem.rightBarButtonItem.enabled=FALSE;
+        [self.listTableView setEditing:YES animated:YES];
         
     }
     
@@ -194,6 +218,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    tableView.rowHeight = 38;
+    tableView.separatorStyle = NO;
     // Return the number of sections.
     return 1;
 }
@@ -215,23 +241,34 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-
     
-//    UIImage *background = [UIImage imageNamed:@"cellBackgroundWhite4.png"];
+    
+    
+    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdated.png"];
 //    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
-//    cell.backgroundView = [[UIImageView alloc] initWithImage:background];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:background];
 //    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];
     
     // Get the cell label using its tag and set it
-    //UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
-    //    NSString *listNumer=[[NSString alloc] initWithFormat:@"%d. ",indexPath.row+1];
-    //    NSString *labelText= [listNumer stringByAppendingString:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
-    NSString *spacer = @"     ";
-    NSString *labelText= [spacer stringByAppendingString:[[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
+  
+    NSString *listNumer; 
+    if (indexPath.row == 9) {
+        listNumer=[[NSString alloc] initWithFormat:@" %d",indexPath.row+1];
+    } else {
+        listNumer=[[NSString alloc] initWithFormat:@"  %d",indexPath.row+1];
+    }
+    NSString *spacer = @"        ";
+    NSString *labelText= [spacer stringByAppendingString: [[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
+    UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 3, 30, 30)];
+    numberLabel.text = listNumer;
+    [numberLabel setBackgroundColor:[UIColor clearColor]];
+    [cell addSubview: numberLabel];
     [cell.textLabel setText:labelText];
+    [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
+    
     
     // The object's image
-    cell.imageView.image = [self imageForObject:[[s listIDs] objectAtIndex:indexPath.row]];
+//    cell.imageView.image = [self imageForObject:[[s listIDs] objectAtIndex:indexPath.row]];
     
     
     return cell;
