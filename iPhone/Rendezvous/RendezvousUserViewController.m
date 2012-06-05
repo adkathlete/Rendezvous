@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad
 {
-    
+    count = 0;
     isInClock = true;
     isInInfo = true;
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
@@ -78,13 +78,13 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
     
     
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [spinner setCenter:self.view.center];
     [spinner startAnimating];
     [self.view addSubview:spinner];
     [self.view bringSubviewToFront:spinner];
     
-    UITextView *pleaseWait = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2 + 20, self.view.frame.size.width, self.view.frame.size.height)];
+    pleaseWait = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2 + 20, self.view.frame.size.width, self.view.frame.size.height)];
     [pleaseWait setUserInteractionEnabled:NO];
     [pleaseWait setFont:[UIFont fontWithName:@"Verdana-Bold" size:17.0]];
     pleaseWait.textAlignment = UITextAlignmentCenter;
@@ -164,8 +164,9 @@
 {    
         sharedSingleton = [RendezvousCurrentUser sharedInstance];
     
-
-        
+    NSLog(@"COUNT: %d", count);
+    
+        if (count != 0) {
         
         userPhoto.image= [self imageForObject: [sharedSingleton visitingId]];
         
@@ -214,7 +215,12 @@
         [scroll.layer renderInContext:UIGraphicsGetCurrentContext()];
         s.backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        
+        } else {
+            pleaseWait.text = @"Sorry, this user's Facebook photos are private.";
+            [spinner stopAnimating];
+            NSLog(@"sucess!");
+            
+        }
         
         UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
         UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height +2)];
@@ -456,6 +462,8 @@
 
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
     NSLog(@"Facebook Bad Request");
+    count = 0;
+    [self displayPage];
 }
 
 
@@ -471,11 +479,15 @@
             
             NSLog(@"Facebook request %@ loaded", [request url]);
             NSArray *resultData = [result objectForKey:@"data"];
+            
+            count = 0;
+            
             for (NSDictionary *album in resultData) {
                 NSLog([album   objectForKey:@"name"]);
                 
-                if([@"Profile Pictures" compare:[album objectForKey:@"name"]] ==NSOrderedSame)
+                if([@"Profile Pictures" compare:[album objectForKey:@"name"]] == NSOrderedSame)
                 {
+                    count++;
                     NSLog(@"Matched Album");
                     currentfbRequest=kloadPhotos;
                     RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -483,6 +495,11 @@
                     [[delegate facebook] requestWithGraphPath:path andDelegate:self];
                 }
                 
+            }
+            
+            if (count == 0) {
+                [self displayPage];
+                NSLog(@"WE NOT BE HERE");
             }
             
             break;
@@ -502,7 +519,7 @@
             }
             
             self.photos = photos;
-            
+            NSLog(@"WE BE HERE");
             [[NSNotificationCenter defaultCenter] postNotificationName:@"UserPhotosLoaded" object:nil];
             break;
         }
