@@ -34,7 +34,15 @@
     
     [super viewDidLoad];
     
-    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
+    [label setFont:[UIFont fontWithName:@"Verdana-Bold" size:27.0]];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
+    label.shadowColor = [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0];
+    label.shadowOffset = CGSizeMake(0, 1.3);
+    label.text = @"MY INBOX";
+    self.navigationItem.titleView = label;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -96,13 +104,14 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdated.png"];
+    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdatedDark.png"];
     //    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
     cell.backgroundView = [[UIImageView alloc] initWithImage:background];
     // Get the cell label using its tag and set it
     //UILabel *mainCellLabel = (UILabel *)[cell viewWithTag:2];
     NSString *mainLabelText= [[s messageUserInfo] objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]];
     [cell.textLabel setText:mainLabelText];
+    [cell.textLabel setTextColor:[UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0]];
     [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
     //UILabel *subCellLabel = (UILabel *)[cell viewWithTag:3];
     NSArray *chatMessages=[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]];

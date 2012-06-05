@@ -31,13 +31,18 @@
 - (void)viewDidLoad
 {
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
-    UIImage *back = [UIImage imageNamed:@"Bar.png"];
+    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     [super viewDidLoad];
     error = 0;
     
+    self.searchBar.backgroundColor =  [UIColor clearColor];
+    self.searchDisplayController.searchBar.backgroundImage = [UIImage imageNamed:@"BarFinal.png"];
+    self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = 30;
     RendezvousCurrentUser *sharedSingleton=[RendezvousCurrentUser sharedInstance];
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backStripe.png"]];
     friendsList=[[sharedSingleton userInfo] objectForKey:@"friends"];
     friendsList=[friendsList sortedArrayUsingComparator:^(id a, id b) {
         NSString *first = [(NSDictionary*)a objectForKey:@"name"];
@@ -46,26 +51,26 @@
     }];
     
     self.filteredListContent = [NSMutableArray arrayWithCapacity:[friendsList count]];
-
+    
     [self.tableView reloadData];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    self.tableView.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:19.0/255.0 blue:19.0/255.0 alpha:1.0];
- 
     
-    UIButton *addBackButton =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [addBackButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
-    [addBackButton addTarget:self action:@selector(addBack) forControlEvents:UIControlEventTouchUpInside];
-    [addBackButton setFrame:CGRectMake(10, 10, 60, 60)];
-    [addBackButton setCenter:CGPointMake(self.view.frame.size.width - 13, 200)];
-    [self.view addSubview:addBackButton];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
+    
+    
+    //    UIButton *addBackButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    //    [addBackButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
+    //    [addBackButton addTarget:self action:@selector(addBack) forControlEvents:UIControlEventTouchUpInside];
+    //    [addBackButton setFrame:CGRectMake(10, 10, 60, 60)];
+    //    [addBackButton setCenter:CGPointMake(self.view.frame.size.width - 13, 200)];
+    //    self.navigationController.load
 }
 
 -(void) addBack {
@@ -94,18 +99,18 @@
     RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSString *path=[NSString stringWithFormat:@"search?q=%@&type=user&limit=10",[searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
     [[delegate facebook] requestWithGraphPath:path andDelegate:self];
-
+    
     
     
 }
 
 /*
-- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *path=[NSString stringWithFormat:@"search?q=%@&type=user&limit=50",[searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
-
-    [[delegate facebook] requestWithGraphPath:path andDelegate:self];
-}
+ - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+ RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
+ NSString *path=[NSString stringWithFormat:@"search?q=%@&type=user&limit=50",[searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
+ 
+ [[delegate facebook] requestWithGraphPath:path andDelegate:self];
+ }
  */
 
 
@@ -126,11 +131,11 @@
 -(void)errorMethod {
     if (error == 1) {
         UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle: @"I'm sure you're really attractive..."
-                          message: @"...but unfortunately lists are limited to 10 people."
-                          delegate: nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil];
+                              initWithTitle: @"I'm sure you're really attractive..."
+                              message: @"...but unfortunately lists are limited to 10 people."
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
         [alert show];
     }
     if (error == 2) {
@@ -167,49 +172,49 @@
 #pragma mark - Table view data source
 
 /*
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    [tempArray addObject:@"A"];
-    [tempArray addObject:@"B"];
-    [tempArray addObject:@"C"];
-    [tempArray addObject:@"D"];
-    [tempArray addObject:@"E"];
-    [tempArray addObject:@"F"];
-    [tempArray addObject:@"G"];
-    [tempArray addObject:@"H"];
-    [tempArray addObject:@"I"];
-    [tempArray addObject:@"J"];
-    [tempArray addObject:@"K"];
-    [tempArray addObject:@"L"];
-    [tempArray addObject:@"M"];
-    [tempArray addObject:@"N"];
-    [tempArray addObject:@"O"];
-    [tempArray addObject:@"P"];
-    [tempArray addObject:@"Q"];
-    [tempArray addObject:@"R"];
-    [tempArray addObject:@"S"];
-    [tempArray addObject:@"T"];
-    [tempArray addObject:@"U"];
-    [tempArray addObject:@"V"];
-    [tempArray addObject:@"W"];
-    [tempArray addObject:@"X"];
-    [tempArray addObject:@"Y"];
-    [tempArray addObject:@"Z"];
-    
-    return tempArray;
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-    return [indices indexOfObject:title];
-}
-
-
-- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
-	return [[content objectAtIndex:section] objectForKey:@"headerTitle"];
-    
-}
+ - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+ {
+ NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+ [tempArray addObject:@"A"];
+ [tempArray addObject:@"B"];
+ [tempArray addObject:@"C"];
+ [tempArray addObject:@"D"];
+ [tempArray addObject:@"E"];
+ [tempArray addObject:@"F"];
+ [tempArray addObject:@"G"];
+ [tempArray addObject:@"H"];
+ [tempArray addObject:@"I"];
+ [tempArray addObject:@"J"];
+ [tempArray addObject:@"K"];
+ [tempArray addObject:@"L"];
+ [tempArray addObject:@"M"];
+ [tempArray addObject:@"N"];
+ [tempArray addObject:@"O"];
+ [tempArray addObject:@"P"];
+ [tempArray addObject:@"Q"];
+ [tempArray addObject:@"R"];
+ [tempArray addObject:@"S"];
+ [tempArray addObject:@"T"];
+ [tempArray addObject:@"U"];
+ [tempArray addObject:@"V"];
+ [tempArray addObject:@"W"];
+ [tempArray addObject:@"X"];
+ [tempArray addObject:@"Y"];
+ [tempArray addObject:@"Z"];
+ 
+ return tempArray;
+ }
+ 
+ 
+ - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+ return [indices indexOfObject:title];
+ }
+ 
+ 
+ - (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
+ return [[content objectAtIndex:section] objectForKey:@"headerTitle"];
+ 
+ }
  */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -223,6 +228,7 @@
 {
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
+//self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         return [self.filteredListContent count];
     }
 	else
@@ -242,10 +248,15 @@
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
+//        UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdatedDark.png"];
+//        cell.backgroundView = [[UIImageView alloc] initWithImage:background];
+        [[cell textLabel] setTextColor:[UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0]];
+        [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
         // Get the cell label using its tag and set it.
         cell.textLabel.text=[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"name"];
         // The object's image
         cell.imageView.image = [self imageForObject:[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"]];
+        
     }
 	else
 	{
@@ -256,10 +267,10 @@
         cell.imageView.image = [self imageForObject:[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
     }
     
-    UIImage *background = [UIImage imageNamed:@"cellBackground.png"];
-    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
-    cell.backgroundView = [[UIImageView alloc] initWithImage:background];
-    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];
+//    UIImage *background = [UIImage imageNamed:@"cellBackground.png"];
+//    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
+//    cell.backgroundView = [[UIImageView alloc] initWithImage:background];
+//    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];
     
     //UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
     //[cellLabel setText:@"Testing Text"];
@@ -267,7 +278,7 @@
     
     
     return cell;
-
+    
 }
 
 - (UIImage *)imageForObject:(NSString *)objectID {
@@ -278,43 +289,43 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }   
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 
@@ -332,40 +343,40 @@
     NSString *addRequest=[NSString alloc];
     
     if ([[sharedSingleton listIDs] count] != 10) {
-    
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-	{
-        NSLog(@"ONE - FILTERED");
-        addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingleton userId],[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"]];
-        NSLog(addRequest);
         
-        for (int i=0; i<[[sharedSingleton listIDs] count]; i++) {
-            if ([[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"] isEqualToString:[[sharedSingleton listIDs] objectAtIndex:i]]) {
-                error = 2;
+        if (tableView == self.searchDisplayController.searchResultsTableView)
+        {
+            NSLog(@"ONE - FILTERED");
+            addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingleton userId],[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"]];
+            NSLog(addRequest);
+            
+            for (int i=0; i<[[sharedSingleton listIDs] count]; i++) {
+                if ([[[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"] isEqualToString:[[sharedSingleton listIDs] objectAtIndex:i]]) {
+                    error = 2;
+                }
+            }
+            if (error != 2) {
+                transID = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"];
+                transName = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"name"];
             }
         }
-        if (error != 2) {
-            transID = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"id"];
-            transName = [[filteredListContent objectAtIndex:indexPath.row] objectForKey:@"name"];
-        }
-    }
-	else
-	{
-        NSLog(@"TWO - NON FILTERED");
-        addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingleton userId],[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
-        NSLog(addRequest);
-        
-        for (int i=0; i<[[sharedSingleton listIDs] count]; i++) {
-            if ([[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"] isEqualToString:[[sharedSingleton listIDs] objectAtIndex:i]]) {
-                error = 2;
+        else
+        {
+            NSLog(@"TWO - NON FILTERED");
+            addRequest=[kaddUserURL stringByAppendingFormat:@"from_id=%@&to_id=%@",[sharedSingleton userId],[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"]];
+            NSLog(addRequest);
+            
+            for (int i=0; i<[[sharedSingleton listIDs] count]; i++) {
+                if ([[[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"] isEqualToString:[[sharedSingleton listIDs] objectAtIndex:i]]) {
+                    error = 2;
+                }
+            }
+            if (error != 2) {
+                transID = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"];
+                transName = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"];
             }
         }
-        if (error != 2) {
-            transID = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"id"];
-            transName = [[friendsList objectAtIndex:indexPath.row] objectForKey:@"name"];
-        }
-    }
-    NSLog(@"THREE");
+        NSLog(@"THREE");
         
         if (error != 2) {
             NSURLRequest *request = [NSURLRequest requestWithURL:([NSURL URLWithString:addRequest])];
@@ -397,11 +408,11 @@
     
 	for (NSDictionary *friend in friendsList)
 	{
-			NSComparisonResult result = [[friend objectForKey:@"name"] compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-            if (result == NSOrderedSame)
-			{
-				[self.filteredListContent addObject:friend];
-            }
+        NSComparisonResult result = [[friend objectForKey:@"name"] compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        if (result == NSOrderedSame)
+        {
+            [self.filteredListContent addObject:friend];
+        }
 	}
 }
 
@@ -440,7 +451,7 @@
 {
     
     NSLog(@"Facebook request %@ loaded", [request url]);
-
+    
     NSArray *resultData = [result objectForKey:@"data"];
     //NSDictionary* user = [resultData objectAtIndex:1];
     for (NSDictionary *user in resultData){

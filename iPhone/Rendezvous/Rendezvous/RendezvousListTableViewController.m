@@ -31,6 +31,17 @@
 
 - (void)viewDidLoad
 {
+    
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
+    [label setFont:[UIFont fontWithName:@"Verdana-Bold" size:27.0]];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
+    label.shadowColor = [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0];
+    label.shadowOffset = CGSizeMake(0, 1.3);
+    label.text = @"MY LIST";
+    self.navigationItem.titleView = label;
 
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
     UIImage *back = [UIImage imageNamed:@"Bar.png"];
