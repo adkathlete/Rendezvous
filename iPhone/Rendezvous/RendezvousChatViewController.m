@@ -200,6 +200,8 @@
     {
         [[s uniqueMessageUserIDs] addObject:newMessageToID];
         [[s messageUserInfo] setObject:[[s listUserInfo] objectForKey:newMessageToID] forKey:newMessageToID]; 
+        NSMutableArray *newChat=[[NSMutableArray alloc] init];
+        [[s messages] setObject:newChat forKey:newMessageToID];
     }
     NSMutableDictionary *newMessageDictionary=[[NSMutableDictionary alloc] init];
     [newMessageDictionary setValue:newMessage forKey:@"message"];

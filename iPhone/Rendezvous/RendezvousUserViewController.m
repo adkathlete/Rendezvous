@@ -31,9 +31,11 @@
 
 - (void)viewDidLoad
 {
+    sharedSingleton=[RendezvousCurrentUser sharedInstance];
     count = 0;
     isInClock = true;
     isInInfo = true;
+    userId=[sharedSingleton visitingId];
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
     UIImage *back = [UIImage imageNamed:@"Bar.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
@@ -384,12 +386,13 @@
 -(IBAction) messagePressed:(id)sender
 {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    s.visitingMessageId = s.visitingId;
-    if([[s uniqueMessageUserIDs] containsObject:s.matchedUserId]){
+    s.visitingMessageId = userId;
+    NSLog(@"%@ is the user ID",userId);
+    if([[s uniqueMessageUserIDs] containsObject:userId]){
         [self performSegueWithIdentifier:@"toVisitingMessage" sender: self];
     }else{
         NSMutableArray *newChat = [[NSMutableArray alloc] init];
-        [[s messages] setValue:newChat forKey:s.matchedUserId];
+        [[s messages] setObject:newChat forKey:userId];
         [self performSegueWithIdentifier:@"toVisitingMessage" sender: self];
         
     }
@@ -416,22 +419,6 @@
         RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
         NSString *path=[NSString stringWithFormat:@"%@/albums",[sharedSingleton visitingId]];
         [[delegate facebook] requestWithGraphPath:path andDelegate:self];
-}
-
-- (IBAction)messageUser:(id)sender {
-        RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-        s.visitingMessageId=[s visitingId];
-        
-        if([[s uniqueMessageUserIDs] containsObject:s.visitingId]){
-            [self performSegueWithIdentifier:@"matchChat" sender: self];
-        }else{
-            NSMutableArray *newChat = [[NSMutableArray alloc] init];
-            [[s messages] setValue:newChat forKey:s.visitingId];
-            [self performSegueWithIdentifier:@"matchChat" sender: self];
-            
-        }
-    
-    
 }
 
 #pragma mark - MWPhotoBrowserDelegate
