@@ -377,11 +377,14 @@
 {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     s.visitingMessageId = s.visitingId;
-    s.shouldSegueMessages = @"Yes";
-    //self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
-    //NSLog(@"Seguing to messages");
-    //NSLog(matchedUserId);
-    [self performSegueWithIdentifier:@"toVisitingMessage" sender: self];
+    if([[s uniqueMessageUserIDs] containsObject:s.matchedUserId]){
+        [self performSegueWithIdentifier:@"toVisitingMessage" sender: self];
+    }else{
+        NSMutableArray *newChat = [[NSMutableArray alloc] init];
+        [[s messages] setValue:newChat forKey:s.matchedUserId];
+        [self performSegueWithIdentifier:@"toVisitingMessage" sender: self];
+        
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

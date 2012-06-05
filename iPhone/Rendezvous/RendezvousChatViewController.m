@@ -23,6 +23,7 @@
 @synthesize composeMessageView;
 @synthesize messageField;
 @synthesize sendMessageButton,responseData;
+@synthesize currentId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +38,7 @@
 {
     [super viewDidLoad];
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    currentId = [s visitingMessageId];
     NSLog([s visitingMessageId]);
     
 
@@ -100,7 +102,7 @@
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    
+
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
@@ -113,6 +115,7 @@
     [chatTableView setFrame:chatWindow];
     
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    s.visitingMessageId = currentId;
     if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
     {
     NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
@@ -153,6 +156,8 @@
     NSLog(@"Send Message");
     self.responseData = [NSMutableData data];
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    
+    s.visitingMessageId = currentId;
     
     //Add Message To Database
     newMessage=[self messageField].text;
@@ -250,6 +255,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    s.visitingMessageId = currentId;
     NSArray *chatMessages=[[s messages] objectForKey:[s visitingMessageId]];
     NSString *mainLabelText= [[chatMessages objectAtIndex:indexPath.row] objectForKey:@"message"];
     

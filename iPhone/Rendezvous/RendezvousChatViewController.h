@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *messageField;
 @property (weak, nonatomic) IBOutlet UIButton *sendMessageButton;
 @property (retain, nonatomic) NSMutableData* responseData;
+@property (retain, nonatomic) NSString* currentId;
 
 @end
