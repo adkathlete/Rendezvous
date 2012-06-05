@@ -38,6 +38,24 @@
     
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     [super viewDidLoad];
+    UINavigationBar *NavBar = [[self navigationController] navigationBar];
+    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
+    [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
+    [label setFont:[UIFont fontWithName:@"Verdana-Bold" size:27.0]];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
+    label.shadowColor = [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0];
+    label.shadowOffset = CGSizeMake(0, 1.3);
+    label.text = @"OLD MATCHES";
+    self.navigationItem.titleView = label;
+    
+    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
+    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
+    frameView.image = frameImage;
+    [self.view addSubview:frameView];
     
     //addButton=self.navigationItem.rightBarButtonItem;
     //addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
@@ -106,6 +124,8 @@
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     NSLog(@"COUNT");
     NSLog(@"%d",[[s matchIDs] count]);
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
     return [[s matchIDs] count];;
 }
 
@@ -119,15 +139,20 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdatedDark.png"];
+    //    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:background];
     
     // Get the cell label using its tag and set it
     //UILabel *cellLabel = (UILabel *)[cell viewWithTag:1];
-    NSString *listNumer=[[NSString alloc] initWithFormat:@"%d. ",indexPath.row+1];
-    NSString *labelText= [listNumer stringByAppendingString:[[s matchInfo] objectForKey:[[s matchIDs] objectAtIndex:indexPath.row]]];
+//    NSString *listNumer=[[NSString alloc] initWithFormat:@"%d. ",indexPath.row+1];
+    NSString *labelText= [[s matchInfo] objectForKey:[[s matchIDs] objectAtIndex:indexPath.row]];
     [cell.textLabel setText:labelText];
+    [[cell textLabel] setTextColor:[UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0]];
+    [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
     
     // The object's image
-    cell.imageView.image = [self imageForObject:[[s matchIDs] objectAtIndex:indexPath.row]];
+//    cell.imageView.image = [self imageForObject:[[s matchIDs] objectAtIndex:indexPath.row]];
     
     return cell;
 }
