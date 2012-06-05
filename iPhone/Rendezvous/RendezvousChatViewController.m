@@ -39,7 +39,8 @@
     [super viewDidLoad];
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     currentId = [s visitingMessageId];
-    NSLog([s visitingMessageId]);
+    newMessageToID=[s visitingMessageId];
+    NSLog(newMessageToID);
     
 
     [sendMessageButton setTitle:@"send" forState:UIControlStateNormal];
@@ -55,13 +56,13 @@
     frameView.image = frameImage;
     [self.view addSubview:frameView];
     [chatTableView setBackgroundColor:[UIColor clearColor]];
-    if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
+    if([[s uniqueMessageUserIDs] containsObject:newMessageToID])
     {
-        [self setTitle:[[s messageUserInfo] objectForKey:[s visitingMessageId]]];
-        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
+        [self setTitle:[[s messageUserInfo] objectForKey:newMessageToID]];
+        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:newMessageToID] count] - 1) inSection:0];
         [[self chatTableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
     }else{
-        [self setTitle:[[s listUserInfo] objectForKey:[s visitingMessageId]]];
+        [self setTitle:[[s listUserInfo] objectForKey:newMessageToID]];
     }
     [self registerForKeyboardNotifications];
 
@@ -115,10 +116,9 @@
     [chatTableView setFrame:chatWindow];
     
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    s.visitingMessageId = currentId;
-    if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
+    if([[s uniqueMessageUserIDs] containsObject:newMessageToID])
     {
-    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
+    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:newMessageToID] count] - 1) inSection:0];
     [[self chatTableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
 }
@@ -130,9 +130,9 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
+    if([[s uniqueMessageUserIDs] containsObject:newMessageToID])
     {
-    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
+    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:newMessageToID] count] - 1) inSection:0];
     [[self chatTableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
     
@@ -157,11 +157,8 @@
     self.responseData = [NSMutableData data];
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     
-    s.visitingMessageId = currentId;
-    
     //Add Message To Database
     newMessage=[self messageField].text;
-    newMessageToID=[s visitingMessageId];
     NSString *urlString = [NSString stringWithFormat:@"http://rendezvousnow.me/addMessage.php?from_id=%@&to_id=%@&message=%@",[s userId],newMessageToID,[newMessage stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
@@ -199,20 +196,20 @@
     
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     
-    if(![[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
+    if(![[s uniqueMessageUserIDs] containsObject:newMessageToID])
     {
-        [[s uniqueMessageUserIDs] addObject:[s visitingMessageId]];
-        [[s messageUserInfo] setObject:[[s listUserInfo] objectForKey:[s visitingMessageId]] forKey:[s visitingMessageId]]; 
+        [[s uniqueMessageUserIDs] addObject:newMessageToID];
+        [[s messageUserInfo] setObject:[[s listUserInfo] objectForKey:newMessageToID] forKey:newMessageToID]; 
     }
     NSMutableDictionary *newMessageDictionary=[[NSMutableDictionary alloc] init];
     [newMessageDictionary setValue:newMessage forKey:@"message"];
     [newMessageDictionary setValue:newMessageToID forKey:@"to_id"];
     [newMessageDictionary setValue:[s userId] forKey:@"from_id"];
     
-    [[[s messages] objectForKey:[s visitingMessageId]] addObject:newMessageDictionary];
+    [[[s messages] objectForKey:newMessageToID] addObject:newMessageDictionary];
     [chatTableView reloadData];
     
-    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:[s visitingMessageId]] count] - 1) inSection:0];
+    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:newMessageToID] count] - 1) inSection:0];
     [[self chatTableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 
     
@@ -232,7 +229,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    return [[[s messages] objectForKey:[s visitingMessageId]] count];
+    return [[[s messages] objectForKey:newMessageToID] count];
 }
 
 
@@ -240,7 +237,7 @@
 {
     
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    NSArray *chatMessages=[[s messages] objectForKey:[s visitingMessageId]];
+    NSArray *chatMessages=[[s messages] objectForKey:newMessageToID];
     NSString *text= [[chatMessages objectAtIndex:indexPath.row] objectForKey:@"message"];
     
     CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
@@ -255,8 +252,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    s.visitingMessageId = currentId;
-    NSArray *chatMessages=[[s messages] objectForKey:[s visitingMessageId]];
+    NSArray *chatMessages=[[s messages] objectForKey:newMessageToID];
     NSString *mainLabelText= [[chatMessages objectAtIndex:indexPath.row] objectForKey:@"message"];
     
     static NSString *CellIdentifier=nil;
