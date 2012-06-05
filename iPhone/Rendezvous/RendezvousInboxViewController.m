@@ -161,6 +161,7 @@
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     s.visitingMessageId=[s.uniqueMessageUserIDs objectAtIndex:indexPath.row];
     NSLog(s.visitingMessageId);
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"chat" sender: self];
     
     // Navigation logic may go here. Create and push another view controller.

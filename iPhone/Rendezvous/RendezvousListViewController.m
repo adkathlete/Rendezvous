@@ -255,14 +255,15 @@
     if (indexPath.row == 9) {
         listNumer=[[NSString alloc] initWithFormat:@" %d",indexPath.row+1];
     } else {
-        listNumer=[[NSString alloc] initWithFormat:@"  %d",indexPath.row+1];
+        listNumer=[[NSString alloc] initWithFormat:@"   %d",indexPath.row+1];
     }
-    NSString *spacer = @"        ";
+    NSString *spacer = [[@" " stringByAppendingString: listNumer] stringByAppendingString:@"    "];
     NSString *labelText= [spacer stringByAppendingString: [[s listUserInfo] objectForKey:[[s listIDs] objectAtIndex:indexPath.row]]];
     UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 3, 30, 30)];
     numberLabel.text = listNumer;
     [numberLabel setBackgroundColor:[UIColor clearColor]];
-    [cell addSubview: numberLabel];
+    numberLabel.tag = 1;
+    //[cell.contentView addSubview: numberLabel];
     [cell.textLabel setText:labelText];
     [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
     
@@ -308,9 +309,12 @@
         NSLog(deleteString3);
         [[sharedSingleton listIDs] removeObjectAtIndex:indexPath.row];
         
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+        
         //[listUserInfo removeObjectForKey:[listIDs objectAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [listTableView reloadData];
+        [listTableView reloadData];        
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
