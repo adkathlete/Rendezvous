@@ -409,7 +409,7 @@
 	for (NSDictionary *friend in friendsList)
 	{
         NSComparisonResult result = [[friend objectForKey:@"name"] compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-        if (result == NSOrderedSame)
+        if (result == NSOrderedSame && [self.filteredListContent count] != 10)
         {
             [self.filteredListContent addObject:friend];
         }
