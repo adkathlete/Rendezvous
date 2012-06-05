@@ -31,6 +31,7 @@
 
 - (void)viewDidLoad
 {
+    sharedSingleton = [RendezvousCurrentUser sharedInstance];
     
     isInClock = true;
     isInInfo = true;
@@ -45,7 +46,7 @@
     label.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
     label.shadowColor = [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0];
     label.shadowOffset = CGSizeMake(0, 1.3);
-    label.text = @"MY MATCH";
+    label.text = [sharedSingleton.first_name uppercaseString];
     self.navigationItem.titleView = label;
     
     //    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MyList.png"]];
