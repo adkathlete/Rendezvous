@@ -39,14 +39,17 @@
     UIImage *back = [UIImage imageNamed:@"Bar.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = [UIColor whiteColor];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 640, 640/11)];
     [label setFont:[UIFont fontWithName:@"Verdana-Bold" size:27.0]];
     label.textAlignment = UITextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:209.0/255.0 alpha:1.0];
     label.shadowColor = [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0];
     label.shadowOffset = CGSizeMake(0, 1.3);
-    label.text = [sharedSingleton.first_name uppercaseString];
+//    [,matchInfo objectForKey:matchedUserId]
+    NSString *temp = [[[sharedSingleton matchInfo] objectForKey:[sharedSingleton matchedUserId]] uppercaseString];
+    NSArray *chunks = [temp componentsSeparatedByString:@" "];
+    label.text = [chunks objectAtIndex:0];
     self.navigationItem.titleView = label;
     
     //    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MyList.png"]];
@@ -204,7 +207,7 @@
                 barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 14, 3, 30, self.view.frame.size.height)];
                 barView.image=bar;
             }
-//            [scroll addSubview:barView];
+            [scroll addSubview:barView];
             startX += mesWidth;
             if (i == numberOfViews-1 ) {
                 UIImageView *barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 13, 3, 30, self.view.frame.size.height)];
