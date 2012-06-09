@@ -25,6 +25,10 @@
 
     facebook = [[Facebook alloc] initWithAppId:@"235693846448097" andDelegate:self];
     
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] 
         && [defaults objectForKey:@"FBExpirationDateKey"]) {
@@ -54,6 +58,16 @@
     //[self.viewController.view addSubview:logoutButton];
    
     return YES;
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSLog(@"My token is: %@", deviceToken);
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
 }
 
 // Pre iOS 4.2 support
