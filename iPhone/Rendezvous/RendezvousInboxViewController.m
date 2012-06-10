@@ -53,15 +53,15 @@
 //    [self.navigationController setNavigationBarHidden: YES animated:YES];
 
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
-    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
+    UIImage *back = [UIImage imageNamed:@"BarFinal2.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
     
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
-    frameView.image = frameImage;
-    [self.view addSubview:frameView];
+//    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
+//    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
+//    frameView.image = frameImage;
+//    [self.view addSubview:frameView];
 }
 
 

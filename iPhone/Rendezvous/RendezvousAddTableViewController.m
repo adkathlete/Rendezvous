@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
-    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
+    UIImage *back = [UIImage imageNamed:@"BarFinal2.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     [super viewDidLoad];
     error = 0;

@@ -35,7 +35,7 @@
     isInClock = true;
     isInInfo = true;
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
-    UIImage *back = [UIImage imageNamed:@"Bar.png"];
+    UIImage *back = [UIImage imageNamed:@"BarFinal2.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = [UIColor whiteColor];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
@@ -50,15 +50,22 @@
     label.text = [chunks objectAtIndex:0];
     self.navigationItem.titleView = label;
     
-    //    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MyList.png"]];
-    //    UIBarButtonItem * item = [[UIBarItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yourimage2.jpg"]]];    
-    //    self.navigationItem.rightBarButtonItem = item; 
-    //    
+    UIButton *backButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:[UIImage imageNamed:@"backButton2.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [backButton setFrame:CGRectMake(0, 0, 60, 60)];
+    [backButton setCenter:CGPointMake(self.view.frame.size.width - 13, 10)];
+    //    [self.view addSubview:editButton];
+//    self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"backButton.png"];
+    
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+        
     UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
     UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
     
     UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
-    UIImage *unselectedImage1 = [UIImage imageNamed:@"heart.png"];
+    UIImage *unselectedImage1 = [UIImage imageNamed:@"heartGrey.png"];
     
     UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
     UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
@@ -96,15 +103,19 @@
     [self.view addSubview:pleaseWait];
     [self.view bringSubviewToFront: pleaseWait];
     
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -47)];
-    frameView.image = frameImage;
-    [self.view addSubview:frameView];
-    [self.view bringSubviewToFront: frameView];
+//    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
+//    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -47)];
+//    frameView.image = frameImage;
+//    [self.view addSubview:frameView];
+//    [self.view bringSubviewToFront: frameView];
 }
 
 -(void) onPress {
     [self performSegueWithIdentifier:@"home" sender: self];
+}
+
+-(void) back {
+    [self performSegueWithIdentifier:@"backToList" sender: self];
 }
 
 -(IBAction)ClockPressed:(id)sender
@@ -185,23 +196,23 @@
             UIImage *newImage = [self.photos objectAtIndex:i];
             NSInteger mesWidth = newImage.size.width * (self.view.frame.size.height /  newImage.size.height);
             
-            UIImageView *awesomeView = [[UIImageView alloc] initWithFrame:CGRectMake(startX, 3, mesWidth, self.view.frame.size.height)];
+            UIImageView *awesomeView = [[UIImageView alloc] initWithFrame:CGRectMake(startX, 0, mesWidth, self.view.frame.size.height)];
             awesomeView.contentMode = UIViewContentModeScaleAspectFill;
             awesomeView.image=[self.photos objectAtIndex:i];
             [scroll addSubview:awesomeView];
             
             UIImageView *barView;
             if (i == 0) {
-                barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 15, 3, 30, self.view.frame.size.height)];
+                barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 15, 0, 30, self.view.frame.size.height)];
                 barView.image=barLeft;
             } else {
-                barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 14, 3, 30, self.view.frame.size.height)];
+                barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 14, 0, 30, self.view.frame.size.height)];
                 barView.image=bar;
             }
             [scroll addSubview:barView];
             startX += mesWidth;
             if (i == numberOfViews-1 ) {
-                UIImageView *barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 13, 3, 30, self.view.frame.size.height)];
+                UIImageView *barView = [[UIImageView alloc] initWithFrame:CGRectMake(startX - 13, 0, 30, self.view.frame.size.height)];
                 barView.image=barRight;
                 [scroll addSubview:barView];
             }
@@ -224,10 +235,10 @@
             
         }
         
-        UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
-        UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height +2)];
-        frameView.image = frameImage;
-        [self.view addSubview:frameView];
+//        UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground3.png"];
+//        UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height +2)];
+//        frameView.image = frameImage;
+//        [self.view addSubview:frameView];
         
         timeBox = [[UITextView alloc] initWithFrame:CGRectMake(129, 40, 192, 38)];
         [timeBox setUserInteractionEnabled:NO];
@@ -316,22 +327,22 @@
         [self.view addSubview:infoButton];
         
         slideImage7 = [UIImage imageNamed:@"sideBarExtend.png"];
-        slideImageView7 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage4.size.width, slideImage7.size.height +20)];
+        slideImageView7 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage7.size.width, slideImage7.size.height +20)];
         slideImageView7.image = slideImage;
         [self.view addSubview:slideImageView7];
-        slideImageView7.center = CGPointMake(self.view.frame.size.width - slideImage7.size.width/2, 126);
+        slideImageView7.center = CGPointMake(self.view.frame.size.width - slideImage7.size.width/2, 152);
         
         slideImage8 = [UIImage imageNamed:@"sideBarTop.png"];
         slideImageView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage8.size.width, slideImage8.size.height)];
         slideImageView8.image = slideImage8;
         [self.view addSubview:slideImageView8];
-        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage8.size.width/2,109);
+        slideImageView8.center = CGPointMake(self.view.frame.size.width - slideImage8.size.width/2,135);
         
         slideImage9 = [UIImage imageNamed:@"sideBarBottom.png"];
         slideImageView9 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage9.size.width, slideImage9.size.height)];
-        slideImageView6.image = slideImage9;
+        slideImageView9.image = slideImage9;
         [self.view addSubview:slideImageView9];
-        slideImageView9.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 140);
+        slideImageView9.center = CGPointMake(self.view.frame.size.width - slideImage9.size.width/2, 166);
         
         messageButton =  [UIButton buttonWithType:UIButtonTypeCustom];
         [messageButton setImage:[UIImage imageNamed:@"messageIcon2.png"] forState:UIControlStateNormal];

@@ -50,10 +50,10 @@
 //    sendMessageButton.tintColor = [UIColor blackColor];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground5.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
-    frameView.image = frameImage;
-    [self.view addSubview:frameView];
+//    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground5.png"];
+//    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
+//    frameView.image = frameImage;
+//    [self.view addSubview:frameView];
     [chatTableView setBackgroundColor:[UIColor clearColor]];
     if([[s uniqueMessageUserIDs] containsObject:[s visitingMessageId]])
     {
