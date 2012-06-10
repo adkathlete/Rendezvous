@@ -17,7 +17,7 @@
 
 static RendezvousCurrentUser *sharedInstance = nil;
 
-@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, visitingMessageId, listIDs, listUserInfo, matchInfo, matchedUserId, gender, first_name, last_name, connectionCheck,messages,uniqueMessageUserIDs,messageUserInfo,matchIDs, backgroundImage, shouldSegueMessages;
+@synthesize userId,userInfo,userInfoObjects,userInfoKeys,responseData,userResponseData, visitingId, visitingMessageId, listIDs, listUserInfo, matchInfo, matchedUserId, gender, first_name, last_name, connectionCheck,messages,uniqueMessageUserIDs,messageUserInfo,matchIDs, backgroundImage, shouldSegueMessages, token;
 @synthesize photos = _photos;
 
 // Get the shared instance and create it if necessary.
@@ -101,10 +101,12 @@ static RendezvousCurrentUser *sharedInstance = nil;
     NSString *string5 = [string4 stringByAppendingString: last_name];
     NSString *string6 = [string5 stringByAppendingString: @"&gender="];
     NSString *string7 = [string6 stringByAppendingString: gender];
+    NSString *string8 = [string7 stringByAppendingString: @"&token="];
+    NSString *string9 = [string8 stringByAppendingString: token];
 
     NSLog(string7);
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:string7]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:string9]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
