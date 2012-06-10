@@ -115,7 +115,7 @@
     [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
     //UILabel *subCellLabel = (UILabel *)[cell viewWithTag:3];
     NSArray *chatMessages=[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]];
-    NSString *subLabelText= [[[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]] objectAtIndex:[chatMessages count]-1] objectForKey:@"message"];
+    NSString *subLabelText= [[[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]] objectAtIndex:0] objectForKey:@"message"];
     [cell.detailTextLabel setText:subLabelText];
      [[cell detailTextLabel] setBackgroundColor:[UIColor clearColor]];
     

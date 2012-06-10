@@ -51,9 +51,10 @@ session_start();
 		$_SESSION['id'] = $tempId;
 		$_SESSION['logged_in'] = 1;
 
-		if (!checkForPhone($tempId)) {
-		header('Location: post_phone.php');
-		} else {
-		header('Location: home.php');
-		}
+		header('Location: http://www.rendezvousiphone.com');
+		// if (!checkForPhone($tempId)) {
+		// 		header('Location: post_phone.php');
+		// 		} else {
+		// 		header('Location: home.php');
+		// 		}
 	    } ?>
