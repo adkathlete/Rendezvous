@@ -38,7 +38,7 @@ Slider.prototype.generate_content = function()
 						"Rendezvous lets you list people you are interested in.", 
 						"If someone in your friend network likes you back, Rendezvous lets you know.", 
 						"The more of your friends use Rendezvous, the better the matching gets and the more you get a chance of meeting your dream girl.", 
-						"It's free for the iPhone and any device running iOS 4.0 or higher.<br/>Find your Rendezvous, wherever he/she is."];
+						"It's free for the iPhone and any device running iOS 4.0 or higher. Find your Rendezvous, wherever he/she is."];
 
 	for(var i =0; i<5; i++)
 	{

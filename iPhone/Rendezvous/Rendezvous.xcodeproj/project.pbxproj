@@ -16,7 +16,6 @@
 		1F0E2EED157C713E004C76BC /* RendezvousTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E2EEC157C713E004C76BC /* RendezvousTabBarController.m */; };
 		1F1CB65A15760BDC00BD46F2 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB65915760BDC00BD46F2 /* clock@2x.png */; };
 		1F1CB65C15760C0100BD46F2 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB65B15760C0100BD46F2 /* clock.png */; };
-		1F1CB65E15760C5700BD46F2 /* apple-touch-icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB65D15760C5700BD46F2 /* apple-touch-icon-precomposed.png */; };
 		1F1CB705157D5BA100E6F0A7 /* messageIcon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB704157D5BA100E6F0A7 /* messageIcon2@2x.png */; };
 		1F1CB707157D5BAC00E6F0A7 /* messageIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB706157D5BAC00E6F0A7 /* messageIcon2.png */; };
 		1F1CB709157D6FA300E6F0A7 /* cellBackgroundUpdated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CB708157D6FA300E6F0A7 /* cellBackgroundUpdated@2x.png */; };
@@ -157,7 +156,6 @@
 		1F0E2EEC157C713E004C76BC /* RendezvousTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousTabBarController.m; sourceTree = "<group>"; };
 		1F1CB65915760BDC00BD46F2 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		1F1CB65B15760C0100BD46F2 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
-		1F1CB65D15760C5700BD46F2 /* apple-touch-icon-precomposed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-precomposed.png"; sourceTree = "<group>"; };
 		1F1CB704157D5BA100E6F0A7 /* messageIcon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageIcon2@2x.png"; sourceTree = "<group>"; };
 		1F1CB706157D5BAC00E6F0A7 /* messageIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageIcon2.png; sourceTree = "<group>"; };
 		1F1CB708157D6FA300E6F0A7 /* cellBackgroundUpdated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cellBackgroundUpdated@2x.png"; path = "Rendezvous/cellBackgroundUpdated@2x.png"; sourceTree = "<group>"; };
@@ -476,7 +474,6 @@
 				1FE47D1E15774D67000571AC /* sendMessage@2x.png */,
 				1FE47D1C15774D42000571AC /* sendMessagePress.png */,
 				1FE47D2015774D83000571AC /* sendMessage.png */,
-				1F1CB65D15760C5700BD46F2 /* apple-touch-icon-precomposed.png */,
 				1FE44B711576D6DF0003F5D4 /* message.png */,
 				1F1CB65915760BDC00BD46F2 /* clock@2x.png */,
 				1F1CB65B15760C0100BD46F2 /* clock.png */,
@@ -729,7 +726,6 @@
 				1FAC588015744EA600F392FD /* info@2x.png in Resources */,
 				1F1CB65A15760BDC00BD46F2 /* clock@2x.png in Resources */,
 				1F1CB65C15760C0100BD46F2 /* clock.png in Resources */,
-				1F1CB65E15760C5700BD46F2 /* apple-touch-icon-precomposed.png in Resources */,
 				1FE44B701576D69C0003F5D4 /* message@2x.png in Resources */,
 				1FE44B721576D6DF0003F5D4 /* message.png in Resources */,
 				1FE47D17157743C8000571AC /* photoBrowserBackground2@2x.png in Resources */,
@@ -881,7 +877,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Deniz Kahramaner (CZ3G84X6H3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Deniz Kahramaner (CZ3G84X6H3)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -896,6 +893,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "39F78AEE-AB90-4FB3-8F0D-8076492E99B8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "39F78AEE-AB90-4FB3-8F0D-8076492E99B8";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -906,7 +905,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Deniz Kahramaner";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Deniz Kahramaner";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -915,6 +915,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "88F5B8C8-6D28-48BD-ADA3-B2AC0FE814A9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "88F5B8C8-6D28-48BD-ADA3-B2AC0FE814A9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -923,8 +925,8 @@
 		73C77F9A154DB12B00453D96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Millie Reidy (XFU7KSHJC8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Millie Reidy (XFU7KSHJC8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Deniz Kahramaner (CZ3G84X6H3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Deniz Kahramaner (CZ3G84X6H3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rendezvous/Rendezvous-Prefix.pch";
 				INFOPLIST_FILE = "Rendezvous/Rendezvous-Info.plist";
@@ -934,8 +936,8 @@
 					"\"$(SRCROOT)/libs-universal_three20_1.0.6.2/libs-universal\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05C41421-8AD2-49A6-98FB-6802F6CEE562";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "05C41421-8AD2-49A6-98FB-6802F6CEE562";
+				PROVISIONING_PROFILE = "39F78AEE-AB90-4FB3-8F0D-8076492E99B8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "39F78AEE-AB90-4FB3-8F0D-8076492E99B8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -943,8 +945,8 @@
 		73C77F9B154DB12B00453D96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Jack Reidy";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Jack Reidy";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Deniz Kahramaner";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Deniz Kahramaner";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rendezvous/Rendezvous-Prefix.pch";
 				INFOPLIST_FILE = "Rendezvous/Rendezvous-Info.plist";
@@ -954,8 +956,8 @@
 					"\"$(SRCROOT)/libs-universal_three20_1.0.6.2/libs-universal\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "88F5B8C8-6D28-48BD-ADA3-B2AC0FE814A9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "88F5B8C8-6D28-48BD-ADA3-B2AC0FE814A9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

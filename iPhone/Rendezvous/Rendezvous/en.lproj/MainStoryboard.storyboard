@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -430,7 +430,7 @@ We make the connection. You rendezvous. Good luck!</string>
                     </tableView>
                     <navigationItem key="navigationItem" id="bdH-HM-IPB"/>
                     <connections>
-                        <segue destination="ZG8-be-3kk" kind="push" identifier="backToMatch" id="8lI-b4-7yj"/>
+                        <segue destination="RUx-AY-dOk" kind="push" identifier="oldMatchToDetailPage" id="ivY-oM-rjS"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -706,7 +706,8 @@ We make the connection. You rendezvous. Good luck!</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FLz-pt-bbg"/>
-        <segue reference="SO9-0E-Pa7"/>
+        <segue reference="Z6y-ho-Z9e"/>
+        <segue reference="ivY-oM-rjS"/>
+        <segue reference="XTi-5K-g4f"/>
     </inferredMetricsTieBreakers>
 </document>

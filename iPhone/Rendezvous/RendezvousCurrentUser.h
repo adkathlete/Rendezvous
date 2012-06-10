@@ -50,6 +50,7 @@ typedef enum apiCall {
 @property (nonatomic, retain) NSMutableDictionary *messages;
 @property (nonatomic, retain) NSMutableDictionary *messageUserInfo;
 @property (retain, nonatomic) NSArray* userResponseData;
+@property (nonatomic, retain) NSString *token;
 @property (nonatomic, retain) NSString *userId;
 @property (nonatomic, retain) NSString *gender;
 @property (nonatomic, retain) NSString *first_name;
