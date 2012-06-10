@@ -46,7 +46,7 @@ typedef enum fbRequest {
     UIImageView *slideImageView9;
     UITextView *timeBox;
     UITextView *infoBox;
-    
+    UIButton *backButton;
     BOOL isInClock;
     BOOL isInInfo;
 }

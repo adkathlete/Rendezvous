@@ -53,15 +53,15 @@
 //    [self.navigationController setNavigationBarHidden: YES animated:YES];
 
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
-    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
+    UIImage *back = [UIImage imageNamed:@"BarFinal2.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
     
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
-    frameView.image = frameImage;
-    [self.view addSubview:frameView];
+//    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
+//    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
+//    frameView.image = frameImage;
+//    [self.view addSubview:frameView];
 }
 
 
@@ -115,7 +115,7 @@
     [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
     //UILabel *subCellLabel = (UILabel *)[cell viewWithTag:3];
     NSArray *chatMessages=[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]];
-    NSString *subLabelText= [[[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]] objectAtIndex:[chatMessages count]-1] objectForKey:@"message"];
+    NSString *subLabelText= [[[s.messages objectForKey:[[s uniqueMessageUserIDs] objectAtIndex:indexPath.row]] objectAtIndex:0] objectForKey:@"message"];
     [cell.detailTextLabel setText:subLabelText];
      [[cell detailTextLabel] setBackgroundColor:[UIColor clearColor]];
     

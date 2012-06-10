@@ -93,7 +93,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1053" y="407"/>
+            <point key="canvasLocation" x="1069" y="919"/>
         </scene>
         <!--Rendezvous About View Controller-->
         <scene sceneID="S30-S8-DI8">
@@ -144,7 +144,7 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIp-hs-Qrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jXc-IH-DNs" customClass="RendezvousAddTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="bYi-2W-ehm">
-                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" clearsContextBeforeDrawing="NO" contentMode="redraw" barStyle="blackOpaque" text="" placeholder="Find New Friends!" id="ZrF-JW-aBQ">
@@ -197,17 +197,18 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3y-4o-q54" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RUx-AY-dOk" customClass="RendezvousUserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erO-cg-3yL">
-                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.10588236153125763" green="0.10588236153125763" blue="0.10588236153125763" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Page" id="Q7U-Vs-qLK"/>
                     <connections>
                         <segue destination="IKm-Q9-mKo" kind="push" identifier="toVisitingMessage" id="XTi-5K-g4f"/>
+                        <segue destination="Rhl-a6-fPg" kind="push" identifier="backToList" id="GIo-G1-dQc"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="572" y="550"/>
+            <point key="canvasLocation" x="648" y="520"/>
         </scene>
         <!--Rendezvous Match View Controller View Controller-->
         <scene sceneID="wmo-87-C3a">
@@ -306,7 +307,7 @@ We make the connection. You rendezvous. Good luck!</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="PKy-sV-ORG">
-                                        <rect key="frame" x="20" y="20" width="320" height="340"/>
+                                        <rect key="frame" x="20" y="20" width="320" height="339"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -356,7 +357,7 @@ We make the connection. You rendezvous. Good luck!</string>
                                             <outlet property="delegate" destination="IKm-Q9-mKo" id="X7T-5K-A91"/>
                                         </connections>
                                     </tableView>
-                                    <view tag="3" contentMode="scaleToFill" id="3w6-La-4in">
+                                    <view opaque="NO" tag="3" contentMode="scaleToFill" id="3w6-La-4in">
                                         <rect key="frame" x="20" y="358" width="320" height="49"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
@@ -382,7 +383,7 @@ We make the connection. You rendezvous. Good luck!</string>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.074509803920000006" green="0.074509803920000006" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                     </view>
                                 </subviews>
@@ -459,11 +460,11 @@ We make the connection. You rendezvous. Good luck!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUh-JY-VZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Rhl-a6-fPg" customClass="RendezvousListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C0z-lo-FxA">
-                        <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="27" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHd-ro-1Lh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="377"/>
+                                <rect key="frame" x="0.0" y="4" width="320" height="387"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>

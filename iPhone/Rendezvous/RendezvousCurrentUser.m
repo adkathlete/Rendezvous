@@ -94,6 +94,11 @@ static RendezvousCurrentUser *sharedInstance = nil;
     checkLoad = 1;
 	self.responseData = [NSMutableData data];
     
+    if(!token)
+    {
+        token=@"";
+    }
+    
     NSString *string1 = [userDataURL stringByAppendingString: userId];
     NSString *string2 = [string1 stringByAppendingString: @"&first_name="];
     NSString *string3 = [string2 stringByAppendingString: first_name];

@@ -39,7 +39,7 @@
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
     [super viewDidLoad];
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
-    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
+    UIImage *back = [UIImage imageNamed:@"BarFinal2.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
@@ -52,10 +52,21 @@
     label.text = @"OLD MATCHES";
     self.navigationItem.titleView = label;
     
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
-    frameView.image = frameImage;
-    [self.view addSubview:frameView];
+    UIButton *backButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:[UIImage imageNamed:@"backButton2.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [backButton setFrame:CGRectMake(0, 0, 60, 60)];
+    [backButton setCenter:CGPointMake(self.view.frame.size.width - 13, 10)];
+    //    [self.view addSubview:editButton];
+    //    self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"backButton.png"];
+    
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+    
+//    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
+//    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
+//    frameView.image = frameImage;
+//    [self.view addSubview:frameView];
     
     //addButton=self.navigationItem.rightBarButtonItem;
     //addButton= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
@@ -68,6 +79,9 @@
     // self.clearsSelectionOnViewWillAppear = NO;
 }
 
+-(void) back {
+    [self performSegueWithIdentifier:@"backToMatch" sender: self];
+}
 
 - (void)viewDidUnload
 {

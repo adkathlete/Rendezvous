@@ -29,7 +29,7 @@
     isIn = true;
     editing=false;
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
-    UIImage *back = [UIImage imageNamed:@"BarFinal.png"];
+    UIImage *back = [UIImage imageNamed:@"BarFinal2.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
     
     sharedSingleton = [RendezvousCurrentUser sharedInstance];
@@ -39,7 +39,7 @@
     UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
     
     UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
-    UIImage *unselectedImage1 = [UIImage imageNamed:@"heart.png"];
+    UIImage *unselectedImage1 = [UIImage imageNamed:@"heartGrey.png"];
     
     UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
     UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
@@ -59,7 +59,7 @@
     self.listTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.listTableView.rowHeight = 70;
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBackGrey.png"]];
     self.listTableView.backgroundColor = [UIColor clearColor];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
@@ -72,10 +72,10 @@
     label.text = @"MY LIST";
     self.navigationItem.titleView = label;
     
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 92)];
-    frameView.image = frameImage;
-    [self.view addSubview:frameView];
+//    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
+//    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 92)];
+//    frameView.image = frameImage;
+//    [self.view addSubview:frameView];
     
 //    UIImage *slideImage = [UIImage imageNamed:@"timeMove.png"];
 //    slideImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, slideImage.size.width, slideImage.size.height)];
@@ -255,7 +255,7 @@
     
     
     
-    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdatedDark.png"];
+    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdatedDark3.png"];
 //    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
     cell.backgroundView = [[UIImageView alloc] initWithImage:background];
 //    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];

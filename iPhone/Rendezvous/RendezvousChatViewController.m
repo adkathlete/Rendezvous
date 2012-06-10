@@ -51,10 +51,10 @@
 //    sendMessageButton.tintColor = [UIColor blackColor];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
-    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground5.png"];
-    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
-    frameView.image = frameImage;
-    [self.view addSubview:frameView];
+//    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground5.png"];
+//    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
+//    frameView.image = frameImage;
+//    [self.view addSubview:frameView];
     [chatTableView setBackgroundColor:[UIColor clearColor]];
     if([[s uniqueMessageUserIDs] containsObject:newMessageToID])
     {
@@ -198,17 +198,20 @@
     
     if(![[s uniqueMessageUserIDs] containsObject:newMessageToID])
     {
-        [[s uniqueMessageUserIDs] addObject:newMessageToID];
+        [[s uniqueMessageUserIDs] insertObject:newMessageToID atIndex:0];
         [[s messageUserInfo] setObject:[[s listUserInfo] objectForKey:newMessageToID] forKey:newMessageToID]; 
         NSMutableArray *newChat=[[NSMutableArray alloc] init];
         [[s messages] setObject:newChat forKey:newMessageToID];
+    }else{
+        [[s uniqueMessageUserIDs] removeObject:newMessageToID];
+        [[s uniqueMessageUserIDs] insertObject:newMessageToID atIndex:0];
     }
     NSMutableDictionary *newMessageDictionary=[[NSMutableDictionary alloc] init];
     [newMessageDictionary setValue:newMessage forKey:@"message"];
     [newMessageDictionary setValue:newMessageToID forKey:@"to_id"];
     [newMessageDictionary setValue:[s userId] forKey:@"from_id"];
     
-    [[[s messages] objectForKey:newMessageToID] addObject:newMessageDictionary];
+    [[[s messages] objectForKey:newMessageToID] insertObject:newMessageDictionary atIndex:0];
     [chatTableView reloadData];
     
     NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:([[[s messages] objectForKey:newMessageToID] count] - 1) inSection:0];
@@ -255,7 +258,7 @@
 {
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     NSArray *chatMessages=[[s messages] objectForKey:newMessageToID];
-    NSString *mainLabelText= [[chatMessages objectAtIndex:indexPath.row] objectForKey:@"message"];
+    NSString *mainLabelText= [[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"message"];
     
     static NSString *CellIdentifier=nil;
     if([[[chatMessages objectAtIndex:indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
