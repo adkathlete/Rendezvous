@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Stanford University. All rights reserved.
 //
 
-#define userDataURL @"http://rendezvousnow.me/getUserInfo.php?id="
+#define userDataURL @"http://rendezvousnow.me/getUserInfo1.php?id="
 #define userListURL @"http://rendezvousnow.me/getList.php?id="
 #define checkUserURL @"http://rendezvousnow.me/checkUser.php?id="
 #define userMessagesURL @"http://rendezvousnow.me/getMessages.php?id="

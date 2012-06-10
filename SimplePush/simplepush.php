@@ -1,13 +1,16 @@
 <?php
 
-// Put your device token here (without spaces):
-$deviceToken = '6084cd34339858bfe0c22311f13aac21386c5c699f9e7a907968514cba9a7c19';
 
+
+// Put your device token here (without spaces):
+$deviceTokenDeniz = '5a06ed6c9bf0f27f8de413e18a6f750ebef0128ff086915479e215b04ff8d022';
+$deviceTokenAaron = '856a58b4a6f2e070548a29fc65ca653d81a1e366ff605049adada369f8347352';
+$deviceToken = $deviceTokenAaron;
 // Put your private key's passphrase here:
 $passphrase = 'rendezvous1989';
 
 // Put your alert message here:
-$message = 'Your match for this week is Chrissy Scannel who has a lot of sex!';
+$message = 'Brobrobrobro!';
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -17,7 +20,7 @@ stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
 
 // Open a connection to the APNS server
 $fp = stream_socket_client(
-	'ssl://gateway.sandbox.push.apple.com:2195', $err,
+	'ssl://gateway.push.apple.com:2195', $err,
 	$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
 if (!$fp)
@@ -47,3 +50,5 @@ else
 
 // Close the connection to the server
 fclose($fp);
+
+?>
