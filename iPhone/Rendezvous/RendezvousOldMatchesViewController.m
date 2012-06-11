@@ -68,7 +68,7 @@
      [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
       UITextAttributeTextShadowColor, nil] forState:UIControlStateHighlighted];
     
-    UIImage *buttonBack = [[UIImage imageNamed:@"backButton2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,5,0,5)];
+    UIImage *buttonBack = [UIImage imageNamed:@"backButton2.png"];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack
                                                       forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 //    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];

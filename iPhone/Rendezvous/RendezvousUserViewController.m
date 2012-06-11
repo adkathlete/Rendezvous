@@ -53,7 +53,21 @@
     //NSLog(temp);
     NSArray *chunks = [temp componentsSeparatedByString:@" "];
     label.text = [chunks objectAtIndex:0];
-    self.navigationItem.titleView = label;
+    //self.navigationItem.titleView = label;
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], 
+      UITextAttributeTextColor, 
+      [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0], 
+      UITextAttributeTextShadowColor, 
+      [NSValue valueWithUIOffset:UIOffsetMake(0, 1.3)], 
+      UITextAttributeTextShadowOffset, 
+      [UIFont fontWithName:@"Verdana-Bold" size:24.0], 
+      UITextAttributeFont, 
+      nil]];
+    
+    self.navigationItem.title=[chunks objectAtIndex:0];
     
     [[UIBarButtonItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
@@ -62,7 +76,7 @@
      [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
       UITextAttributeTextShadowColor, nil] forState:UIControlStateHighlighted];
     
-    UIImage *buttonBack = [[UIImage imageNamed:@"backButton2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,5,0,5)];
+    UIImage *buttonBack = [UIImage imageNamed:@"backButton2.png"];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack
                                                       forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         

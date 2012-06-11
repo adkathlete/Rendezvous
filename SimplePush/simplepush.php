@@ -10,7 +10,7 @@ $deviceToken = $deviceTokenAaron;
 $passphrase = 'rendezvous1989';
 
 // Put your alert message here:
-$message = 'Brobrobrobro!';
+$message = 'You have a new match!';
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -38,10 +38,12 @@ $body['aps'] = array(
 $payload = json_encode($body);
 
 // Build the binary notification
-$msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
+$msg1 = chr(0) . pack('n', 32) . pack('H*', $deviceTokenDeniz) . pack('n', strlen($payload)) . $payload;
+$msg2 = chr(0) . pack('n', 32) . pack('H*', $deviceTokenAaron) . pack('n', strlen($payload)) . $payload;
 
 // Send it to the server
-$result = fwrite($fp, $msg, strlen($msg));
+$result = fwrite($fp, $msg1, strlen($msg1));
+$result = fwrite($fp, $msg2, strlen($msg2));
 
 if (!$result)
 	echo 'Message not delivered' . PHP_EOL;

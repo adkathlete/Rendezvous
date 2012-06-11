@@ -45,6 +45,7 @@
     label.text = @"MY INBOX";
     self.navigationItem.titleView = label;
     
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -96,21 +97,17 @@
     
     [self.inboxTableView reloadData];
     [pull finishedLoading];
-    
-    /*RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    self.responseData = [NSMutableData data];
-    NSString *urlString = [@"http://rendezvousnow.me/getMessages.php?id=" stringByAppendingString:[s userId]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    NSLog(@"Request Sent: %@",urlString);*/
+
 }
 
 #pragma mark Reload Message Data
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     [responseData setLength:0];
+    NSLog(@"Recieved Response");
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    NSLog(@"Appending Data");
     [responseData appendData:data];
 }
 

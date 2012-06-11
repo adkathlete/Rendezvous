@@ -19,7 +19,7 @@
     PullToRefreshView *pull;
 }
 
-@property ( nonatomic) IBOutlet UITableView *inboxTableView;
-@property ( nonatomic) NSMutableData* responseData;
+@property (nonatomic) IBOutlet UITableView *inboxTableView;
+@property (nonatomic) NSMutableData* responseData;
 
 @end

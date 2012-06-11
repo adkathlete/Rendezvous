@@ -301,6 +301,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
 
 - (void)request:(FBRequest *)request didLoad:(id)result
 {
+    NSLog(@"Facebooking");
     switch (currentAPICall) {
         case kLoadUserInformation:
         {

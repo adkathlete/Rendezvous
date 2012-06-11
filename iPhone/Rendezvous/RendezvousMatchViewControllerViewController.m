@@ -50,7 +50,21 @@
     NSString *temp = [[[sharedSingleton matchInfo] objectForKey:[sharedSingleton matchedUserId]] uppercaseString];
     NSArray *chunks = [temp componentsSeparatedByString:@" "];
     label.text = [chunks objectAtIndex:0];
-    self.navigationItem.titleView = label;
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], 
+      UITextAttributeTextColor, 
+      [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1.0], 
+      UITextAttributeTextShadowColor, 
+      [NSValue valueWithUIOffset:UIOffsetMake(0, 1.3)], 
+      UITextAttributeTextShadowOffset, 
+      [UIFont fontWithName:@"Verdana-Bold" size:24.0], 
+      UITextAttributeFont, 
+      nil]];
+    
+    self.navigationItem.title=[chunks objectAtIndex:0];
+
     
     
     backButton =  [UIButton buttonWithType:UIButtonTypeCustom];
