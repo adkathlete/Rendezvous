@@ -67,6 +67,9 @@
         [self setTitle:[[s listUserInfo] objectForKey:newMessageToID]];
     }
     [self registerForKeyboardNotifications];
+    
+    UIImage *backbuttonImage=[UIImage imageNamed:@"backButton2.png"];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backbuttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
 }
 
@@ -289,7 +292,8 @@
         
     }
     
-    UILabel *label = (UILabel *)[cell viewWithTag:1];
+    UILabel *label = (UILabel *)[cell viewWithTag:2];
+    UILabel *label2 = (UILabel *)[cell viewWithTag:1];
     
     CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, 20000.0f);
     
@@ -300,23 +304,30 @@
     if([[[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
     {
         label.textAlignment=UITextAlignmentRight;  
-        [label setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH,CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];  
+        [label setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH -7,CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];  
+        [label2 setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH,CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH + 7, MAX(size.height, 44.0f))];
     } else {
-        [label setFrame:CGRectMake(CELL_CONTENT_MARGIN, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];
+        [label setFrame:CGRectMake(CELL_CONTENT_MARGIN, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH + 13, MAX(size.height, 44.0f))];
+         [label2 setFrame:CGRectMake(CELL_CONTENT_MARGIN, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH+7, MAX(size.height, 44.0f))];
     }
     
     if ([@"fromCellIdentifier" compare:CellIdentifier]==NSOrderedSame) {
         //blue
-        label.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.6];
+        label.backgroundColor = [UIColor clearColor];
+        label2.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.6];
         
     } else {
-        label.backgroundColor = [UIColor colorWithRed:0.0 green:0.6 blue:0.6 alpha:0.6];
+        label.backgroundColor = [UIColor clearColor];
+        label2.backgroundColor = [UIColor colorWithRed:0.0 green:0.6 blue:0.6 alpha:0.6];
     }
     
     [label.layer setCornerRadius:6];
     [label.layer setMasksToBounds:YES];
-    label.layer.borderColor = [UIColor whiteColor].CGColor;
-    label.layer.borderWidth = 2.0;
+    
+    [label2.layer setCornerRadius:6];
+    [label2.layer setMasksToBounds:YES];
+    label2.layer.borderColor = [UIColor whiteColor].CGColor;
+    label2.layer.borderWidth = 4.0;
     
 //    CGRect frame = label.frame;
 //    frame.origin.x -= 10;

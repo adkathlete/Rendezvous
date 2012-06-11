@@ -327,6 +327,13 @@ We make the connection. You rendezvous. Good luck!</string>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="auC-uc-Oir">
+                                                            <rect key="frame" x="20" y="25" width="192" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -626,6 +633,94 @@ We make the connection. You rendezvous. Good luck!</string>
         <image name="BlackBackground.png" width="640" height="960"/>
         <image name="Default.png" width="640" height="960"/>
     </resources>
+    <classes>
+        <class className="RendezvousAboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousAboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aboutLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RendezvousAddTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousAddTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="RendezvousChatViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousChatViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="chatTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="composeMessageView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="hideKeyboard" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="messageField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="sendMessageButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RendezvousHomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousHomeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dayLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hourLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minuteLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="secondLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="RendezvousInboxViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousInboxViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="inboxTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="RendezvousListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="listTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="moveButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RendezvousMatchViewControllerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousMatchViewControllerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="ButtonPressed:"/>
+                <relationship kind="outlet" name="clockButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="initial" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="matchPhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RendezvousOldMatchesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousOldMatchesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="goBackButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="RendezvousSearchDisplayController" superclassName="UISearchDisplayController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousSearchDisplayController.h"/>
+        </class>
+        <class className="RendezvousSplashViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousSplashViewController.h"/>
+        </class>
+        <class className="RendezvousUserViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RendezvousUserViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="clockButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="messageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
