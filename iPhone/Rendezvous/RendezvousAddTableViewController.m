@@ -64,13 +64,16 @@
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
     
+    [[UIBarButtonItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
+      UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
+      UITextAttributeTextShadowColor, nil] forState:UIControlStateHighlighted];
     
-    //    UIButton *addBackButton =  [UIButton buttonWithType:UIButtonTypeCustom];
-    //    [addBackButton setImage:[UIImage imageNamed:@"clock.png"] forState:UIControlStateNormal];
-    //    [addBackButton addTarget:self action:@selector(addBack) forControlEvents:UIControlEventTouchUpInside];
-    //    [addBackButton setFrame:CGRectMake(10, 10, 60, 60)];
-    //    [addBackButton setCenter:CGPointMake(self.view.frame.size.width - 13, 200)];
-    //    self.navigationController.load
+    UIImage *buttonBack = [[UIImage imageNamed:@"backButton2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,5,0,5)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack
+                                                      forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 -(void) addBack {

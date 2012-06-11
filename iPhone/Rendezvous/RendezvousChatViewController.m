@@ -68,8 +68,16 @@
     }
     [self registerForKeyboardNotifications];
     
-    UIImage *backbuttonImage=[UIImage imageNamed:@"backButton2.png"];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backbuttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
+      UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
+      UITextAttributeTextShadowColor, nil] forState:UIControlStateHighlighted];
+    
+    UIImage *buttonBack = [[UIImage imageNamed:@"backButton2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,5,0,5)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack
+                                                      forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
 }
 
