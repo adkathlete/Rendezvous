@@ -55,16 +55,16 @@
     label.text = [chunks objectAtIndex:0];
     self.navigationItem.titleView = label;
     
-    UIButton *backButton =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setImage:[UIImage imageNamed:@"backButton2.png"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setFrame:CGRectMake(0, 0, 60, 60)];
-    [backButton setCenter:CGPointMake(self.view.frame.size.width - 13, 10)];
-    //    [self.view addSubview:editButton];
-//    self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"backButton.png"];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
+      UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:[UIColor clearColor],UITextAttributeTextColor,[UIColor clearColor], 
+      UITextAttributeTextShadowColor, nil] forState:UIControlStateHighlighted];
     
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = backButtonItem;
+    UIImage *buttonBack = [[UIImage imageNamed:@"backButton2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,5,0,5)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack
+                                                      forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         
     UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
     UIImage *unselectedImage0 = [UIImage imageNamed:@"listGrey.png"];
