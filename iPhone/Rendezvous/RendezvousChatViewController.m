@@ -19,7 +19,6 @@
 
 @implementation RendezvousChatViewController
 
-@synthesize hideKeyboard;
 @synthesize chatTableView;
 @synthesize composeMessageView;
 @synthesize messageField;
@@ -78,6 +77,7 @@
     UIImage *buttonBack = [[UIImage imageNamed:@"backButton2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,5,0,5)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack
                                                       forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
 
 }
 
@@ -89,7 +89,6 @@
     [self setComposeMessageView:nil];
     [self setMessageField:nil];
     [self setSendMessageButton:nil];
-    [self setHideKeyboard:nil];
     [super viewDidUnload];
 
     // Release any retained subviews of the main view.
@@ -115,7 +114,7 @@
 }
 
 - (IBAction)hideKeyboard:(id)sender {
-    [sender resignFirstResponder];
+    [self textFieldShouldReturn:messageField];
 }
 
 // Called when the UIKeyboardDidShowNotification is sent.
@@ -185,6 +184,8 @@
         
         
         [self messageField].text=nil;
+    }else{
+        [self textFieldShouldReturn:messageField];
     }
 }
 
@@ -263,11 +264,11 @@
     
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     NSArray *chatMessages=[[s messages] objectForKey:newMessageToID];
-    NSString *text= [[chatMessages objectAtIndex:indexPath.row] objectForKey:@"message"];
-    
+    NSString *text= [[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"message"];
+    NSLog(@"Height for Text: %@ Row:%d",text,indexPath.row );
     CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
     
-    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    CGSize size = [text sizeWithFont:[UIFont fontWithName:@"Verdana-Bold" size:16] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
     
     CGFloat height = MAX(size.height, 44.0f);
     
@@ -276,6 +277,51 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   /* 
+    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    NSArray *chatMessages=[[s messages] objectForKey:newMessageToID];
+    NSString *mainLabelText= [[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"message"];
+    
+    static NSString *CellIdentifier=nil;
+    if([[[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
+    {
+        CellIdentifier= @"toCellIdentifier";   
+    } else {
+        CellIdentifier = @"fromCellIdentifier";
+    }
+    
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
+    
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
+        
+    }
+    
+    UILabel *label = (UILabel *)[cell viewWithTag:1];
+    
+    CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, 20000.0f);
+    
+    CGSize size = [mainLabelText sizeWithFont:[UIFont fontWithName:@"Verdana-Bold" size:16] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    
+    [label setText:mainLabelText];
+    
+    if([[[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
+    {
+        label.textAlignment=UITextAlignmentRight;  
+        [label setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH,CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];  
+    } else {
+        [label setFrame:CGRectMake(CELL_CONTENT_MARGIN, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];
+    }
+    
+    cell.backgroundColor = [UIColor clearColor];
+    return cell;*/
+    
+    
     RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
     NSArray *chatMessages=[[s messages] objectForKey:newMessageToID];
     NSString *mainLabelText= [[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"message"];
@@ -300,23 +346,23 @@
         
     }
     
-    UILabel *label = (UILabel *)[cell viewWithTag:2];
-    UILabel *label2 = (UILabel *)[cell viewWithTag:1];
+    UILabel *label = (UILabel *)[cell viewWithTag:1];
+    UILabel *label2 = (UILabel *)[cell viewWithTag:2];
     
     CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, 20000.0f);
     
-    CGSize size = [mainLabelText sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    CGSize size = [mainLabelText sizeWithFont:[UIFont fontWithName:@"Verdana-Bold" size:16] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
     
     [label setText:mainLabelText];
     
     if([[[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
     {
         label.textAlignment=UITextAlignmentRight;  
-        [label setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH -7,CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];  
-        [label2 setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH,CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH + 7, MAX(size.height, 44.0f))];
+        [label setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH-8,CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, size.height)];  
+        [label2 setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH-13,CELL_CONTENT_MARGIN-5, CELL_CONTENT_WIDTH + 15, size.height+15)];
     } else {
-        [label setFrame:CGRectMake(CELL_CONTENT_MARGIN, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH + 13, MAX(size.height, 44.0f))];
-         [label2 setFrame:CGRectMake(CELL_CONTENT_MARGIN, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH+7, MAX(size.height, 44.0f))];
+        [label setFrame:CGRectMake(CELL_CONTENT_MARGIN+8, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, size.height)];
+         [label2 setFrame:CGRectMake(CELL_CONTENT_MARGIN-2, CELL_CONTENT_MARGIN-5, CELL_CONTENT_WIDTH+20, size.height+15)];
     }
     
     if ([@"fromCellIdentifier" compare:CellIdentifier]==NSOrderedSame) {
@@ -326,11 +372,12 @@
         
     } else {
         label.backgroundColor = [UIColor clearColor];
-        label2.backgroundColor = [UIColor colorWithRed:0.0 green:0.6 blue:0.6 alpha:0.6];
+        label2.backgroundColor = [UIColor colorWithRed:0.5 green:0.1 blue:0.1 alpha:0.6];
     }
     
     [label.layer setCornerRadius:6];
     [label.layer setMasksToBounds:YES];
+    label.layer.zPosition=10;
     
     [label2.layer setCornerRadius:6];
     [label2.layer setMasksToBounds:YES];

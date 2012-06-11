@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1FI-Ek-dTU">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -318,20 +318,19 @@ We make the connection. You rendezvous. Good luck!</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Q0i-pe-odh">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Q0i-pe-odh">
                                                             <rect key="frame" x="139" y="25" width="171" height="19"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.058323267880000002" green="1" blue="0.1260468944" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="auC-uc-Oir">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="auC-uc-Oir">
                                                             <rect key="frame" x="20" y="25" width="192" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
                                                     </subviews>
@@ -345,11 +344,17 @@ We make the connection. You rendezvous. Good luck!</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="VWx-3h-e2K">
-                                                            <rect key="frame" x="20" y="20" width="170" height="19"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="VWx-3h-e2K">
+                                                            <rect key="frame" x="25" y="20" width="170" height="19"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.21248501559999999" green="0.82148948290000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="6lQ-Bd-yrk">
+                                                            <rect key="frame" x="64" y="17" width="192" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -403,17 +408,10 @@ We make the connection. You rendezvous. Good luck!</string>
                     <connections>
                         <outlet property="chatTableView" destination="PKy-sV-ORG" id="D09-yC-1pK"/>
                         <outlet property="composeMessageView" destination="3w6-La-4in" id="ULl-Zs-mny"/>
-                        <outlet property="hideKeyboard" destination="Pn4-Si-eyR" id="3Bi-h7-Lhw"/>
                         <outlet property="messageField" destination="YGL-m1-ZDA" id="jjD-fS-4Tt"/>
                         <outlet property="sendMessageButton" destination="YJG-5V-OPs" id="D4N-Ee-Zba"/>
                     </connections>
                 </viewController>
-                <tapGestureRecognizer id="Pn4-Si-eyR">
-                    <connections>
-                        <action selector="hideKeyboard:" destination="IKm-Q9-mKo" id="nCK-GV-PVZ"/>
-                        <outlet property="delegate" destination="3w6-La-4in" id="Iq7-F8-nqo"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="512" y="-606"/>
         </scene>
@@ -727,9 +725,9 @@ We make the connection. You rendezvous. Good luck!</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pMn-6d-JGk"/>
         <segue reference="Z6y-ho-Z9e"/>
         <segue reference="FLz-pt-bbg"/>
         <segue reference="ivY-oM-rjS"/>
+        <segue reference="pMn-6d-JGk"/>
     </inferredMetricsTieBreakers>
 </document>
