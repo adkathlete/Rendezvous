@@ -153,21 +153,34 @@
 
 -(IBAction)infoPressed:(id)sender
 {
-    if (isInInfo) {
-        isInInfo = false;
-        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2 - 190, 106);
-        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2 - 190, 89);
-        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2-190, 120);
-        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 204, 106)];
-        infoBox.hidden = NO;
-    } else {
-        isInInfo = true;
-        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2, 106);
-        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2, 89);
-        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 120);
-        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 106)];
-        infoBox.hidden = YES;
-    }
+//    if (isInInfo) {
+//        isInInfo = false;
+//        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2 - 190, 106);
+//        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2 - 190, 89);
+//        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2-190, 120);
+//        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 204, 106)];
+//        infoBox.hidden = NO;
+//    } else {
+//        isInInfo = true;
+//        slideImageView4.center = CGPointMake(self.view.frame.size.width - slideImage4.size.width/2, 106);
+//        slideImageView5.center = CGPointMake(self.view.frame.size.width - slideImage5.size.width/2, 89);
+//        slideImageView6.center = CGPointMake(self.view.frame.size.width - slideImage6.size.width/2, 120);
+//        [infoButton setCenter:CGPointMake(self.view.frame.size.width - 14, 106)];
+//        infoBox.hidden = YES;
+//    }
+    
+    UIImageView* animatedImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    animatedImageView.animationImages = [NSArray arrayWithObjects:    
+                                         [UIImage imageNamed:@"welcomeVideo.png"],
+                                         [UIImage imageNamed:@"addVideo.png"],
+                                         [UIImage imageNamed:@"matchVideo.png"],
+                                         [UIImage imageNamed:@"messageVideo.png"],
+                                         [UIImage imageNamed:@"luckVideo.png"], nil];
+    animatedImageView.animationDuration = 9.0f;
+    animatedImageView.animationRepeatCount = 1;
+    [animatedImageView startAnimating];
+    [self.view addSubview: animatedImageView];
+//    animatedImageView.hidden = YES;
     
 }
 
