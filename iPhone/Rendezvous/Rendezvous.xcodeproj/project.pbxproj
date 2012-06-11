@@ -98,8 +98,6 @@
 		1FC244A9157AFD7500B91B81 /* Jagged3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC244A8157AFD7500B91B81 /* Jagged3.png */; };
 		1FC663F91577ABE7003D7E17 /* photoBrowserBackground3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC663F81577ABE7003D7E17 /* photoBrowserBackground3@2x.png */; };
 		1FC663FB1577AD7D003D7E17 /* photoBrowserBackground3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC663FA1577AD7D003D7E17 /* photoBrowserBackground3.png */; };
-		1FC663FD1577B8A3003D7E17 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC663FC1577B8A3003D7E17 /* arrow@2x.png */; };
-		1FC663FF1577B8C3003D7E17 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC663FE1577B8C3003D7E17 /* arrow.png */; };
 		1FE44B701576D69C0003F5D4 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE44B6F1576D69C0003F5D4 /* message@2x.png */; };
 		1FE44B721576D6DF0003F5D4 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE44B711576D6DF0003F5D4 /* message.png */; };
 		1FE47D17157743C8000571AC /* photoBrowserBackground2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE47D16157743C8000571AC /* photoBrowserBackground2@2x.png */; };
@@ -121,6 +119,10 @@
 		730F62A5154E4C9800644C80 /* RendezvousCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A4154E4C9800644C80 /* RendezvousCurrentUser.m */; };
 		730F62A9154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */; };
 		732809F51555CB9400C716AD /* RendezvousAddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */; };
+		735C547D15860AA000FE7796 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 735C547815860AA000FE7796 /* arrow.png */; };
+		735C547E15860AA000FE7796 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 735C547915860AA000FE7796 /* arrow@2x.png */; };
+		735C548015860AA000FE7796 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 735C547C15860AA000FE7796 /* README */; };
+		735C548315860E4B00FE7796 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C548215860E4B00FE7796 /* PullToRefreshView.m */; };
 		73680FF9157C1BD400A5C23B /* RendezvousInboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73680FF8157C1BD400A5C23B /* RendezvousInboxViewController.m */; };
 		738C549C157437DF0042D907 /* RendezvousMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 738C549B157437DF0042D907 /* RendezvousMessagesViewController.m */; };
 		738C54A21574AA5B0042D907 /* RendezvousChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 738C54A11574AA5B0042D907 /* RendezvousChatViewController.m */; };
@@ -132,7 +134,6 @@
 		73C77F8C154DB12B00453D96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C77F8B154DB12B00453D96 /* main.m */; };
 		73C77F90154DB12B00453D96 /* RendezvousAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C77F8F154DB12B00453D96 /* RendezvousAppDelegate.m */; };
 		73C77F93154DB12B00453D96 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C77F91154DB12B00453D96 /* MainStoryboard.storyboard */; };
-		73C77F96154DB12B00453D96 /* RendezvousHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C77F95154DB12B00453D96 /* RendezvousHomeViewController.m */; };
 		73C77F9E154DB1FE00453D96 /* RendezvousListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */; };
 		73C77FBF154DC35100453D96 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 73C77FB2154DC35100453D96 /* FBDialog.bundle */; };
 		73C77FC0154DC35100453D96 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C77FB8154DC35100453D96 /* libfacebook_ios_sdk.a */; };
@@ -140,24 +141,18 @@
 		73DCB76D1558A12100BDD62C /* RendezvousUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DCB76C1558A12100BDD62C /* RendezvousUserViewController.m */; };
 		73E1142815696A32008D215E /* RendezvousAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E1142715696A32008D215E /* RendezvousAboutViewController.m */; };
 		73E1142C15698971008D215E /* RendezvousSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E1142B15698971008D215E /* RendezvousSearchDisplayController.m */; };
-		73FDAB84156A45A200666F20 /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB5D156A45A100666F20 /* MWCaptionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB85156A45A200666F20 /* MWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB5F156A45A100666F20 /* MWPhoto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB86156A45A200666F20 /* MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB61156A45A100666F20 /* MWPhotoBrowser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB87156A45A200666F20 /* MWTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB64156A45A100666F20 /* MWTapDetectingImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB88156A45A200666F20 /* MWTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB66156A45A100666F20 /* MWTapDetectingView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB89156A45A200666F20 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB68156A45A100666F20 /* MWZoomingScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB8A156A45A200666F20 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB6C156A45A100666F20 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB8A156A45A200666F20 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB6C156A45A100666F20 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = ""; }; };
 		73FDAB8B156A45A200666F20 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB6D156A45A200666F20 /* README.mdown */; };
 		73FDAB8C156A45A200666F20 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB6F156A45A200666F20 /* .gitignore */; };
 		73FDAB8D156A45A200666F20 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB70156A45A200666F20 /* LICENSE */; };
 		73FDAB8E156A45A200666F20 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB71156A45A200666F20 /* README.md */; };
-		73FDAB8F156A45A200666F20 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB73156A45A200666F20 /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB90156A45A200666F20 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB77156A45A200666F20 /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB91156A45A200666F20 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB79156A45A200666F20 /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB92156A45A200666F20 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB7C156A45A200666F20 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB93156A45A200666F20 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB7F156A45A200666F20 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB94156A45A200666F20 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB81156A45A200666F20 /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73FDAB95156A45A200666F20 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB83156A45A200666F20 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73FDAB8F156A45A200666F20 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB73156A45A200666F20 /* SDImageCache.m */; settings = {COMPILER_FLAGS = ""; }; };
+		73FDAB90156A45A200666F20 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB77156A45A200666F20 /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = ""; }; };
+		73FDAB91156A45A200666F20 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB79156A45A200666F20 /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = ""; }; };
+		73FDAB92156A45A200666F20 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB7C156A45A200666F20 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = ""; }; };
+		73FDAB93156A45A200666F20 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB7F156A45A200666F20 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = ""; }; };
+		73FDAB94156A45A200666F20 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB81156A45A200666F20 /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = ""; }; };
+		73FDAB95156A45A200666F20 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FDAB83156A45A200666F20 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = ""; }; };
 		73FDAB97156A45DC00666F20 /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 73FDAB96156A45DC00666F20 /* MWPhotoBrowser.bundle */; };
 		76D319611559C0EF0080EFB6 /* RendezvousSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D319601559C0EF0080EFB6 /* RendezvousSplashViewController.m */; };
 /* End PBXBuildFile section */
@@ -256,8 +251,6 @@
 		1FC244A8157AFD7500B91B81 /* Jagged3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jagged3.png; sourceTree = "<group>"; };
 		1FC663F81577ABE7003D7E17 /* photoBrowserBackground3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoBrowserBackground3@2x.png"; sourceTree = "<group>"; };
 		1FC663FA1577AD7D003D7E17 /* photoBrowserBackground3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoBrowserBackground3.png; sourceTree = "<group>"; };
-		1FC663FC1577B8A3003D7E17 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow@2x.png"; path = "Rendezvous/arrow@2x.png"; sourceTree = "<group>"; };
-		1FC663FE1577B8C3003D7E17 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		1FE44B6F1576D69C0003F5D4 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
 		1FE44B711576D6DF0003F5D4 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
 		1FE47D16157743C8000571AC /* photoBrowserBackground2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoBrowserBackground2@2x.png"; sourceTree = "<group>"; };
@@ -282,6 +275,11 @@
 		730F62A8154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousMatchViewControllerViewController.m; sourceTree = SOURCE_ROOT; };
 		732809F31555CB9400C716AD /* RendezvousAddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousAddTableViewController.h; sourceTree = SOURCE_ROOT; };
 		732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousAddTableViewController.m; sourceTree = SOURCE_ROOT; };
+		735C547815860AA000FE7796 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		735C547915860AA000FE7796 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		735C547C15860AA000FE7796 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		735C548115860E4B00FE7796 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullToRefreshView.h; path = ../PullToRefreshView.h; sourceTree = "<group>"; };
+		735C548215860E4B00FE7796 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullToRefreshView.m; path = ../PullToRefreshView.m; sourceTree = "<group>"; };
 		73680FF7157C1BD400A5C23B /* RendezvousInboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousInboxViewController.h; sourceTree = SOURCE_ROOT; };
 		73680FF8157C1BD400A5C23B /* RendezvousInboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousInboxViewController.m; sourceTree = SOURCE_ROOT; };
 		738C549A157437DF0042D907 /* RendezvousMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousMessagesViewController.h; sourceTree = SOURCE_ROOT; };
@@ -301,8 +299,6 @@
 		73C77F8E154DB12B00453D96 /* RendezvousAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RendezvousAppDelegate.h; sourceTree = "<group>"; };
 		73C77F8F154DB12B00453D96 /* RendezvousAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RendezvousAppDelegate.m; sourceTree = "<group>"; };
 		73C77F92154DB12B00453D96 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		73C77F94154DB12B00453D96 /* RendezvousHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RendezvousHomeViewController.h; sourceTree = "<group>"; };
-		73C77F95154DB12B00453D96 /* RendezvousHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RendezvousHomeViewController.m; sourceTree = "<group>"; };
 		73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousListTableViewController.h; sourceTree = "<group>"; };
 		73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousListTableViewController.m; sourceTree = "<group>"; };
 		73C77FA0154DB60200453D96 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
@@ -338,19 +334,6 @@
 		73E1142715696A32008D215E /* RendezvousAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousAboutViewController.m; sourceTree = SOURCE_ROOT; };
 		73E1142A15698971008D215E /* RendezvousSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendezvousSearchDisplayController.h; sourceTree = SOURCE_ROOT; };
 		73E1142B15698971008D215E /* RendezvousSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendezvousSearchDisplayController.m; sourceTree = SOURCE_ROOT; };
-		73FDAB5C156A45A100666F20 /* MWCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWCaptionView.h; sourceTree = "<group>"; };
-		73FDAB5D156A45A100666F20 /* MWCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWCaptionView.m; sourceTree = "<group>"; };
-		73FDAB5E156A45A100666F20 /* MWPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhoto.h; sourceTree = "<group>"; };
-		73FDAB5F156A45A100666F20 /* MWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWPhoto.m; sourceTree = "<group>"; };
-		73FDAB60156A45A100666F20 /* MWPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhotoBrowser.h; sourceTree = "<group>"; };
-		73FDAB61156A45A100666F20 /* MWPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWPhotoBrowser.m; sourceTree = "<group>"; };
-		73FDAB62156A45A100666F20 /* MWPhotoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWPhotoProtocol.h; sourceTree = "<group>"; };
-		73FDAB63156A45A100666F20 /* MWTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTapDetectingImageView.h; sourceTree = "<group>"; };
-		73FDAB64156A45A100666F20 /* MWTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTapDetectingImageView.m; sourceTree = "<group>"; };
-		73FDAB65156A45A100666F20 /* MWTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWTapDetectingView.h; sourceTree = "<group>"; };
-		73FDAB66156A45A100666F20 /* MWTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWTapDetectingView.m; sourceTree = "<group>"; };
-		73FDAB67156A45A100666F20 /* MWZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZoomingScrollView.h; sourceTree = "<group>"; };
-		73FDAB68156A45A100666F20 /* MWZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZoomingScrollView.m; sourceTree = "<group>"; };
 		73FDAB6B156A45A100666F20 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		73FDAB6C156A45A100666F20 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		73FDAB6D156A45A200666F20 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
@@ -406,8 +389,8 @@
 				76D319601559C0EF0080EFB6 /* RendezvousSplashViewController.m */,
 				732809F31555CB9400C716AD /* RendezvousAddTableViewController.h */,
 				732809F41555CB9400C716AD /* RendezvousAddTableViewController.m */,
-				1F5B78D715789FAE00C147E5 /* RendezvousListViewController.m */,
 				1F5B78D615789FAE00C147E5 /* RendezvousListViewController.h */,
+				1F5B78D715789FAE00C147E5 /* RendezvousListViewController.m */,
 				738C549A157437DF0042D907 /* RendezvousMessagesViewController.h */,
 				738C549B157437DF0042D907 /* RendezvousMessagesViewController.m */,
 				73680FF7157C1BD400A5C23B /* RendezvousInboxViewController.h */,
@@ -416,8 +399,6 @@
 				738C54A11574AA5B0042D907 /* RendezvousChatViewController.m */,
 				73C77F9C154DB1FE00453D96 /* RendezvousListTableViewController.h */,
 				73C77F9D154DB1FE00453D96 /* RendezvousListTableViewController.m */,
-				73C77F94154DB12B00453D96 /* RendezvousHomeViewController.h */,
-				73C77F95154DB12B00453D96 /* RendezvousHomeViewController.m */,
 				73DCB76B1558A12100BDD62C /* RendezvousUserViewController.h */,
 				73DCB76C1558A12100BDD62C /* RendezvousUserViewController.m */,
 				730F62A7154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.h */,
@@ -428,9 +409,22 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		735C547715860AA000FE7796 /* sonnyparlin-PullToRefresh-baafe9d */ = {
+			isa = PBXGroup;
+			children = (
+				735C548115860E4B00FE7796 /* PullToRefreshView.h */,
+				735C548215860E4B00FE7796 /* PullToRefreshView.m */,
+				735C547815860AA000FE7796 /* arrow.png */,
+				735C547915860AA000FE7796 /* arrow@2x.png */,
+				735C547C15860AA000FE7796 /* README */,
+			);
+			path = "sonnyparlin-PullToRefresh-baafe9d";
+			sourceTree = "<group>";
+		};
 		73C77F70154DB12B00453D96 = {
 			isa = PBXGroup;
 			children = (
+				735C547715860AA000FE7796 /* sonnyparlin-PullToRefresh-baafe9d */,
 				1F7D05FE1586021100F69EB6 /* welcomeVideo@2x.png */,
 				1F7D05FF1586021100F69EB6 /* messageVideo@2x.png */,
 				1F7D06001586021100F69EB6 /* luckVideo@2x.png */,
@@ -506,12 +500,10 @@
 				1F5B78D41578996500C147E5 /* scrollUp.png */,
 				1F5B78D01578994C00C147E5 /* slideButton.png */,
 				1FC663F81577ABE7003D7E17 /* photoBrowserBackground3@2x.png */,
-				1FC663FC1577B8A3003D7E17 /* arrow@2x.png */,
 				1FC663FA1577AD7D003D7E17 /* photoBrowserBackground3.png */,
 				1F8D0F9415778639007F0AEA /* cellBackgroundWhite4@2x.png */,
 				1F5B78CA1578987C00C147E5 /* glare@2x.png */,
 				1F5B78CC157898A100C147E5 /* glare.png */,
-				1FC663FE1577B8C3003D7E17 /* arrow.png */,
 				1F8D0F9815778E7F007F0AEA /* tableHeader@2x.png */,
 				1F8D0F9915778E7F007F0AEA /* tableFooter@2x.png */,
 				1F8D0F961577864A007F0AEA /* cellBackgroundWhite4.png */,
@@ -542,7 +534,6 @@
 				73D9C14F157B35C000C2DAEB /* info.png */,
 				1F62D1DA1572C2B80072DF63 /* background98.png */,
 				73FDAB96156A45DC00666F20 /* MWPhotoBrowser.bundle */,
-				73FDAB5B156A45A100666F20 /* Classes */,
 				73FDAB69156A45A100666F20 /* Libraries */,
 				73C77F85154DB12B00453D96 /* Rendezvous */,
 				73C77F7E154DB12B00453D96 /* Frameworks */,
@@ -635,26 +626,6 @@
 				73C77FBE154DC35100453D96 /* SBJsonWriter.h */,
 			);
 			path = "facebook-ios-sdk";
-			sourceTree = "<group>";
-		};
-		73FDAB5B156A45A100666F20 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				73FDAB5C156A45A100666F20 /* MWCaptionView.h */,
-				73FDAB5D156A45A100666F20 /* MWCaptionView.m */,
-				73FDAB5E156A45A100666F20 /* MWPhoto.h */,
-				73FDAB5F156A45A100666F20 /* MWPhoto.m */,
-				73FDAB60156A45A100666F20 /* MWPhotoBrowser.h */,
-				73FDAB61156A45A100666F20 /* MWPhotoBrowser.m */,
-				73FDAB62156A45A100666F20 /* MWPhotoProtocol.h */,
-				73FDAB63156A45A100666F20 /* MWTapDetectingImageView.h */,
-				73FDAB64156A45A100666F20 /* MWTapDetectingImageView.m */,
-				73FDAB65156A45A100666F20 /* MWTapDetectingView.h */,
-				73FDAB66156A45A100666F20 /* MWTapDetectingView.m */,
-				73FDAB67156A45A100666F20 /* MWZoomingScrollView.h */,
-				73FDAB68156A45A100666F20 /* MWZoomingScrollView.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		73FDAB69156A45A100666F20 /* Libraries */ = {
@@ -792,8 +763,6 @@
 				1F8D0F9F15778EAB007F0AEA /* tableFooter.png in Resources */,
 				1FC663F91577ABE7003D7E17 /* photoBrowserBackground3@2x.png in Resources */,
 				1FC663FB1577AD7D003D7E17 /* photoBrowserBackground3.png in Resources */,
-				1FC663FD1577B8A3003D7E17 /* arrow@2x.png in Resources */,
-				1FC663FF1577B8C3003D7E17 /* arrow.png in Resources */,
 				1F5B78CB1578987C00C147E5 /* glare@2x.png in Resources */,
 				1F5B78CD157898A100C147E5 /* glare.png in Resources */,
 				1F5B78CF1578992200C147E5 /* slideButton@2x.png in Resources */,
@@ -873,6 +842,9 @@
 				1F7D060F1586026000F69EB6 /* luckVideo.png in Resources */,
 				1F7D06101586026000F69EB6 /* addVideo.png in Resources */,
 				1F7D06111586026000F69EB6 /* matchVideo.png in Resources */,
+				735C547D15860AA000FE7796 /* arrow.png in Resources */,
+				735C547E15860AA000FE7796 /* arrow@2x.png in Resources */,
+				735C548015860AA000FE7796 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,7 +857,6 @@
 			files = (
 				73C77F8C154DB12B00453D96 /* main.m in Sources */,
 				73C77F90154DB12B00453D96 /* RendezvousAppDelegate.m in Sources */,
-				73C77F96154DB12B00453D96 /* RendezvousHomeViewController.m in Sources */,
 				73C77F9E154DB1FE00453D96 /* RendezvousListTableViewController.m in Sources */,
 				730F62A5154E4C9800644C80 /* RendezvousCurrentUser.m in Sources */,
 				730F62A9154E4EBC00644C80 /* RendezvousMatchViewControllerViewController.m in Sources */,
@@ -894,12 +865,6 @@
 				76D319611559C0EF0080EFB6 /* RendezvousSplashViewController.m in Sources */,
 				73E1142815696A32008D215E /* RendezvousAboutViewController.m in Sources */,
 				73E1142C15698971008D215E /* RendezvousSearchDisplayController.m in Sources */,
-				73FDAB84156A45A200666F20 /* MWCaptionView.m in Sources */,
-				73FDAB85156A45A200666F20 /* MWPhoto.m in Sources */,
-				73FDAB86156A45A200666F20 /* MWPhotoBrowser.m in Sources */,
-				73FDAB87156A45A200666F20 /* MWTapDetectingImageView.m in Sources */,
-				73FDAB88156A45A200666F20 /* MWTapDetectingView.m in Sources */,
-				73FDAB89156A45A200666F20 /* MWZoomingScrollView.m in Sources */,
 				73FDAB8A156A45A200666F20 /* MBProgressHUD.m in Sources */,
 				73FDAB8F156A45A200666F20 /* SDImageCache.m in Sources */,
 				73FDAB90156A45A200666F20 /* SDWebImageDecoder.m in Sources */,
@@ -914,6 +879,7 @@
 				738DB04D15788BD4002B2F95 /* RendezvousOldMatchesViewController.m in Sources */,
 				73680FF9157C1BD400A5C23B /* RendezvousInboxViewController.m in Sources */,
 				1F0E2EED157C713E004C76BC /* RendezvousTabBarController.m in Sources */,
+				735C548315860E4B00FE7796 /* PullToRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

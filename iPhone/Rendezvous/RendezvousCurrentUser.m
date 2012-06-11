@@ -56,10 +56,6 @@ static RendezvousCurrentUser *sharedInstance = nil;
 
 // Your dealloc method will never be called, as the singleton survives for the duration of your app.
 // However, I like to include it so I know what memory I'm using (and incase, one day, I convert away from Singleton).
--(void)dealloc
-{
-    // I'm never called!
-}
 
 // We don't want to allocate a new instance, so return the current one.
 + (id)allocWithZone:(NSZone*)zone {
@@ -361,21 +357,8 @@ static RendezvousCurrentUser *sharedInstance = nil;
         }
         case kloadUserAlbums:
         {
-            NSLog(@"Facebook request %@ loaded", [request url]);
-            NSArray *resultData = [result objectForKey:@"data"];
-            for (NSDictionary *album in resultData) {
-                NSLog([album   objectForKey:@"name"]);
-                
-                if([@"Profile Pictures" compare:[album objectForKey:@"name"]] ==NSOrderedSame)
-                {
-                    NSLog(@"Matched Album");
-                    currentAPICall=kloadProfilePictures;
-                    RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
-                    NSString *path=[NSString stringWithFormat:@"%@/photos",[album objectForKey:@"id"]];
-                    [[delegate facebook] requestWithGraphPath:path andDelegate:self];
-                }
-                
-            }
+          
+            [self loadMessages];
             
             break;
 
@@ -383,21 +366,7 @@ static RendezvousCurrentUser *sharedInstance = nil;
         case kloadProfilePictures:
         {
             NSLog(@"Facebook request %@ loaded", [request url]);
-            NSArray *resultData = [result objectForKey:@"data"];
             
-            NSLog(@"Loading Photos");
-            // Create browser
-            NSMutableArray *photos = [[NSMutableArray alloc] init];
-            
-            for (NSDictionary *photo in resultData) {
-                [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:[photo objectForKey:@"source"]]]];
-            }
-            
-            NSLog(@"done Adding Photos");
-            
-            self.photos = photos;
-            
-            [self loadMessages];
             //[[NSNotificationCenter defaultCenter] postNotificationName:@"UserPhotosLoaded" object:nil];
             break;
 

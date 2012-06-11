@@ -16,8 +16,8 @@
     RendezvousCurrentUser *sharedSingleton;
 }
 
-@property (retain, nonatomic) NSMutableData* responseData;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property ( nonatomic) NSMutableData* responseData;
+@property ( nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 
 @end

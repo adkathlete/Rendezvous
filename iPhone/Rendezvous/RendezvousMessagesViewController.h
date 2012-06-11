@@ -12,7 +12,7 @@
 @interface RendezvousMessagesViewController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate,FBDialogDelegate,FBRequestDelegate>
 
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property ( nonatomic) IBOutlet UISearchBar *searchBar;
 @end
 
 

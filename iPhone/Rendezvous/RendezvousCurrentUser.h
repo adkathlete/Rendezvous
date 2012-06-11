@@ -41,30 +41,30 @@ typedef enum apiCall {
     NSArray *_photos;
 }
 
-@property (nonatomic, retain) NSMutableString *connectionCheck;
-@property (nonatomic, retain) NSMutableDictionary *listUserInfo;
-@property (nonatomic, retain) NSMutableArray *listIDs;
-@property (nonatomic, retain) NSMutableArray *matchIDs;
-@property (nonatomic, retain) NSMutableArray *uniqueMessageUserIDs;
-@property (retain, nonatomic) NSMutableData* responseData;
-@property (nonatomic, retain) NSMutableDictionary *messages;
-@property (nonatomic, retain) NSMutableDictionary *messageUserInfo;
-@property (retain, nonatomic) NSArray* userResponseData;
-@property (nonatomic, retain) NSString *token;
-@property (nonatomic, retain) NSString *userId;
-@property (nonatomic, retain) NSString *gender;
-@property (nonatomic, retain) NSString *first_name;
-@property (nonatomic, retain) NSString *last_name;
-@property (nonatomic, retain) NSString *visitingId;
-@property (nonatomic, retain) NSString *visitingMessageId;
-@property (nonatomic,retain) NSMutableDictionary *userInfo;
-@property (nonatomic,retain) NSArray *userInfoObjects;
-@property (nonatomic,retain) NSArray *userInfoKeys;
-@property (retain, nonatomic) NSMutableDictionary *matchInfo;
-@property (retain, nonatomic) NSString *matchedUserId;
-@property (nonatomic, retain) NSArray *photos;
-@property (nonatomic, retain) UIImage *backgroundImage;
-@property (nonatomic, retain) NSString *shouldSegueMessages;
+@property (nonatomic) NSMutableString *connectionCheck;
+@property (nonatomic) NSMutableDictionary *listUserInfo;
+@property (nonatomic) NSMutableArray *listIDs;
+@property (nonatomic) NSMutableArray *matchIDs;
+@property (nonatomic) NSMutableArray *uniqueMessageUserIDs;
+@property ( nonatomic) NSMutableData* responseData;
+@property (nonatomic) NSMutableDictionary *messages;
+@property (nonatomic) NSMutableDictionary *messageUserInfo;
+@property ( nonatomic) NSArray* userResponseData;
+@property (nonatomic) NSString *token;
+@property (nonatomic) NSString *userId;
+@property (nonatomic) NSString *gender;
+@property (nonatomic) NSString *first_name;
+@property (nonatomic) NSString *last_name;
+@property (nonatomic) NSString *visitingId;
+@property (nonatomic) NSString *visitingMessageId;
+@property (nonatomic) NSMutableDictionary *userInfo;
+@property (nonatomic) NSArray *userInfoObjects;
+@property (nonatomic) NSArray *userInfoKeys;
+@property ( nonatomic) NSMutableDictionary *matchInfo;
+@property ( nonatomic) NSString *matchedUserId;
+@property (nonatomic) NSArray *photos;
+@property (nonatomic) UIImage *backgroundImage;
+@property (nonatomic) NSString *shouldSegueMessages;
 
 + (id)sharedInstance;
 

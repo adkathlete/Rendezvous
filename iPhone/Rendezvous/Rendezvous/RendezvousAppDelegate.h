@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "FBConnect.h"
 #import "RendezvousCurrentUser.h"
-#import "MWPhotoBrowser.h"
 
 @interface RendezvousAppDelegate : NSObject <UIApplicationDelegate, FBSessionDelegate>
 {
@@ -18,6 +17,6 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, retain) Facebook *facebook;
+@property (nonatomic) Facebook *facebook;
 
 @end

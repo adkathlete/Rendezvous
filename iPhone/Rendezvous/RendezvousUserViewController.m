@@ -437,15 +437,6 @@
 
 #pragma mark - MWPhotoBrowserDelegate
 
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-    return _photos.count;
-}
-
-- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-    if (index < _photos.count)
-        return [_photos objectAtIndex:index];
-    return nil;
-}
 
 //- (MWCaptionView *)photoBrowser:(MWPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index {
 //    MWPhoto *photo = [self.photos objectAtIndex:index];

@@ -22,14 +22,14 @@
     int error;
 }
 
-@property (retain, nonatomic) NSMutableString* transID;
-@property (retain, nonatomic) NSMutableString* transName;
-@property (retain, nonatomic) NSMutableData* responseData;
-@property (retain, nonatomic) NSMutableArray* listIDs;
-@property (retain, nonatomic) NSMutableDictionary* listUserInfo;
-@property (nonatomic, retain) NSMutableArray *filteredListContent;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property ( nonatomic) NSMutableString* transID;
+@property ( nonatomic) NSMutableString* transName;
+@property ( nonatomic) NSMutableData* responseData;
+@property ( nonatomic) NSMutableArray* listIDs;
+@property ( nonatomic) NSMutableDictionary* listUserInfo;
+@property (nonatomic) NSMutableArray *filteredListContent;
+@property ( nonatomic) IBOutlet UISearchBar *searchBar;
+@property ( nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 
 @end

@@ -25,8 +25,8 @@
     BOOL editing;
 }
 
-@property (retain, nonatomic) NSMutableData* responseData;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
-@property (retain,nonatomic) UITableView *listTableView;
+@property ( nonatomic) NSMutableData* responseData;
+@property ( nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (nonatomic) UITableView *listTableView;
 
 @end

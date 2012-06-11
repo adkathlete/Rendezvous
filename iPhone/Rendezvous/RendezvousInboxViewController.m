@@ -15,6 +15,7 @@
 @implementation RendezvousInboxViewController
 
 @synthesize inboxTableView;
+@synthesize responseData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,6 +59,11 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
     
+    
+    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.inboxTableView];
+    [pull setDelegate:self];
+    [self.inboxTableView addSubview:pull];
+    
 //    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
 //    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
 //    frameView.image = frameImage;
@@ -77,6 +83,89 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
+{
+    [self performSelectorInBackground:@selector(reloadTableData) withObject:nil];
+}
+
+
+-(void) reloadTableData
+{
+    
+    [self.inboxTableView reloadData];
+    [pull finishedLoading];
+    
+    /*RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+    self.responseData = [NSMutableData data];
+    NSString *urlString = [@"http://rendezvousnow.me/getMessages.php?id=" stringByAppendingString:[s userId]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSLog(@"Request Sent: %@",urlString);*/
+}
+
+#pragma mark Reload Message Data
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	self.responseData = nil;
+    NSLog(@"Network Bad Request");
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+        RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+        NSLog(@"Reload Message Data");
+        NSString *responseString4 = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        //NSLog(responseString4);
+        SBJsonParser *parser=[[SBJsonParser alloc] init];
+        NSMutableArray *messageData=[parser objectWithString:responseString4];
+        
+        for (NSDictionary *message in messageData)
+        {
+            
+            //NSLog([message objectForKey:@"message"]);
+            if((![[s uniqueMessageUserIDs] containsObject:[message objectForKey:@"from_id"]]) && ![[s userId] isEqualToString:[message objectForKey:@"from_id"]])
+            {
+                [[s uniqueMessageUserIDs] addObject:[message objectForKey:@"from_id"]];
+                
+            } else if((![[s uniqueMessageUserIDs] containsObject:[message objectForKey:@"to_id"]]) && ![[s userId] isEqualToString:[message objectForKey:@"to_id"]])
+            {
+                [[s uniqueMessageUserIDs] addObject:[message objectForKey:@"to_id"]];   
+            }
+            
+        }
+        
+        for (NSString *messageId in [s uniqueMessageUserIDs])
+        {
+            NSMutableArray *userMessages=[[NSMutableArray alloc] init];
+            for (NSDictionary *message in messageData)
+            {
+                if ([messageId isEqualToString:[message objectForKey:@"from_id"]] || [messageId isEqualToString:[message objectForKey:@"to_id"]]) {
+                    [userMessages addObject:message];
+                }
+                
+            }
+            
+            [[s messages] setObject:userMessages forKey:messageId];
+            
+        }
+    
+    [self.inboxTableView reloadData];
+    [pull finishedLoading];
+        
+        
+}
+
+
+
 
 #pragma mark - Table view data source
 

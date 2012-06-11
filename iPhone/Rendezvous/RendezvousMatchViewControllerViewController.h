@@ -16,7 +16,7 @@ typedef enum fbRequest {
 } fbRequest;
 
 
-@interface RendezvousMatchViewControllerViewController : UIViewController <FBDialogDelegate,FBRequestDelegate,MWPhotoBrowserDelegate>
+@interface RendezvousMatchViewControllerViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>
 {
     
     NSMutableData *responseData;
@@ -52,19 +52,19 @@ typedef enum fbRequest {
     UITextView *pleaseWait;
     UIActivityIndicatorView *spinner;
 }
-@property (retain, nonatomic) NSMutableData *responseData;
-@property (retain, nonatomic) UIScrollView *scroll;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *initial;
-@property (weak, nonatomic) NSString *matchName;
-@property (weak, nonatomic) NSString *matchedUserId;
-@property (weak, nonatomic) IBOutlet UIImageView *matchPhoto;
-@property (nonatomic, retain) NSArray *photos;
-@property (retain, nonatomic) NSTimer *timer;
+@property ( nonatomic) NSMutableData *responseData;
+@property ( nonatomic) UIScrollView *scroll;
+@property ( nonatomic) IBOutlet UILabel *nameLabel;
+@property ( nonatomic) IBOutlet UIImageView *initial;
+@property ( nonatomic) NSString *matchName;
+@property ( nonatomic) NSString *matchedUserId;
+@property ( nonatomic) IBOutlet UIImageView *matchPhoto;
+@property (nonatomic) NSArray *photos;
+@property ( nonatomic) NSTimer *timer;
 
 
 -(IBAction)ButtonPressed:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property ( nonatomic) IBOutlet UIButton *photoButton;
 
 @end
 

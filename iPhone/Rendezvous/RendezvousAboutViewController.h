@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RendezvousAboutViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
+@property (strong, nonatomic) IBOutlet UILabel *aboutLabel;
 
 @end

@@ -16,7 +16,7 @@
    
 }
 
-@property (retain, nonatomic) NSMutableData* responseData;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *goBackButton;
+@property ( nonatomic) NSMutableData* responseData;
+@property ( nonatomic) IBOutlet UIBarButtonItem *goBackButton;
 
 @end

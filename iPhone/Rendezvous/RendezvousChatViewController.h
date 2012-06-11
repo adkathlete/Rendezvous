@@ -17,11 +17,11 @@
     NSString *newMessageToID;
 }
 
-@property (retain, nonatomic) IBOutlet UITableView *chatTableView;
-@property (retain, nonatomic) IBOutlet UIView *composeMessageView;
-@property (weak, nonatomic) IBOutlet UITextField *messageField;
-@property (weak, nonatomic) IBOutlet UIButton *sendMessageButton;
-@property (retain, nonatomic) NSMutableData* responseData;
-@property (retain, nonatomic) NSString* currentId;
+@property ( nonatomic) IBOutlet UITableView *chatTableView;
+@property ( nonatomic) IBOutlet UIView *composeMessageView;
+@property ( nonatomic) IBOutlet UITextField *messageField;
+@property ( nonatomic) IBOutlet UIButton *sendMessageButton;
+@property ( nonatomic) NSMutableData* responseData;
+@property ( nonatomic) NSString* currentId;
 
 @end

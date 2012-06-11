@@ -10,21 +10,21 @@
 #import "RendezvousAppDelegate.h"
 #import "RendezvousCurrentUser.h"
 
-@interface RendezvousHomeViewController : UIViewController <FBDialogDelegate,FBRequestDelegate,MWPhotoBrowserDelegate>
+@interface RendezvousHomeViewController : UIViewController <FBDialogDelegate,FBRequestDelegate>
 {
     NSArray *_photos;
     UIImageView *userPhoto;
 }
 @property (retain, nonatomic) NSTimer *timer;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
-@property (weak, nonatomic) IBOutlet UILabel *hourLabel;
-@property (weak, nonatomic) IBOutlet UILabel *minuteLabel;
-@property (weak, nonatomic) IBOutlet UILabel *secondLabel;
-@property (weak, nonatomic) NSString *userName;
+@property (retain, nonatomic) IBOutlet UILabel *nameLabel;
+@property (retain, nonatomic) IBOutlet UILabel *timeLabel;
+@property (retain, nonatomic) IBOutlet UILabel *dayLabel;
+@property (retain, nonatomic) IBOutlet UILabel *hourLabel;
+@property (retain, nonatomic) IBOutlet UILabel *minuteLabel;
+@property (retain, nonatomic) IBOutlet UILabel *secondLabel;
+@property (retain, nonatomic) NSString *userName;
 @property (retain, nonatomic) IBOutlet UIImageView *userPhoto;
-@property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (retain, nonatomic) IBOutlet UIButton *photoButton;
 @property (nonatomic, retain) NSArray *photos;
 
 @end

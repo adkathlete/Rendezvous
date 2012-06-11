@@ -14,7 +14,7 @@ typedef enum fbRequest {
     kloadPhotos
 } fbRequest;
 
-@interface RendezvousUserViewController : UIViewController <MWPhotoBrowserDelegate>
+@interface RendezvousUserViewController : UIViewController
 {
     NSMutableData *responseData;
     RendezvousCurrentUser *sharedSingleton;
@@ -51,15 +51,15 @@ typedef enum fbRequest {
 }
 
 
-@property (retain, nonatomic) NSMutableData *responseData;
-@property (weak, nonatomic) NSString *userName;
-@property (weak, nonatomic) NSString *userId;
-@property (weak, nonatomic) IBOutlet UIImageView *userPhoto;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (nonatomic, retain) NSArray *photos;
-@property (weak, nonatomic) IBOutlet UIButton *photoButton;
-@property (retain, nonatomic) UIScrollView *scroll;
-@property (retain, nonatomic) NSTimer *timer;
+@property ( nonatomic) NSMutableData *responseData;
+@property ( nonatomic) NSString *userName;
+@property ( nonatomic) NSString *userId;
+@property ( nonatomic) IBOutlet UIImageView *userPhoto;
+@property ( nonatomic) IBOutlet UILabel *nameLabel;
+@property (nonatomic) NSArray *photos;
+@property ( nonatomic) IBOutlet UIButton *photoButton;
+@property ( nonatomic) UIScrollView *scroll;
+@property ( nonatomic) NSTimer *timer;
 
 
 @end
