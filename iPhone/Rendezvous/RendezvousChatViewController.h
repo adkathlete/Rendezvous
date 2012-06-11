@@ -17,6 +17,7 @@
     NSString *newMessageToID;
 }
 
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *hideKeyboard;
 @property (retain, nonatomic) IBOutlet UITableView *chatTableView;
 @property (retain, nonatomic) IBOutlet UIView *composeMessageView;
 @property (weak, nonatomic) IBOutlet UITextField *messageField;

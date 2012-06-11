@@ -19,6 +19,7 @@
 @implementation RendezvousOldMatchesViewController
 
 @synthesize responseData;
+@synthesize goBackButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -61,8 +62,7 @@
     //    self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"backButton.png"];
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = backButtonItem;
-    
+    self.navigationItem.backBarButtonItem.tintColor=[UIColor blackColor];
 //    UIImage *frameImage = [UIImage imageNamed:@"photoBrowserBackground4.png"];
 //    UIImageView *frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -92)];
 //    frameView.image = frameImage;
@@ -85,6 +85,7 @@
 
 - (void)viewDidUnload
 {
+    [self setGoBackButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

@@ -38,7 +38,7 @@
     UINavigationBar *NavBar = [[self navigationController] navigationBar];
     UIImage *back = [UIImage imageNamed:@"BarFinal2.png"];
     [NavBar setBackgroundImage:back forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 640, 640/11)];
     [label setFont:[UIFont fontWithName:@"Verdana-Bold" size:27.0]];
     label.textAlignment = UITextAlignmentCenter;
@@ -55,7 +55,7 @@
     
     backButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton setImage:[UIImage imageNamed:@"old.png"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(toggleEdit) forControlEvents:UIControlEventTouchUpInside];
+    [backButton addTarget:self action:@selector(toOld) forControlEvents:UIControlEventTouchUpInside];
     [backButton setFrame:CGRectMake(0, 0, 60, 60)];
     [backButton setCenter:CGPointMake(self.view.frame.size.width - 13, 10)];
     //    [self.view addSubview:editButton];
@@ -68,13 +68,13 @@
     //    self.navigationItem.rightBarButtonItem = item; 
     //    
     UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
-    UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
+    UIImage *unselectedImage0 = [UIImage imageNamed:@"listGrey.png"];
     
     UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
     UIImage *unselectedImage1 = [UIImage imageNamed:@"heartGrey.png"];
     
     UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
-    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
+    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2Grey.png"];
     
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
@@ -96,14 +96,14 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]]];
     
     if ([s.matchedUserId length] != 0) {
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [spinner setCenter:self.view.center];
     [spinner startAnimating];
     [self.view addSubview:spinner];
     [self.view bringSubviewToFront:spinner];
     }
     
-    UITextView *pleaseWait = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2 + 20, self.view.frame.size.width, self.view.frame.size.height)];
+    pleaseWait = [[UITextView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height/2 + 20, self.view.frame.size.width, self.view.frame.size.height)];
     [pleaseWait setUserInteractionEnabled:NO];
     [pleaseWait setFont:[UIFont fontWithName:@"Verdana-Bold" size:17.0]];
     pleaseWait.textAlignment = UITextAlignmentCenter;
@@ -125,6 +125,10 @@
 
 -(void) onPress {
     [self performSegueWithIdentifier:@"home" sender: self];
+}
+
+-(void) toOld {
+    [self performSegueWithIdentifier:@"toOld" sender: self];
 }
 
 -(IBAction)ClockPressed:(id)sender
@@ -188,6 +192,7 @@
     
     if ([sharedSingleton.matchedUserId length] != 0) {
         
+        
         [nameLabel setText:[[sharedSingleton matchInfo] objectForKey:[sharedSingleton matchedUserId]]];
         
         matchPhoto.image= [self imageForObject: [sharedSingleton matchedUserId]];
@@ -228,7 +233,7 @@
         }
         [scroll setContentOffset:CGPointMake(100, 0)];
         scroll.contentSize = CGSizeMake(startX, self.view.frame.size.height);
-        scroll.backgroundColor = [UIColor whiteColor];
+        scroll.backgroundColor = [UIColor clearColor];
         
         [self.view addSubview:scroll];
         
@@ -384,7 +389,7 @@
     int diffMin=diffDay-(hours*3600);
     int minutes=(int)(diffMin/60.0);
     int seconds=diffMin-(minutes*60);
-    timeBox.text = [NSString stringWithFormat:@"%d:%d:%d:%d",days,hours,minutes,seconds];
+    timeBox.text = [NSString stringWithFormat:@"%d:%d:%d:%d",days-200,hours,minutes,seconds];
 }
 
 
@@ -501,13 +506,18 @@
         case kLoadAlbums:
         {
             
+            
             NSLog(@"Facebook request %@ loaded", [request url]);
             NSArray *resultData = [result objectForKey:@"data"];
+            
+            NSInteger *count = 0;
+            
             for (NSDictionary *album in resultData) {
                 NSLog([album   objectForKey:@"name"]);
                 
-                if([@"Profile Pictures" compare:[album objectForKey:@"name"]] ==NSOrderedSame)
+                if([@"Profile Pictures" compare:[album objectForKey:@"name"]] == NSOrderedSame)
                 {
+                    count++;
                     NSLog(@"Matched Album");
                     currentfbRequest=kloadPhotos;
                     RendezvousAppDelegate *delegate = (RendezvousAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -515,6 +525,14 @@
                     [[delegate facebook] requestWithGraphPath:path andDelegate:self];
                 }
                 
+            }
+            
+            if (count == 0) {
+                pleaseWait.text = @"Sorry, this user's Facebook photos are private.";
+                [spinner stopAnimating];
+                NSLog(@"sucess!");
+                [self displayPage];
+                NSLog(@"WE NOT BE HERE");
             }
             
             break;

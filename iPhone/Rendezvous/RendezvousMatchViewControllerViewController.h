@@ -49,6 +49,8 @@ typedef enum fbRequest {
     UIButton *backButton;
     BOOL isInClock;
     BOOL isInInfo;
+    UITextView *pleaseWait;
+    UIActivityIndicatorView *spinner;
 }
 @property (retain, nonatomic) NSMutableData *responseData;
 @property (retain, nonatomic) UIScrollView *scroll;

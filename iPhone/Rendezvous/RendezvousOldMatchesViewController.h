@@ -13,9 +13,10 @@
 {
     NSMutableData *responseData;
     RendezvousCurrentUser *sharedSingleton;
+   
 }
 
 @property (retain, nonatomic) NSMutableData* responseData;
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *goBackButton;
 
 @end

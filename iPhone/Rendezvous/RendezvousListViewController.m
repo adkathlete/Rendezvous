@@ -36,13 +36,13 @@
     [super viewDidLoad];
     
     UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
-    UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
+    UIImage *unselectedImage0 = [UIImage imageNamed:@"listGrey.png"];
     
     UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
     UIImage *unselectedImage1 = [UIImage imageNamed:@"heartGrey.png"];
     
     UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
-    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
+    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2Grey.png"];
     
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
@@ -59,7 +59,7 @@
     self.listTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.listTableView.rowHeight = 70;
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBackGrey.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stripeBack.png"]];
     self.listTableView.backgroundColor = [UIColor clearColor];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 640, 640/11)];
@@ -255,7 +255,7 @@
     
     
     
-    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdatedDark3.png"];
+    UIImage *background = [UIImage imageNamed:@"cellBackgroundUpdatedDark.png"];
 //    UIImage *backgroundSelected = [UIImage imageNamed:@"cellBackgroundSelected.png"];
     cell.backgroundView = [[UIImageView alloc] initWithImage:background];
 //    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:backgroundSelected];

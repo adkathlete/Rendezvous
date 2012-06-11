@@ -67,13 +67,13 @@
     self.navigationItem.leftBarButtonItem = backButtonItem;
         
     UIImage *selectedImage0 = [UIImage imageNamed:@"list.png"];
-    UIImage *unselectedImage0 = [UIImage imageNamed:@"list.png"];
+    UIImage *unselectedImage0 = [UIImage imageNamed:@"listGrey.png"];
     
     UIImage *selectedImage1 = [UIImage imageNamed:@"heart.png"];
     UIImage *unselectedImage1 = [UIImage imageNamed:@"heartGrey.png"];
     
     UIImage *selectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
-    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2.png"];
+    UIImage *unselectedImage2 = [UIImage imageNamed:@"messageIcon2Grey.png"];
     
     UITabBar *tabBar = self.tabBarController.tabBar;
     UITabBarItem *item0 = [tabBar.items objectAtIndex:0];

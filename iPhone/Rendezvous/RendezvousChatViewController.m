@@ -19,6 +19,7 @@
 
 @implementation RendezvousChatViewController
 
+@synthesize hideKeyboard;
 @synthesize chatTableView;
 @synthesize composeMessageView;
 @synthesize messageField;
@@ -33,6 +34,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -76,6 +78,7 @@
     [self setComposeMessageView:nil];
     [self setMessageField:nil];
     [self setSendMessageButton:nil];
+    [self setHideKeyboard:nil];
     [super viewDidUnload];
 
     // Release any retained subviews of the main view.
@@ -98,6 +101,10 @@
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
     
+}
+
+- (IBAction)hideKeyboard:(id)sender {
+    [sender resignFirstResponder];
 }
 
 // Called when the UIKeyboardDidShowNotification is sent.
@@ -152,20 +159,22 @@
 }
 
 - (IBAction)sendMessage:(id)sender {
-    [self textFieldShouldReturn:messageField];
-    NSLog(@"Send Message");
-    self.responseData = [NSMutableData data];
-    RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
-    
-    //Add Message To Database
-    newMessage=[self messageField].text;
-    NSString *urlString = [NSString stringWithFormat:@"http://rendezvousnow.me/addMessage.php?from_id=%@&to_id=%@&message=%@",[s userId],newMessageToID,[newMessage stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    
-    [self messageField].text=nil;
+    if([@"" compare:[self messageField].text]!=NSOrderedSame){
+        [self textFieldShouldReturn:messageField];
+        NSLog(@"Send Message");
+        self.responseData = [NSMutableData data];
+        RendezvousCurrentUser *s = [RendezvousCurrentUser sharedInstance];
+        
+        //Add Message To Database
+        newMessage=[self messageField].text;
+        NSString *urlString = [NSString stringWithFormat:@"http://rendezvousnow.me/addMessage.php?from_id=%@&to_id=%@&message=%@",[s userId],newMessageToID,[newMessage stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        
+        
+        [self messageField].text=nil;
+    }
 }
 
 #pragma mark - Server Connection
@@ -261,7 +270,7 @@
     NSString *mainLabelText= [[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"message"];
     
     static NSString *CellIdentifier=nil;
-    if([[[chatMessages objectAtIndex:indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
+    if([[[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
     {
         CellIdentifier= @"toCellIdentifier";   
     } else {
@@ -270,7 +279,7 @@
     
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     
     
     
@@ -288,13 +297,30 @@
     
     [label setText:mainLabelText];
     
-    if([[[chatMessages objectAtIndex:indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
+    if([[[chatMessages objectAtIndex:[chatMessages count]-1-indexPath.row] objectForKey:@"from_id"] isEqualToString:[s userId]])
     {
         label.textAlignment=UITextAlignmentRight;  
         [label setFrame:CGRectMake(320-CELL_CONTENT_MARGIN-CELL_CONTENT_WIDTH,CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];  
     } else {
         [label setFrame:CGRectMake(CELL_CONTENT_MARGIN, CELL_CONTENT_MARGIN, CELL_CONTENT_WIDTH, MAX(size.height, 44.0f))];
     }
+    
+    if ([@"fromCellIdentifier" compare:CellIdentifier]==NSOrderedSame) {
+        //blue
+        label.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.6];
+        
+    } else {
+        label.backgroundColor = [UIColor colorWithRed:0.0 green:0.6 blue:0.6 alpha:0.6];
+    }
+    
+    [label.layer setCornerRadius:6];
+    [label.layer setMasksToBounds:YES];
+    label.layer.borderColor = [UIColor whiteColor].CGColor;
+    label.layer.borderWidth = 2.0;
+    
+//    CGRect frame = label.frame;
+//    frame.origin.x -= 10;
+//    label.frame = frame;
     
     cell.backgroundColor = [UIColor clearColor];
     return cell;
