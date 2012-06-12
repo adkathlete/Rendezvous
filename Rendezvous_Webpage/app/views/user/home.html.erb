@@ -1,4 +1,4 @@
-<div class="home">
+<div id="wrapper" class="home">
     <div id="header">
         <a id="title" href="/user/home">
             <img style= "width:600px" src="/assets/rendezvousHeader.png">
@@ -11,48 +11,29 @@
         		<img id="iphone2" class="phone" src="/assets/rendezvous-screenshot-2.jpg" />
         		<img id="iphone3" class="phone" src="/assets/rendezvous-screenshot-3.jpg" />
         		<img id="iphone4" class="phone" src="/assets/rendezvous-screenshot-4.jpg" />
-        		<img id="iphone5" class="phone" src="/assets/rendezvous-screenshot-5.jpg" />
+        		<img id="iphone5" class="phone" src="/assets/rendezvous-screenshot-6.jpg" />
+                <img id="iphone6" class="phone" src="/assets/rendezvous-screenshot-5.jpg" />
         		<img id="shell" src="/assets/iphone-frame-512-dither.png"/>
         	</div>
         	<div id="content">
+
+                <a class="facebook_sign_in" href="https://graph.facebook.com/oauth/authorize?type=web_server&display=touch&scope=offline_access,user_photos,friends_photos,sms,user_location &client_id=235693846448097&redirect_uri=http://rendezvousnow.me/facebookcallback.php"> 
+                    <img src="/assets/Rendezvous_Signin.png" alt="Sign up to Rendezvous"> </img>
+                </a>
 
             </div> <!-- /content -->
            
         </div>
 
         <div id="background">
-        	<div id="bigRadial"></div>
              <!--
-            <div id="bigLinearLeft"></div>
-
-        	<ul id="background-items">
-                <li id="peppers" 	class="item-container item1 active"><div></div></li>
-                <li id="salad"  	class="item-container item2"><div></div></li>
-                <li id="porkbuns" 	class="item-container item3"><div></div></li>
-                <li id="tart" 		class="item-container item4"><div></div></li>
-                <li id="cupcake" 	class="item-container item5"><div></div></li>
-            </ul> 
-
             <img class="bg" src="/assets/bg-texture.jpg" />
-            <!-- /background-items -->
-            <!--
-            <ul id="toggle">
-                <li class="button active slide1"><a href="#"></a></li>
-                <li class="button slide2"><a href="#"></a></li>
-                <li class="button slide3"><a href="#"></a></li>
-                <li class="button slide4"><a href="#"></a></li>
-                <li class="button slide5"><a href="#"></a></li>
-            </ul>
-        -->
-        </div> <!-- /background -->
-        <div id="arrowlagio" class="arrow">
-        	<a id="advance" class="">
-        	<span  class="hover" style="opacity: 0;"></span>
-        	</a>
+            -->
         </div>
+        
 
         <script>
-        	var mySlider = new Slider("iphone1", "iphone2", "iphone3", "iphone4", "iphone5", "arrowlagio", "content");
+        	var mySlider = new Slider("iphone1", "iphone2", "iphone3", "iphone4", "iphone5", "iphone6", "arrowlagio", "content");
         </script>
     </div>
 </div>

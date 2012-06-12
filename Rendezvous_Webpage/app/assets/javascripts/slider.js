@@ -1,4 +1,4 @@
-function Slider(iphone1, iphone2, iphone3, iphone4, iphone5, advance, text_content)
+function Slider(iphone1, iphone2, iphone3, iphone4, iphone5, iphone6, advance, text_content)
 {
 	this.currentActive = 1;
 	this.iphone1 = document.getElementById(iphone1);
@@ -6,6 +6,7 @@ function Slider(iphone1, iphone2, iphone3, iphone4, iphone5, advance, text_conte
 	this.iphone3 = document.getElementById(iphone3);
 	this.iphone4 = document.getElementById(iphone4);	
 	this.iphone5 = document.getElementById(iphone5);
+	this.iphone6 = document.getElementById(iphone5);
 	this.text_content = document.getElementById(text_content);
 
 	this.advance = document.getElementById(advance);
@@ -34,12 +35,36 @@ Slider.prototype.generate_content = function()
 	this.list.id = "mainContent";
 
 	var titleTexts = ["Meet Rendezvous", "Just for you", "Smart", "Better with friends", "Find your Rendezvous"];
-	var contentTexts = 	["The first dating app that lets you connect with friends you were too shy to ask out",
+	var contentTexts = 	["The first dating app that lets you connect with your friends or friends of friends",
 						"Rendezvous lets you list people you are interested in.", 
 						"If someone in your friend network likes you back, Rendezvous lets you know.", 
 						"The more of your friends use Rendezvous, the better the matching gets and the more you get a chance of meeting your dream girl.", 
 						"It's free for the iPhone and any device running iOS 4.0 or higher. Find your Rendezvous, wherever he/she is."];
 
+	// Adding video
+	var currentListNode = document.createElement("LI");
+	var iframeVideo = document.createElement("IFRAME");
+	iframeVideo.src= "https://www.youtube-nocookie.com/embed/-Gv5zTsX7Jk";
+	iframeVideo.frameBorder = "0";
+	iframeVideo.width = "580px";
+	iframeVideo.style.height ="330px";
+	iframeVideo.style.marginLeft = "auto";
+	iframeVideo.style.marginRight = "auto";
+	
+	var wrapper = document.createElement("DIV");
+	wrapper.style.marginLeft ="79.75px";
+	wrapper.style.width ="600px";
+	currentListNode.appendChild(wrapper);
+	wrapper.appendChild(iframeVideo);
+	
+	this.list.appendChild(currentListNode);
+	currentListNode.style.overflow =  "hidden";
+	currentListNode.style.cssFloat = "left"; 
+	currentListNode.style.width = "2000px";
+		
+	
+	
+	
 	for(var i =0; i<5; i++)
 	{
 		var currentListNode = document.createElement("LI");
@@ -65,7 +90,7 @@ Slider.prototype.generate_content = function()
 
 	var iphoneAppLink = document.createElement("A");
 	iphoneAppLink.id = "download-appstore";
-	iphoneAppLink.href = "http://itunes.apple.com/";
+	iphoneAppLink.href = "/user/error";
 	var app_text = document.createElement("SPAN");
 	app_text.innerHTML = "Get the app";
 	iphoneAppLink.style.top = "450px";
@@ -106,12 +131,19 @@ Slider.prototype.advanceAction = function()
 	  this.list.style.left = "-8240px";
 	  break;
 	case 5:
-	window.console.log("Switching to 1. currentActive is: "+this.currentActive);
-	  this.currentActive = 1;
-	  this.iphone1.className = "phone active";
+	window.console.log("Switching to 6. currentActive is: "+this.currentActive);
+	  this.currentActive = 6;
+	  this.iphone6.className = "phone active";
 	  this.iphone5.className = "phone";
-	  this.list.style.left = "0px";
+	  this.list.style.left = "-10300px";
 	  break;
+	case 6:
+	window.console.log("Switching to 1. currentActive is: "+this.currentActive);
+      this.currentActive = 1;
+      this.iphone1.className = "phone active";
+	  this.iphone6.className = "phone";
+      this.list.style.left = "0px";
+      break;
 	default:
 	  window.console.log("Something is wrong");
 	  return;

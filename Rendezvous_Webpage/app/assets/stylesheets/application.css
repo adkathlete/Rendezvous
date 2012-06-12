@@ -1,40 +1,14 @@
-/*
 
-Facit Web by Just Another Foundry
-See http://justanotherfoundry.com for details.
-
-The font files linked from this file may not be downloaded,
-hosted or installed on a computer.
-
-You may host this file provided that you do not remove or
-modify this comment. You can remove unused styles but you
-should not alter the @font-face definitions.
-
-(c) Just Another Foundry 2010 for this and all linked files.
-
-*/
-
-/* FacitWeb                    */ @font-face{font-family:'FacitWeb';src:url('http://webfonts.justanotherfoundry.com/Facit/FR')}
-/* FacitWeb, italic            */ @font-face{font-family:'FacitWeb';src:url('http://webfonts.justanotherfoundry.com/Facit/FR-i');font-style:italic}
-/* FacitWeb, bold              */ @font-face{font-family:'FacitWeb';src:url('http://webfonts.justanotherfoundry.com/Facit/FB');font-weight:bold}
-/* FacitWeb, bold, italic      */ @font-face{font-family:'FacitWeb';src:url('http://webfonts.justanotherfoundry.com/Facit/FB-i');font-weight:bold;font-style:italic}
-
-/* FacitWeb-Extralight         */ @font-face{font-family:'FacitWeb-Extralight';src:url('http://webfonts.justanotherfoundry.com/Facit/FXL');font-weight:bold}
-/* FacitWeb-Extralight, italic */ @font-face{font-family:'FacitWeb-Extralight';src:url('http://webfonts.justanotherfoundry.com/Facit/FXL-i');font-weight:bold;font-style:italic}
-/* FacitWeb-Light              */ @font-face{font-family:'FacitWeb-Light';src:url('http://webfonts.justanotherfoundry.com/Facit/FL');font-weight:bold}
-/* FacitWeb-Light, italic      */ @font-face{font-family:'FacitWeb-Light';src:url('http://webfonts.justanotherfoundry.com/Facit/FL-i');font-weight:bold;font-style:italic}
-/* FacitWeb-Bold               */ @font-face{font-family:'FacitWeb-Bold';src:url('http://webfonts.justanotherfoundry.com/Facit/FB');font-weight:bold}
-/* FacitWeb-Bold, italic       */ @font-face{font-family:'FacitWeb-Bold';src:url('http://webfonts.justanotherfoundry.com/Facit/FB-i');font-weight:bold;font-style:italic}
-/* FacitWeb-Semibold           */ @font-face{font-family:'FacitWeb-Semibold';src:url('http://webfonts.justanotherfoundry.com/Facit/FSB');font-weight:bold}
-/* FacitWeb-Semibold, italic   */ @font-face{font-family:'FacitWeb-Semibold';src:url('http://webfonts.justanotherfoundry.com/Facit/FSB-i');font-weight:bold;font-style:italic}
-/* FacitWeb-Extrabold          */ @font-face{font-family:'FacitWeb-Extrabold';src:url('http://webfonts.justanotherfoundry.com/Facit/FXB');font-weight:bold}
-/* FacitWeb-Extrabold, italic  */ @font-face{font-family:'FacitWeb-Extrabold';src:url('http://webfonts.justanotherfoundry.com/Facit/FXB-i');font-weight:bold;font-style:italic}
 
 
 
 html{text-rendering:optimizeLegibility}
 
-html{color:#000;}
+html{
+	overflow: auto;
+	color:#000;
+	zoom: 75%;
+}
 
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td
 {margin:0;padding:0;}
@@ -53,11 +27,31 @@ legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inhe
 
 body {
     color: #FFFFFF;
-    font-family: FacitWeb,"Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
+   	font-family: museoMedium;
     font-weight: 300;
-    position: absolute;
-    width: 100%;
-    overflow-x: hidden;
+    min-width: 1500px;
+    min-height:1200px;
+    overflow: hidden;
+}
+
+.facebook_sign_in
+{
+	position:absolute;
+	top: 560px;
+	left:62px;
+}
+
+#entire_wrapper
+{
+	width: 1400px;
+	margin:0 auto;
+	position:relative;
+}
+
+#wrapper
+{
+	height:960px;
+	width:1400px;
 }
 
 #intro-container h1 {
@@ -86,6 +80,12 @@ body {
 {
 font-family: sansBlack;
 src: url('/assets/OldSansBlack.ttf');
+} 
+
+@font-face
+{
+font-family: museoMedium;
+src: url('/assets/Museo500-Regular.otf');
 } 
 
 .about
@@ -137,7 +137,7 @@ src: url('/assets/OldSansBlack.ttf');
 #header_about a 
 { 
 	padding-left:20px;
-	font-family: FacitWeb,"Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
+	font-family: museoMedium;
 	font-weight:300; 
 	font-size:35px; 
 	color:#B2B2B2; 
@@ -238,10 +238,10 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 
 #footer * 									{ text-shadow: 0 1px 1px #FFF; }
 #footer span, #footer small 				{ color:#C2C2C2; display:block; line-height:1.5em; }
-#footer span 								{ font: 13.5px/1.5 FacitWeb, "Helvetica Neue",helvetica,verdana,arial,sans-serif; font-weight:300; padding-top:20px; }
+#footer span 								{ font: 13.5px/1.5 museoMedium, "Helvetica Neue",helvetica,verdana,arial,sans-serif; font-weight:300; padding-top:20px; }
 #footer small 								{ font-size:10px; }
 
-#footer a 									{ font-family:FacitWeb; font-weight:300; color:#B2B2B2; text-decoration:none; }
+#footer a 									{ font-family:museoMedium; font-weight:300; color:#B2B2B2; text-decoration:none; }
 #footer a:hover, #footer span a:hover	 	{ color:#404040; }
 #footer span a 								{ margin:0 16px; }
 
@@ -304,7 +304,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
     background: none repeat scroll 0 0 #000000;
     border-radius: 5px 5px 5px 5px;
     color: #FFFFFF;
-    font-family: FacitWeb,"Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
+    font-family: museoMedium,"Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
     opacity: 0.75;
     padding: 10px 20px 15px;
     width: 686px;
@@ -424,16 +424,9 @@ ul#toggle li.active a 			{ background: url('/assets/pagination-dot-active.png');
 #mainContent{ top:; }
 
 #mainContent li {
-	/* Why does this need to be 1000px wide...? */
-	/* width:1000px; */
-	/* width:686px; */
 	display: block;
 	margin-top:60px;
 	margin-left:60px;
-	/*
-	padding-left: 60px;
-	padding-top: 60px;
-	*/
 	z-index: 40;
 	position: relative;
 	overflow: hidden;
@@ -443,7 +436,7 @@ ul#toggle li.active a 			{ background: url('/assets/pagination-dot-active.png');
 	-moz-border-radius:5px;
 	border-radius:5px;
 	color:#FFF;
-	font-family:FacitWeb, "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif; 
+	font-family:museoMedium; 
 	padding:10px 20px 15px;
 	background: rgb(0, 0, 0); 
 	opacity: 0.75;
@@ -452,13 +445,10 @@ ul#toggle li.active a 			{ background: url('/assets/pagination-dot-active.png');
 
 #mainContent li div h1,
 #mainContent li div p {
-	font-family:Facitweb;
+	font-family:museoMedium;
 }
 
 #mainContent li div h1 { 
-	/* Remove before pushing... */
-	/* font-family:Facitweb-Semibold; */
-	
 	font-size:72px; 
 	/* font-weight:600; */
 	font-weight:500;
@@ -466,8 +456,6 @@ ul#toggle li.active a 			{ background: url('/assets/pagination-dot-active.png');
 }
 
 #mainContent li div p {
-	/* Remove before pushing... */
-	/* font-family:Facitweb-Light; */
 	font-size:36px; 
 	font-weight:300;
 }
@@ -510,46 +498,6 @@ ul#toggle li.active a 			{ background: url('/assets/pagination-dot-active.png');
 #background-items li.active 			{ z-index:32; opacity:1.0; filter:"alpha(opacity=100)"; }
 #background-items li.last-active 		{ z-index:31; }
 #background-items .item-container div 	{ position:relative; }
-
-/* Using text now to render this stuff: */
-
-#background-items #salad div {
-	background: url('/assets/salad-512-dither.png') no-repeat top left;
-	height:797px;
-	width:1164px;
-	left:165px;
-	top:30px;
-}
-
-#background-items #peppers div {
-	background: url('/assets/peppers-512-dither.png') no-repeat top left;
-	height:892px;
-	width:1045px;
-	left:200px;
-}
-
-#background-items #porkbuns div {
-	background: url('/assets/porkbuns-512-dither.png') no-repeat top left;
-	height:867px;
-	width:883px;
-	left:280px;
-}
-
-#background-items #tart div {
-	background: url('/assets/tart-512-dither.png') no-repeat top left;
-	height:693px;
-	width:698px;
-	left:470px;
-	top:90px;
-}
-
-#background-items #cupcake div {
-	background: url('/assets/cupcake-512-dither.png') no-repeat top left;
-	height:555px;
-	width:552px;
-	left:550px;
-	top:155px;
-}
 
 /* download button */
 #download, #download .hover {

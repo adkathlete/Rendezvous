@@ -7,30 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="arrowlagio" class="arrow">
+	<a id="advance" class="">
+	<span  class="hover" style="opacity: 0;"></span>
+	</a>
+</div>
 
+<div id="entire_wrapper">
+	
 <%= yield %>
+	<div id="footer" style="margin-top: 960px;">
+			<ul>
+				<li>
+					<a href="/user/home" style="">Home</a>
+				</li>
+				<li>
+					<a href="/user/about" style="">About</a>
+				</li>
 
-
-<div id="footer" style="margin-top: 960px;">
-		<ul>
-			<li>
-				<a href="/user/home" style="">Home</a>
-			</li>
-			<li>
-				<a href="/user/about" style="">About</a>
-			</li>
-
-			<li>
-				<a href="support.html" style="">Support</a>
-			</li>
-		</ul>
-		<a id="app-store-button" onclick="recordOutboundLink(this, 'App Store', 'from home footer');return false;" href="http://itunes.apple.com/" style="">
-			<span>Available on the App Store</span>
-		</a>
-		<span>
-				Copyright &copy; Rendezvous All rights reserved.
-		</span>
-		<small>Apple, iPad, iPhone, iPod touch, and iTunes are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc</small>
+				<li>
+					<a href="support.html" style="">Support</a>
+				</li>
+			</ul>
+			<a id="app-store-button" onclick="recordOutboundLink(this, 'App Store', 'from home footer');return false;" href="/user/error" style="">
+				<span>Available on the App Store</span>
+			</a>
+			<span>
+					Copyright &copy; Rendezvous All rights reserved.
+			</span>
+			<small>Apple, iPad, iPhone, iPod touch, and iTunes are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc</small>
+	</div>
 </div>
 
 </body>
